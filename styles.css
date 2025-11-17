@@ -1,0 +1,71 @@
+/* Body: Style cho toàn bộ trang web, thay đổi font hoặc màu nền ở đây. Để tùy chỉnh màu nền toàn trang, thay #f4f4f4 bằng màu mới (ví dụ: #ffffff cho trắng). */
+body {
+  font-family: 'Roboto', sans-serif; /* Font chữ chính, thay bằng font khác nếu muốn (tìm trên Google Fonts). */
+  background-color: #f4f4f4; /* Màu nền trang, thay bằng #ffffff cho trắng. */
+  color: #333; /* Màu chữ chính, thay bằng #000 cho đen đậm hơn hoặc #666 cho xám nhạt. */
+}
+
+/* Navbar: Thanh menu trên cùng. Để tùy chỉnh màu menu, thay #4CAF50 bằng màu mới (ví dụ: #228B22 cho xanh lá đậm, #0000FF cho xanh dương). */
+.navbar {
+  background-color: #4CAF50 !important; /* Màu xanh lá cho navbar, thay bằng #228B22 cho xanh đậm hơn. */
+}
+
+.navbar-brand, .nav-link {
+  color: white !important; /* Màu chữ menu, thay bằng #000 cho đen nếu nền sáng, hoặc #FFD700 cho vàng. */
+}
+
+/* Hero: Phần đầu trang với hình nền lớn. Để tùy chỉnh màu chữ trong hero, thay white bằng màu mới (ví dụ: #000 cho đen). */
+.hero {
+  background: url('https://dltm-cdn.vnptit3.vn/resources/portal/Images/TNN/namdan.tnn/thang92022/ch%C3%A8cauda/untitled_637998625176000541.png') no-repeat center/cover; /* Hình nền hero, thay URL để đổi ảnh (ảnh đồi chè). */
+  height: 60vh; /* Chiều cao hero, thay bằng 80vh để cao hơn. */
+  color: white; /* Màu chữ trong hero, thay bằng #000 cho đen nếu nền sáng. */
+  text-shadow: 2px 2px 4px rgba(0,0,0,0.5); /* Bóng chữ cho dễ đọc. */
+}
+
+/* Section: Khoảng cách giữa các phần nội dung. Thay padding để điều chỉnh khoảng trống. */
+.section {
+  padding: 60px 0; /* Khoảng trống trên dưới, thay bằng 100px để rộng hơn. */
+}
+
+/* Fade-in: Animation hiện dần khi scroll. Không cần thay đổi trừ khi muốn tắt (xóa class fade-in trong HTML). */
+.fade-in {
+  opacity: 0;
+  transition: opacity 1s ease-in;
+}
+
+.fade-in.visible {
+  opacity: 1;
+}
+
+/* Footer: Phần chân trang. Để tùy chỉnh màu footer, thay #4CAF50 bằng màu mới (ví dụ: #333 cho xám tối). */
+footer {
+  background-color: #4CAF50; /* Màu footer, khớp với navbar, thay bằng #333 cho xám. */
+  color: white; /* Màu chữ footer, thay bằng #000 nếu nền sáng. */
+  padding: 20px; /* Khoảng trống trong footer. */
+}
+
+/* Card: Dùng cho sản phẩm, thay margin để điều chỉnh khoảng cách card. */
+.card {
+  margin-bottom: 20px; /* Khoảng cách dưới mỗi card. */
+}
+
+/* === BẮT ĐẦU CODE MỚI CHO DROPDOWN === */
+/* Kích hoạt dropdown khi hover trên desktop */
+@media (min-width: 992px) {
+  .navbar .nav-item.dropdown:hover .dropdown-menu {
+    display: block;
+    margin-top: 0; /* Đảm bảo menu con nằm sát menu cha */
+  }
+}
+
+/* Tùy chỉnh màu sắc cho menu con (tùy chọn) */
+.dropdown-menu {
+  background-color: #4CAF50; /* Đổi màu nền menu con */
+}
+.dropdown-item {
+  color: white !important; /* Đổi màu chữ menu con */
+}
+.dropdown-item:hover {
+  background-color: #45a049; /* Đổi màu khi di chuột qua mục con */
+}
+/* === KẾT THÚC CODE MỚI CHO DROPDOWN === */
