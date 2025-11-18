@@ -8,10 +8,32 @@ body {
 /* Navbar: Thanh menu trên cùng. Để tùy chỉnh màu menu, thay #4CAF50 bằng màu mới (ví dụ: #228B22 cho xanh lá đậm, #0000FF cho xanh dương). */
 .navbar {
   background-color: #4CAF50 !important; /* Màu xanh lá cho navbar, thay bằng #228B22 cho xanh đậm hơn. */
+  box-shadow: 0 2px 5px rgba(0,0,0,0.2); /* (MỚI) Thêm bóng đổ nhẹ dưới menu cho đẹp hơn. */
 }
 
 .navbar-brand, .nav-link {
   color: white !important; /* Màu chữ menu, thay bằng #000 cho đen nếu nền sáng, hoặc #FFD700 cho vàng. */
+  transition: color 0.3s ease; /* (MỚI) Hiệu ứng chuyển màu mượt mà khi di chuột. */
+}
+
+/* (MỚI) Hiệu ứng khi di chuột vào menu (Hover) hoặc menu đang được chọn (Active) */
+.nav-link:hover, .nav-link.active {
+  color: #FFD700 !important; /* Đổi sang màu vàng kim khi di chuột vào. */
+}
+
+/* (MỚI) Dropdown Menu: Phần menu xổ xuống */
+.dropdown-menu {
+  background-color: #4CAF50; /* Nền xanh giống menu chính, có thể thay đổi màu ở đây. */
+  border: none; /* Bỏ viền. */
+}
+
+.dropdown-item {
+  color: white !important; /* Chữ trong menu con màu trắng. */
+}
+
+.dropdown-item:hover {
+  background-color: #388E3C; /* Khi di chuột vào menu con thì nền đậm hơn một chút. */
+  color: #FFD700 !important; /* Chữ chuyển vàng. */
 }
 
 /* Hero: Phần đầu trang với hình nền lớn. Để tùy chỉnh màu chữ trong hero, thay white bằng màu mới (ví dụ: #000 cho đen). */
@@ -48,24 +70,3 @@ footer {
 .card {
   margin-bottom: 20px; /* Khoảng cách dưới mỗi card. */
 }
-
-/* === BẮT ĐẦU CODE MỚI CHO DROPDOWN === */
-/* Kích hoạt dropdown khi hover trên desktop */
-@media (min-width: 992px) {
-  .navbar .nav-item.dropdown:hover .dropdown-menu {
-    display: block;
-    margin-top: 0; /* Đảm bảo menu con nằm sát menu cha */
-  }
-}
-
-/* Tùy chỉnh màu sắc cho menu con (tùy chọn) */
-.dropdown-menu {
-  background-color: #4CAF50; /* Đổi màu nền menu con */
-}
-.dropdown-item {
-  color: white !important; /* Đổi màu chữ menu con */
-}
-.dropdown-item:hover {
-  background-color: #45a049; /* Đổi màu khi di chuột qua mục con */
-}
-/* === KẾT THÚC CODE MỚI CHO DROPDOWN === */
