@@ -6,38 +6,37 @@
   <!-- Tag meta charset, đặt mã hóa ký tự là UTF-8. Tại sao dùng: Đảm bảo hiển thị đúng ký tự tiếng Việt có dấu, tránh lỗi garbled text. -->
   <meta charset="UTF-8">
   <!-- Tag meta viewport, làm cho trang responsive trên mobile. Tại sao dùng: Cho phép trang điều chỉnh kích thước theo thiết bị, cải thiện trải nghiệm người dùng trên điện thoại. -->
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"> 
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <!-- Tag title, đặt tiêu đề trang. Tại sao dùng: Hiển thị trên tab trình duyệt và giúp SEO, vì công cụ tìm kiếm dùng title để mô tả trang. -->
-  <title>Sản Phẩm Nổi Bật</title>
+  <title>Sản Phẩm & Đặc Sản - Trà Đại Từ</title>
   <!-- Tag link liên kết CSS Bootstrap. Tại sao dùng: Để sử dụng framework Bootstrap giúp thiết kế nhanh, responsive mà không cần viết CSS từ đầu, tiết kiệm thời gian. -->
-  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet"> 
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
   <!-- Tag link liên kết Font Awesome. Tại sao dùng: Để thêm icon (như lá cây), làm trang sinh động hơn mà không cần hình ảnh nặng, dễ tùy chỉnh. -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
   <!-- Tag link liên kết file CSS tùy chỉnh. Tại sao dùng: Để override hoặc thêm style riêng, giữ code CSS tách biệt khỏi HTML, dễ bảo trì. -->
-  <link href="css/styles.css" rel="stylesheet"> 
+  <link href="css/styles.css" rel="stylesheet">
 </head>
 <body>
-
 <!-- Tag nav, tạo thanh navigation. Tại sao dùng: Để người dùng dễ dàng điều hướng giữa các trang, cải thiện UX (user experience). -->
-<nav class="navbar navbar-expand-lg navbar-dark sticky-top"> 
+<nav class="navbar navbar-expand-lg navbar-dark sticky-top">
   <!-- Div container, giới hạn nội dung trong chiều rộng cố định. Tại sao dùng: Giữ layout cân đối, tránh nội dung trải rộng trên màn hình lớn. -->
   <div class="container">
     <!-- Tag a navbar-brand, logo và link về trang chủ. Tại sao dùng: Tạo nhận diện thương hiệu, icon lá cây làm nổi bật chủ đề trà. -->
-    <a class="navbar-brand" href="index.html"><i class="fas fa-leaf me-2"></i> Trà Đại Từ</a> 
+    <a class="navbar-brand" href="index.html"><i class="fas fa-leaf me-2"></i> Trà Đại Từ</a>
     <!-- Button toggler cho menu trên mobile. Tại sao dùng: Làm menu collapse (thu gọn) trên màn hình nhỏ, responsive. -->
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
-      <span class="navbar-toggler-icon"></span> 
+      <span class="navbar-toggler-icon"></span>
     </button>
     <!-- Div collapse, phần menu chính. Tại sao dùng: Ẩn menu trên mobile và hiện khi click, tiết kiệm không gian. -->
     <div class="collapse navbar-collapse" id="navbarNav">
       <!-- Ul navbar-nav, danh sách menu. Tại sao dùng ms-auto: Đẩy menu sang phải, tạo layout cân đối. -->
-      <ul class="navbar-nav ms-auto"> 
+      <ul class="navbar-nav ms-auto">
         <li class="nav-item"><a class="nav-link" href="index.html">Trang Chủ</a></li>
         <li class="nav-item"><a class="nav-link" href="gioithieu.html">Giới Thiệu</a></li>
         <!-- Li dropdown, menu thả xuống. Tại sao dùng: Nhóm các liên kết liên quan, tránh menu quá dài. -->
         <li class="nav-item dropdown">
           <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown">Văn Hóa Trà</a>
-          <ul class="dropdown-menu"> 
+          <ul class="dropdown-menu">
             <li><a class="dropdown-item" href="tinhhoatraviet.html">Tinh Hoa Trà Việt</a></li>
             <li><a class="dropdown-item" href="vanhoathuongtra.html">Văn Hóa Thưởng Trà</a></li>
           </ul>
@@ -45,7 +44,7 @@
         <li class="nav-item"><a class="nav-link" href="sanphamnoibat.html">Sản Phẩm</a></li>
         <li class="nav-item dropdown">
           <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown">Trải Nghiệm</a>
-          <ul class="dropdown-menu"> 
+          <ul class="dropdown-menu">
              <li><a class="dropdown-item" href="dulichvatrainghiem.html">Du Lịch</a></li>
              <li><a class="dropdown-item" href="thuvienmedia.html">Media</a></li>
           </ul>
@@ -55,54 +54,84 @@
     </div>
   </div>
 </nav>
-
 <!-- Section container, phần sản phẩm. Tại sao dùng fade-in: Animation khi load, tăng tính hấp dẫn. -->
-<section class="container section fade-in"> 
-  <!-- H1 text-center, tiêu đề. Tại sao dùng mb-5: Tạo khoảng cách, giữ layout thoáng. -->
-  <h1 class="text-center mb-5">Sản Phẩm Tuyển Chọn</h1> 
-  <!-- Row mt-4, lưới card. Tại sao dùng: Hiển thị sản phẩm dạng lưới, responsive. -->
-  <div class="row mt-4"> 
-    <!-- Col-md-4 mb-4, cột cho mỗi sản phẩm. Tại sao dùng h-100: Giữ card cao bằng nhau. -->
-    <div class="col-md-4 mb-4"> 
-      <div class="card h-100"> 
-        <img src="https://images.unsplash.com/photo-1571934811356-5cc55449d0f4?q=80&w=1000&auto=format&fit=crop" class="card-img-top" alt="Chè Búp"> 
+<section class="container section fade-in">
+  <!-- Div text-center, phần giới thiệu. Tại sao dùng mb-5: Tạo khoảng cách dưới, giữ layout thoáng. -->
+  <div class="text-center mb-5">
+      <!-- H1, tiêu đề chính. Tại sao dùng: Cấu trúc heading giúp SEO và accessibility. -->
+      <h1>Sản Phẩm Đặc Trưng</h1>
+      <!-- P text-muted, mô tả. Tại sao dùng mx-auto và max-width: Căn giữa và giới hạn chiều rộng để dễ đọc. -->
+      <p class="text-muted mx-auto" style="max-width: 700px;">
+          Giới thiệu các dòng trà trứ danh của vùng đất Đại Từ. Đây là những sản phẩm mang đậm bản sắc văn hóa, được chăm sóc và chế biến tỉ mỉ bởi bàn tay người nghệ nhân.
+      </p>
+      <!-- Span badge, nhãn thông tin. Tại sao dùng: Thêm tag phân loại, làm nổi bật thông tin quan trọng. -->
+      <span class="badge bg-secondary bg-opacity-25 text-dark px-3 py-2 mt-2">
+          <i class="fas fa-info-circle me-1"></i> Trang thông tin quảng bá & giới thiệu văn hóa
+      </span>
+  </div>
+ 
+  <!-- Div row, lưới card. Tại sao dùng mt-4: Tạo khoảng cách trên, hiển thị sản phẩm dạng lưới responsive. -->
+  <div class="row mt-4">
+    <!-- Col-md-4 mb-4, cột cho sản phẩm. Tại sao dùng: Chia 3 cột trên desktop, 1 cột trên mobile. -->
+    <div class="col-md-4 mb-4">
+      <!-- Div card h-100, card sản phẩm. Tại sao dùng h-100: Giữ chiều cao bằng nhau giữa các card. -->
+      <div class="card h-100">
+        <!-- Img card-img-top, hình sản phẩm. Tại sao dùng: Đặt hình ở đầu card, thu hút sự chú ý. -->
+        <img src="https://images.unsplash.com/photo-1571934811356-5cc55449d0f4?q=80&w=1000&auto=format&fit=crop" class="card-img-top" alt="Chè Búp">
+        <!-- Div card-body, nội dung card. Tại sao dùng text-center p-4: Căn giữa và padding để thoáng. -->
         <div class="card-body text-center p-4">
-          <h5 class="card-title">Chè Búp Tân Cương</h5> 
-          <p class="card-text text-muted">Dòng trà phổ thông. Hương thơm tự nhiên, vị đậm đà, nước vàng óng ánh.</p> 
-          <a href="lienhe.html" class="btn btn-custom btn-sm mt-2">Liên Hệ Đặt Mua</a>
+          <!-- H5 card-title, tiêu đề sản phẩm. Tại sao dùng: Cấu trúc heading nhỏ cho SEO. -->
+          <h5 class="card-title">Chè Búp Tân Cương</h5>
+          <!-- Div mb-3, nhóm badge. Tại sao dùng: Phân loại sản phẩm, giúp người dùng nhanh chóng nắm thông tin. -->
+          <div class="mb-3">
+              <span class="badge bg-success bg-opacity-75 me-1">Truyền Thống</span>
+              <span class="badge bg-warning text-dark bg-opacity-75">Phổ Biến</span>
+          </div>
+          <!-- P card-text, mô tả. Tại sao dùng text-muted: Làm chữ nhạt hơn, phân biệt với tiêu đề. -->
+          <p class="card-text text-muted">
+              Dòng trà phổ thông nhất với hương thơm cốm non tự nhiên. Nước trà xanh vàng óng, vị tiền chát hậu ngọt đặc trưng, là thức uống quen thuộc trong mỗi gia đình Việt.
+          </p>
         </div>
       </div>
     </div>
     <div class="col-md-4 mb-4">
-      <div class="card h-100"> 
+      <div class="card h-100">
         <img src="https://images.unsplash.com/photo-1597318181409-cf64d0b5d8a2?q=80&w=1000&auto=format&fit=crop" class="card-img-top" alt="Chè Móc Câu">
         <div class="card-body text-center p-4">
           <h5 class="card-title">Chè Móc Câu Đặc Biệt</h5>
-          <p class="card-text text-muted">Cánh trà nhỏ xoăn như móc câu. Vị chát dịu đầu lưỡi, hậu ngọt sâu lắng.</p>
-          <a href="lienhe.html" class="btn btn-custom btn-sm mt-2">Liên Hệ Đặt Mua</a>
+          <div class="mb-3">
+              <span class="badge bg-success bg-opacity-75 me-1">Thượng Hạng</span>
+              <span class="badge bg-warning text-dark bg-opacity-75">OCOP 4 Sao</span>
+          </div>
+          <p class="card-text text-muted">
+              Những búp chè non nhất được hái theo quy chuẩn "một tôm hai lá". Cánh trà sau khi sao khô cong lại như hình móc câu. Hương vị đậm đà, lưu hương rất lâu trong khoang miệng.
+          </p>
         </div>
       </div>
     </div>
     <div class="col-md-4 mb-4">
-      <div class="card h-100"> 
+      <div class="card h-100">
         <img src="https://images.unsplash.com/photo-1627435601361-ec25f5b1d0e5?q=80&w=1000&auto=format&fit=crop" class="card-img-top" alt="Trà ướp hương">
         <div class="card-body text-center p-4">
           <h5 class="card-title">Trà Ướp Hương Sen</h5>
-          <p class="card-text text-muted">Tinh hoa trà Việt. Trà búp hảo hạng ướp trong gạo sen, hương thơm quyến rũ.</p>
-          <a href="lienhe.html" class="btn btn-custom btn-sm mt-2">Liên Hệ Đặt Mua</a>
+          <div class="mb-3">
+              <span class="badge bg-success bg-opacity-75 me-1">Tinh Hoa</span>
+              <span class="badge bg-warning text-dark bg-opacity-75">Quà Biếu</span>
+          </div>
+          <p class="card-text text-muted">
+              Sự kết hợp tinh tế giữa trà Tân Cương thượng hạng và hương thơm thanh khiết của hoa sen/hoa nhài. Sản phẩm đại diện cho nét đẹp văn hóa thưởng trà tao nhã.
+          </p>
         </div>
       </div>
-    </div> 
+    </div>
   </div>
 </section>
-
 <!-- Footer, phần chân trang. Tại sao dùng text-center: Căn giữa nội dung, tạo sự chuyên nghiệp. -->
 <footer class="text-center">
   <div class="container">
-    <p class="mb-0">&copy; 2025 Không Gian Văn Hóa Trà Đại Từ.</p> 
+    <p class="mb-0">© 2025 Không Gian Văn Hóa Trà Đại Từ.</p>
   </div>
 </footer>
-
 <!-- Script Bootstrap JS. Tại sao dùng: Để kích hoạt các tính năng như dropdown, carousel, responsive. -->
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
 <!-- Script JS tùy chỉnh. Tại sao dùng: Thêm chức năng động như animation, event listener. -->
