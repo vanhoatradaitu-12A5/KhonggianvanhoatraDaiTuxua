@@ -69,17 +69,35 @@ body {
 }
 
 /* Hero, style banner. Tại sao dùng background-attachment fixed: Tạo parallax effect, hấp dẫn hơn. Lưu ý liên kết: Chỉ dùng ở index.html, nếu thay URL background cần kiểm tra hiển thị ở trang chủ. */
+/* PHẦN HERO (ẢNH BÌA LỚN) */
 .hero {
-  background: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url('https://images.unsplash.com/photo-1586607997423-d6416b4593e9?q=80&w=1920&auto=format&fit=crop');
-  background-size: cover;
+  /* 1. linear-gradient: Tạo một lớp màn đen mờ (0.5) phủ lên ảnh để chữ màu trắng nổi bật hơn, không bị chìm vào nền. */
+  /* 2. url(...): Đường dẫn đến ảnh đồi chè chất lượng cao. */
+  background: linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4)), url('https://images.unsplash.com/photo-1586607997423-d6416b4593e9?q=80&w=1920&auto=format&fit=crop');
+  
+  /* Đảm bảo ảnh luôn phủ kín khung hình bất kể màn hình to hay nhỏ */
+  background-size: cover; 
+  
+  /* Căn trọng tâm ảnh vào giữa */
   background-position: center;
+  
+  /* Hiệu ứng Parallax: Ảnh đứng yên khi cuộn chuột (tạo cảm giác 3D chiều sâu) */
   background-attachment: fixed;
-  height: 85vh;
+  
+  /* Chiều cao của khối này chiếm 85% chiều cao màn hình thiết bị */
+  height: 85vh; 
+  
+  /* Dùng Flexbox để căn giữa nội dung chữ bên trong */
   display: flex;
   align-items: center;
   justify-content: center;
+  
+  /* Màu chữ trắng */
   color: white;
   text-align: center;
+  
+  /* Đảm bảo khối này nằm dưới menu (nếu menu đè lên) */
+  position: relative;
 }
 
 /* H1 trong hero. Tại sao dùng text-shadow: Làm chữ rõ hơn trên nền tối. Lưu ý liên kết: Font từ --font-heading, nếu thay biến ở :root thì ảnh hưởng đến h1 ở các page khác. */
@@ -210,3 +228,4 @@ footer a:hover {
   opacity: 1;
   transform: translateY(0);
 }
+
