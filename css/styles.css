@@ -73,7 +73,7 @@ body {
 .hero {
   /* 1. linear-gradient: Tạo một lớp màn đen mờ (0.5) phủ lên ảnh để chữ màu trắng nổi bật hơn, không bị chìm vào nền. */
   /* 2. url(...): Đường dẫn đến ảnh đồi chè chất lượng cao. */
-  background: linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4)), url('https://images.unsplash.com/photo-1586607997423-d6416b4593e9?q=80&w=1920&auto=format&fit=crop');
+  background: linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4)), url('https://dltm-cdn.vnptit3.vn/resources/portal/Images/TNN/namdan.tnn/thang92022/ch%C3%A8cauda/untitled_637998625176000541.png');
   
   /* Đảm bảo ảnh luôn phủ kín khung hình bất kể màn hình to hay nhỏ */
   background-size: cover; 
@@ -228,4 +228,5 @@ footer a:hover {
   opacity: 1;
   transform: translateY(0);
 }
+
 
