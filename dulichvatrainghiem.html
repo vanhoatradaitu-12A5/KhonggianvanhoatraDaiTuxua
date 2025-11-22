@@ -1,59 +1,106 @@
+<!-- Đây là tag DOCTYPE, khai báo loại tài liệu là HTML5. Tại sao dùng: Để trình duyệt biết cách render trang đúng chuẩn, tránh lỗi hiển thị ở các trình duyệt cũ. -->
 <!DOCTYPE html>
+<!-- Tag html chính, định nghĩa ngôn ngữ là tiếng Việt (vi). Tại sao dùng: Giúp công cụ tìm kiếm và trình đọc màn hình hiểu ngôn ngữ, cải thiện SEO và accessibility. -->
 <html lang="vi">
 <head>
+  <!-- Tag meta charset, đặt mã hóa ký tự là UTF-8. Tại sao dùng: Đảm bảo hiển thị đúng ký tự tiếng Việt có dấu, tránh lỗi garbled text. -->
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"> <title>Du Lịch & Trải Nghiệm - Trà Đại Từ</title>
-  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet"> <link href="css/styles.css" rel="stylesheet"> <link href="https://fonts.googleapis.com/css2?family=Roboto&display=swap" rel="stylesheet"> </head>
+  <!-- Tag meta viewport, làm cho trang responsive trên mobile. Tại sao dùng: Cho phép trang điều chỉnh kích thước theo thiết bị, cải thiện trải nghiệm người dùng trên điện thoại. -->
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"> 
+  <!-- Tag title, đặt tiêu đề trang. Tại sao dùng: Hiển thị trên tab trình duyệt và giúp SEO, vì công cụ tìm kiếm dùng title để mô tả trang. -->
+  <title>Du Lịch & Trải Nghiệm</title>
+  <!-- Tag link liên kết CSS Bootstrap. Tại sao dùng: Để sử dụng framework Bootstrap giúp thiết kế nhanh, responsive mà không cần viết CSS từ đầu, tiết kiệm thời gian. -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet"> 
+  <!-- Tag link liên kết Font Awesome. Tại sao dùng: Để thêm icon (như lá cây), làm trang sinh động hơn mà không cần hình ảnh nặng, dễ tùy chỉnh. -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+  <!-- Tag link liên kết file CSS tùy chỉnh. Tại sao dùng: Để override hoặc thêm style riêng, giữ code CSS tách biệt khỏi HTML, dễ bảo trì. -->
+  <link href="css/styles.css" rel="stylesheet"> 
+</head>
 <body>
-<nav class="navbar navbar-expand-lg navbar-dark sticky-top"> <div class="container">
-    <a class="navbar-brand" href="index.html">Trà Đại Từ</a> <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
-      <span class="navbar-toggler-icon"></span> </button>
-    
+
+<!-- Tag nav, tạo thanh navigation. Tại sao dùng: Để người dùng dễ dàng điều hướng giữa các trang, cải thiện UX (user experience). -->
+<nav class="navbar navbar-expand-lg navbar-dark sticky-top"> 
+  <!-- Div container, giới hạn nội dung trong chiều rộng cố định. Tại sao dùng: Giữ layout cân đối, tránh nội dung trải rộng trên màn hình lớn. -->
+  <div class="container">
+    <!-- Tag a navbar-brand, logo và link về trang chủ. Tại sao dùng: Tạo nhận diện thương hiệu, icon lá cây làm nổi bật chủ đề trà. -->
+    <a class="navbar-brand" href="index.html"><i class="fas fa-leaf me-2"></i> Trà Đại Từ</a> 
+    <!-- Button toggler cho menu trên mobile. Tại sao dùng: Làm menu collapse (thu gọn) trên màn hình nhỏ, responsive. -->
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+      <span class="navbar-toggler-icon"></span> 
+    </button>
+    <!-- Div collapse, phần menu chính. Tại sao dùng: Ẩn menu trên mobile và hiện khi click, tiết kiệm không gian. -->
     <div class="collapse navbar-collapse" id="navbarNav">
-      <ul class="navbar-nav ms-auto"> <li class="nav-item"><a class="nav-link" href="index.html">Trang Chủ</a></li>
+      <!-- Ul navbar-nav, danh sách menu. Tại sao dùng ms-auto: Đẩy menu sang phải, tạo layout cân đối. -->
+      <ul class="navbar-nav ms-auto"> 
+        <li class="nav-item"><a class="nav-link" href="index.html">Trang Chủ</a></li>
         <li class="nav-item"><a class="nav-link" href="gioithieu.html">Giới Thiệu</a></li>
-        
+        <!-- Li dropdown, menu thả xuống. Tại sao dùng: Nhóm các liên kết liên quan, tránh menu quá dài. -->
         <li class="nav-item dropdown">
-          <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-            Văn Hóa Trà
-          </a>
-          <ul class="dropdown-menu"> <li><a class="dropdown-item" href="tinhhoatraviet.html">Tinh Hoa Trà Việt</a></li>
+          <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown">Văn Hóa Trà</a>
+          <ul class="dropdown-menu"> 
+            <li><a class="dropdown-item" href="tinhhoatraviet.html">Tinh Hoa Trà Việt</a></li>
             <li><a class="dropdown-item" href="vanhoathuongtra.html">Văn Hóa Thưởng Trà</a></li>
           </ul>
         </li>
-
         <li class="nav-item"><a class="nav-link" href="sanphamnoibat.html">Sản Phẩm</a></li>
-
         <li class="nav-item dropdown">
-          <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-            Trải Nghiệm
-          </a>
-          <ul class="dropdown-menu"> <li><a class="dropdown-item" href="dulichvatrainghiem.html">Du Lịch</a></li>
+          <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown">Trải Nghiệm</a>
+          <ul class="dropdown-menu"> 
+             <li><a class="dropdown-item" href="dulichvatrainghiem.html">Du Lịch</a></li>
              <li><a class="dropdown-item" href="thuvienmedia.html">Media</a></li>
           </ul>
         </li>
-
         <li class="nav-item"><a class="nav-link" href="lienhe.html">Liên Hệ</a></li>
       </ul>
     </div>
   </div>
 </nav>
-<section class="container section fade-in"> <h1 class="text-center">Du Lịch & Trải Nghiệm</h1> <div class="row mt-4"> <div class="col-md-6">
-      <h2>Tour Tham Quan Đồi Chè</h2> <p>Check-in tại đồi chè Cầu Đá, Hoàng Nông.</p> <img src="https://vitas.org.vn/wp-content/uploads/2022/06/doi-che-thai-nguyen-9.jpg" class="img-fluid" alt="Tour đồi chè"> </div>
+
+<!-- Section container, phần nội dung chính. Tại sao dùng fade-in: Để thêm animation, làm trang hấp dẫn hơn khi load. -->
+<section class="container section fade-in"> 
+  <!-- H1 text-center, tiêu đề chính. Tại sao dùng mb-5: Tạo khoảng cách dưới, giữ layout thoáng. -->
+  <h1 class="text-center mb-5">Du Lịch Về Miền Chè</h1> 
+  <!-- Div row, lưới Bootstrap. Tại sao dùng mt-4: Tạo khoảng cách trên, chia cột cho nội dung. -->
+  <div class="row mt-4"> 
+    <!-- Col-md-6, cột chiếm nửa màn hình trên medium+. Tại sao dùng: Responsive, hiển thị 2 cột trên desktop, 1 cột trên mobile. -->
     <div class="col-md-6">
-      <h2>Trải Nghiệm Hái Trà</h2>
-      <p>Hái trà cùng nông dân, học quy trình.</p>
-      <img src="https://images2.thanhnien.vn/528068263637045248/2023/12/13/h1-17024659606161041801823.jpg" class="img-fluid" alt="Hái trà"> </div> </div>
-  <div class="text-center mt-4"> <iframe width="560" height="315" src="https://www.youtube.com/embed/_bEkTnOPn0c" frameborder="0" allowfullscreen></iframe> </div> <div class="text-center mt-4">
-    <iframe width="600" height="450" style="border:0" loading="lazy" allowfullscreen referrerpolicy="no-referrer-when-downgrade" src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3773.874014096654!2d105.63851387525648!3d21.59925438018069!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3134e6b9d0b4c1c3%3A0x1f6b5a2a3b4c5d6e!2sHuy%E1%BB%87n+%C4%90%E1%BA%A1i+T%E1%BB%AB%2C+Th%C3%A1i+Nguy%C3%AAn!5e0!3m2!1svi!2svn!4v1728461783271"></iframe>
+      <h2>Tour Tham Quan Đồi Chè</h2> 
+      <p>Check-in tại những đồi chè Cầu Đá, Hoàng Nông xanh ngát. Hít thở không khí trong lành, chụp những bức ảnh kỷ niệm tuyệt đẹp trong sương sớm.</p> 
+      <!-- Img img-fluid, hình ảnh responsive. Tại sao dùng img-custom: Thêm style tùy chỉnh như border-radius. -->
+      <img src="https://images.unsplash.com/photo-1623788202695-3e8c5d6e4574?q=80&w=1000&auto=format&fit=crop" class="img-fluid img-custom" alt="Tour đồi chè"> 
+    </div>
+    <div class="col-md-6 mt-4 mt-md-0">
+      <h2>Trải Nghiệm Làm Nông Dân</h2>
+      <p>Tự tay đeo gùi hái những búp chè non "một tôm hai lá" cùng người dân bản địa. Học cách sao chè thủ công trên chảo nóng và thưởng thức thành quả của chính mình.</p>
+      <img src="https://images.unsplash.com/photo-1531545514256-b1400bc00f31?q=80&w=1000&auto=format&fit=crop" class="img-fluid img-custom" alt="Hái trà"> 
+    </div> 
+  </div>
+  
+  <!-- Div text-center, căn giữa nội dung. Tại sao dùng mt-5: Tạo khoảng cách lớn trên. -->
+  <div class="text-center mt-5"> 
+    <!-- Iframe YouTube, nhúng video. Tại sao dùng allowfullscreen: Cho phép xem full screen, cải thiện UX. -->
+    <iframe width="560" height="315" src="https://www.youtube.com/embed/_bEkTnOPn0c" frameborder="0" allowfullscreen class="img-custom"></iframe> 
+  </div> 
+  
+  <div class="text-center mt-5">
+    <h3 class="mb-3">Bản Đồ Đến Vùng Trà</h3>
+    <!-- Div ratio, giữ tỷ lệ khung. Tại sao dùng: Đảm bảo iframe map không bị méo trên các thiết bị. -->
+    <div class="ratio ratio-21x9 mx-auto border border-success border-3 rounded img-custom">
+      <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3718.3581310618867!2d105.6312!3d21.6458!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x31352e8007155555%3A0x0!2zMjHCsDM4JzQ1LjAiTiAxMDXCsDM3JzUyLjMiRQ!5e0!3m2!1svi!2s!4v1631234567890" loading="lazy"></iframe>
+    </div>
   </div>
 </section>
 
+<!-- Footer, phần chân trang. Tại sao dùng text-center: Căn giữa nội dung, tạo sự chuyên nghiệp. -->
 <footer class="text-center">
-  <p>© 2025 Không Gian Văn Hóa Trà Đại Từ.</p> </footer>
+  <div class="container">
+    <p class="mb-0">&copy; 2025 Không Gian Văn Hóa Trà Đại Từ.</p> 
+  </div>
+</footer>
 
+<!-- Script Bootstrap JS. Tại sao dùng: Để kích hoạt các tính năng như dropdown, carousel, responsive. -->
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+<!-- Script JS tùy chỉnh. Tại sao dùng: Thêm chức năng động như animation, event listener. -->
 <script src="js/script.js"></script>
 </body>
-
 </html>
