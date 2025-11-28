@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <!-- Head: Phần đầu, chứa tiêu đề và link style/JS. -->
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"> <!-- Làm web responsive cho mobile. -->
+  <title>Sứ Mệnh - Trà Đại Từ</title> <!-- Tiêu đề trang. -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet"> <!-- Bootstrap cho grid và carousel. -->
+  <link href="css/styles.css" rel="stylesheet"> <!-- Link CSS tùy chỉnh. -->
+  <link href="https://fonts.googleapis.com/css2?family=Roboto&display=swap" rel="stylesheet"> <!-- Font từ Google. -->
+</head>
+<body>
+<!-- Navbar: Thanh menu chung cho tất cả trang. -->
+<nav class="navbar navbar-expand-lg navbar-dark sticky-top"> <!-- Sticky-top: Menu dính trên khi scroll. -->
+  <div class="container">
+    <a class="navbar-brand" href="index.html">Trà Đại Từ</a> <!-- Tên thương hiệu, thay văn bản để đổi tên. -->
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+      <span class="navbar-toggler-icon"></span> <!-- Nút menu cho mobile. -->
+    </button>
+    <div class="collapse navbar-collapse" id="navbarNav">
+      <ul class="navbar-nav ms-auto"> <!-- Danh sách menu, thêm <li> để thêm mục mới. -->
+        <li class="nav-item"><a class="nav-link" href="index.html">Trang Chủ</a></li>
+        <!-- START: Thay đổi thành Dropdown cho Giới Thiệu -->
+        <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle active" href="#" id="gioithieuDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false" aria-current="page">
+            Giới Thiệu
+          </a>
+          <ul class="dropdown-menu" aria-labelledby="gioithieuDropdown">
+            <li><a class="dropdown-item" href="gioithieu.html">Giới Thiệu Chung</a></li>
+            <!-- Đánh dấu 'Sứ Mệnh' là active -->
+            <li><a class="dropdown-item active" href="sumenh.html">Sứ Mệnh</a></li>
+          </ul>
+        </li>
+        <!-- END: Thay đổi thành Dropdown cho Giới Thiệu -->
+        <li class="nav-item"><a class="nav-link" href="tinhhoatraviet.html">Tinh Hoa Trà Việt</a></li>
+        <li class="nav-item"><a class="nav-link" href="vanhoathuongtra.html">Văn Hóa Thưởng Trà</a></li>
+        <li class="nav-item"><a class="nav-link" href="sanphamnoibat.html">Sản Phẩm</a></li>
+        <li class="nav-item"><a class="nav-link" href="dulichvatrainghiem.html">Du Lịch</a></li>
+        <li class="nav-item"><a class="nav-link" href="thuvienmedia.html">Media</a></li>
+        <li class="nav-item"><a class="nav-link" href="lienhe.html">Liên Hệ</a></li>
+      </ul>
+    </div>
+  </div>
+</nav>
+
+<!-- Section chính: Nội dung trang Sứ Mệnh (sử dụng nội dung cũ từ Tab 2) -->
+<section class="container section fade-in"> <!-- Class fade-in cho animation. -->
+  <h1 class="text-center mb-4">Sứ Mệnh Của Không Gian Văn Hóa Trà Đại Từ</h1> <!-- Tiêu đề trang. -->
+  
+  <div class="row">
+    <div class="col-md-12">
+      <h2 class="text-primary mb-3">Nâng Tầm Giá Trị Trà Việt</h2>
+      <p class="lead">Sứ mệnh của Không Gian Văn Hóa Trà Đại Từ là bảo tồn, phát huy tinh hoa văn hóa trà truyền thống của Việt Nam, đồng thời đưa sản phẩm trà chất lượng cao, an toàn và có trách nhiệm đến tay người tiêu dùng trong nước và quốc tế.</p>
+      <hr>
+    </div>
+    <div class="col-md-4 mb-4">
+      <h3 class="text-success">Bảo Tồn Di Sản</h3>
+      <p>Duy trì và truyền dạy các phương pháp trồng, chăm sóc và chế biến trà thủ công truyền thống, đảm bảo hương vị nguyên bản của trà Đại Từ. Chúng tôi cam kết bảo vệ môi trường sinh thái vùng chè.</p>
+    </div>
+    <div class="col-md-4 mb-4">
+      <h3 class="text-success">Phát Triển Bền Vững</h3>
+      <p>Tạo điều kiện kinh tế ổn định cho cộng đồng nông dân địa phương thông qua các tiêu chuẩn sản xuất công bằng và bền vững. Áp dụng các tiêu chuẩn an toàn thực phẩm nghiêm ngặt nhất.</p>
+    </div>
+    <div class="col-md-4 mb-4">
+      <h3 class="text-success">Kết Nối Văn Hóa</h3>
+      <p>Lan tỏa giá trị và tinh hoa của văn hóa thưởng trà Việt đến với công chúng, biến trà không chỉ là thức uống mà còn là cầu nối giao lưu văn hóa, du lịch trải nghiệm.</p>
+    </div>
+  </div>
+  <blockquote class="blockquote text-center mt-4 p-3 bg-white border-start border-primary border-5 rounded">
+    <p class="mb-0 fst-italic">"Mỗi chén trà là một câu chuyện về đất đai, con người và lòng yêu mến di sản."</p>
+    <br>
+    <footer class="blockquote-footer">Đại diện Quản lý</footer>
+  </blockquote>
+</section>
+
+<!-- Footer: Phần chân trang chung. Thay <p> để chỉnh bản quyền. -->
+<footer class="text-center">
+  <p>&copy; 2025 Không Gian Văn Hóa Trà Đại Từ.</p> <!-- Thay năm hoặc văn bản. -->
+</footer>
+
+<!-- Script: Link JS. Không cần thay đổi. -->
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+<script src="js/script.js"></script>
+</body>
+</html>
