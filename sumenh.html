@@ -1,38 +1,40 @@
 <!DOCTYPE html>
 <html lang="vi">
 <head>
-  <!-- Head: Phần đầu, chứa tiêu đề và link style/JS. -->
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"> <!-- Làm web responsive cho mobile. -->
-  <title>Sứ Mệnh - Trà Đại Từ</title> <!-- Tiêu đề trang. -->
-  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet"> <!-- Bootstrap cho grid và carousel. -->
-  <link href="css/styles.css" rel="stylesheet"> <!-- Link CSS tùy chỉnh. -->
-  <link href="https://fonts.googleapis.com/css2?family=Roboto&display=swap" rel="stylesheet"> <!-- Font từ Google. -->
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"> <title>Sứ Mệnh - Trà Đại Từ</title> <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet"> <link href="css/styles.css" rel="stylesheet"> <link href="https://fonts.googleapis.com/css2?family=Roboto&display=swap" rel="stylesheet"> <style>
+    .mission-aspect-ratio-box {
+        position: relative;
+        width: 100%;
+        padding-top: 56.25%; /* Tỉ lệ 16:9 */
+    }
+    .mission-aspect-ratio-box img {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        border-radius: 8px; /* Bo góc nhẹ cho đẹp */
+    }
+  </style>
 </head>
 <body>
-<!-- Navbar: Thanh menu chung cho tất cả trang. -->
-<nav class="navbar navbar-expand-lg navbar-dark sticky-top"> <!-- Sticky-top: Menu dính trên khi scroll. -->
-  <div class="container">
-    <a class="navbar-brand" href="index.html">Trà Đại Từ</a> <!-- Tên thương hiệu, thay văn bản để đổi tên. -->
-    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
-      <span class="navbar-toggler-icon"></span> <!-- Nút menu cho mobile. -->
-    </button>
+<nav class="navbar navbar-expand-lg navbar-dark sticky-top"> <div class="container">
+    <a class="navbar-brand" href="index.html">Trà Đại Từ</a> <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+      <span class="navbar-toggler-icon"></span> </button>
     <div class="collapse navbar-collapse" id="navbarNav">
-      <ul class="navbar-nav ms-auto"> <!-- Danh sách menu, thêm <li> để thêm mục mới. -->
-        <li class="nav-item"><a class="nav-link" href="index.html">Trang Chủ</a></li>
-        <!-- START: Thay đổi thành Dropdown cho Giới Thiệu -->
+      <ul class="navbar-nav ms-auto"> <li class="nav-item"><a class="nav-link" href="index.html">Trang Chủ</a></li>
         <li class="nav-item dropdown">
           <a class="nav-link dropdown-toggle active" href="#" id="gioithieuDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false" aria-current="page">
             Giới Thiệu
           </a>
           <ul class="dropdown-menu" aria-labelledby="gioithieuDropdown">
             <li><a class="dropdown-item" href="gioithieu.html">Giới Thiệu Chung</a></li>
-            <!-- Đánh dấu 'Sứ Mệnh' là active -->
             <li><a class="dropdown-item active" href="sumenh.html">Sứ Mệnh</a></li>
           </ul>
         </li>
-        <!-- END: Thay đổi thành Dropdown cho Giới Thiệu -->
-         <li class="nav-item dropdown">
+        <li class="nav-item dropdown">
           <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown">Văn Hóa Trà</a>
           <ul class="dropdown-menu"> 
             <li><a class="dropdown-item" href="tinhhoatraviet.html">Tinh Hoa Trà Việt</a></li>
@@ -53,35 +55,29 @@
   </div>
 </nav>
 
-<!-- Section chính: Nội dung trang Sứ Mệnh (sử dụng nội dung cũ từ Tab 2) -->
-<section class="container section fade-in"> <!-- Class fade-in cho animation. -->
-  <h1 class="text-center mb-4">Sứ Mệnh </h1> <!-- Tiêu đề trang. -->
-  
-  <div class="row">
+<section class="container section fade-in"> <h1 class="text-center mb-4">Sứ Mệnh </h1> <div class="row">
     <div class="col-md-12">
       <h2 class="text-primary mb-3">Nâng Tầm Giá Trị Trà </h2>
       <p class="lead">Tiệm trà xưa với khát vọng gìn giữ tinh hoa văn hóa Trà Việt Nam, mang vẻ đẹp của cây chè từ trong nước đến bè quốc tế, từ đó góp phần truyền cảm hứng thêm yêu thiên nhiên, yêu cây chè, yêu văn hóa nước nhà.Đó là nguồn cảm hứng, là sứ mệnh cao cả của chúng tôi!
 </p>
       <hr>
-        <div class="mission-banner-container">
-    <div class="mission-aspect-ratio-box">
-        <img src="images/sumenhnen1.jpg" 
-             alt="Sứ mệnh: Bảo tồn di sản, Phát triển bền vững, Kết nối văn hóa">
-    </div>
-</div>
-  <blockquote class="blockquote text-center mt-4 p-3 bg-white border-start border-primary border-5 rounded">
+      
+      <div class="mission-banner-container" style="max-width: 70%; margin: 0 auto;">
+        <div class="mission-aspect-ratio-box">
+            <img src="images/sumenhnen1.jpg" 
+                 alt="Sứ mệnh: Bảo tồn di sản, Phát triển bền vững, Kết nối văn hóa">
+        </div>
+      </div>
+      <blockquote class="blockquote text-center mt-4 p-3 bg-white border-start border-primary border-5 rounded">
     <p class="mb-0 fst-italic">"Mỗi chén trà là một câu chuyện về đất đai, con người và lòng yêu mến di sản."</p>
     <br>
     
   </blockquote>
 </section>
 
-<!-- Footer: Phần chân trang chung. Thay <p> để chỉnh bản quyền. -->
 <footer class="text-center">
-  <p>&copy; 2025 Không Gian Văn Hóa Trà Đại Từ.</p> <!-- Thay năm hoặc văn bản. -->
-</footer>
+  <p>&copy; 2025 Không Gian Văn Hóa Trà Đại Từ.</p> </footer>
 
-<!-- Script: Link JS. Không cần thay đổi. -->
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
 <script src="js/script.js"></script>
 </body>
