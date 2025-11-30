@@ -1,133 +1,203 @@
-<!DOCTYPE html> 
-<html lang="vi"> 
+<!DOCTYPE html>
+<html lang="vi">
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"> 
-  <title>Quy Trình Trồng & Chăm Sóc - Trà Đại Từ</title> 
-  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet"> 
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Quy Trình Trồng & Chăm Sóc - Trà Đại Từ</title>
+  
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
-  <link href="css/styles.css" rel="stylesheet"> 
+  <link href="css/styles.css" rel="stylesheet">
 </head>
 <body>
 
-<nav class="navbar navbar-expand-lg navbar-dark sticky-top"> 
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark sticky-top">
   <div class="container">
-    <a class="navbar-brand" href="index.html"><i class="fas fa-leaf me-2"></i> Trà Đại Từ</a> 
+    <a class="navbar-brand" href="index.html"><i class="fas fa-leaf me-2"></i> Trà Đại Từ</a>
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
-      <span class="navbar-toggler-icon"></span> 
+      <span class="navbar-toggler-icon"></span>
     </button>
     <div class="collapse navbar-collapse" id="navbarNav">
-      <ul class="navbar-nav ms-auto"> 
+      <ul class="navbar-nav ms-auto">
         <li class="nav-item"><a class="nav-link" href="index.html">Trang Chủ</a></li>
         <li class="nav-item dropdown">
           <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown">Giới thiệu</a>
-          <ul class="dropdown-menu"> 
+          <ul class="dropdown-menu">
             <li><a class="dropdown-item" href="gioithieuchung.html">Giới Thiệu Chung</a></li>
             <li><a class="dropdown-item" href="sumenh.html">Sứ Mệnh</a></li>
           </ul>
         </li>
         <li class="nav-item dropdown">
           <a class="nav-link dropdown-toggle active" href="#" role="button" data-bs-toggle="dropdown">Văn Hóa Trà</a>
-          <ul class="dropdown-menu"> 
+          <ul class="dropdown-menu">
             <li><a class="dropdown-item" href="tinhhoatraviet.html">Tinh Hoa Trà Việt</a></li>
             <li><a class="dropdown-item" href="vanhoathuongtra.html">Văn Hóa Thưởng Trà</a></li>
           </ul>
         </li>
         <li class="nav-item"><a class="nav-link" href="sanphamnoibat.html">Sản Phẩm</a></li>
         <li class="nav-item dropdown">
-          <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown">jpg" class="img-fluid rounded shadow" alt="Trồng chè">
+          <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown">Trải Nghiệm</a>
+          <ul class="dropdown-menu">
+             <li><a class="dropdown-item" href="dulichvatrainghiem.html">Du Lịch</a></li>
+             <li><a class="dropdown-item" href="thuvienmedia.html">Media</a></li>
+          </ul>
+        </li>
+        <li class="nav-item"><a class="nav-link" href="lienhe.html">Liên Hệ</a></li>
+      </ul>
     </div>
-    <div class="col-md-6 ps-md-5 mt-3 mt-md-0">
-       <span class="badge bg-success mb-2">Bước 3</span>
-       <h2 class="text-success fw-bold">Quy Trình Trồng</h2>
-       <div class="timeline-box">
-           <div class="d-flex mb-3">
-               <div class="flex-shrink-0 text-success fw-bold">01</div>
-               <div class="ms-3 border-start border-success ps-3">
-                   <h6 class="fw-bold">Thời vụ gieo trồng</h6>
-                   <p class="small text-muted mb-0">Thực hiện vào đầu mùa mưa (Tháng 5 - 7) để tận dụng nguồn nước tự nhiên.</p>
-               </div>
+  </div>
+</nav>
+
+<section class="container py-5 fade-in">
+  
+  <div class="text-center mb-5">
+      <h1 class="text-success fw-bold">Quy Trình Trồng & Chăm Sóc Chè</h1>
+      <p class="lead text-muted mx-auto" style="max-width: 800px;">
+          Để sản xuất được những mẻ chè chất lượng, việc trồng và chăm sóc chè cần tuân theo quy trình chuẩn mực, từ chọn giống, gieo trồng đến thu hoạch.
+      </p>
+  </div>
+
+  <div class="row g-4 mb-5">
+      <div class="col-12">
+          <h3 class="border-start border-4 border-success ps-3 mb-4 text-success">1. Chuẩn Bị Trước Khi Trồng</h3>
+      </div>
+      
+      <div class="col-md-4">
+          <div class="card h-100 shadow-sm border-0 bg-light">
+              <div class="card-body text-center p-4">
+                  <div class="mb-3 text-success">
+                      <i class="fas fa-seedling fa-3x"></i>
+                  </div>
+                  <h5 class="card-title fw-bold">Chọn Giống Chè</h5>
+                  <p class="card-text small text-muted">Nên chọn giống từ các vườn ươm uy tín để đảm bảo cây giống khỏe mạnh, đồng đều và không bị nhiễm bệnh.</p>
+              </div>
+          </div>
+      </div>
+
+      <div class="col-md-4">
+          <div class="card h-100 shadow-sm border-0 bg-light">
+              <div class="card-body text-center p-4">
+                  <div class="mb-3 text-warning">
+                      <i class="fas fa-layer-group fa-3x"></i>
+                  </div>
+                  <h5 class="card-title fw-bold">Đất Trồng</h5>
+                  <p class="card-text small text-muted">Đất cần tơi xốp, thoát nước tốt, <strong>độ pH từ 5 - 6</strong>. Cần bón vôi và phân hữu cơ để cân bằng pH và dinh dưỡng trước khi trồng.</p>
+              </div>
+          </div>
+      </div>
+
+      <div class="col-md-4">
+          <div class="card h-100 shadow-sm border-0 bg-light">
+              <div class="card-body text-center p-4">
+                  <div class="mb-3 text-primary">
+                      <i class="fas fa-mountain fa-3x"></i>
+                  </div>
+                  <h5 class="card-title fw-bold">Khu Vực Trồng</h5>
+                  <p class="card-text small text-muted">Ưu tiên độ cao 200-1.000m, nhiệt độ 20-25°C. Khu vực cần có nguồn nước tưới đầy đủ, tránh vùng ngập úng.</p>
+              </div>
+          </div>
+      </div>
+  </div>
+
+  <hr class="my-5 border-success opacity-25">
+
+  <div class="row align-items-center mb-5">
+    <div class="col-md-6 mb-4 mb-md-0">
+                <img src="images/trongche.jpg" class="img-fluid rounded shadow" alt="Quy trình trồng chè" onerror="this.src='https://images.unsplash.com/photo-1598512752271-33f913a5af13?q=80&w=1000&auto=format&fit=crop'">
+    </div>
+    <div class="col-md-6 ps-md-5">
+       <h3 class="border-start border-4 border-success ps-3 mb-4 text-success">2. Quy Trình Gieo Trồng</h3>
+       
+       <div class="d-flex mb-4">
+           <div class="flex-shrink-0">
+               <span class="badge bg-success rounded-circle p-3 fs-5">01</span>
            </div>
-           <div class="d-flex mb-3">
-               <div class="flex-shrink-0 text-success fw-bold">02</div>
-               <div class="ms-3 border-start border-success ps-3">
-                   <h6 class="fw-bold">Chuẩn bị hố & Khoảng cách</h6>
-                   <p class="small text-muted mb-0">Hố 40x40x40cm, bón lót phân chuồng & lân. Khoảng cách cây 1,2 - 1,5m.</p>
-               </div>
+           <div class="ms-3">
+               <h5 class="fw-bold">Thời vụ & Kỹ thuật</h5>
+               <p class="text-muted mb-1">Trồng vào đầu mùa mưa (Tháng 5 - 7) để tận dụng nước tự nhiên.</p>
+               <p class="small text-muted mb-0"><i class="fas fa-check text-success me-1"></i> Hố: 40x40x40 cm, bón lót phân chuồng & lân.</p>
+               <p class="small text-muted"><i class="fas fa-check text-success me-1"></i> Đặt cây thẳng, lấp kín gốc, nén chặt để tránh lung lay.</p>
            </div>
-           <div class="d-flex">
-               <div class="flex-shrink-0 text-success fw-bold">03</div>
-               <div class="ms-3 border-start border-success ps-3">
-                   <h6 class="fw-bold">Thao tác trồng</h6>
-                   <p class="small text-muted mb-0">Đặt cây thẳng, lấp đất kín gốc và nén chặt để cố định cây, tránh lung lay.</p>
-               </div>
+       </div>
+
+       <div class="d-flex">
+           <div class="flex-shrink-0">
+               <span class="badge bg-success rounded-circle p-3 fs-5">02</span>
+           </div>
+           <div class="ms-3">
+               <h5 class="fw-bold">Khoảng cách trồng</h5>
+               <p class="text-muted">Duy trì khoảng cách <strong>1,2 - 1,5 mét</strong> giữa các cây để đảm bảo không gian thoáng đãng cho cây phát triển tán và dễ dàng thu hoạch.</p>
            </div>
        </div>
     </div>
   </div>
 
-  <hr class="my-5 border-success opacity-10">
+  <hr class="my-5 border-success opacity-25">
 
   <div class="row align-items-center">
     <div class="col-md-6 pe-md-5 order-2 order-md-1">
-       <span class="badge bg-success mb-2">Bước 4</span>
-       <h2 class="text-success fw-bold">Chăm Sóc Sau Trồng</h2>
-       <p>Quy trình duy trì sự phát triển bền vững:</p>
+       <h3 class="border-start border-4 border-success ps-3 mb-4 text-success">3. Chăm Sóc Sau Trồng</h3>
+       <p class="mb-4">Để cây chè cho năng suất cao và búp chè đạt chuẩn "Tiền chát hậu ngọt", quy trình chăm sóc cần sự tỉ mỉ:</p>
        
        <div class="accordion" id="accordionCare">
           <div class="accordion-item">
             <h2 class="accordion-header">
-              <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#care1">
-                <i class="fas fa-tint me-2 text-primary"></i> Tưới nước
+              <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#care1" aria-expanded="true">
+                <i class="fas fa-tint me-2 text-primary"></i> <strong>Tưới nước</strong>
               </button>
             </h2>
             <div id="care1" class="accordion-collapse collapse show" data-bs-parent="#accordionCare">
-              <div class="accordion-body">
-                Cần tưới đủ nước cho cây non sinh trưởng. Mùa khô tưới đều đặn <strong>2 - 3 lần/tuần</strong> để giữ ẩm.
+              <div class="accordion-body text-muted">
+                Cung cấp lượng nước vừa đủ, đặc biệt giai đoạn cây non. Mùa khô cần tưới đều đặn <strong>2 - 3 lần/tuần</strong> để giữ ẩm cho đất, giúp búp chè mập và non lâu.
               </div>
             </div>
           </div>
+          
           <div class="accordion-item">
             <h2 class="accordion-header">
               <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#care2">
-                <i class="fas fa-leaf me-2 text-success"></i> Bón phân
+                <i class="fas fa-leaf me-2 text-success"></i> <strong>Bón phân</strong>
               </button>
             </h2>
             <div id="care2" class="accordion-collapse collapse" data-bs-parent="#accordionCare">
-              <div class="accordion-body">
-                Ưu tiên <strong>phân hữu cơ, vi sinh</strong>. Chia làm 3-4 đợt/năm (xuân và đầu mùa mưa) để tăng năng suất.
+              <div class="accordion-body text-muted">
+                Ưu tiên <strong>phân hữu cơ, phân vi sinh hữu cơ</strong> để tăng cường năng suất và độ an toàn. Chia làm 3-4 đợt/năm, tập trung bón vào mùa xuân và đầu mùa mưa.
               </div>
             </div>
           </div>
+
           <div class="accordion-item">
             <h2 class="accordion-header">
               <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#care3">
-                <i class="fas fa-bug me-2 text-danger"></i> Phòng trừ sâu bệnh
+                <i class="fas fa-shield-virus me-2 text-danger"></i> <strong>Phòng trừ sâu bệnh</strong>
               </button>
             </h2>
             <div id="care3" class="accordion-collapse collapse" data-bs-parent="#accordionCare">
-              <div class="accordion-body">
-                Thường xuyên thăm vườn, trau dồi kiến thức bảo vệ thực vật để phát hiện và xử lý bệnh kịp thời.
+              <div class="accordion-body text-muted">
+                Thường xuyên thăm vườn để phát hiện sớm các bệnh như rầy xanh, bọ cánh tơ. Trau dồi kiến thức bảo vệ thực vật, ưu tiên các biện pháp sinh học để đảm bảo chè sạch.
               </div>
             </div>
           </div>
        </div>
-
     </div>
-    <div class="col-md-6 order-1 order-md-2 mb-3 mb-md-0">
-       <img src="images/chamsocche.jpg" class="img-fluid rounded shadow" alt="Chăm sóc vườn chè">
+    
+    <div class="col-md-6 order-1 order-md-2 mb-4 mb-md-0">
+                <img src="images/chamsocche.jpg" class="img-fluid rounded shadow" alt="Hệ thống tưới chè" onerror="this.src='https://images.unsplash.com/photo-1594488516709-6824a7374df4?q=80&w=1000&auto=format&fit=crop'">
     </div>
   </div>
 
   <div class="text-center mt-5 pt-4">
       <a href="tinhhoatraviet.html" class="btn btn-outline-success rounded-pill px-4 me-2">
-          <i class="fas fa-arrow-left me-2"></i>Về trang Tinh Hoa
+          <i class="fas fa-arrow-left me-2"></i>Quay lại Tinh Hoa Trà
+      </a>
+      <a href="sanphamnoibat.html" class="btn btn-success rounded-pill px-4">
+          Xem Sản Phẩm <i class="fas fa-arrow-right ms-2"></i>
       </a>
   </div>
 
 </section>
 
-<footer class="text-center mt-5 py-4 bg-light border-top">
+<footer class="text-center bg-light py-4 mt-5 border-top">
   <div class="container">
     <p class="mb-0">© 2025 Không Gian Văn Hóa Trà Đại Từ.</p> 
   </div>
@@ -137,5 +207,3 @@
 <script src="js/script.js"></script>
 </body>
 </html>
-
-
