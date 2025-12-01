@@ -1,40 +1,91 @@
-<!-- Đây là tag DOCTYPE, khai báo loại tài liệu là HTML5. Tại sao dùng: Để trình duyệt biết cách render trang đúng chuẩn, tránh lỗi hiển thị ở các trình duyệt cũ. Lưu ý liên kết: Nếu thay đổi loại tài liệu, cần kiểm tra tính tương thích ở tất cả các file HTML khác vì chúng chia sẻ cấu trúc chung. -->
 <!DOCTYPE html>
-<!-- Tag html chính, định nghĩa ngôn ngữ là tiếng Việt (vi). Tại sao dùng: Giúp công cụ tìm kiếm và trình đọc màn hình hiểu ngôn ngữ, cải thiện SEO và accessibility. Lưu ý liên kết: Nếu thay đổi ngôn ngữ (lang), cần cập nhật ở tất cả các file HTML để giữ tính nhất quán toàn website. -->
 <html lang="vi">
 <head>
-  <!-- Tag meta charset, đặt mã hóa ký tự là UTF-8. Tại sao dùng: Đảm bảo hiển thị đúng ký tự tiếng Việt có dấu, tránh lỗi garbled text. Lưu ý liên kết: Đây là thiết lập chung, nếu thay đổi charset có thể ảnh hưởng đến hiển thị nội dung ở tất cả các file, đặc biệt nếu có ký tự đặc biệt. -->
   <meta charset="UTF-8">
-  <!-- Tag meta viewport, làm cho trang responsive trên mobile. Tại sao dùng: Cho phép trang điều chỉnh kích thước theo thiết bị, cải thiện trải nghiệm người dùng trên điện thoại. Lưu ý liên kết: Thiết lập này ảnh hưởng đến layout responsive ở tất cả các file, nếu thay đổi cần kiểm tra hiển thị trên mobile cho toàn bộ site. -->
   <meta name="viewport" content="width=device-width, initial-scale=1.0"> 
-  <!-- Tag title, đặt tiêu đề trang. Tại sao dùng: Hiển thị trên tab trình duyệt và giúp SEO, vì công cụ tìm kiếm dùng title để mô tả trang. Lưu ý liên kết: Tiêu đề này liên quan đến nội dung trang, nếu thay đổi cần đảm bảo phù hợp với menu link ở navbar của các file khác (ví dụ: href="index.html" là trang chủ). -->
   <title>Trang Chủ - Trà Đại Từ</title>
-  <!-- Tag link liên kết CSS Bootstrap. Tại sao dùng: Để sử dụng framework Bootstrap giúp thiết kế nhanh, responsive mà không cần viết CSS từ đầu, tiết kiệm thời gian. Lưu ý liên kết: Nếu thay đổi phiên bản Bootstrap, cần cập nhật link ở tất cả các file HTML và kiểm tra class Bootstrap (như row, col-md-6) ở các file khác để tránh lỗi layout. -->
+  
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet"> 
-  <!-- Tag link liên kết Font Awesome. Tại sao dùng: Để thêm icon (như lá cây), làm trang sinh động hơn mà không cần hình ảnh nặng, dễ tùy chỉnh. Lưu ý liên kết: Nếu thay đổi phiên bản Font Awesome, cần cập nhật ở tất cả các file và kiểm tra các icon (ví dụ: fas fa-leaf) ở navbar của các file khác. -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
-  <!-- Tag link liên kết file CSS tùy chỉnh. Tại sao dùng: Để override hoặc thêm style riêng, giữ code CSS tách biệt khỏi HTML, dễ bảo trì. Lưu ý liên kết: File styles.css được dùng chung, nếu thay đổi class ở đây (ví dụ: .hero), cần kiểm tra tất cả các file HTML sử dụng class đó để đảm bảo style nhất quán. -->
+  
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600&family=Playfair+Display:ital,wght@0,700;1,700&display=swap" rel="stylesheet">
+
   <link href="css/styles.css" rel="stylesheet"> 
+
+  <style>
+    /* 1. Tùy chỉnh cho MENU (Navbar) */
+    .navbar {
+        background-color: rgba(20, 50, 30, 0.95) !important; /* Màu xanh rêu đậm chất trà */
+        backdrop-filter: blur(10px); /* Hiệu ứng mờ nền kính sang trọng */
+        box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+    }
+
+    .navbar-brand {
+        font-family: 'Playfair Display', serif; /* Logo dùng font nghệ thuật */
+        font-weight: 700;
+        font-size: 1.5rem;
+        color: #fff !important;
+        letter-spacing: 1px;
+    }
+
+    .navbar-nav .nav-link {
+        font-family: 'Montserrat', sans-serif; /* Menu dùng font hiện đại, dễ đọc */
+        font-weight: 500;
+        font-size: 0.95rem;
+        text-transform: uppercase; /* Chữ in hoa cho gọn gàng */
+        letter-spacing: 1px; /* Giãn chữ ra một chút cho thoáng */
+        color: #e0e0e0 !important;
+        transition: all 0.3s ease;
+    }
+
+    .navbar-nav .nav-link:hover, 
+    .navbar-nav .nav-link.active {
+        color: #81c784 !important; /* Màu xanh lá mạ khi hover */
+        transform: translateY(-2px); /* Hiệu ứng nhấc nhẹ chữ lên */
+    }
+
+    /* 2. Tùy chỉnh cho HERO TITLE (Không gian văn hóa trà) */
+    .hero {
+        /* Giả lập background để bạn thấy rõ chữ (thực tế dùng ảnh trong CSS của bạn) */
+        background: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)), url('https://images.unsplash.com/photo-1564866657305-6cf215c0d59b?auto=format&fit=crop&q=80'); 
+        background-size: cover;
+        background-position: center;
+        color: white;
+        padding: 100px 0;
+        text-align: center;
+    }
+
+    .hero h1 {
+        font-family: 'Playfair Display', serif; /* Font có chân sang trọng */
+        font-weight: 700;
+        font-style: italic; /* Nghiêng nhẹ tạo nét "phiêu" */
+        font-size: 3.5rem; /* Kích thước lớn ấn tượng */
+        line-height: 1.2;
+        margin-bottom: 20px;
+        text-shadow: 2px 2px 10px rgba(0,0,0,0.5); /* Đổ bóng chữ để nổi bật trên nền ảnh */
+    }
+
+    /* Responsive: Chỉnh lại cỡ chữ trên mobile cho đỡ bị tràn */
+    @media (max-width: 768px) {
+        .hero h1 {
+            font-size: 2.2rem;
+        }
+    }
+  </style>
 </head>
 <body>
 
-<!-- Tag nav, tạo thanh navigation. Tại sao dùng: Để người dùng dễ dàng điều hướng giữa các trang, cải thiện UX (user experience). Lưu ý liên kết: Navbar này giống ở tất cả các file, nếu thay đổi cấu trúc (thêm/xóa item), cần copy-paste và cập nhật ở mọi file HTML để menu nhất quán. -->
 <nav class="navbar navbar-expand-lg navbar-dark sticky-top"> 
-  <!-- Div container, giới hạn nội dung trong chiều rộng cố định. Tại sao dùng: Giữ layout cân đối, tránh nội dung trải rộng trên màn hình lớn. Lưu ý liên kết: Class container từ Bootstrap, nếu thay đổi cần kiểm tra ở các section khác trong file này và các file khác. -->
   <div class="container">
-    <!-- Tag a navbar-brand, logo và link về trang chủ. Tại sao dùng: Tạo nhận diện thương hiệu, icon lá cây làm nổi bật chủ đề trà. Lưu ý liên kết: Href trỏ đến index.html, nếu đổi tên file trang chủ thì cần cập nhật ở navbar của tất cả các file. -->
-    <a class="navbar-brand" href="index.html"><i class="fas fa-leaf me-2"></i> Trà Đại Từ</a> 
-    <!-- Button toggler cho menu trên mobile. Tại sao dùng: Làm menu collapse (thu gọn) trên màn hình nhỏ, responsive. Lưu ý liên kết: Data-bs-target liên kết với id #navbarNav, nếu thay đổi id thì cần cập nhật ở button này và div collapse. -->
+    <a class="navbar-brand" href="index.html"><i class="fas fa-leaf me-2 text-success"></i> Trà Đại Từ</a> 
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
       <span class="navbar-toggler-icon"></span> 
     </button>
-    <!-- Div collapse, phần menu chính. Tại sao dùng: Ẩn menu trên mobile và hiện khi click, tiết kiệm không gian. Lưu ý liên kết: Id navbarNav được dùng ở button toggler, nếu thay đổi cần cập nhật đồng bộ. -->
     <div class="collapse navbar-collapse" id="navbarNav">
-      <!-- Ul navbar-nav, danh sách menu. Tại sao dùng ms-auto: Đẩy menu sang phải, tạo layout cân đối. Lưu ý liên kết: Các item menu giống nhau ở tất cả file, nếu thêm menu mới cần cập nhật ở mọi navbar. -->
       <ul class="navbar-nav ms-auto"> 
-        <li class="nav-item"><a class="nav-link" href="index.html">Trang Chủ</a></li>
-      
-        <!-- Li dropdown, menu thả xuống. Tại sao dùng: Nhóm các liên kết liên quan, tránh menu quá dài. Lưu ý liên kết: Dropdown này giống ở các file, nếu thay đổi item bên trong cần cập nhật ở tất cả navbar. -->
+        <li class="nav-item"><a class="nav-link active" href="index.html">Trang Chủ</a></li>
         <li class="nav-item dropdown">
           <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown">Giới thiệu</a>
           <ul class="dropdown-menu"> 
@@ -63,26 +114,20 @@
   </div>
 </nav>
 
-<!-- Div hero, phần banner đầu trang. Tại sao dùng: Tạo ấn tượng đầu tiên, thu hút người dùng với hình nền và lời kêu gọi hành động. Lưu ý liên kết: Class hero từ styles.css, nếu thay đổi background ở CSS thì ảnh hưởng đến hiển thị banner chỉ ở file này (trang chủ). -->
 <div class="hero">
-  <!-- Div container fade-in, chứa nội dung banner. Tại sao dùng fade-in: Thêm animation khi load, làm trang động hơn. Lưu ý liên kết: Fade-in từ script.js và styles.css, nếu thay đổi animation ở JS hoặc CSS thì ảnh hưởng đến tất cả fade-in ở các file. -->
   <div class="container fade-in">
-    <h1>Không Gian Văn Hóa Trà Đại Từ </h1> 
-    <p class="lead mb-4 fs-4">Hương vị trăm năm từ vùng đất Thái Nguyên huyền thoại</p> 
-    <!-- Button kêu gọi hành động. Tại sao dùng btn-lg: Làm nút lớn hơn, dễ click, tăng tỷ lệ chuyển đổi. Lưu ý liên kết: Href trỏ đến sanphamnoibat.html, nếu đổi tên file sản phẩm thì cần cập nhật ở đây và navbar. -->
-    <a href="sanphamnoibat.html" class="btn btn-custom btn-lg">Khám Phá Ngay</a> 
+    <h1>Không Gian Văn Hóa Trà Đại Từ</h1> 
+    <p class="lead mb-4 fs-4" style="font-family: 'Montserrat', sans-serif; font-weight: 300;">Hương vị trăm năm từ vùng đất Thái Nguyên huyền thoại</p> 
+    <a href="sanphamnoibat.html" class="btn btn-success btn-lg rounded-pill px-4 shadow">Khám Phá Ngay</a> 
   </div>
 </div>
 
-<!-- Section container, phần giới thiệu. Tại sao dùng fade-in: Animation mượt mà khi cuộn trang. Lưu ý liên kết: Class section fade-in từ styles.css, nếu thay đổi ở CSS thì ảnh hưởng đến animation ở các section của file khác. -->
-<section class="container section fade-in"> 
-  <!-- Row align-items-center, căn giữa theo chiều dọc. Tại sao dùng: Giữ nội dung và hình ảnh thẳng hàng. Lưu ý liên kết: Row từ Bootstrap, nếu thay đổi align-items cần kiểm tra ở các row khác trong file và các file như gioithieu.html. -->
+<section class="container section fade-in mt-5"> 
   <div class="row align-items-center"> 
     <div class="col-md-6"> 
-      <h2>Chào Mừng Đến Với Trà Đại Từ</h2>
+      <h2 style="font-family: 'Playfair Display', serif; color: #2c5e2e;">Chào Mừng Đến Với Trà Đại Từ</h2>
       <p class="lead text-muted mb-4">Nơi hội tụ của đất, nước và bàn tay nghệ nhân.</p>
       <p>Trà Đại Từ không chỉ là một thức uống, đó là một di sản. Với lịch sử hàng trăm năm, những đồi chè bát ngát tại Cầu Đá, Hoàng Nông đã tạo nên hương vị "tiền chát, hậu ngọt" đặc trưng không nơi nào có được.</p>
-      <!-- Div mt-4, danh sách check. Tại sao dùng d-flex: Sắp xếp icon và text ngang hàng. Lưu ý liên kết: Icon từ Font Awesome, nếu thay đổi icon cần kiểm tra ở footer liên hệ của lienhe.html. -->
       <div class="mt-4">
           <div class="d-flex align-items-center mb-3">
               <i class="fas fa-check-circle text-success fa-2x me-3"></i>
@@ -94,18 +139,16 @@
           </div>
       </div>
     </div>
-    <!-- Col-md-6, phần carousel. Tại sao dùng: Hiển thị nhiều hình ảnh luân phiên, tiết kiệm không gian. Lưu ý liên kết: Id carouselHome dùng ở button control, nếu thay đổi id cần cập nhật data-bs-target ở button. -->
     <div class="col-md-6"> 
-      <div id="carouselHome" class="carousel slide img-custom overflow-hidden" data-bs-ride="carousel">
+      <div id="carouselHome" class="carousel slide img-custom overflow-hidden rounded shadow" data-bs-ride="carousel">
         <div class="carousel-inner">
           <div class="carousel-item active">
-            <img src="images/bannertrangchu.jpg" class="d-block w-100" alt="Đồi chè"> 
+            <img src="https://images.unsplash.com/photo-1594492652617-6a95e6f54c9b?auto=format&fit=crop&q=80" class="d-block w-100" alt="Đồi chè"> 
           </div>
           <div class="carousel-item">
-            <img src="images/suongsom.jpg" class="d-block w-100" alt="Cảnh quan trà"> 
+            <img src="https://images.unsplash.com/photo-1571597438372-540dd352eb41?auto=format&fit=crop&q=80" class="d-block w-100" alt="Cảnh quan trà"> 
           </div> 
         </div>
-        <!-- Button control carousel. Tại sao dùng: Cho phép người dùng điều khiển slide thủ công. Lưu ý liên kết: Data-bs-target liên kết với id carouselHome, nếu thay đổi id cần cập nhật ở đây. -->
         <button class="carousel-control-prev" type="button" data-bs-target="#carouselHome" data-bs-slide="prev"><span class="carousel-control-prev-icon"></span></button> 
         <button class="carousel-control-next" type="button" data-bs-target="#carouselHome" data-bs-slide="next"><span class="carousel-control-next-icon"></span></button> 
       </div>
@@ -113,20 +156,19 @@
   </div>
 </section>
 
-<!-- Footer, phần chân trang. Tại sao dùng row và col: Chia cột cho nội dung, responsive trên desktop. Lưu ý liên kết: Footer chi tiết hơn ở trang chủ, nếu thay đổi cấu trúc cần kiểm tra footer đơn giản ở các file khác để nhất quán. -->
-<footer class="text-center">
+<footer class="text-center mt-5 bg-light py-4">
   <div class="container">
     <div class="row">
       <div class="col-md-4 text-start">
-        <h5>Trà Đại Từ</h5>
+        <h5 style="font-family: 'Playfair Display', serif; font-weight: bold;">Trà Đại Từ</h5>
         <p>Dự án STEM quảng bá văn hóa trà Việt Nam, mang tinh hoa đất Việt đến mọi nhà.</p>
       </div>
       <div class="col-md-4">
         <h5>Liên Kết Nhanh</h5>
         <ul class="list-unstyled">
-            <li><a href="gioithieu.html">Giới Thiệu</a></li>
-            <li><a href="sanphamnoibat.html">Sản Phẩm</a></li>
-            <li><a href="dulichvatrainghiem.html">Du Lịch</a></li>
+            <li><a href="gioithieu.html" class="text-decoration-none text-dark">Giới Thiệu</a></li>
+            <li><a href="sanphamnoibat.html" class="text-decoration-none text-dark">Sản Phẩm</a></li>
+            <li><a href="dulichvatrainghiem.html" class="text-decoration-none text-dark">Du Lịch</a></li>
         </ul>
       </div>
       <div class="col-md-4 text-end">
@@ -136,25 +178,12 @@
         <p><i class="fas fa-envelope me-2"></i> lienhe@tradaitu.vn</p>
       </div>
     </div>
-    <!-- Hr, đường kẻ ngang. Tại sao dùng: Phân cách phần copyright, tạo cấu trúc rõ ràng. Lưu ý liên kết: Nếu thay đổi style hr ở styles.css thì ảnh hưởng đến footer ở file này. -->
-    <hr class="my-4 border-light">
+    <hr class="my-4 border-secondary">
     <p class="mb-0">&copy; 2025 Không Gian Văn Hóa Trà Đại Từ.</p> 
   </div>
 </footer>
 
-<!-- Script Bootstrap JS. Tại sao dùng: Để kích hoạt các tính năng như dropdown, carousel, responsive. Lưu ý liên kết: Nếu thay đổi phiên bản Bootstrap JS, cần cập nhật ở tất cả file và kiểm tra chức năng như carousel ở file này. -->
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
-<!-- Script JS tùy chỉnh. Tại sao dùng: Thêm chức năng động như animation, event listener. Lưu ý liên kết: File script.js dùng chung, nếu thay đổi hàm trong JS (ví dụ: carousel), cần kiểm tra id carouselHome ở file này. -->
 <script src="js/script.js"></script>
 </body>
-</html>
-
-
-
-
-
-
-
-
-
-
+</html>  
