@@ -3,14 +3,14 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Sản Phẩm & Đặc Sản - Trà Đại Từ</title>
+  <title>Danh Mục Sản Phẩm - Trà Đại Từ</title>
   
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
   <link href="css/styles.css" rel="stylesheet">
 
   <style>
-    /* === CSS CŨ (MÀU NỀN & CARD) === */
+    /* === MÀU NỀN & CARD === */
     body { background-color: #fdfbf0; color: #444; }
     .card {
         background-color: #ffffff;
@@ -21,47 +21,21 @@
     .card:hover { transform: translateY(-5px); }
     .navbar { background-color: #2c5f2d !important; box-shadow: 0 2px 4px rgba(0,0,0,0.1); }
 
-    /* === CSS MỚI: CHỨC NĂNG PHÓNG TO ẢNH (LIGHTBOX) === */
-    
-    /* 1. Biến con trỏ chuột thành hình bàn tay khi di vào ảnh để người dùng biết có thể bấm */
-    .zoom-img {
-        cursor: zoom-in;
-        transition: opacity 0.2s;
-    }
-    .zoom-img:hover {
-        opacity: 0.9; /* Làm mờ nhẹ khi di chuột để tạo hiệu ứng tương tác */
-    }
-
-    /* 2. Lớp màn nền đen mờ (Mặc định ẩn đi: display: none) */
+    /* === LIGHTBOX (PHÓNG TO ẢNH) === */
+    .zoom-img { cursor: zoom-in; transition: opacity 0.2s; }
+    .zoom-img:hover { opacity: 0.9; }
     .lightbox-overlay {
-        position: fixed; /* Cố định toàn màn hình */
-        top: 0; 
-        left: 0;
-        width: 100%;
-        height: 100%;
-        background-color: rgba(0, 0, 0, 0.85); /* Màu đen trong suốt 85% */
-        z-index: 9999; /* Luôn nằm trên cùng */
-        display: none; /* Ẩn đi */
-        justify-content: center; /* Căn giữa ngang */
-        align-items: center; /* Căn giữa dọc */
-        backdrop-filter: blur(5px); /* Làm mờ hậu cảnh phía sau cho đẹp */
-        animation: fadeIn 0.3s; /* Hiệu ứng hiện ra từ từ */
+        position: fixed; top: 0; left: 0; width: 100%; height: 100%;
+        background-color: rgba(0, 0, 0, 0.9); z-index: 9999;
+        display: none; justify-content: center; align-items: center;
+        backdrop-filter: blur(5px); animation: fadeIn 0.3s;
     }
-
-    /* 3. Ảnh khi được phóng to */
     .lightbox-content {
-        max-width: 90%; /* Không bao giờ to quá 90% chiều rộng màn hình */
-        max-height: 90vh; /* Không bao giờ to quá 90% chiều cao màn hình */
-        border-radius: 5px;
-        box-shadow: 0 0 20px rgba(255,255,255,0.2);
+        max-width: 90%; max-height: 90vh;
+        border-radius: 5px; box-shadow: 0 0 20px rgba(255,255,255,0.2);
         object-fit: contain;
     }
-
-    /* Animation hiện ra */
-    @keyframes fadeIn {
-        from { opacity: 0; }
-        to { opacity: 1; }
-    }
+    @keyframes fadeIn { from { opacity: 0; } to { opacity: 1; } }
   </style>
 </head>
 
@@ -76,28 +50,7 @@
     <div class="collapse navbar-collapse" id="navbarNav">
       <ul class="navbar-nav ms-auto">
         <li class="nav-item"><a class="nav-link" href="index.html">Trang Chủ</a></li>
-        <li class="nav-item dropdown">
-          <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown">Giới thiệu</a>
-          <ul class="dropdown-menu"> 
-            <li><a class="dropdown-item" href="gioithieuchung.html">Giới Thiệu Chung</a></li>
-            <li><a class="dropdown-item" href="sumenh.html">Sứ Mệnh</a></li>
-          </ul>
-        </li>
-        <li class="nav-item dropdown">
-          <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown">Văn Hóa Trà</a>
-          <ul class="dropdown-menu">
-            <li><a class="dropdown-item" href="tinhhoatraviet.html">Tinh Hoa Trà Việt</a></li>
-            <li><a class="dropdown-item" href="vanhoathuongtra.html">Văn Hóa Thưởng Trà</a></li>
-          </ul>
-        </li>
-        <li class="nav-item"><a class="nav-link active" href="sanphamnoibat.html">Sản Phẩm</a></li>
-        <li class="nav-item dropdown">
-          <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown">Trải Nghiệm</a>
-          <ul class="dropdown-menu">
-             <li><a class="dropdown-item" href="dulichvatrainghiem.html">Du Lịch</a></li>
-             <li><a class="dropdown-item" href="thuvienmedia.html">Media</a></li>
-          </ul>
-        </li>
+        <li class="nav-item active"><a class="nav-link" href="sanpham.html">Sản Phẩm</a></li>
         <li class="nav-item"><a class="nav-link" href="lienhe.html">Liên Hệ</a></li>
       </ul>
     </div>
@@ -107,68 +60,76 @@
 <section class="container section fade-in py-5">
   
   <div class="text-center mb-5">
-      <h1 style="color: #2c5f2d;">Sản Phẩm Đặc Trưng</h1>
+      <h1 style="color: #2c5f2d;">Danh Mục Chè Đại Từ</h1>
       <p class="text-muted mx-auto" style="max-width: 700px;">
-          Giới thiệu các dòng trà trứ danh của vùng đất Đại Từ. Bấm vào hình ảnh để xem chi tiết.
+          Khám phá 7 giống chè đặc trưng làm nên thương hiệu của vùng đất chúng tôi.
       </p>
       <span class="badge bg-secondary bg-opacity-25 text-dark px-3 py-2 mt-2">
-          <i class="fas fa-search-plus me-1"></i> Có thể phóng to ảnh sản phẩm
+          <i class="fas fa-search-plus me-1"></i> Bấm vào ảnh để phóng to
       </span>
   </div>
  
   <div class="row mt-4">
     <div class="col-md-6 mb-4">
       <div class="card h-100">
-        <img src="images/taycamtratrangindex.jpg" class="card-img-top zoom-img" alt="Chè Búp" style="height: 300px; object-fit: cover;" onclick="openLightbox(this)">
+        <img src="https://images.unsplash.com/photo-1594498653385-d5175c954b15?q=80&w=1000&auto=format&fit=crop" class="card-img-top zoom-img" alt="Chè Ta Trung Du" style="height: 300px; object-fit: cover;" onclick="openLightbox(this)">
         <div class="card-body text-center p-4">
-          <h5 class="card-title fs-4">Chè Búp Tân Cương</h5>
+          <h5 class="card-title fs-4">Chè Ta </h5>
           <div class="mb-3">
-              <span class="badge bg-success bg-opacity-75 me-1">Truyền Thống</span>
-              <span class="badge bg-warning text-dark bg-opacity-75">Phổ Biến Nhất</span>
+              <span class="badge bg-warning text-dark bg-opacity-75 me-1">Lâu Đời Nhất</span>
+              <span class="badge bg-success bg-opacity-75">Hương Vị Gốc</span>
           </div>
-          <p class="card-text text-muted">Dòng trà phổ thông nhất với hương thơm cốm non tự nhiên.</p>
+          <p class="card-text text-muted">
+              Giống chè có lịch sử lâu đời nhất địa bàn. Lá chè to, mỏng, nhẹ hơn các loại khác. Mùi thơm nhẹ nhàng, cây khỏe, ít sâu bệnh.
+          </p>
         </div>
       </div>
     </div>
     <div class="col-md-6 mb-4">
       <div class="card h-100">
-        <img src="https://images.unsplash.com/photo-1597318181409-cf64d0b5d8a2?q=80&w=1000&auto=format&fit=crop" class="card-img-top zoom-img" alt="Chè Móc Câu" style="height: 300px; object-fit: cover;" onclick="openLightbox(this)">
+        <img src="https://images.unsplash.com/photo-1563911302283-d2bc129e7c1f?q=80&w=1000&auto=format&fit=crop" class="card-img-top zoom-img" alt="Chè Lai 1" style="height: 300px; object-fit: cover;" onclick="openLightbox(this)">
         <div class="card-body text-center p-4">
-          <h5 class="card-title fs-4">Chè Móc Câu Đặc Biệt</h5>
+          <h5 class="card-title fs-4">Chè Lai 1</h5>
+          <div class="mb-3">
+              <span class="badge bg-primary bg-opacity-75 me-1">Phổ Biến Nhất</span>
+              <span class="badge bg-info text-dark bg-opacity-75">Năng Suất Cao</span>
+          </div>
+          <p class="card-text text-muted">
+              Loại chè chủ lực tại địa phương. Búp chè đều tăm tắp, lá mỏng, mềm mại và có màu xanh tươi rất đẹp mắt.
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="row mt-4">
+    <div class="col-md-6 mb-4">
+      <div class="card h-100">
+        <img src="https://images.unsplash.com/photo-1627435601361-ec25f5b1d0e5?q=80&w=1000&auto=format&fit=crop" class="card-img-top zoom-img" alt="Chè Long Vân" style="height: 300px; object-fit: cover;" onclick="openLightbox(this)">
+        <div class="card-body text-center p-4">
+          <h5 class="card-title fs-4">Chè Long Vân</h5>
+          <div class="mb-3">
+              <span class="badge bg-danger bg-opacity-75 me-1">Hương Thơm Đỉnh</span>
+              <span class="badge bg-dark text-white bg-opacity-75">Búp Thon Nhỏ</span>
+          </div>
+          <p class="card-text text-muted">
+              Đặc sản với búp chè thon, nhỏ. Điểm đặc biệt là tỏa ra hương thơm ngào ngạt ngay cả khi đang thu hoạch trên đồi.
+          </p>
+        </div>
+      </div>
+    </div>
+    <div class="col-md-6 mb-4">
+      <div class="card h-100">
+        <img src="https://images.unsplash.com/photo-1571216332002-282dce40becb?q=80&w=1000&auto=format&fit=crop" class="card-img-top zoom-img" alt="Chè Bát Tiên" style="height: 300px; object-fit: cover;" onclick="openLightbox(this)">
+        <div class="card-body text-center p-4">
+          <h5 class="card-title fs-4">Chè Bát Tiên</h5>
           <div class="mb-3">
               <span class="badge bg-success bg-opacity-75 me-1">Thượng Hạng</span>
-              <span class="badge bg-warning text-dark bg-opacity-75">OCOP 4 Sao</span>
+              <span class="badge bg-purple text-white bg-opacity-75" style="background-color: #6f42c1;">Búp Phớt Tím</span>
           </div>
-          <p class="card-text text-muted">Cánh trà sau khi sao khô cong lại như hình móc câu.</p>
-        </div>
-      </div>
-    </div>
-  </div>
-
-  <div class="row mt-4">
-    <div class="col-md-6 mb-4">
-      <div class="card h-100">
-        <img src="https://images.unsplash.com/photo-1563911302283-d2bc129e7c1f?q=80&w=1000&auto=format&fit=crop" class="card-img-top zoom-img" alt="Trà Đinh Ngọc" style="height: 300px; object-fit: cover;" onclick="openLightbox(this)">
-        <div class="card-body text-center p-4">
-          <h5 class="card-title fs-4">Trà Đinh Ngọc (Vip)</h5>
-          <div class="mb-3">
-              <span class="badge bg-danger bg-opacity-75 me-1">Cao Cấp Nhất</span>
-              <span class="badge bg-dark text-white bg-opacity-75">Số Lượng Có Hạn</span>
-          </div>
-          <p class="card-text text-muted">Chỉ hái duy nhất phần đinh (ngọn) non nhất. Nước trà xanh trong vắt.</p>
-        </div>
-      </div>
-    </div>
-    <div class="col-md-6 mb-4">
-      <div class="card h-100">
-        <img src="https://images.unsplash.com/photo-1571216332002-282dce40becb?q=80&w=1000&auto=format&fit=crop" class="card-img-top zoom-img" alt="Bộ Quà Tặng" style="height: 300px; object-fit: cover;" onclick="openLightbox(this)">
-        <div class="card-body text-center p-4">
-          <h5 class="card-title fs-4">Bộ Quà Tặng Cao Cấp</h5>
-          <div class="mb-3">
-              <span class="badge bg-warning text-dark bg-opacity-75 me-1">Combo Đặc Biệt</span>
-              <span class="badge bg-danger bg-opacity-75">Quà Tết/Lễ</span>
-          </div>
-          <p class="card-text text-muted">Bộ sưu tập gồm 3 loại trà ngon nhất kèm ấm tử sa, đóng hộp gỗ sang trọng.</p>
+          <p class="card-text text-muted">
+              Giống trà quý với lá xanh nhạt, mép lá có răng cưa rõ rệt. Đặc biệt búp non có màu phớt tím rất đặc trưng.
+          </p>
         </div>
       </div>
     </div>
@@ -177,40 +138,43 @@
   <div class="row mt-4">
     <div class="col-md-4 mb-4">
       <div class="card h-100">
-        <img src="https://images.unsplash.com/photo-1627435601361-ec25f5b1d0e5?q=80&w=1000&auto=format&fit=crop" class="card-img-top zoom-img" alt="Trà ướp hương" onclick="openLightbox(this)">
+        <img src="https://images.unsplash.com/photo-1582793988951-9aed5509eb97?q=80&w=1000&auto=format&fit=crop" class="card-img-top zoom-img" alt="Chè Kim" style="height: 250px; object-fit: cover;" onclick="openLightbox(this)">
         <div class="card-body text-center p-4">
-          <h5 class="card-title">Trà Ướp Hương Sen</h5>
+          <h5 class="card-title">Chè Kim</h5>
           <div class="mb-3">
-              <span class="badge bg-success bg-opacity-75 me-1">Tinh Hoa</span>
-              <span class="badge bg-warning text-dark bg-opacity-75">Quà Biếu</span>
+              <span class="badge bg-success bg-opacity-75">Màu Xanh Thẫm</span>
           </div>
-          <p class="card-text text-muted">Sự kết hợp tinh tế giữa trà Tân Cương và hương sen.</p>
+          <p class="card-text text-muted">
+              Búp chè nhỏ, ngọn vươn cao. Màu lá xanh thẫm đậm đà hơn hẳn so với các loại chè khác.
+          </p>
         </div>
       </div>
     </div>
     <div class="col-md-4 mb-4">
       <div class="card h-100">
-        <img src="https://images.unsplash.com/photo-1558160074-4d7d8bdf4256?q=80&w=1000&auto=format&fit=crop" class="card-img-top zoom-img" alt="Hồng Trà Đại Từ" onclick="openLightbox(this)">
+        <img src="https://images.unsplash.com/photo-1558160074-4d7d8bdf4256?q=80&w=1000&auto=format&fit=crop" class="card-img-top zoom-img" alt="Chè Phúc Thọ" style="height: 250px; object-fit: cover;" onclick="openLightbox(this)">
         <div class="card-body text-center p-4">
-          <h5 class="card-title">Hồng Trà Đại Từ</h5>
+          <h5 class="card-title">Chè Phúc Thọ</h5>
           <div class="mb-3">
-              <span class="badge bg-primary bg-opacity-75 me-1">Hương Vị Mới</span>
-              <span class="badge bg-info text-dark bg-opacity-75">Tiêu Hóa Tốt</span>
+              <span class="badge bg-warning text-dark bg-opacity-75">Hương Cốm</span>
           </div>
-          <p class="card-text text-muted">Vị chát chuyển hóa thành vị ngọt dịu, hương hoa quả chín.</p>
+          <p class="card-text text-muted">
+              Lá chè có độ dày vừa phải, khi pha dậy mùi thơm nhẹ nhàng tựa như hương cốm mới.
+          </p>
         </div>
       </div>
     </div>
     <div class="col-md-4 mb-4">
       <div class="card h-100">
-        <img src="https://images.unsplash.com/photo-1582793988951-9aed5509eb97?q=80&w=1000&auto=format&fit=crop" class="card-img-top zoom-img" alt="Bột Trà Xanh Matcha" onclick="openLightbox(this)">
+        <img src="https://images.unsplash.com/photo-1531969179221-3946e6b5a5e7?q=80&w=1000&auto=format&fit=crop" class="card-img-top zoom-img" alt="Chè 777" style="height: 250px; object-fit: cover;" onclick="openLightbox(this)">
         <div class="card-body text-center p-4">
-          <h5 class="card-title">Bột Trà Xanh Matcha</h5>
+          <h5 class="card-title">Giống Chè 777</h5>
           <div class="mb-3">
-              <span class="badge bg-success bg-opacity-75 me-1">Đa Dụng</span>
-              <span class="badge bg-warning text-dark bg-opacity-75">Làm Bánh</span>
+              <span class="badge bg-dark text-white bg-opacity-75">Búp To & Nặng</span>
           </div>
-          <p class="card-text text-muted">Màu xanh ngọc bích, chuyên dùng để làm bánh, đắp mặt nạ.</p>
+          <p class="card-text text-muted">
+              Giống chè khỏe với búp to, trọng lượng nặng hơn các loại khác. Lá dày, cho hương vị đậm đà.
+          </p>
         </div>
       </div>
     </div>
@@ -230,22 +194,13 @@
 </div>
 
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
-<script src="js/script.js"></script>
-
 <script>
-    // Hàm mở Lightbox
     function openLightbox(imgElement) {
         var lightbox = document.getElementById('lightbox');
         var lightboxImg = document.getElementById('lightbox-img');
-        
-        // Lấy đường dẫn ảnh từ ảnh vừa click và gán vào ảnh trong lightbox
         lightboxImg.src = imgElement.src;
-        
-        // Hiển thị lightbox (thay đổi từ display:none sang display:flex)
         lightbox.style.display = 'flex';
     }
-
-    // Hàm đóng Lightbox
     function closeLightbox() {
         document.getElementById('lightbox').style.display = 'none';
     }
