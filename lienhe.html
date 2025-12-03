@@ -1,40 +1,70 @@
-<!-- Đây là tag DOCTYPE, khai báo loại tài liệu là HTML5. Tại sao dùng: Để trình duyệt biết cách render trang đúng chuẩn, tránh lỗi hiển thị ở các trình duyệt cũ. Lưu ý liên kết: Nếu thay đổi loại tài liệu, cần kiểm tra tính tương thích ở tất cả các file HTML khác vì chúng chia sẻ cấu trúc chung. -->
 <!DOCTYPE html>
-<!-- Tag html chính, định nghĩa ngôn ngữ là tiếng Việt (vi). Tại sao dùng: Giúp công cụ tìm kiếm và trình đọc màn hình hiểu ngôn ngữ, cải thiện SEO và accessibility. Lưu ý liên kết: Nếu thay đổi ngôn ngữ (lang), cần cập nhật ở tất cả các file HTML để giữ tính nhất quán toàn website. -->
 <html lang="vi">
 <head>
-  <!-- Tag meta charset, đặt mã hóa ký tự là UTF-8. Tại sao dùng: Đảm bảo hiển thị đúng ký tự tiếng Việt có dấu, tránh lỗi garbled text. Lưu ý liên kết: Đây là thiết lập chung, nếu thay đổi charset có thể ảnh hưởng đến hiển thị nội dung ở tất cả các file, đặc biệt nếu có ký tự đặc biệt. -->
   <meta charset="UTF-8">
-  <!-- Tag meta viewport, làm cho trang responsive trên mobile. Tại sao dùng: Cho phép trang điều chỉnh kích thước theo thiết bị, cải thiện trải nghiệm người dùng trên điện thoại. Lưu ý liên kết: Thiết lập này ảnh hưởng đến layout responsive ở tất cả các file, nếu thay đổi cần kiểm tra hiển thị trên mobile cho toàn bộ site. -->
   <meta name="viewport" content="width=device-width, initial-scale=1.0"> 
-  <!-- Tag title, đặt tiêu đề trang. Tại sao dùng: Hiển thị trên tab trình duyệt và giúp SEO, vì công cụ tìm kiếm dùng title để mô tả trang. Lưu ý liên kết: Tiêu đề này liên quan đến nội dung trang, nếu thay đổi cần đảm bảo phù hợp với menu link ở navbar của các file khác (ví dụ: href="lienhe.html" ở index.html). -->
-  <title>Liên Hệ</title>
-  <!-- Tag link liên kết CSS Bootstrap. Tại sao dùng: Để sử dụng framework Bootstrap giúp thiết kế nhanh, responsive mà không cần viết CSS từ đầu, tiết kiệm thời gian. Lưu ý liên kết: Nếu thay đổi phiên bản Bootstrap, cần cập nhật link ở tất cả các file HTML và kiểm tra class Bootstrap (như row, col-md-5) ở các file khác để tránh lỗi layout. -->
+  <title>Liên Hệ - Trà Đại Từ</title>
+  
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet"> 
-  <!-- Tag link liên kết Font Awesome. Tại sao dùng: Để thêm icon (như lá cây), làm trang sinh động hơn mà không cần hình ảnh nặng, dễ tùy chỉnh. Lưu ý liên kết: Nếu thay đổi phiên bản Font Awesome, cần cập nhật ở tất cả các file và kiểm tra các icon (ví dụ: fas fa-map-marker-alt) ở footer của index.html. -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
-  <!-- Tag link liên kết file CSS tùy chỉnh. Tại sao dùng: Để override hoặc thêm style riêng, giữ code CSS tách biệt khỏi HTML, dễ bảo trì. Lưu ý liên kết: File styles.css được dùng chung, nếu thay đổi class ở đây (ví dụ: .card), cần kiểm tra tất cả các file HTML sử dụng class đó để đảm bảo style nhất quán. -->
   <link href="css/styles.css" rel="stylesheet"> 
+  
+  <style>
+    /* Nền trang màu xanh cốm nhạt */
+    body {
+        background-color: #f1f8e9; 
+    }
+    /* Khung nội dung màu trắng */
+    .section-content {
+        background-color: #ffffff;
+        padding: 40px;
+        border-radius: 15px;
+        box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+        margin-top: 30px;
+        margin-bottom: 30px;
+    }
+    /* Màu chữ tiêu đề xanh đậm */
+    h1, h2, h3 {
+        color: #1b5e20 !important;
+    }
+    /* Style cho ảnh bo góc */
+    .img-custom {
+        border-radius: 10px;
+        box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+    }
+    /* Nút gửi tin nhắn màu xanh */
+    .btn-custom {
+        background-color: #2e7d32;
+        color: white;
+        font-weight: bold;
+    }
+    .btn-custom:hover {
+        background-color: #1b5e20;
+        color: white;
+    }
+  </style>
 </head>
 <body>
 
-<!-- Tag nav, tạo thanh navigation. Tại sao dùng: Để người dùng dễ dàng điều hướng giữa các trang, cải thiện UX (user experience). Lưu ý liên kết: Navbar này giống ở tất cả các file, nếu thay đổi cấu trúc (thêm/xóa item), cần copy-paste và cập nhật ở mọi file HTML để menu nhất quán. -->
-<nav class="navbar navbar-expand-lg navbar-dark sticky-top"> 
-  <!-- Div container, giới hạn nội dung trong chiều rộng cố định. Tại sao dùng: Giữ layout cân đối, tránh nội dung trải rộng trên màn hình lớn. Lưu ý liên kết: Class container từ Bootstrap, nếu thay đổi cần kiểm tra ở các section khác trong file này và các file khác. -->
+<nav class="navbar navbar-expand-lg navbar-dark sticky-top" style="background-color: #2e7d32; z-index: 1030;"> 
   <div class="container">
-    <!-- Tag a navbar-brand, logo và link về trang chủ. Tại sao dùng: Tạo nhận diện thương hiệu, icon lá cây làm nổi bật chủ đề trà. Lưu ý liên kết: Href trỏ đến index.html, nếu đổi tên file trang chủ thì cần cập nhật ở navbar của tất cả các file. -->
     <a class="navbar-brand" href="index.html"><i class="fas fa-leaf me-2"></i> Trà Đại Từ</a> 
-    <!-- Button toggler cho menu trên mobile. Tại sao dùng: Làm menu collapse (thu gọn) trên màn hình nhỏ, responsive. Lưu ý liên kết: Data-bs-target liên kết với id #navbarNav, nếu thay đổi id thì cần cập nhật ở button này và div collapse. -->
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
       <span class="navbar-toggler-icon"></span> 
     </button>
-    <!-- Div collapse, phần menu chính. Tại sao dùng: Ẩn menu trên mobile và hiện khi click, tiết kiệm không gian. Lưu ý liên kết: Id navbarNav được dùng ở button toggler, nếu thay đổi cần cập nhật đồng bộ. -->
+    
     <div class="collapse navbar-collapse" id="navbarNav">
-      <!-- Ul navbar-nav, danh sách menu. Tại sao dùng ms-auto: Đẩy menu sang phải, tạo layout cân đối. Lưu ý liên kết: Các item menu giống nhau ở tất cả file, nếu thêm menu mới cần cập nhật ở mọi navbar. -->
       <ul class="navbar-nav ms-auto"> 
         <li class="nav-item"><a class="nav-link" href="index.html">Trang Chủ</a></li>
-        <li class="nav-item"><a class="nav-link" href="gioithieu.html">Giới Thiệu</a></li>
-        <!-- Li dropdown, menu thả xuống. Tại sao dùng: Nhóm các liên kết liên quan, tránh menu quá dài. Lưu ý liên kết: Dropdown này giống ở các file, nếu thay đổi item bên trong cần cập nhật ở tất cả navbar. -->
+        
+        <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown">Giới thiệu</a>
+          <ul class="dropdown-menu"> 
+            <li><a class="dropdown-item" href="gioithieuchung.html">Giới Thiệu Chung</a></li>
+            <li><a class="dropdown-item" href="sumenh.html">Sứ Mệnh</a></li>
+          </ul>
+        </li>
+
         <li class="nav-item dropdown">
           <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown">Văn Hóa Trà</a>
           <ul class="dropdown-menu"> 
@@ -42,7 +72,9 @@
             <li><a class="dropdown-item" href="vanhoathuongtra.html">Văn Hóa Thưởng Trà</a></li>
           </ul>
         </li>
+
         <li class="nav-item"><a class="nav-link" href="sanphamnoibat.html">Sản Phẩm</a></li>
+
         <li class="nav-item dropdown">
           <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown">Trải Nghiệm</a>
           <ul class="dropdown-menu"> 
@@ -50,68 +82,69 @@
              <li><a class="dropdown-item" href="thuvienmedia.html">Media</a></li>
           </ul>
         </li>
-        <li class="nav-item"><a class="nav-link" href="lienhe.html">Liên Hệ</a></li>
+
+        <li class="nav-item"><a class="nav-link active" href="lienhe.html">Liên Hệ</a></li>
       </ul>
     </div>
   </div>
 </nav>
 
-<!-- Section container, phần liên hệ. Tại sao dùng fade-in: Animation khi load, tăng tính hấp dẫn. Lưu ý liên kết: Class section fade-in từ styles.css, nếu thay đổi ở CSS thì ảnh hưởng đến animation ở các section của file khác. -->
-<section class="container section fade-in"> 
-  <!-- Row, lưới cho liên hệ. Tại sao dùng: Chia cột cho thông tin và form. Lưu ý liên kết: Row từ Bootstrap, nếu thay đổi cần kiểm tra ở các row khác trong file và các file như sanphamnoibat.html. -->
-  <div class="row">
-    <!-- Col-md-5, phần thông tin liên hệ. Tại sao dùng mb-5: Tạo khoảng cách dưới trên mobile. Lưu ý liên kết: Nếu thay đổi col-md-5, cần điều chỉnh col bên cạnh để tổng =12. -->
-    <div class="col-md-5 mb-5">
-        <h2 class="mb-4">Thông Tin Liên Hệ</h2>
-        <p>Chúng tôi luôn sẵn sàng lắng nghe và hỗ trợ bạn.</p>
-        <!-- Ul list-unstyled, danh sách không bullet. Tại sao dùng: Hiển thị thông tin sạch sẽ, dễ đọc. Lưu ý liên kết: Icon từ Font Awesome, nếu thay đổi icon cần kiểm tra ở footer của index.html. -->
-        <ul class="list-unstyled">
-            <li class="mb-3"><i class="fas fa-map-marker-alt text-success me-3"></i>Xã Đại Phúc, Tỉnh Thái Nguyên</li>
-            <li class="mb-3"><i class="fas fa-phone text-success me-3"></i>0912 345 678</li>
-            <li class="mb-3"><i class="fas fa-envelope text-success me-3"></i>vanhoatradaitu@gmail.com</li>
-        </ul>
-        <img src="https://images.unsplash.com/photo-1523906630133-f6934a1ab2b9?q=80&w=600&auto=format&fit=crop" class="img-fluid img-custom mt-3" alt="Trà">
-    </div>
+<div class="container">
+  <section class="section-content fade-in"> 
     
-    <!-- Col-md-7, phần form. Tại sao dùng card: Tạo khối nổi bật cho form, dễ nhìn. Lưu ý liên kết: Class card từ Bootstrap và styles.css, nếu thay đổi style card ở CSS thì ảnh hưởng đến card ở sanphamnoibat.html. -->
-    <div class="col-md-7">
-      <div class="card p-4 shadow border-0">
-          <h3 class="text-center mb-4" style="font-family: var(--font-heading);">Gửi Tin Nhắn</h3>
-          <!-- Form, form liên hệ. Tại sao dùng: Thu thập dữ liệu người dùng, có thể kết nối backend sau. Lưu ý liên kết: Form được xử lý ở script.js (event submit), nếu thay đổi id hoặc class cần cập nhật selector ở JS. -->
-          <form> 
-            <!-- Div mb-3, nhóm input. Tại sao dùng: Tạo khoảng cách giữa các field. Lưu ý liên kết: Class form-control từ Bootstrap, nếu thay đổi type input cần kiểm tra validation ở JS nếu có. -->
-            <div class="mb-3"> 
-              <label for="name" class="form-label fw-bold">Họ và Tên</label> 
-              <input type="text" class="form-control" id="name" placeholder="Nhập tên của bạn" required> 
-            </div>
-            <div class="mb-3">
-              <label for="email" class="form-label fw-bold">Email</label>
-              <input type="email" class="form-control" id="email" placeholder="email@example.com" required>
-            </div>
-            <div class="mb-3">
-              <label for="message" class="form-label fw-bold">Nội Dung</label>
-              <textarea class="form-control" id="message" rows="5" placeholder="Bạn muốn tìm hiểu về sản phẩm nào?" required></textarea> 
-            </div> 
-            <!-- Button submit. Tại sao dùng w-100: Làm nút full width, dễ click. Lưu ý liên kết: Type submit kích hoạt event ở script.js, nếu thay đổi type cần kiểm tra JS. -->
-            <button type="submit" class="btn btn-custom w-100">Gửi Tin Nhắn</button> 
-          </form>
+    <div class="row">
+      <div class="col-md-5 mb-5">
+          <h2 class="mb-4">Thông Tin Liên Hệ</h2>
+          <p>Chúng tôi luôn sẵn sàng lắng nghe và hỗ trợ bạn mọi thắc mắc về sản phẩm và các tour trải nghiệm.</p>
+          <ul class="list-unstyled mt-4">
+              <li class="mb-3 d-flex align-items-center">
+                  <i class="fas fa-map-marker-alt text-success me-3 fs-5"></i>
+                  <span>Xã Đại Phúc, Tỉnh Thái Nguyên</span>
+              </li>
+              <li class="mb-3 d-flex align-items-center">
+                  <i class="fas fa-phone text-success me-3 fs-5"></i>
+                  <span>0912 345 678</span>
+              </li>
+              <li class="mb-3 d-flex align-items-center">
+                  <i class="fas fa-envelope text-success me-3 fs-5"></i>
+                  <span>vanhoatradaitu@gmail.com</span>
+              </li>
+          </ul>
+          <img src="images/anhhaiche1.jpg" class="img-fluid img-custom mt-4 w-100" alt="Liên hệ trà">
+      </div>
+      
+      <div class="col-md-7">
+        <div class="card p-4 shadow-sm border-0 bg-light">
+            <h3 class="text-center mb-4">Gửi Tin Nhắn</h3>
+            <form> 
+              <div class="mb-3"> 
+                <label for="name" class="form-label fw-bold">Họ và Tên</label> 
+                <input type="text" class="form-control" id="name" placeholder="Nhập tên của bạn" required> 
+              </div>
+              <div class="mb-3">
+                <label for="email" class="form-label fw-bold">Email</label>
+                <input type="email" class="form-control" id="email" placeholder="email@example.com" required>
+              </div>
+              <div class="mb-3">
+                <label for="message" class="form-label fw-bold">Nội Dung</label>
+                <textarea class="form-control" id="message" rows="5" placeholder="Bạn cần hỗ trợ gì?" required></textarea> 
+              </div> 
+              <button type="submit" class="btn btn-custom w-100 py-2">Gửi Tin Nhắn</button> 
+            </form>
+        </div>
       </div>
     </div>
-  </div>
-</section>
 
-<!-- Footer, phần chân trang. Tại sao dùng text-center: Căn giữa nội dung, tạo sự chuyên nghiệp. Lưu ý liên kết: Footer giống ở các file, nếu thay đổi nội dung (ví dụ: năm copyright), cần cập nhật ở tất cả footer để nhất quán. -->
-<footer class="text-center">
+  </section>
+</div>
+
+<footer class="text-center py-4" style="background-color: #2e7d32; color: white;">
   <div class="container">
-    <p class="mb-0">&copy; 2025 Không Gian Văn Hóa Trà Đại Từ.</p> 
+    <p class="mb-0">© 2025 Không Gian Văn Hóa Trà Đại Từ.</p> 
   </div>
 </footer>
 
-<!-- Script Bootstrap JS. Tại sao dùng: Để kích hoạt các tính năng như dropdown, carousel, responsive. Lưu ý liên kết: Nếu thay đổi phiên bản Bootstrap JS, cần cập nhật ở tất cả file và kiểm tra chức năng như dropdown ở navbar. -->
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
-<!-- Script JS tùy chỉnh. Tại sao dùng: Thêm chức năng động như animation, event listener. Lưu ý liên kết: File script.js dùng chung, nếu thay đổi hàm submit form ở JS thì ảnh hưởng đến form ở file này. -->
 <script src="js/script.js"></script>
 </body>
 </html>
-
-
