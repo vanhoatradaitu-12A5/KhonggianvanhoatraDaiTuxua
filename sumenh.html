@@ -2,7 +2,32 @@
 <html lang="vi">
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"> <title>Sứ Mệnh - Trà Đại Từ</title> <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet"> <link href="css/styles.css" rel="stylesheet"> <link href="https://fonts.googleapis.com/css2?family=Roboto&display=swap" rel="stylesheet"> <style>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"> 
+  <title>Sứ Mệnh - Trà Đại Từ</title> 
+  
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet"> 
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+  <link href="css/styles.css" rel="stylesheet"> 
+  <link href="https://fonts.googleapis.com/css2?family=Roboto&display=swap" rel="stylesheet"> 
+  
+  <style>
+    /* === ĐỒNG BỘ MÀU SẮC === */
+    body {
+        background-color: #f1f8e9; /* Nền xanh cốm nhạt */
+    }
+    .section-content {
+        background-color: #ffffff;
+        padding: 40px;
+        border-radius: 15px;
+        box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+        margin-top: 30px;
+        margin-bottom: 30px;
+    }
+    /* Đổi màu chữ tiêu đề sang xanh lá đậm thay vì màu xanh dương mặc định của Bootstrap */
+    h1, h2, h3 { color: #1b5e20 !important; }
+    .text-primary { color: #2e7d32 !important; } /* Ghi đè class text-primary thành màu xanh lá */
+    
+    /* CSS CŨ CỦA BẠN GIỮ NGUYÊN */
     .mission-aspect-ratio-box {
         position: relative;
         width: 100%;
@@ -15,25 +40,34 @@
         width: 100%;
         height: 100%;
         object-fit: cover;
-        border-radius: 8px; /* Bo góc nhẹ cho đẹp */
+        border-radius: 8px;
     }
   </style>
 </head>
 <body>
-<nav class="navbar navbar-expand-lg navbar-dark sticky-top"> <div class="container">
-    <a class="navbar-brand" href="index.html">Trà Đại Từ</a> <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
-      <span class="navbar-toggler-icon"></span> </button>
+
+<nav class="navbar navbar-expand-lg navbar-dark sticky-top" style="background-color: #2e7d32; z-index: 1030;"> 
+  <div class="container">
+    <a class="navbar-brand" href="index.html"><i class="fas fa-leaf me-2"></i> Trà Đại Từ</a> 
+    
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+      <span class="navbar-toggler-icon"></span> 
+    </button>
+    
     <div class="collapse navbar-collapse" id="navbarNav">
-      <ul class="navbar-nav ms-auto"> <li class="nav-item"><a class="nav-link" href="index.html">Trang Chủ</a></li>
+      <ul class="navbar-nav ms-auto"> 
+        <li class="nav-item"><a class="nav-link" href="index.html">Trang Chủ</a></li>
+        
         <li class="nav-item dropdown">
           <a class="nav-link dropdown-toggle active" href="#" id="gioithieuDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false" aria-current="page">
             Giới Thiệu
           </a>
           <ul class="dropdown-menu" aria-labelledby="gioithieuDropdown">
-            <li><a class="dropdown-item" href="gioithieu.html">Giới Thiệu Chung</a></li>
+            <li><a class="dropdown-item" href="gioithieuchung.html">Giới Thiệu Chung</a></li>
             <li><a class="dropdown-item active" href="sumenh.html">Sứ Mệnh</a></li>
           </ul>
         </li>
+        
         <li class="nav-item dropdown">
           <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown">Văn Hóa Trà</a>
           <ul class="dropdown-menu"> 
@@ -41,7 +75,9 @@
             <li><a class="dropdown-item" href="vanhoathuongtra.html">Văn Hóa Thưởng Trà</a></li>
           </ul>
         </li>
+        
         <li class="nav-item"><a class="nav-link" href="sanphamnoibat.html">Sản Phẩm</a></li>
+        
         <li class="nav-item dropdown">
           <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown">Trải Nghiệm</a>
           <ul class="dropdown-menu"> 
@@ -49,36 +85,47 @@
              <li><a class="dropdown-item" href="thuvienmedia.html">Media</a></li>
           </ul>
         </li>
+        
         <li class="nav-item"><a class="nav-link" href="lienhe.html">Liên Hệ</a></li>
       </ul>
     </div>
   </div>
 </nav>
 
-<section class="container section fade-in"> <h1 class="text-center mb-4">Sứ Mệnh </h1> <div class="row">
-    <div class="col-md-12">
-      <h2 class="text-primary mb-3">Nâng Tầm Giá Trị Trà </h2>
-      <p class="lead">Tiệm trà xưa với khát vọng gìn giữ tinh hoa văn hóa Trà Việt Nam, mang vẻ đẹp của cây chè từ trong nước đến bè quốc tế, từ đó góp phần truyền cảm hứng thêm yêu thiên nhiên, yêu cây chè, yêu văn hóa nước nhà.Đó là nguồn cảm hứng, là sứ mệnh cao cả của chúng tôi!
-</p>
-      <hr>
-      
-      <div class="mission-banner-container" style="max-width: 70%; margin: 0 auto;">
-        <div class="mission-aspect-ratio-box">
-            <img src="images/sumenhnen1.jpg" 
-                 alt="Sứ mệnh: Bảo tồn di sản, Phát triển bền vững, Kết nối văn hóa">
+<div class="container">
+  <section class="section-content fade-in"> 
+    <h1 class="text-center mb-4">Sứ Mệnh</h1> 
+    <div class="row">
+      <div class="col-md-12">
+        <h2 class="text-primary mb-3">Nâng Tầm Giá Trị Trà</h2>
+        <p class="lead" style="text-align: justify;">
+          Tiệm trà xưa với khát vọng gìn giữ tinh hoa văn hóa Trà Việt Nam, mang vẻ đẹp của cây chè từ trong nước đến bè quốc tế, từ đó góp phần truyền cảm hứng thêm yêu thiên nhiên, yêu cây chè, yêu văn hóa nước nhà. Đó là nguồn cảm hứng, là sứ mệnh cao cả của chúng tôi!
+        </p>
+        <hr>
+        
+        <div class="mission-banner-container" style="max-width: 70%; margin: 30px auto;">
+          <div class="mission-aspect-ratio-box shadow">
+              <img src="images/sumenhnen1.jpg" alt="Sứ mệnh: Bảo tồn di sản, Phát triển bền vững, Kết nối văn hóa">
+          </div>
         </div>
+        
+        <blockquote class="blockquote text-center mt-5 p-4 bg-light border-start border-success border-5 rounded shadow-sm">
+          <p class="mb-0 fst-italic text-success fs-5">"Mỗi chén trà là một câu chuyện về đất đai, con người và lòng yêu mến di sản."</p>
+        </blockquote>
       </div>
-      <blockquote class="blockquote text-center mt-4 p-3 bg-white border-start border-primary border-5 rounded">
-    <p class="mb-0 fst-italic">"Mỗi chén trà là một câu chuyện về đất đai, con người và lòng yêu mến di sản."</p>
-    <br>
-    
-  </blockquote>
-</section>
+    </div>
+  </section>
+</div>
 
-<footer class="text-center">
-  <p>&copy; 2025 Không Gian Văn Hóa Trà Đại Từ.</p> </footer>
+<footer class="text-center py-4" style="background-color: #2e7d32; color: white;">
+  <div class="container">
+    <p class="mb-0">&copy; 2025 Không Gian Văn Hóa Trà Đại Từ.</p> 
+  </div>
+</footer>
 
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
 <script src="js/script.js"></script>
 </body>
 </html>
+
+
