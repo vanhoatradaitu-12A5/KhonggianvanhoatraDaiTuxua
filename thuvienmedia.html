@@ -1,36 +1,68 @@
-<!-- Đây là tag DOCTYPE, khai báo loại tài liệu là HTML5. Tại sao dùng: Để trình duyệt biết cách render trang đúng chuẩn, tránh lỗi hiển thị ở các trình duyệt cũ. Lưu ý liên kết: Nếu thay đổi loại tài liệu, cần kiểm tra tính tương thích ở tất cả các file HTML khác vì chúng chia sẻ cấu trúc chung. -->
+
+
+
 <!DOCTYPE html>
-<!-- Tag html chính, định nghĩa ngôn ngữ là tiếng Việt (vi). Tại sao dùng: Giúp công cụ tìm kiếm và trình đọc màn hình hiểu ngôn ngữ, cải thiện SEO và accessibility. Lưu ý liên kết: Nếu thay đổi ngôn ngữ (lang), cần cập nhật ở tất cả các file HTML để giữ tính nhất quán toàn website. -->
 <html lang="vi">
 <head>
-  <!-- Tag meta charset, đặt mã hóa ký tự là UTF-8. Tại sao dùng: Đảm bảo hiển thị đúng ký tự tiếng Việt có dấu, tránh lỗi garbled text. Lưu ý liên kết: Đây là thiết lập chung, nếu thay đổi charset có thể ảnh hưởng đến hiển thị nội dung ở tất cả các file, đặc biệt nếu có ký tự đặc biệt. -->
   <meta charset="UTF-8">
-  <!-- Tag meta viewport, làm cho trang responsive trên mobile. Tại sao dùng: Cho phép trang điều chỉnh kích thước theo thiết bị, cải thiện trải nghiệm người dùng trên điện thoại. Lưu ý liên kết: Thiết lập này ảnh hưởng đến layout responsive ở tất cả các file, nếu thay đổi cần kiểm tra hiển thị trên mobile cho toàn bộ site. -->
   <meta name="viewport" content="width=device-width, initial-scale=1.0"> 
-  <!-- Tag title, đặt tiêu đề trang. Tại sao dùng: Hiển thị trên tab trình duyệt và giúp SEO, vì công cụ tìm kiếm dùng title để mô tả trang. Lưu ý liên kết: Tiêu đề này liên quan đến nội dung trang, nếu thay đổi cần đảm bảo phù hợp với menu link ở navbar của các file khác (ví dụ: href="thuvienmedia.html" ở index.html). -->
-  <title>Thư Viện Hình Ảnh</title>
-  <!-- Tag link liên kết CSS Bootstrap. Tại sao dùng: Để sử dụng framework Bootstrap giúp thiết kế nhanh, responsive mà không cần viết CSS từ đầu, tiết kiệm thời gian. Lưu ý liên kết: Nếu thay đổi phiên bản Bootstrap, cần cập nhật link ở tất cả các file HTML và kiểm tra class Bootstrap (như row, col-md-4) ở các file khác để tránh lỗi layout. -->
+  <title>Thư Viện Hình Ảnh - Trà Đại Từ</title>
+  
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet"> 
-  <!-- Tag link liên kết Font Awesome. Tại sao dùng: Để thêm icon (như lá cây), làm trang sinh động hơn mà không cần hình ảnh nặng, dễ tùy chỉnh. Lưu ý liên kết: Nếu thay đổi phiên bản Font Awesome, cần cập nhật ở tất cả các file và kiểm tra các icon (ví dụ: fas fa-leaf) ở navbar của các file khác. -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
-  <!-- Tag link liên kết file CSS tùy chỉnh. Tại sao dùng: Để override hoặc thêm style riêng, giữ code CSS tách biệt khỏi HTML, dễ bảo trì. Lưu ý liên kết: File styles.css được dùng chung, nếu thay đổi class ở đây (ví dụ: .img-custom), cần kiểm tra tất cả các file HTML sử dụng class đó để đảm bảo style nhất quán. -->
   <link href="css/styles.css" rel="stylesheet"> 
+  
+  <style>
+    /* Nền trang xanh nhạt */
+    body {
+        background-color: #f1f8e9; 
+    }
+    /* Khung nội dung trắng */
+    .section-content {
+        background-color: #ffffff;
+        padding: 40px;
+        border-radius: 15px;
+        box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+        margin-top: 30px;
+        margin-bottom: 30px;
+    }
+    /* Màu chữ tiêu đề */
+    h1, h2, h3 {
+        color: #1b5e20 !important;
+    }
+    /* Style ảnh bo góc */
+    .img-custom {
+        border-radius: 10px;
+        box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+        transition: transform 0.3s ease; /* Hiệu ứng khi di chuột */
+        object-fit: cover; /* Đảm bảo ảnh cắt đều không bị méo */
+        height: 250px; /* Cố định chiều cao để hàng lối thẳng tắp */
+        width: 100%;
+    }
+    /* Hiệu ứng phóng to nhẹ khi di chuột vào ảnh */
+    .img-custom:hover {
+        transform: scale(1.02);
+    }
+    /* Style cho dòng chú thích ảnh */
+    .img-caption {
+        text-align: center;
+        margin-top: 10px;
+        font-style: italic;
+        color: #555;
+        font-weight: 500;
+    }
+  </style>
 </head>
 <body>
 
-<!-- Tag nav, tạo thanh navigation. Tại sao dùng: Để người dùng dễ dàng điều hướng giữa các trang, cải thiện UX (user experience). Lưu ý liên kết: Navbar này giống ở tất cả các file, nếu thay đổi cấu trúc (thêm/xóa item), cần copy-paste và cập nhật ở mọi file HTML để menu nhất quán. -->
-<nav class="navbar navbar-expand-lg navbar-dark sticky-top"> 
-  <!-- Div container, giới hạn nội dung trong chiều rộng cố định. Tại sao dùng: Giữ layout cân đối, tránh nội dung trải rộng trên màn hình lớn. Lưu ý liên kết: Class container từ Bootstrap, nếu thay đổi cần kiểm tra ở các section khác trong file này và các file khác. -->
+<nav class="navbar navbar-expand-lg navbar-dark sticky-top" style="background-color: #2e7d32; z-index: 1030;"> 
   <div class="container">
-    <!-- Tag a navbar-brand, logo và link về trang chủ. Tại sao dùng: Tạo nhận diện thương hiệu, icon lá cây làm nổi bật chủ đề trà. Lưu ý liên kết: Href trỏ đến index.html, nếu đổi tên file trang chủ thì cần cập nhật ở navbar của tất cả các file. -->
     <a class="navbar-brand" href="index.html"><i class="fas fa-leaf me-2"></i> Trà Đại Từ</a> 
-    <!-- Button toggler cho menu trên mobile. Tại sao dùng: Làm menu collapse (thu gọn) trên màn hình nhỏ, responsive. Lưu ý liên kết: Data-bs-target liên kết với id #navbarNav, nếu thay đổi id thì cần cập nhật ở button này và div collapse. -->
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
       <span class="navbar-toggler-icon"></span> 
     </button>
-    <!-- Div collapse, phần menu chính. Tại sao dùng: Ẩn menu trên mobile và hiện khi click, tiết kiệm không gian. Lưu ý liên kết: Id navbarNav được dùng ở button toggler, nếu thay đổi cần cập nhật đồng bộ. -->
+    
     <div class="collapse navbar-collapse" id="navbarNav">
-      <!-- Ul navbar-nav, danh sách menu. Tại sao dùng ms-auto: Đẩy menu sang phải, tạo layout cân đối. Lưu ý liên kết: Các item menu giống nhau ở tất cả file, nếu thêm menu mới cần cập nhật ở mọi navbar. -->
       <ul class="navbar-nav ms-auto"> 
         <li class="nav-item"><a class="nav-link" href="index.html">Trang Chủ</a></li>
         <li class="nav-item dropdown">
@@ -40,7 +72,6 @@
             <li><a class="dropdown-item" href="sumenh.html">Sứ Mệnh</a></li>
           </ul>
         </li>
-        <!-- Li dropdown, menu thả xuống. Tại sao dùng: Nhóm các liên kết liên quan, tránh menu quá dài. Lưu ý liên kết: Dropdown này giống ở các file, nếu thay đổi item bên trong cần cập nhật ở tất cả navbar. -->
         <li class="nav-item dropdown">
           <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown">Văn Hóa Trà</a>
           <ul class="dropdown-menu"> 
@@ -62,57 +93,60 @@
   </div>
 </nav>
 
-<!-- Section container, phần media. Tại sao dùng fade-in: Animation khi load. Lưu ý liên kết: Class section fade-in từ styles.css, nếu thay đổi ở CSS thì ảnh hưởng đến animation ở các section của file khác. -->
-<section class="container section fade-in"> 
-  <!-- H1 text-center, tiêu đề. Tại sao dùng mb-5: Khoảng cách dưới. Lưu ý liên kết: Style h1 từ styles.css, nếu thay đổi font hoặc color ở CSS thì ảnh hưởng đến tất cả h1 ở các file. -->
-  <h1 class="text-center mb-5">Góc Nhìn Trà Việt</h1> 
-  
-  <!-- Row mt-4, lưới hình ảnh. Tại sao dùng: Hiển thị gallery responsive. Lưu ý liên kết: Row và col từ Bootstrap, nếu thay đổi cấu trúc grid cần kiểm tra ở các row khác trong file và các file như sanphamnoibat.html. -->
-  <div class="row mt-4"> 
-    <div class="col-md-4 mb-4">
-      <img src="https://loctancuong.vn/wp-content/uploads/2021/08/doi-che-tan-cuong-32.jpg" class="img-fluid img-custom w-100" alt="Hái trà"> 
-    </div>
-    <div class="col-md-4 mb-4">
-      <img src="images/buptraxanh.jpg" class="img-fluid img-custom w-100" alt="Búp trà xanh"> 
-    </div>
-    <div class="col-md-4 mb-4">
-      <img src="images/thuongtrahuyengui.jpg" class="img-fluid img-custom w-100" alt="Thưởng trà"> 
-    </div> 
-    <div class="col-md-6 mb-4">
-       <img src="images/chebientra.jpg" class="img-fluid img-custom w-100" alt="Chế biến trà"> 
-    </div>
-    <div class="col-md-6 mb-4">
-       <img src="images/anhamtradattrangmedia.jpg" class="img-fluid img-custom w-100" alt="Ấm trà đất nung"> 
-    </div>
-  </div>
-  
-  <!-- Div text-center, phần video. Tại sao dùng mt-5: Khoảng cách trên. Lưu ý liên kết: Style text-center từ Bootstrap, nếu thay đổi cần kiểm tra ở các phần text-center khác (ví dụ: footer ở tất cả file). -->
-  <div class="text-center mt-5"> 
-    <h3>Video Nổi Bật</h3>
-    <!-- Div ratio, giữ tỷ lệ video. Tại sao dùng: Tránh video bị méo trên các thiết bị. Lưu ý liên kết: Class ratio từ Bootstrap, nếu thay đổi cần kiểm tra ở các iframe khác (ví dụ: dulichvatrainghiem.html). -->
-    <div class="ratio ratio-16x9 mx-auto img-custom" style="max-width: 900px;">
-      <iframe src="https://www.youtube.com/embed/ZB2JGQK4dWg" allowfullscreen></iframe> 
-    </div>
-  </div> 
-</section>
+<div class="container">
+    <section class="section-content fade-in"> 
+      <h1 class="text-center mb-5">Góc Nhìn Trà Việt</h1> 
+      
+      <div class="row mt-4"> 
+        
+        <div class="col-md-4 mb-5">
+          <img src="https://loctancuong.vn/wp-content/uploads/2021/08/doi-che-tan-cuong-32.jpg" class="img-custom" alt="Đồi chè"> 
+          <p class="img-caption">Đồi chè xanh ngát buổi sớm mai</p>
+        </div>
 
-<!-- Footer, phần chân trang. Tại sao dùng text-center: Căn giữa nội dung, tạo sự chuyên nghiệp. Lưu ý liên kết: Footer giống ở các file, nếu thay đổi nội dung (ví dụ: năm copyright), cần cập nhật ở tất cả footer để nhất quán. -->
-<footer class="text-center">
+        <div class="col-md-4 mb-5">
+          <img src="images/buptraxanh.jpg" class="img-custom" alt="Búp trà"> 
+          <p class="img-caption">Những búp chè non "một tôm hai lá"</p>
+        </div>
+
+        <div class="col-md-4 mb-5">
+          <img src="images/thuongtrahuyengui.jpg" class="img-custom" alt="Thưởng trà"> 
+          <p class="img-caption">Nét đẹp văn hóa thưởng trà</p>
+        </div> 
+
+        <div class="col-md-4 mb-5">
+           <img src="images/chebientra.jpg" class="img-custom" alt="Chế biến trà"> 
+           <p class="img-caption">Nghệ nhân đang sao chè thủ công</p>
+        </div>
+
+        <div class="col-md-4 mb-5">
+           <img src="images/anhamtradattrangmedia.jpg" class="img-custom" alt="Ấm trà"> 
+           <p class="img-caption">Bộ ấm chén đất nung mộc mạc</p>
+        </div>
+
+        <div class="col-md-4 mb-5">
+           <img src="images/sanphamtra.jpg" class="img-custom" alt="Sản phẩm trà"> 
+           <p class="img-caption">Thành phẩm trà khô thơm ngát</p>
+        </div>
+
+      </div>
+      
+      <div class="text-center mt-4"> 
+        <h3 class="mb-4">Video Nổi Bật</h3>
+        <div class="ratio ratio-16x9 mx-auto img-custom" style="max-width: 900px;">
+          <iframe src="https://www.youtube.com/embed/ZB2JGQK4dWg" allowfullscreen></iframe> 
+        </div>
+      </div> 
+    </section>
+</div>
+
+<footer class="text-center py-4" style="background-color: #2e7d32; color: white;">
   <div class="container">
-    <p class="mb-0">&copy; 2025 Không Gian Văn Hóa Trà Đại Từ.</p> 
+    <p class="mb-0">© 2025 Không Gian Văn Hóa Trà Đại Từ.</p> 
   </div>
 </footer>
 
-<!-- Script Bootstrap JS. Tại sao dùng: Để kích hoạt các tính năng như dropdown, carousel, responsive. Lưu ý liên kết: Nếu thay đổi phiên bản Bootstrap JS, cần cập nhật ở tất cả file và kiểm tra chức năng như dropdown ở navbar. -->
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
-<!-- Script JS tùy chỉnh. Tại sao dùng: Thêm chức năng động như animation, event listener. Lưu ý liên kết: File script.js dùng chung, nếu thay đổi hàm trong JS (ví dụ: fade-in), cần kiểm tra class fade-in ở các file HTML. -->
 <script src="js/script.js"></script>
 </body>
 </html>
-
-
-
-
-
-
-
