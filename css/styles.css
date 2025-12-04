@@ -1,38 +1,280 @@
+/* ==========================================================================
+   1. IMPORT PHÔNG CHỮ & CÀI ĐẶT CHUNG
+   ========================================================================== */
+/* Nhúng phông: Dancing Script (Tiêu đề bay bướm) & Patrick Hand (Nội dung viết tay) */
+@import url('https://fonts.googleapis.com/css2?family=Dancing+Script:wght@500;700&family=Patrick+Hand&display=swap');
+
 :root {
-    /* Khai báo biến phông chữ */
-    --font-tieu-de: 'Playfair Display', serif; /* Dùng cho tiêu đề */
-    --font-noi-dung: 'Merriweather', serif;    /* Dùng cho đoạn văn */
+    /* --- Bảng màu Trà Đại Từ (Mộc mạc & Tự nhiên) --- */
+    --color-primary: #2E7D32;       /* Xanh lá già (Màu chính) */
+    --color-secondary: #81C784;     /* Xanh lá non (Màu phụ) */
+    --color-accent: #D84315;        /* Cam đất nung (Điểm nhấn ấm áp) */
+    --color-text: #4a4a4a;          /* Xám chì (Giống màu mực bút chì/bút bi) */
+    --color-bg: #fffdf5;            /* Màu kem ngà (Giống giấy dó/giấy cũ) */
+    --color-white: #ffffff;
+    --shadow-soft: 0 4px 15px rgba(0,0,0,0.05);
+
+    /* --- Phông chữ --- */
+    --font-heading: 'Dancing Script', cursive; 
+    --font-body: 'Patrick Hand', cursive;      
 }
 
+/* Cấu trúc nền tảng */
 body {
-    font-family: var(--font-noi-dung);
-    font-size: 1.1rem;      /* Tăng cỡ chữ một chút cho dễ đọc */
-    line-height: 1.8;       /* Kéo dãn dòng để tạo không gian "thở" cho câu chuyện */
-    color: #2c3e50;         /* Màu chữ xám đen, đỡ mỏi mắt hơn đen tuyền */
+    font-family: var(--font-body);
+    background-color: var(--color-bg);
+    color: var(--color-text);
+    font-size: 1.3rem;      /* Tăng cỡ chữ vì phông viết tay thường nhỏ hơn phông in */
+    line-height: 1.6;       /* Khoảng cách dòng vừa phải để dễ đọc */
+    margin: 0;
+    padding: 0;
+    overflow-x: hidden;     /* Tránh thanh cuộn ngang không mong muốn */
 }
 
-/* Áp dụng phông báo chí cho tất cả các thẻ tiêu đề */
-h1, h2, h3, h4, h5, h6, .navbar-brand {
-    font-family: var(--font-tieu-de);
-    font-weight: 700;       /* Đậm đà, nổi bật */
-    letter-spacing: -0.5px; /* Thu hẹp khoảng cách chữ một chút cho chặt chẽ */
+/* ==========================================================================
+   2. TYPOGRAPHY (KIỂU CHỮ & TIÊU ĐỀ)
+   ========================================================================== */
+h1, h2, h3, h4, h5, h6 {
+    font-family: var(--font-heading);
+    color: var(--color-primary);
+    font-weight: 700;
     margin-bottom: 1rem;
+    line-height: 1.2;
 }
 
-/* Dropcap - Chữ cái đầu tiên viết hoa to (Phong cách tạp chí) */
-/* Nếu bạn muốn đoạn đầu tiên của bài viết có chữ cái đầu to như báo */
-.story-content p:first-of-type::first-letter {
-    font-family: var(--font-tieu-de);
-    font-size: 3.5rem;
+h1 { font-size: 4rem; }        /* Tiêu đề chính cực lớn */
+h2 { font-size: 2.8rem; }      /* Tiêu đề mục */
+h3 { font-size: 2rem; }
+
+/* Đường gạch chân nghệ thuật dưới tiêu đề H2 */
+h2::after {
+    content: '';
+    display: block;
+    width: 60px;
+    height: 3px;
+    background-color: var(--color-accent);
+    margin-top: 5px;
+    border-radius: 50%; /* Bo tròn đầu gạch */
+}
+
+a {
+    text-decoration: none;
+    color: var(--color-primary);
+    transition: all 0.3s ease;
+}
+
+a:hover {
+    color: var(--color-accent);
+}
+
+/* ==========================================================================
+   3. THANH ĐIỀU HƯỚNG (NAVBAR) - ĐẦY ĐỦ
+   ========================================================================== */
+.navbar {
+    background-color: var(--color-bg) !important; /* Màu nền trùng màu web */
+    padding: 0.8rem 1rem;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.05); /* Bóng mờ nhẹ */
+    position: sticky; /* Dính menu lên đầu khi cuộn */
+    top: 0;
+    z-index: 1000;
+}
+
+/* Logo thương hiệu */
+.navbar-brand {
+    font-family: var(--font-heading);
+    font-size: 2.2rem;
+    font-weight: 700;
+    color: var(--color-primary) !important;
+}
+
+/* Các mục menu */
+.nav-link {
+    font-family: var(--font-body);
+    font-size: 1.3rem; /* Chữ menu to rõ */
+    color: var(--color-text) !important;
+    margin: 0 10px;
+    position: relative;
+}
+
+/* Hiệu ứng gạch chân như vẽ tay khi di chuột */
+.nav-link::before {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 0%;
+    height: 2px;
+    background-color: var(--color-accent);
+    transition: width 0.3s ease-in-out;
+    border-radius: 2px;
+}
+
+.nav-link:hover::before, .nav-link.active::before {
+    width: 100%;
+}
+
+.nav-link:hover, .nav-link.active {
+    color: var(--color-primary) !important;
+}
+
+/* Nút menu trên điện thoại (Hamburger) */
+.navbar-toggler {
+    border: none;
+    outline: none;
+}
+
+.navbar-toggler:focus {
+    box-shadow: none;
+}
+
+/* Đổi màu biểu tượng menu 3 gạch sang màu xanh */
+.navbar-toggler-icon {
+    background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 30 30'%3e%3cpath stroke='rgba(46, 125, 50, 1)' stroke-linecap='round' stroke-miterlimit='10' stroke-width='2' d='M4 7h22M4 15h22M4 23h22'/%3e%3c/svg%3e") !important;
+}
+
+/* ==========================================================================
+   4. PHẦN MỞ ĐẦU (HERO SECTION)
+   ========================================================================== */
+.hero-section {
+    background-size: cover;
+    background-position: center;
+    padding: 120px 0;
+    position: relative;
+    color: var(--color-white);
+    text-align: center;
+}
+
+.hero-overlay {
+    background: rgba(0, 0, 0, 0.4); /* Lớp phủ đen mờ */
+    position: absolute;
+    top: 0; left: 0; right: 0; bottom: 0;
+}
+
+.hero-content {
+    position: relative; /* Để nổi lên trên lớp phủ */
+    z-index: 1;
+}
+
+.hero-title {
+    font-size: 5rem;
+    text-shadow: 2px 2px 4px rgba(0,0,0,0.5);
+    margin-bottom: 20px;
+}
+
+.hero-subtitle {
+    font-size: 1.8rem;
+    font-family: var(--font-body);
+    margin-bottom: 30px;
+}
+
+/* ==========================================================================
+   5. CÁC THÀNH PHẦN KỂ CHUYỆN (STORYTELLING ELEMENTS)
+   ========================================================================== */
+/* Chữ cái đầu to (Drop cap) */
+.drop-cap::first-letter {
+    font-family: var(--font-heading);
+    font-size: 4rem;
     float: left;
     line-height: 0.8;
-    margin-right: 10px;
-    color: #2E7D32; /* Màu xanh lá cây của trà */
-    font-weight: bold;
+    margin-right: 15px;
+    color: var(--color-primary);
 }
 
-/* Canh lề văn bản */
-p {
-    margin-bottom: 1.5rem;
-    text-align: justify; /* Canh đều 2 bên như báo in (tùy chọn) */
+/* Trích dẫn (Blockquote) - Như tờ giấy ghi chú */
+blockquote {
+    font-family: var(--font-heading);
+    font-size: 1.8rem;
+    color: var(--color-text);
+    text-align: center;
+    padding: 30px;
+    margin: 40px 0;
+    background-color: #fff;
+    border: 1px dashed var(--color-secondary); /* Viền nét đứt như đường may */
+    border-radius: 10px;
+    box-shadow: var(--shadow-soft);
+}
+
+/* Ảnh minh họa - Có khung viền trắng như ảnh polaroid/ảnh rửa */
+.story-image {
+    background: #fff;
+    padding: 10px;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.15);
+    transform: rotate(-2deg); /* Nghiêng nhẹ một chút cho tự nhiên */
+    transition: transform 0.3s;
+    max-width: 100%;
+    height: auto;
+}
+
+.story-image:hover {
+    transform: rotate(0deg) scale(1.02); /* Thẳng lại khi di chuột */
+}
+
+/* ==========================================================================
+   6. NÚT BẤM & THẺ SẢN PHẨM (COMPONENTS)
+   ========================================================================== */
+/* Nút bấm thủ công */
+.btn-primary {
+    font-family: var(--font-body);
+    font-weight: 700;
+    background-color: var(--color-primary);
+    border: none;
+    padding: 12px 30px;
+    border-radius: 255px 15px 225px 15px / 15px 225px 15px 255px; /* Bo góc méo mó tự nhiên */
+    font-size: 1.4rem;
+    box-shadow: 2px 3px 0px rgba(0,0,0,0.2); /* Bóng cứng */
+    transition: transform 0.2s;
+}
+
+.btn-primary:hover {
+    background-color: #1b5e20;
+    transform: translateY(-2px); /* Nhảy lên nhẹ */
+}
+
+/* Thẻ sản phẩm / Tin tức */
+.card {
+    border: none;
+    background-color: #fff;
+    border-radius: 15px;
+    box-shadow: var(--shadow-soft);
+    overflow: hidden;
+    margin-bottom: 30px;
+    border: 1px solid rgba(0,0,0,0.05);
+}
+
+.card-img-top {
+    height: 250px;
+    object-fit: cover;
+}
+
+.card-body {
+    padding: 20px;
+}
+
+.card-title {
+    font-size: 1.8rem;
+    color: var(--color-primary);
+}
+
+/* ==========================================================================
+   7. CHÂN TRANG (FOOTER)
+   ========================================================================== */
+footer {
+    background-color: #3e2723; /* Màu nâu đất đậm */
+    color: #d7ccc8; /* Màu nâu nhạt */
+    padding: 50px 0;
+    font-size: 1.2rem;
+}
+
+footer h5 {
+    color: #fff;
+    font-size: 1.8rem;
+    margin-bottom: 20px;
+}
+
+footer a {
+    color: #d7ccc8;
+}
+
+footer a:hover {
+    color: var(--color-secondary);
 }
