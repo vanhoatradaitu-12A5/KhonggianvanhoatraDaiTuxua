@@ -27,14 +27,12 @@
     h1, h2, h3, .h4 {
         color: #1b5e20 !important;
     }
-    /* Hiệu ứng hover cho các khung thông tin */
-    .hover-shadow:hover {
-        transform: translateY(-5px);
-        box-shadow: 0 10px 20px rgba(0,0,0,0.1) !important;
-        transition: all 0.3s ease;
-    }
-    .transition { transition: all 0.3s ease; }
     
+    /* Căn đều văn bản cho đẹp */
+    .text-justify {
+        text-align: justify;
+    }
+
     /* Style ảnh */
     .img-custom {
         border-radius: 10px;
@@ -93,7 +91,7 @@
     
     <h1 class="text-center mb-5">Tinh Hoa Trà Việt</h1>
    
-    <div class="row mb-5">
+    <div class="row mb-5 align-items-center">
        <div class="col-md-6 mb-4">
          <img src="images/lichsuhinhthanh2.jpg" class="img-fluid img-custom w-100" alt="Văn hóa trà">
        </div>
@@ -113,62 +111,35 @@
     <hr class="my-5" style="color: #2e7d32;"> 
     
     <div class="mb-5">
-      <div class="text-center mb-5">
-        <h2 class="mb-3">Từ Điều Kiện Thuận Lợi Tới Thủ Phủ Trà Việt</h2>
-        <p class="lead text-muted mx-auto fst-italic" style="max-width: 800px;">
-          "Sự hội tụ của các điều kiện tự nhiên ưu đãi, truyền thống canh tác lâu đời, cùng những đôi bàn tay khéo léo của người nghệ nhân."
-        </p>
-      </div>
+        <h2 class="mb-5 text-center">Từ điều kiện thuận lợi tới thủ phủ trà Việt</h2>
+        
+        <div class="row align-items-start"> <div class="col-lg-6 pe-lg-5"> <p class="text-justify lead fw-bold mb-4">
+                    Không phải ngẫu nhiên mà Thái Nguyên được mệnh danh là “thủ phủ chè” của cả nước. Đó là sự hội tụ của các điều kiện tự nhiên ưu đãi, truyền thống canh tác lâu đời, cùng những đôi bàn tay khéo léo của người nghệ nhân.
+                </p>
 
-      <div class="row align-items-center mb-5">
-        <div class="col-lg-6 order-lg-2 mb-4 mb-lg-0">
-          <img src="images/suongsom.jpg" class="img-fluid img-custom w-100" alt="Đồi chè Thái Nguyên">
-        </div>
-        <div class="col-lg-6 order-lg-1">
-          <h3 class="text-success mb-3" style="color: #2e7d32 !important;"><i class="fas fa-mountain me-2"></i>Thổ Nhưỡng & Khí Hậu</h3>
-          <p>Để cây chè sinh trưởng tốt, năng suất cao, đất trồng chè phải đạt những yêu cầu khắt khe:</p>
-          
-          <div class="card bg-light border-0 p-3 mb-3 shadow-sm">
-            <ul class="list-unstyled mb-0">
-              <li class="mb-2"><i class="fas fa-check-circle text-success me-2"></i><strong>Độ pH:</strong> 4.5 - 6.0</li>
-              <li class="mb-2"><i class="fas fa-check-circle text-success me-2"></i><strong>Độ sâu tầng đất:</strong> > 80 cm</li>
-              <li class="mb-2"><i class="fas fa-check-circle text-success me-2"></i><strong>Mực nước ngầm:</strong> Dưới 1 mét</li>
-              <li><i class="fas fa-check-circle text-success me-2"></i><strong>Đất:</strong> Feralit đỏ vàng, tơi xốp</li>
-            </ul>
-          </div>
-          <p>Khí hậu cận nhiệt đới ẩm, có sương mù, lượng mưa 1.500–2.000mm/năm tạo điều kiện hoàn hảo.</p>
-        </div>
-      </div>
+                <h3 class="mb-3">Thổ nhưỡng – khí hậu lý tưởng</h3>
+                <p class="text-justify">
+                    So với một số cây trồng khác, cây chè yêu cầu về đất không quá khó tính. Song để cây chè sinh trưởng tốt, năng suất cao và ổn định thì đất trồng chè phải đạt những yêu cầu: Đất tốt, nhiều mùn, độ sâu, độ pH và khả năng thoát nước. Độ pH thích hợp cho chè phát triển là 4,5 - 6,0. Đất trồng phải có độ sâu ít nhất là 80 cm, mực nước ngầm phải dưới 1 mét thì hệ rễ mới phát triển bình thường.
+                </p>
+                <p class="text-justify">
+                    Đất trung du Thái Nguyên là đất feralit đỏ vàng, tơi xốp, nhiều mùn, thoát nước tốt – rất thích hợp với rễ cây chè. Khí hậu cận nhiệt đới ẩm, có sương mù sáng sớm, nhiệt độ ôn hòa và lượng mưa trung bình 1.500–2.000mm/năm – tạo điều kiện hoàn hảo để chè phát triển hương vị tinh tế.
+                </p>
 
-      <div class="row g-4">
-        <div class="col-md-6">
-          <div class="h-100 p-4 border rounded hover-shadow transition bg-white">
-            <div class="text-center mb-3">
-              <span class="d-inline-block p-3 rounded-circle bg-success bg-opacity-10 text-success">
-                <i class="fas fa-seedling fa-2x"></i>
-              </span>
+                <h3 class="mt-4 mb-3">Truyền thống canh tác lâu đời</h3>
+                <p class="text-justify">
+                    Với đôi bàn tay chăm chỉ, cần mẫn, người dân Đại Từ đã tạo nên bao đồi chè xanh mướt, trở thành một trong những vùng trồng chè lớn và có lịch sử lâu đời ở tỉnh Thái Nguyên. Truyền thống đó cứ tiếp nối, tiếp nối, làm nên sự đa dạng và phong phú trong từng tách trà với những giống chè quý như chè Ta, chè Lai, chè Long Vân…. có giá trị cực kì to lớn.
+                </p>
+
+                <h3 class="mt-4 mb-3">Kĩ thuật sao chè truyền thống</h3>
+                <p class="text-justify">
+                    Người Thái Nguyên có kỹ thuật sao trà bằng tay độc đáo: dùng chảo gang, canh lửa thủ công, cảm nhận độ chín bằng tay trần, ủ trà bằng bao tải bông… Những công đoạn đòi hỏi sự tinh tế đã giúp tạo nên hương cốm non đặc trưng của chè Thái Nguyên – thứ hương không nơi nào khác có thể lẫn lộn.
+                </p>
             </div>
-            <h3 class="h4 text-center mb-3">Truyền Thống Canh Tác</h3>
-            <p class="text-justify">
-              Người dân Đại Từ cần mẫn tạo nên những đồi chè xanh mướt. Truyền thống tiếp nối với những giống chè quý như: <strong>chè Ta, chè Lai, chè Long Vân…</strong>
-            </p>
-          </div>
-        </div>
 
-        <div class="col-md-6">
-          <div class="h-100 p-4 border rounded hover-shadow transition bg-white">
-            <div class="text-center mb-3">
-              <span class="d-inline-block p-3 rounded-circle bg-warning bg-opacity-10 text-warning">
-                <i class="fas fa-fire fa-2x"></i>
-              </span>
+            <div class="col-lg-6 mt-4 mt-lg-0">
+                <img src="images/suongsom.jpg" class="img-fluid img-custom w-100" style="min-height: 600px; object-fit: cover;" alt="Đồi chè Thái Nguyên">
             </div>
-            <h3 class="h4 text-center mb-3">Kỹ Thuật Sao Thủ Công</h3>
-            <p class="text-justify">
-              Kỹ thuật sao chảo gang, canh lửa thủ công, cảm nhận độ chín bằng tay trần tạo nên <strong>hương cốm non đặc trưng</strong> quyến rũ.
-            </p>
-          </div>
         </div>
-      </div>
     </div>
     
     <hr class="my-5" style="color: #2e7d32;">
@@ -217,5 +188,3 @@
 <script src="js/script.js"></script>
 </body>
 </html>
-
-
