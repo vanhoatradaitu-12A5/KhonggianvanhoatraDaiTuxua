@@ -1,232 +1,38 @@
-/* :root, định nghĩa biến CSS. Tại sao dùng: Để tái sử dụng màu sắc, font dễ dàng, dễ thay đổi toàn bộ theme mà không cần edit nhiều chỗ. Lưu ý liên kết: Biến như --primary-color được dùng ở tất cả HTML qua class, nếu thay đổi giá trị cần kiểm tra hiển thị ở tất cả page (ví dụ: color ở h1, h2). */
 :root {
-  --primary-color: #2d4a22; /* Màu chính, xanh đậm cho chủ đề trà. Tại sao dùng: Tạo sự nhất quán, dễ bảo trì. Lưu ý liên kết: Nếu thay đổi, ảnh hưởng đến navbar background ở tất cả HTML. */
-  --secondary-color: #5c7c3e;
-  --accent-color: #d4a373;
-  --bg-light: #fdfbf7;
-  --text-dark: #2c3e50;
-  --font-heading: 'Playfair Display', serif; /* Font cho heading. Tại sao dùng: Làm tiêu đề nổi bật, thanh lịch. Lưu ý liên kết: Dùng ở h1, h2, h5 ở HTML, nếu thay font cần import mới ở @import. */
-  --font-body: 'Roboto', sans-serif; /* Font cho body. Tại sao dùng: Dễ đọc, hiện đại. Lưu ý liên kết: Áp dụng cho body ở tất cả page, nếu thay cần kiểm tra readability toàn site. */
+    /* Khai báo biến phông chữ */
+    --font-tieu-de: 'Playfair Display', serif; /* Dùng cho tiêu đề */
+    --font-noi-dung: 'Merriweather', serif;    /* Dùng cho đoạn văn */
 }
 
-/* Import font từ Google. Tại sao dùng: Đảm bảo font tải từ CDN, không cần host local, tiết kiệm bandwidth. Lưu ý liên kết: Import này dùng cho --font-heading và --font-body, nếu thay font cần cập nhật URL import và biến ở :root. */
-@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&family=Roboto:wght@300;400;500&display=swap');
-
-/* Body, style cơ bản cho toàn trang. Tại sao dùng line-height 1.7: Tăng khoảng cách dòng, dễ đọc hơn. Lưu ý liên kết: Áp dụng cho tất cả HTML, nếu thay font-family cần cập nhật biến --font-body ở :root. */
 body {
-  font-family: var(--font-body); /* Sử dụng biến font. Tại sao dùng: Dễ thay đổi toàn bộ font sau này. Lưu ý liên kết: Nếu thay, ảnh hưởng đến text ở tất cả element trừ override (ví dụ: h1 ở hero). */
-  background-color: var(--bg-light);
-  color: var(--text-dark);
-  line-height: 1.7;
+    font-family: var(--font-noi-dung);
+    font-size: 1.1rem;      /* Tăng cỡ chữ một chút cho dễ đọc */
+    line-height: 1.8;       /* Kéo dãn dòng để tạo không gian "thở" cho câu chuyện */
+    color: #2c3e50;         /* Màu chữ xám đen, đỡ mỏi mắt hơn đen tuyền */
 }
 
-/* Navbar, style cho nav. Tại sao dùng box-shadow: Tạo chiều sâu, làm nav nổi bật. Lưu ý liên kết: !important override Bootstrap, nếu thay color cần cập nhật --primary-color ở :root. */
-.navbar {
-  background-color: var(--primary-color) !important;
-  padding: 15px 0;
-  box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+/* Áp dụng phông báo chí cho tất cả các thẻ tiêu đề */
+h1, h2, h3, h4, h5, h6, .navbar-brand {
+    font-family: var(--font-tieu-de);
+    font-weight: 700;       /* Đậm đà, nổi bật */
+    letter-spacing: -0.5px; /* Thu hẹp khoảng cách chữ một chút cho chặt chẽ */
+    margin-bottom: 1rem;
 }
 
-/* Navbar-brand, style logo. Tại sao dùng font-weight bold: Làm logo nổi bật. Lưu ý liên kết: Font từ --font-heading, nếu thay cần cập nhật biến ở :root. */
-.navbar-brand {
-  font-family: var(--font-heading);
-  font-size: 1.8rem;
-  font-weight: bold;
-  color: #fff !important;
+/* Dropcap - Chữ cái đầu tiên viết hoa to (Phong cách tạp chí) */
+/* Nếu bạn muốn đoạn đầu tiên của bài viết có chữ cái đầu to như báo */
+.story-content p:first-of-type::first-letter {
+    font-family: var(--font-tieu-de);
+    font-size: 3.5rem;
+    float: left;
+    line-height: 0.8;
+    margin-right: 10px;
+    color: #2E7D32; /* Màu xanh lá cây của trà */
+    font-weight: bold;
 }
 
-/* Nav-link, style link menu. Tại sao dùng transition: Tạo hiệu ứng mượt khi hover, cải thiện UX. Lưu ý liên kết: Position relative cho ::after, nếu thay đổi cần kiểm tra hover effect. */
-.nav-link {
-  color: rgba(255,255,255,0.85) !important;
-  margin: 0 10px;
-  text-transform: uppercase;
-  font-size: 0.85rem;
-  letter-spacing: 1px;
-  transition: all 0.3s;
-  position: relative;
+/* Canh lề văn bản */
+p {
+    margin-bottom: 1.5rem;
+    text-align: justify; /* Canh đều 2 bên như báo in (tùy chọn) */
 }
-
-/* Hover và active cho nav-link. Tại sao dùng: Phản hồi visual khi tương tác. Lưu ý liên kết: Color từ --accent-color, nếu thay biến ở :root thì ảnh hưởng đến hover ở tất cả navbar. */
-.nav-link:hover, .nav-link.active {
-  color: var(--accent-color) !important;
-}
-
-/* Pseudo-element after cho nav-link. Tại sao dùng: Tạo underline động khi hover, tăng tính thẩm mỹ. Lưu ý liên kết: Background từ --accent-color, nếu thay cần cập nhật biến ở :root. */
-.nav-link::after {
-  content: '';
-  position: absolute;
-  bottom: -5px;
-  left: 50%;
-  width: 0;
-  height: 2px;
-  background: var(--accent-color);
-  transition: width 0.3s ease, left 0.3s ease;
-}
-
-.nav-link:hover::after, .nav-link.active::after {
-  width: 100%;
-  left: 0;
-}
-
-/* Hero, style banner. Tại sao dùng background-attachment fixed: Tạo parallax effect, hấp dẫn hơn. Lưu ý liên kết: Chỉ dùng ở index.html, nếu thay URL background cần kiểm tra hiển thị ở trang chủ. */
-/* PHẦN HERO (ẢNH BÌA LỚN) */
-.hero {
-  /* 1. linear-gradient: Tạo một lớp màn đen mờ (0.5) phủ lên ảnh để chữ màu trắng nổi bật hơn, không bị chìm vào nền. */
-  /* 2. url(...): Đường dẫn đến ảnh đồi chè chất lượng cao. */
-  background: linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4)), url('https://dltm-cdn.vnptit3.vn/resources/portal/Images/TNN/namdan.tnn/thang92022/ch%C3%A8cauda/untitled_637998625176000541.png');
-  
-  /* Đảm bảo ảnh luôn phủ kín khung hình bất kể màn hình to hay nhỏ */
-  background-size: cover; 
-  
-  /* Căn trọng tâm ảnh vào giữa */
-  background-position: center;
-  
-  /* Hiệu ứng Parallax: Ảnh đứng yên khi cuộn chuột (tạo cảm giác 3D chiều sâu) */
-  background-attachment: fixed;
-  
-  /* Chiều cao của khối này chiếm 85% chiều cao màn hình thiết bị */
-  height: 85vh; 
-  
-  /* Dùng Flexbox để căn giữa nội dung chữ bên trong */
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  
-  /* Màu chữ trắng */
-  color: white;
-  text-align: center;
-  
-  /* Đảm bảo khối này nằm dưới menu (nếu menu đè lên) */
-  position: relative;
-}
-
-/* H1 trong hero. Tại sao dùng text-shadow: Làm chữ rõ hơn trên nền tối. Lưu ý liên kết: Font từ --font-heading, nếu thay biến ở :root thì ảnh hưởng đến h1 ở các page khác. */
-.hero h1 {
-  font-family: var(--font-heading);
-  font-size: 4.5rem;
-  text-shadow: 2px 2px 10px rgba(0,0,0,0.5);
-  margin-bottom: 1rem;
-}
-
-/* Btn-custom, style nút. Tại sao dùng transition: Hiệu ứng hover mượt, box-shadow cho chiều sâu. Lưu ý liên kết: Background từ --accent-color, nếu thay biến ở :root thì ảnh hưởng đến btn ở index.html và sanphamnoibat.html. */
-.btn-custom {
-  background-color: var(--accent-color);
-  color: white;
-  padding: 12px 35px;
-  border-radius: 50px;
-  font-weight: 600;
-  border: none;
-  letter-spacing: 1px;
-  text-transform: uppercase;
-  transition: all 0.3s;
-}
-
-.btn-custom:hover {
-  background-color: #b58b5a;
-  transform: translateY(-3px);
-  box-shadow: 0 5px 15px rgba(212, 163, 115, 0.4);
-  color: white;
-}
-
-/* Section, padding cho phần. Tại sao dùng: Tạo khoảng trắng, giữ trang thoáng. Lưu ý liên kết: Áp dụng cho tất cả section ở các page, nếu thay padding cần kiểm tra layout toàn site. */
-.section {
-  padding: 100px 0;
-}
-
-/* H2, style tiêu đề. Tại sao dùng ::after: Thêm underline trang trí. Lưu ý liên kết: Background từ --accent-color, nếu thay biến ở :root thì ảnh hưởng đến h2 ở tất cả page. */
-h2 {
-  font-family: var(--font-heading);
-  color: var(--primary-color);
-  font-size: 2.5rem;
-  margin-bottom: 30px;
-  position: relative;
-  display: inline-block;
-}
-
-h2::after {
-  content: '';
-  display: block;
-  width: 60px;
-  height: 3px;
-  background: var(--accent-color);
-  margin-top: 10px;
-}
-
-/* Img-custom, style hình. Tại sao dùng transition: Hiệu ứng zoom khi hover. Lưu ý liên kết: Áp dụng cho tất cả img-custom ở các page, nếu thay transform ở hover cần kiểm tra UX toàn site. */
-.img-custom {
-  border-radius: 20px;
-  box-shadow: 0 15px 30px rgba(0,0,0,0.1);
-  transition: transform 0.3s;
-}
-
-.img-custom:hover {
-  transform: scale(1.02);
-}
-
-/* Card, style card sản phẩm. Tại sao dùng transition: Hiệu ứng lift khi hover. Lưu ý liên kết: Áp dụng cho card ở sanphamnoibat.html và lienhe.html, nếu thay shadow ở CSS thì ảnh hưởng đến tất cả card. -->
-.card {
-  border: none;
-  border-radius: 20px;
-  overflow: hidden;
-  background: white;
-  box-shadow: 0 10px 30px rgba(0,0,0,0.05);
-  transition: all 0.3s;
-  height: 100%;
-}
-
-.card:hover {
-  transform: translateY(-10px);
-  box-shadow: 0 20px 40px rgba(0,0,0,0.15);
-}
-
-/* Card-img-top, style hình card. Tại sao dùng object-fit cover: Giữ hình vuông, không méo. Lưu ý liên kết: Áp dụng cho card ở sanphamnoibat.html, nếu thay height cần kiểm tra layout card. */
-.card-img-top {
-  height: 260px;
-  object-fit: cover;
-}
-
-/* Card-title, style tiêu đề card. Tại sao dùng: Làm nổi bật với font heading. Lưu ý liên kết: Color từ --primary-color, nếu thay biến ở :root thì ảnh hưởng đến card-title ở sanphamnoibat.html. -->
-.card-title {
-  font-family: var(--font-heading);
-  color: var(--primary-color);
-  font-weight: bold;
-}
-
-/* Footer, style chân trang. Tại sao dùng padding: Tạo không gian cho nội dung. Lưu ý liên kết: Background từ --primary-color, nếu thay biến ở :root thì ảnh hưởng đến footer ở tất cả page. -->
-footer {
-  background-color: var(--primary-color);
-  color: #f0f0f0;
-  padding: 60px 0 20px;
-}
-
-/* Footer h5, style heading footer. Tại sao dùng: Làm nổi bật với accent color. Lưu ý liên kết: Font từ --font-heading, nếu thay biến ở :root thì ảnh hưởng đến h5 ở footer index.html. -->
-footer h5 {
-  color: var(--accent-color);
-  font-family: var(--font-heading);
-  margin-bottom: 25px;
-}
-
-/* Footer a, style link. Tại sao dùng transition: Hiệu ứng màu khi hover. Lưu ý liên kết: Color hover từ --accent-color, nếu thay biến ở :root thì ảnh hưởng đến link ở footer index.html. -->
-footer a {
-  color: #f0f0f0;
-  text-decoration: none;
-  transition: color 0.3s;
-}
-
-footer a:hover {
-  color: var(--accent-color);
-}
-
-/* Fade-in, class animation. Tại sao dùng: Tạo hiệu ứng hiện dần, cải thiện trải nghiệm load trang. Lưu ý liên kết: Transition liên kết với script.js (observer add 'visible'), nếu thay opacity hoặc transform cần cập nhật ở JS và HTML. -->
-.fade-in {
-  opacity: 0;
-  transform: translateY(30px);
-  transition: opacity 0.8s ease-out, transform 0.8s ease-out;
-}
-
-.fade-in.visible {
-  opacity: 1;
-  transform: translateY(0);
-}
-
-
