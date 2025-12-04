@@ -44,21 +44,33 @@
         font-size: 0.9rem;
         letter-spacing: 0.5px;
         transition: color 0.3s;
+        color: rgba(255,255,255,0.9) !important;
     }
 
     .nav-link:hover {
         color: #81c784 !important; /* Màu xanh lá non khi di chuột vào */
     }
+    
+    /* Dropdown menu */
+    .dropdown-menu {
+        border-radius: 0;
+        border: none;
+        box-shadow: 0 5px 10px rgba(0,0,0,0.15);
+    }
 
     /* 4. Tùy chỉnh phần Hero (Banner chính) */
     .hero {
-        /* Thêm ảnh nền giả lập để bạn thấy đẹp ngay (vì tôi không có file styles.css của bạn) */
+        /* Sử dụng ảnh từ thư mục images của bạn */
         background: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.4)), url('images/banner3.jpg');
         background-size: cover;
         background-position: center;
         color: white;
         padding: 120px 0;
         text-align: center;
+        /* Thêm chiều cao tối thiểu để đảm bảo banner luôn đẹp */
+        min-height: 85vh;
+        display: flex;
+        align-items: center;
     }
 
     .hero h1 {
@@ -91,6 +103,21 @@
         transform: scale(1.05);
         color: white;
     }
+    
+    /* Animation Fade In */
+    .fade-in {
+        animation: fadeIn 1.5s ease-in-out;
+    }
+    @keyframes fadeIn {
+        from { opacity: 0; transform: translateY(20px); }
+        to { opacity: 1; transform: translateY(0); }
+    }
+    
+    /* Chỉnh kích thước ảnh carousel */
+    .img-custom img {
+        height: 400px; /* Cố định chiều cao ảnh carousel */
+        object-fit: cover;
+    }
   </style>
 </head>
 <body>
@@ -104,7 +131,7 @@
     <div class="collapse navbar-collapse" id="navbarNav">
       <ul class="navbar-nav ms-auto"> 
         <li class="nav-item"><a class="nav-link" href="index.html">Trang Chủ</a></li>
-       
+        
         <li class="nav-item dropdown">
           <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown">Giới thiệu</a>
           <ul class="dropdown-menu"> 
@@ -148,14 +175,7 @@
       <p class="lead text-muted mb-4">Nơi hội tụ của đất, nước và bàn tay nghệ nhân.</p>
       <p>Trà Đại Từ không chỉ là một thức uống, đó là một di sản. Với lịch sử hàng trăm năm, những đồi chè bát ngát tại Cầu Đá, Hoàng Nông đã tạo nên hương vị "tiền chát, hậu ngọt" đặc trưng không nơi nào có được.</p>
       <div class="mt-4">
-          <div class="d-flex align-items-center mb-3">
-              <i class="fas fa-check-circle text-success fa-2x me-3"></i>
-              <span>Quy trình VietGAP chuẩn sạch</span>
-          </div>
-          <div class="d-flex align-items-center mb-3">
-              <i class="fas fa-check-circle text-success fa-2x me-3"></i>
-              <span>Hương vị cốm non tự nhiên</span>
-          </div>
+          
       </div>
     </div>
     <div class="col-md-6"> 
@@ -203,9 +223,5 @@
 </footer>
 
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
-<script src="js/script.js"></script>
 </body>
 </html>
-
-
-
