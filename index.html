@@ -10,25 +10,25 @@
   
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600&family=Playfair+Display:ital,wght@0,700;1,400;1,700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@500;700&family=Montserrat:wght@300;400;500;600&family=Playfair+Display:ital,wght@0,700;1,400;1,700&display=swap" rel="stylesheet">
 
   <link href="css/styles.css" rel="stylesheet"> 
 
   <style>
-    /* 1. Thiết lập phông chữ chung cho toàn trang */
+    /* 1. Thiết lập phông chữ chung */
     body {
-        font-family: 'Montserrat', sans-serif; /* Phông hiện đại, sạch sẽ cho nội dung thường */
+        font-family: 'Montserrat', sans-serif;
         color: #333;
     }
 
-    /* 2. Thiết lập phông chữ cho các tiêu đề (h1, h2, h3...) và Logo */
-    h1, h2, h3, h4, h5, .navbar-brand {
-        font-family: 'Playfair Display', serif; /* Phông có chân, sang trọng, mang nét văn hóa */
+    /* 2. Thiết lập tiêu đề chung */
+    h2, h3, h4, h5, .navbar-brand {
+        font-family: 'Playfair Display', serif;
     }
 
-    /* 3. Tùy chỉnh Navbar (Menu) cho đẹp */
+    /* 3. Navbar */
     .navbar {
-        background-color: #1a422a !important; /* Màu xanh trà đậm */
+        background-color: #1a422a !important; 
         box-shadow: 0 4px 12px rgba(0,0,0,0.15);
     }
     
@@ -40,7 +40,7 @@
 
     .nav-link {
         font-weight: 500;
-        text-transform: uppercase; /* Chữ in hoa cho menu gọn gàng */
+        text-transform: uppercase;
         font-size: 0.9rem;
         letter-spacing: 0.5px;
         transition: color 0.3s;
@@ -48,77 +48,87 @@
     }
 
     .nav-link:hover {
-        color: #81c784 !important; /* Màu xanh lá non khi di chuột vào */
+        color: #81c784 !important;
     }
     
-    /* Dropdown menu */
     .dropdown-menu {
         border-radius: 0;
         border: none;
         box-shadow: 0 5px 10px rgba(0,0,0,0.15);
     }
 
-    /* 4. Tùy chỉnh phần Hero (Banner chính) */
+    /* --- [PHẦN CHỈNH SỬA BANNER CHO HỢP ẢNH] --- */
     .hero {
-        /* Sử dụng ảnh từ thư mục images của bạn */
-        background: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.4)), url('images/banner3.jpg');
+        /* Lớp phủ Gradient đen mờ từ trên xuống dưới giúp chữ nổi bật hơn */
+        background: linear-gradient(to bottom, rgba(0,0,0,0.3), rgba(0,0,0,0.6)), url('images/banner3.jpg');
         background-size: cover;
-        background-position: center;
+        background-position: center center; /* Căn giữa ảnh */
+        background-attachment: fixed; /* Tạo hiệu ứng Parallax (ảnh đứng yên khi cuộn) rất đẹp */
         color: white;
-        padding: 120px 0;
+        padding: 0;
         text-align: center;
-        /* Thêm chiều cao tối thiểu để đảm bảo banner luôn đẹp */
-        min-height: 85vh;
+        /* Đổi thành 100vh để banner chiếm trọn màn hình máy tính */
+        min-height: 100vh; 
         display: flex;
         align-items: center;
+        justify-content: center;
+        position: relative;
     }
 
     .hero h1 {
-        font-size: 3.5rem;
+        /* Đổi sang phông chữ viết tay nghệ thuật */
+        font-family: 'Dancing Script', cursive; 
+        font-size: 5rem; /* Tăng kích thước chữ lớn hơn */
         font-weight: 700;
-        font-style: italic; /* Chữ nghiêng nghệ thuật */
         margin-bottom: 20px;
-        text-shadow: 2px 2px 4px rgba(0,0,0,0.5);
-        /* [ĐÃ SỬA] Thêm dòng này để chữ chuyển thành màu trắng */
+        /* Thêm bóng chữ đậm để không bị chìm vào nền ảnh */
+        text-shadow: 3px 3px 6px rgba(0,0,0,0.8);
         color: #ffffff !important; 
+        line-height: 1.2;
     }
 
     .hero p {
-        font-weight: 300;
-        font-size: 1.2rem;
-        letter-spacing: 1px;
-        color: #ffffff !important; /* Đảm bảo đoạn văn phụ cũng màu trắng */
+        font-family: 'Montserrat', sans-serif;
+        font-weight: 400;
+        font-size: 1.4rem;
+        letter-spacing: 2px;
+        color: #f0f0f0 !important;
+        text-shadow: 2px 2px 4px rgba(0,0,0,0.8); /* Bóng chữ cho đoạn văn */
+        margin-bottom: 40px;
     }
 
-    /* Nút bấm đẹp hơn */
+    /* Nút bấm nổi bật trên nền ảnh */
     .btn-custom {
         background-color: #4caf50;
         color: white;
         border-radius: 50px;
-        padding: 10px 30px;
+        padding: 12px 40px;
         font-family: 'Montserrat', sans-serif;
         font-weight: 600;
-        border: none;
-        transition: transform 0.2s;
+        font-size: 1.1rem;
+        border: 2px solid #4caf50; /* Thêm viền */
+        transition: all 0.3s ease;
+        box-shadow: 0 4px 15px rgba(0,0,0,0.3); /* Bóng nút */
     }
+
     .btn-custom:hover {
-        background-color: #388e3c;
-        transform: scale(1.05);
-        color: white;
+        background-color: transparent; /* Khi di chuột thì nền trong suốt */
+        border-color: #ffffff; /* Viền chuyển màu trắng */
+        color: #ffffff;
+        transform: translateY(-3px); /* Nút bay lên nhẹ */
     }
     
     /* Animation Fade In */
     .fade-in {
-        animation: fadeIn 1.5s ease-in-out;
+        animation: fadeIn 2s ease-out;
     }
     @keyframes fadeIn {
-        from { opacity: 0; transform: translateY(20px); }
+        from { opacity: 0; transform: translateY(30px); }
         to { opacity: 1; transform: translateY(0); }
     }
     
-    /* Chỉnh kích thước ảnh carousel */
     .img-custom img {
-        height: 400px; /* Cố định chiều cao ảnh carousel */
+        height: 400px;
         object-fit: cover;
     }
   </style>
@@ -134,7 +144,6 @@
     <div class="collapse navbar-collapse" id="navbarNav">
       <ul class="navbar-nav ms-auto"> 
         <li class="nav-item"><a class="nav-link" href="index.html">Trang Chủ</a></li>
-        
         <li class="nav-item dropdown">
           <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown">Giới thiệu</a>
           <ul class="dropdown-menu"> 
@@ -165,9 +174,9 @@
 
 <div class="hero">
   <div class="container fade-in">
-    <h1>Không Gian Văn Hóa Trà Đại Từ </h1> 
-    <p class="lead mb-4 fs-4">Hương vị trăm năm từ vùng đất Thái Nguyên huyền thoại</p> 
-    <a href="sanphamnoibat.html" class="btn btn-custom btn-lg">Khám Phá Ngay</a> 
+    <h1>Không Gian Văn Hóa Trà Đại Từ</h1> 
+    <p class="lead">Hương vị trăm năm từ vùng đất Thái Nguyên huyền thoại</p> 
+    <a href="sanphamnoibat.html" class="btn btn-custom">Khám Phá Ngay</a> 
   </div>
 </div>
 
@@ -177,9 +186,7 @@
       <h2>Chào mừng đến với không gian văn hóa trà Đại Từ xưa </h2>
       <p class="lead text-muted mb-4">Nơi hội tụ của đất, nước và bàn tay nghệ nhân.</p>
       <p>Trà Đại Từ không chỉ là một thức uống, đó là một di sản. Với lịch sử hàng trăm năm, những đồi chè bát ngát tại Cầu Đá, Hoàng Nông, hay những miền xanh vô tận ở Tân Linh, La Bằng đã tạo nên hương vị "tiền chát, hậu ngọt" đặc trưng không nơi nào có được. Theo dõi để cảm nhận sự tươi đẹp của nơi đây!</p>
-      <div class="mt-4">
-           
-      </div>
+      <div class="mt-4"></div>
     </div>
     <div class="col-md-6"> 
       <div id="carouselHome" class="carousel slide img-custom overflow-hidden rounded shadow" data-bs-ride="carousel">
@@ -228,4 +235,5 @@
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
 </body>
 </html>
+
 
