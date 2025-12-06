@@ -7,14 +7,19 @@
   
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+  
+  <link href="https://fonts.googleapis.com/css2?family=Patrick+Hand&family=Merriweather:ital,wght@0,300;0,400;0,700;1,400&display=swap" rel="stylesheet">
+  
   <link href="css/styles.css" rel="stylesheet">
   
   <style>
     /* Nền trang màu xanh cốm nhạt */
     body {
-        background-color: #f1f8e9; 
+        background-color: #f1f8e9;
+        font-family: 'Merriweather', serif; /* Font chữ có chân giống sách báo */
     }
-    /* Khung nội dung màu trắng, nổi bật */
+    
+    /* Khung nội dung */
     .section-content {
         background-color: #ffffff;
         padding: 40px;
@@ -23,21 +28,60 @@
         margin-top: 30px;
         margin-bottom: 30px;
     }
+    
     /* Màu chữ tiêu đề xanh đậm */
     h1, h2, h3, .h4 {
         color: #1b5e20 !important;
+        font-family: system-ui, -apple-system, sans-serif; /* Tiêu đề lớn giữ font hiện đại cho dễ đọc */
     }
     
-    /* Căn đều văn bản cho đẹp */
     .text-justify {
         text-align: justify;
     }
 
-    /* Style ảnh */
     .img-custom {
         border-radius: 10px;
         box-shadow: 0 4px 8px rgba(0,0,0,0.1);
     }
+
+    /* --- STYLE RIÊNG CHO PHẦN QUY TRÌNH "THỦ CÔNG" --- */
+    .handmade-font {
+        font-family: 'Patrick Hand', cursive; /* Font viết tay */
+    }
+
+    .step-timeline {
+        position: relative;
+        padding-left: 20px;
+        border-left: 2px dashed #81c784; /* Đường kẻ đứt nét bên trái */
+    }
+
+    .step-item {
+        position: relative;
+        padding-bottom: 40px;
+        padding-left: 20px;
+    }
+
+    /* Dấu chấm tròn đánh dấu bước */
+    .step-marker {
+        position: absolute;
+        left: -29px;
+        top: 0;
+        width: 20px;
+        height: 20px;
+        background-color: #2e7d32;
+        border: 4px solid #f1f8e9;
+        border-radius: 50%;
+    }
+
+    /* Số bước kiểu đóng dấu */
+    .step-number {
+        font-family: 'Patrick Hand', cursive;
+        font-size: 1.5rem;
+        color: #2e7d32;
+        font-weight: bold;
+        text-decoration: underline;
+    }
+
   </style>
 </head>
 <body>
@@ -45,15 +89,12 @@
 <nav class="navbar navbar-expand-lg navbar-dark sticky-top" style="background-color: #2e7d32; z-index: 1030;"> 
   <div class="container">
     <a class="navbar-brand" href="index.html"><i class="fas fa-leaf me-2"></i> Trà Đại Từ</a>
-    
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
       <span class="navbar-toggler-icon"></span>
     </button>
-    
     <div class="collapse navbar-collapse" id="navbarNav">
       <ul class="navbar-nav ms-auto"> 
         <li class="nav-item"><a class="nav-link" href="index.html">Trang Chủ</a></li>
-        
         <li class="nav-item dropdown">
           <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown">Giới thiệu</a>
           <ul class="dropdown-menu"> 
@@ -61,7 +102,6 @@
             <li><a class="dropdown-item" href="sumenh.html">Sứ Mệnh</a></li>
           </ul>
         </li>
-
         <li class="nav-item dropdown">
           <a class="nav-link dropdown-toggle active" href="#" role="button" data-bs-toggle="dropdown">Văn Hóa Trà</a>
           <ul class="dropdown-menu"> 
@@ -69,9 +109,7 @@
             <li><a class="dropdown-item" href="vanhoathuongtra.html">Văn Hóa Thưởng Trà</a></li>
           </ul>
         </li>
-
         <li class="nav-item"><a class="nav-link" href="sanphamnoibat.html">Sản Phẩm</a></li>
-        
         <li class="nav-item dropdown">
           <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown">Trải Nghiệm</a>
           <ul class="dropdown-menu"> 
@@ -79,7 +117,6 @@
              <li><a class="dropdown-item" href="thuvienmedia.html">Media</a></li>
           </ul>
         </li>
-        
         <li class="nav-item"><a class="nav-link" href="lienhe.html">Liên Hệ</a></li>
       </ul>
     </div>
@@ -95,15 +132,11 @@
        <div class="col-md-6 mb-4">
          <img src="images/lichsuhinhthanh2.jpg" class="img-fluid img-custom w-100" alt="Văn hóa trà">
        </div>
-
        <div class="col-md-6 ps-md-5">
          <h2 class="mt-0">Lịch Sử Hình Thành</h2>
          <p class="lead text-muted fst-italic">"Hơn cả một thức uống, đó là dòng chảy lịch sử."</p>
-         
          <p class="mb-3 text-justify">Câu chuyện bắt nguồn từ thời xa xưa, tương truyền rằng quý phi của Hùng Duệ Vương... đã về làng Văn Luông dạy dân biết trồng chè. Kể từ đó, dân cư khắp nơi đã tụ về sinh sống, lập xóm lập làng, phát triển thành xóm Bãi Chè để tưởng nhớ công ơn bà.</p>
-      
          <p class="mb-3 text-justify">Trong công cuộc dựng nước và giữ nước, văn hóa trà vươn mình như một nhân chứng sống... Dù gia đình quý tộc hay thường dân, ta có thể dễ dàng bắt gặp tách trà trong đời sống thường nhật.</p>
-         
          <p class="text-justify">Có thể nói văn hóa trà Việt Nam là dòng suối mát chảy âm ỉ chảy dài theo bề dày lịch sử và ở mãi trong trái tim người con đất Việt mang dòng máu Lạc Hồng.</p>
        </div>
     </div>
@@ -112,28 +145,15 @@
     
     <div class="mb-5">
         <h2 class="mb-5 text-center">Từ điều kiện thuận lợi tới thủ phủ trà Việt</h2>
-        
         <div class="row align-items-center mb-5"> 
-            
             <div class="col-lg-6 pe-lg-5"> 
-                <p class="text-justify lead fw-bold mb-4">
-                    Không phải ngẫu nhiên mà Thái Nguyên được mệnh danh là “thủ phủ chè” của cả nước. Đó là sự hội tụ của các điều kiện tự nhiên ưu đãi, truyền thống canh tác lâu đời, cùng những đôi bàn tay khéo léo của người nghệ nhân.
-                </p>
-
+                <p class="text-justify lead fw-bold mb-4">Không phải ngẫu nhiên mà Thái Nguyên được mệnh danh là “thủ phủ chè” của cả nước. Đó là sự hội tụ của các điều kiện tự nhiên ưu đãi, truyền thống canh tác lâu đời, cùng những đôi bàn tay khéo léo của người nghệ nhân.</p>
                 <h3 class="mb-3">Thổ nhưỡng – khí hậu lý tưởng</h3>
-                <p class="text-justify">
-                    So với một số cây trồng khác, cây chè yêu cầu về đất không quá khó tính. Song để cây chè sinh trưởng tốt, năng suất cao và ổn định thì đất trồng chè phải đạt những yêu cầu: Đất tốt, nhiều mùn, độ sâu, độ pH và khả năng thoát nước. Độ pH thích hợp cho chè phát triển là 4,5 - 6,0. Đất trồng phải có độ sâu ít nhất là 80 cm, mực nước ngầm phải dưới 1 mét thì hệ rễ mới phát triển bình thường.
-                </p>
-                <p class="text-justify">
-                    Đất trung du Thái Nguyên là đất feralit đỏ vàng, tơi xốp, nhiều mùn, thoát nước tốt – rất thích hợp với rễ cây chè. Khí hậu cận nhiệt đới ẩm, có sương mù sáng sớm, nhiệt độ ôn hòa và lượng mưa trung bình 1.500–2.000mm/năm – tạo điều kiện hoàn hảo để chè phát triển hương vị tinh tế.
-                </p>
-
+                <p class="text-justify">So với một số cây trồng khác, cây chè yêu cầu về đất không quá khó tính. Song để cây chè sinh trưởng tốt, năng suất cao và ổn định thì đất trồng chè phải đạt những yêu cầu: Đất tốt, nhiều mùn, độ sâu, độ pH và khả năng thoát nước. Độ pH thích hợp cho chè phát triển là 4,5 - 6,0. Đất trồng phải có độ sâu ít nhất là 80 cm, mực nước ngầm phải dưới 1 mét thì hệ rễ mới phát triển bình thường.</p>
+                <p class="text-justify">Đất trung du Thái Nguyên là đất feralit đỏ vàng, tơi xốp, nhiều mùn, thoát nước tốt – rất thích hợp với rễ cây chè. Khí hậu cận nhiệt đới ẩm, có sương mù sáng sớm, nhiệt độ ôn hòa và lượng mưa trung bình 1.500–2.000mm/năm – tạo điều kiện hoàn hảo để chè phát triển hương vị tinh tế.</p>
                 <h3 class="mt-4 mb-3">Truyền thống canh tác lâu đời</h3>
-                <p class="text-justify">
-                    Với đôi bàn tay chăm chỉ, cần mẫn, người dân Đại Từ đã tạo nên bao đồi chè xanh mướt, trở thành một trong những vùng trồng chè lớn và có lịch sử lâu đời ở tỉnh Thái Nguyên. Truyền thống đó cứ tiếp nối, tiếp nối, làm nên sự đa dạng và phong phú trong từng tách trà với những giống chè quý như chè Ta, chè Lai, chè Long Vân…. có giá trị cực kì to lớn.
-                </p>
+                <p class="text-justify">Với đôi bàn tay chăm chỉ, cần mẫn, người dân Đại Từ đã tạo nên bao đồi chè xanh mướt, trở thành một trong những vùng trồng chè lớn và có lịch sử lâu đời ở tỉnh Thái Nguyên. Truyền thống đó cứ tiếp nối, tiếp nối, làm nên sự đa dạng và phong phú trong từng tách trà với những giống chè quý như chè Ta, chè Lai, chè Long Vân…. có giá trị cực kì to lớn.</p>
             </div>
-
             <div class="col-lg-6 mt-4 mt-lg-0">
                 <img src="images/suongsom.jpg" class="img-fluid img-custom w-100" style="min-height: 400px; object-fit: cover;" alt="Đồi chè Thái Nguyên">
             </div>
@@ -142,11 +162,8 @@
         <div class="row align-items-center">
             <div class="col-lg-6 pe-lg-5">
                 <h3 class="mb-3">Kĩ thuật sao chè truyền thống</h3>
-                <p class="text-justify mb-4 mb-lg-0">
-                    Người Thái Nguyên có kỹ thuật sao trà bằng tay độc đáo: dùng chảo gang, canh lửa thủ công, cảm nhận độ chín bằng tay trần, ủ trà bằng bao tải bông… Những công đoạn đòi hỏi sự tinh tế đã giúp tạo nên hương cốm non đặc trưng của chè Thái Nguyên – thứ hương không nơi nào khác có thể lẫn lộn.
-                </p>
+                <p class="text-justify mb-4 mb-lg-0">Người Thái Nguyên có kỹ thuật sao trà bằng tay độc đáo: dùng chảo gang, canh lửa thủ công, cảm nhận độ chín bằng tay trần, ủ trà bằng bao tải bông… Những công đoạn đòi hỏi sự tinh tế đã giúp tạo nên hương cốm non đặc trưng của chè Thái Nguyên – thứ hương không nơi nào khác có thể lẫn lộn.</p>
             </div>
-
             <div class="col-lg-6">
                 <div class="card shadow-sm border-0 bg-light">
                     <div class="row g-0 align-items-center">
@@ -164,14 +181,12 @@
                 </div>
             </div>
         </div>
-        
     </div>
     
     <hr class="my-5" style="color: #2e7d32;">
     
     <h2 class="text-center mb-5">Quy Trình Trồng và Chăm Sóc</h2>
     <div class="row mt-4">
-      
       <div class="col-md-6 mb-4">
         <div class="card h-100 shadow-sm border-0">
             <div class="card-body">
@@ -182,25 +197,101 @@
             <img src="images/anhtrongvachamsoc.jpg" class="card-img-bottom img-custom" style="height: 350px; object-fit: cover;" alt="Quy trình trồng">
         </div>
       </div>
-      
       <div class="col-md-6 mb-4">
         <div class="card h-100 shadow-sm border-0">
             <div class="card-body">
                 <h3 class="h4 text-success">2. Quy Trình Chăm Sóc</h3>
-                
                 <div class="text-justify">
                     <p class="mb-2"><strong><i class="fas fa-tint text-primary me-1"></i> Tưới nước:</strong> Chè cần lượng nước vừa đủ để sinh trưởng, nhất là trong giai đoạn cây non. Trong mùa khô, cần tưới nước đều đặn 2 - 3 lần/tuần để giữ ẩm cho đất.</p>
-                    
                     <p class="mb-2"><strong><i class="fas fa-seedling text-success me-1"></i> Bón phân:</strong> Ưu tiên phân hữu cơ, phân vi sinh hữu cơ để tăng cường năng suất và chất lượng cây chè. Chia làm 3 - 4 đợt bón phân mỗi năm, ưu tiên vào mùa xuân và đầu mùa mưa.</p>
-                    
                     <p class="mb-0"><strong><i class="fas fa-shield-alt text-warning me-1"></i> Phòng trừ sâu bệnh:</strong> Cần theo dõi và chăm sóc chè thường xuyên và trau dồi kiến thức về phòng trừ sâu bệnh cho cây chè để đảm bảo cây được phát triển tốt và cho năng suất cao.</p>
                 </div>
-
             </div>
             <img src="images/banner5.jpg" class="card-img-bottom img-custom" style="height: 350px; object-fit: cover;" alt="Quy trình chăm sóc">
         </div>
       </div>
+    </div>
 
+    <hr class="my-5" style="color: #2e7d32;">
+
+    <div class="mb-5">
+        <h2 class="text-center mb-4 handmade-font" style="font-size: 3rem;">Quy Trình Chế Biến Chè</h2>
+        <p class="text-center text-muted mb-5 text-justify mx-auto fst-italic" style="max-width: 900px;">
+            "Để cho ra những sản phẩm trà có chất lượng tuyệt hảo, người làm trà cần phải có những kinh nghiệm nhất định để điều tiết tất cả các công đoạn chế biến sao cho phù hợp với từng loại chè."
+        </p>
+
+        <div class="row">
+            
+            <div class="col-lg-7 pe-lg-5">
+                <div class="step-timeline">
+                    
+                    <div class="step-item">
+                        <div class="step-marker"></div>
+                        <span class="step-number">Bước 1: Phơi Héo</span>
+                        <p class="text-justify mt-2 mb-0">
+                            Chè sau khi thu hái sẽ được mang về phơi héo tự nhiên, quá trình phơi héo nhằm mục đích giúp khô sương hoặc thoát hết khí nóng ẩm trong quá trình vận chuyển từ đồi chè về. Quá trình phơi héo chè thường được thực hiện bằng cách cho chè rải trực tiếp trên nong, nia hoặc nền sạch, thoáng mát; độ dầy lớp chè để 15 – 20 cm. Thời gian phơi héo phụ thuộc vào điều kiện thời tiết.
+                        </p>
+                    </div>
+
+                    <div class="step-item">
+                        <div class="step-marker"></div>
+                        <span class="step-number">Bước 2: Diệt Men (Ốp chè)</span>
+                        <p class="text-justify mt-2 mb-0">
+                            Sau bước 1, lá chè được cho vào trong chảo tôn nóng quay. Quá trình diệt men nhằm mục đích làm cho chè chín, giảm độ chát, ngái của chè. Sau khi diệt men xong phải thấy được mùi thơm đặc trưng của chè thay cho mùi hăng lúc ban đầu, lá chè không còn màu xanh tươi mà chuyển sang xanh sẫm, lá chè mềm dẻo, dùng tay xoắn nhẹ lại lá chè và búp chè không tiết ra nước bên vỏ ngoài.
+                        </p>
+                    </div>
+
+                    <div class="step-item">
+                        <div class="step-marker"></div>
+                        <span class="step-number">Bước 3: Vò Chè</span>
+                        <p class="text-justify mt-2 mb-0">
+                            Đây chính là công đoạn quan trọng quyết định độ đẹp và bền của cánh chè. Tùy từng mục đích chế biến các loại chè khác nhau (chè móc câu, tôm nõn hoặc chè đinh) mà điều tiết thời gian vò chè. Trước đây chưa có máy móc người làm chè phải tiến hành vò chè bằng tay hoàn toàn. Song nay với công nghệ mới, sau khi diệt men, người làm chè tiến hành vò chè bằng tay, loại bỏ những cánh chè nát vụn, sau đó sẽ đưa vào cối (máy vò) vò tiếp đến khi đạt yêu cầu về tổng thời gian.
+                        </p>
+                    </div>
+
+                    <div class="step-item">
+                        <div class="step-marker"></div>
+                        <span class="step-number">Bước 4: Rũ Tơi</span>
+                        <p class="text-justify mt-2 mb-0">
+                            Sau khi vò chè đã đủ thời gian, người làm chè tiến hành rũ tơi các cánh chè. Việc rũ tơi nhằm thoát nhiệt cho chè và tránh vón cục, tạo ra sự đồng đều về chất lượng cho chè trong quá trình tiếp theo.
+                        </p>
+                    </div>
+
+                    <div class="step-item">
+                        <div class="step-marker"></div>
+                        <span class="step-number">Bước 5: Sao Khô</span>
+                        <p class="text-justify mt-2 mb-0">
+                            Là công đoạn quan trọng ảnh hưởng lớn đến chất lượng sản phẩm. Để tạo ra chất lượng chè đỉnh cao, người làm chè tiến hành sao khô rất tỉ mỉ qua 2 lần thực hiện bằng chảo củi.
+                        </p>
+                    </div>
+
+                    <div class="step-item">
+                        <div class="step-marker"></div>
+                        <span class="step-number">Bước 6: Quay Hương, Đánh Mốc</span>
+                        <p class="text-justify mt-2 mb-0">
+                            Chè sau khi để hồi lại, ổn định chất lượng thì tiến hành quay hương, đánh mốc. Việc quay hương giúp phá vỡ các liên kết tanin và este trong chè, từ đó giúp chè có độ chát dịu, không đắng, vị ngọt hậu và hương cốm thơm mát khi thưởng thức chè.
+                        </p>
+                    </div>
+
+                    <div class="step-item" style="border-left: none;"> <div class="step-marker"></div>
+                        <span class="step-number">Bước 7: Đóng Gói, Bảo Quản</span>
+                        <p class="text-justify mt-2 mb-0">
+                            Sau khi đánh hương để nguội, chè sẽ được phân loại, đóng gói theo yêu cầu và bán trên thị trường hoặc hút chân không nếu chưa muốn sử dụng ngay.
+                        </p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-lg-5 d-none d-lg-block">
+                <div class="sticky-top" style="top: 100px; z-index: 1;">
+                    <div class="bg-white p-2 shadow-sm" style="transform: rotate(2deg);">
+                        <img src="images/quytrinhchebien.jpg" class="img-fluid w-100" style="height: 500px; object-fit: cover;" alt="Quy trình chế biến chè">
+                        <div class="text-center pt-2 pb-1 handmade-font fs-4 text-muted">Hương vị từ đôi bàn tay nghệ nhân</div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
     </div>
 
     <div class="text-center mt-5">
