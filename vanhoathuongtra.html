@@ -30,15 +30,26 @@
           transition: all 0.3s;
       }
       
+      /* --- CSS ĐÃ CHỈNH SỬA CHO ẢNH SƠ ĐỒ 5 BƯỚC --- */
+      
+      /* Giới hạn kích thước khung chứa ảnh sơ đồ và căn giữa */
+      .step-image-container {
+          max-width: 500px; /* Kích thước ảnh tối đa (Desktop) */
+          margin: 0 auto; 
+      }
+
       /* Hiệu ứng hover cho ảnh sơ đồ 5 bước */
       .step-image {
         box-shadow: 0 4px 8px rgba(0,0,0,0.1);
-        transition: transform 0.3s;
+        transition: transform 0.3s, box-shadow 0.3s; 
+        border-radius: 0.375rem; 
       }
       .step-image:hover {
-        transform: scale(1.01);
+        transform: scale(1.02); 
         box-shadow: 0 8px 16px rgba(0,0,0,0.2);
+        cursor: pointer; 
       }
+      /* --- KẾT THÚC CHỈNH SỬA CSS CHO ẢNH SƠ ĐỒ --- */
       
       /* Tùy chỉnh Menu: Hiệu ứng hover cho link */
       .navbar-nav .nav-link {
@@ -113,7 +124,7 @@
       <p class="text-justify">Văn hóa thưởng trà của người Thái Nguyên nói chung và người Đại Từ nói riêng đều xoay quanh việc <strong>kết nối con người với con người</strong>, với thiên nhiên và với quê hương đất mẹ. Nghệ thuật thưởng trà đi sâu vào trái tim mỗi người, trở thành một phần không thể thiếu trong đời sống thường ngày.</p>
       <p class="text-justify">Người dân trân trọng giá trị nét đẹp văn hóa ấy qua việc sử dụng trà như một phương tiện giao tiếp, tạo sự gắn kết và mang lại cảm giác bình yên, thư thái. Chén trà là khởi đầu cho những câu chuyện tâm sự giữa gia đình, bạn bè hoặc khách đến nhà.</p>
       <blockquote class="blockquote border-start border-4 border-success ps-3 fst-italic bg-light p-3 rounded">
-         "Thay thế dần cho 'miếng trầu là đầu câu chuyện' truyền thống, 'chén trà là đầu câu chuyện' tiếp bước thể hiện sự tôn trọng và nét lịch sự trong văn hóa giao tiếp."
+          "Thay thế dần cho 'miếng trầu là đầu câu chuyện' truyền thống, 'chén trà là đầu câu chuyện' tiếp bước thể hiện sự tôn trọng và nét lịch sự trong văn hóa giao tiếp."
       </blockquote>
       <p>Thưởng trà yêu cầu một tâm thế thư thái, tĩnh lặng để cảm nhận trọn vẹn hương vị tinh tế của trà. Bỏ qua những lo toan để thưởng thức trà giúp cuộc sống chậm lại, nhẹ nhàng hơn.</p>
     </div>
@@ -253,9 +264,15 @@
         <div class="row align-items-center g-4 mt-4">
             
             <div class="col-md-6">
-                <div class="card border-0 shadow-sm">
-                    <img src="images/cacbuocphatra.jpg" class="img-fluid rounded step-image" alt="Sơ đồ 5 bước pha trà Đại Từ">
-                    <p class="text-center text-muted fst-italic mt-2 small">Sơ đồ tóm tắt quy trình pha trà</p>
+                <div class="step-image-container">
+                    <div class="card border-0 shadow-sm">
+                        <img src="images/cacbuocphatra.jpg" 
+                             class="img-fluid rounded step-image" 
+                             alt="Sơ đồ 5 bước pha trà Đại Từ"
+                             data-bs-toggle="modal" 
+                             data-bs-target="#imageModal">
+                        <p class="text-center text-muted fst-italic mt-2 small">Sơ đồ tóm tắt quy trình pha trà (Click để phóng to)</p>
+                    </div>
                 </div>
             </div>
 
@@ -280,25 +297,35 @@
 
   <div class="row align-items-center">
     <div class="col-md-5 order-2 order-md-1">
-         <img src="https://images.unsplash.com/photo-1576092768241-dec231879fc3?q=80&w=1000&auto=format&fit=crop" class="img-fluid img-custom rounded shadow" alt="Ý nghĩa trà Việt"> 
+          <img src="https://images.unsplash.com/photo-1576092768241-dec231879fc3?q=80&w=1000&auto=format&fit=crop" class="img-fluid img-custom rounded shadow" alt="Ý nghĩa trà Việt"> 
     </div>
     <div class="col-md-7 order-1 order-md-2">
         <h2 class="mb-3 text-success">4. Ý Nghĩa Văn Hóa Trà Việt</h2>
-        <p class="text-justify">Văn hóa thưởng thức trà của người dân Việt Nam từ xưa nay đều được phát triển dựa vào truyền thống quý báu tốt đẹp của dân tộc. Văn hoá trà Việt Nam gợi nhớ tới những câu chuyện bên chén trà.</p>
-        <p class="text-justify">Chúng ta bỏ qua những quy tắc cầu kỳ để cùng nhau thủ thỉ nhâm nhi tách trà với khung cảnh bình dị mà nên thơ. Nước trà mới rót mang màu vàng xanh tươi mát, hương trà toả ngát phòng.</p>
-        <div class="p-3 bg-light border-start border-4 border-warning rounded">
-            <p class="mb-2"><strong>Triết lý "Tiền chát hậu ngọt":</strong></p>
-            <ul class="mb-0">
-                <li>Vị chát đắng: Bộc lộ nỗi vất vả, sự tỷ mỉ trong quá trình lao động tạo ra chén trà ngon.</li>
-                <li>Vị ngọt thanh: Ẩn ý tâm hồn người Việt trọng nghĩa tình, thuỷ chung son sắt.</li>
-            </ul>
-        </div>
+        
+    <p class="text-center" > 
+        <b>Văn hóa thưởng thức trà của người dân Việt Nam từ xưa nay đều được <br> phát triển dựa vào truyền thống quý báu tốt đẹp của dân tộc </b>
+    </p>
+
+        <p class="text-justify"> <strong>Văn hoá trà Việt Nam</strong>, gợi nhớ tới những câu chuyện bên chén trà.Chúng ta bỏ qua những quy tắc cầu kỳ để cùng nhau thủ thỉ nhâm nhi tách trà với khung cảnh bình dị mà nên thơ. Nước trà mới rót mang màu vàng xanh tươi mát, hương trà toả ngát phòng và khi nếm thử tách trà, sau vị chát đắng ấy giống như bộc lộ nỗi vất, sự tỷ mỉ trong quá trình lao động tạo ra được một chén trà ngon. Còn đối với vị ngọt thanh như hằng ẩn ý chính là tâm hồn của người dân ta, trọng nghĩa tình, thuỷ chung son sắt. Vì vậy, thưởng thức một chén trà  như chiêm ngưỡng được một nét văn hoá trà Việt rất riêng mang đậm bản sắc dân tộc. </p>
+        
         <p class="mt-3">Vì vậy, thưởng thức một chén trà như chiêm ngưỡng được một nét văn hoá trà Việt rất riêng mang đậm bản sắc dân tộc.</p>
-    </div>
-  </div>
+        </div>
+        </div>
 
 </section>
 
+<div class="modal fade" id="imageModal" tabindex="-1" aria-labelledby="imageModalLabel" aria-hidden="true">
+  <div class="modal-dialog modal-xl modal-dialog-centered">
+    <div class="modal-content bg-transparent border-0">
+      <div class="modal-body text-center p-0">
+        <img src="images/cacbuocphatra.jpg" class="img-fluid rounded shadow" alt="Sơ đồ 5 bước pha trà Đại Từ - Phóng to">
+      </div>
+      <div class="modal-footer justify-content-center border-0">
+        <button type="button" class="btn btn-outline-light" data-bs-dismiss="modal">Đóng (Close)</button>
+      </div>
+    </div>
+  </div>
+</div>
 <footer class="text-center bg-dark text-white py-4 mt-5">
   <div class="container">
     <p class="mb-0">&copy; 2025 Không Gian Văn Hóa Trà Đại Từ - Tinh Hoa Đất Thái.</p> 
