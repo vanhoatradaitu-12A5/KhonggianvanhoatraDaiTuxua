@@ -1,6 +1,6 @@
 /* =======================================================
    FILE: css/styles.css
-   MASTER CSS - MENU NỔI BẬT (ĐẬM ĐÀ & CÓ VIỀN)
+   MASTER CSS - MENU KHỐI 3D CAO CẤP
    ======================================================= */
 
 /* --- 1. CẤU HÌNH CƠ BẢN --- */
@@ -29,59 +29,90 @@ body::before {
 }
 
 /* --- CÁC PHẦN CÒN LẠI --- */
-
 h1, h2, h3, h4, h5, .navbar-brand, .card-header {
     font-family: 'Playfair Display', serif;
     color: #1a422a; 
 }
-
 .handmade-font { font-family: 'Patrick Hand', cursive; }
 .text-justify { text-align: justify; }
 .text-success { color: #1a422a !important; }
 
-/* --- 2. NAVBAR (ĐÃ CHỈNH SỬA ĐỂ NỔI BẬT) --- */
+/* --- 2. NAVBAR (HIỆU ỨNG KHỐI 3D ĐẶC BIỆT) --- */
 .navbar {
     background-color: #1a422a !important;
+    /* Loại bỏ viền border-bottom cũ để dùng shadow thay thế */
+    border: none; 
     
-    /* 1. Tăng bóng đổ mạnh hơn (đen và rộng hơn) */
-    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.6); 
-    
-    /* 2. Thêm viền dưới màu xanh sáng để tách biệt hẳn với nền */
-    border-bottom: 3px solid #81c784; 
-    
-    /* Đảm bảo menu luôn nằm trên các thành phần khác */
-    z-index: 1000; 
+    /* KỸ THUẬT TẠO KHỐI 3D BẰNG NHIỀU LỚP SHADOW */
+    box-shadow: 
+        /* Lớp 1 (Inset): Viền sáng nhẹ ở cạnh trên (ánh sáng chiếu vào) */
+        inset 0 1px 1px rgba(255,255,255,0.2),
+        
+        /* Lớp 2 (Inset): Tạo độ sâu tối ở cạnh dưới bên trong */
+        inset 0 -2px 5px rgba(0,0,0,0.3),
+
+        /* Lớp 3 (Solid): Tạo "độ dày" vật lý cho khối (màu xanh đậm hơn nền chính) */
+        /* Số 6px ở đây là độ dày của khối */
+        0 6px 0 #0b2114,
+
+        /* Lớp 4 (Solid): Viền sáng xanh lá cây làm điểm nhấn dưới khối 3D */
+        0 8px 0 #81c784,
+
+        /* Lớp 5 (Soft Blur): Bóng đổ mềm lớn tạo cảm giác nổi lên khỏi nền web */
+        0 20px 40px rgba(0, 0, 0, 0.6);
+
+    transition: all 0.3s ease; /* Chuyển động mượt mà cho hiệu ứng hover */
+    z-index: 1000;
+    padding-top: 1rem;
+    padding-bottom: 1rem;
 }
+
+/* Hiệu ứng khi di chuột vào menu: Khối 3D hơi "lún" xuống */
+.navbar:hover {
+    transform: translateY(4px); /* Di chuyển menu xuống 4px */
+    box-shadow: 
+        inset 0 1px 1px rgba(255,255,255,0.2),
+        inset 0 -1px 3px rgba(0,0,0,0.3),
+        /* Giảm độ dày shadow cứng từ 6px xuống 2px để tạo cảm giác bị nén */
+        0 2px 0 #0b2114,
+        /* Viền sáng cũng di chuyển theo */
+        0 4px 0 #81c784,
+        /* Bóng đổ mềm nhỏ lại và gần hơn */
+        0 10px 20px rgba(0, 0, 0, 0.5);
+}
+
 
 .navbar-brand {
     font-weight: 700;
     letter-spacing: 1px;
-    font-size: 1.6rem; /* Tăng nhẹ kích thước logo */
+    font-size: 1.6rem; 
     color: #ffffff !important;
-    text-shadow: 2px 2px 4px rgba(0,0,0,0.5); /* Thêm bóng chữ cho logo */
+    text-shadow: 2px 2px 4px rgba(0,0,0,0.5); 
 }
 
 .navbar-brand:hover { color: #e0e0e0 !important; }
 
 .nav-link {
     font-family: 'Montserrat', sans-serif;
-    font-weight: 600; /* Tăng độ dày chữ từ 500 lên 600 */
+    font-weight: 600; 
     text-transform: uppercase;
-    font-size: 0.95rem; /* Tăng nhẹ kích thước chữ */
+    font-size: 0.95rem; 
     transition: all 0.3s;
-    color: #ffffff !important; /* Chuyển sang trắng tinh */
+    color: #ffffff !important; 
 }
 
 .nav-link:hover, .nav-link.active {
     color: #81c784 !important;
-    text-shadow: 0 0 10px rgba(129, 199, 132, 0.8); /* Hiệu ứng phát sáng khi di chuột */
-    transform: translateY(-2px); /* Nhấc nhẹ chữ lên khi di chuột */
+    /* Tăng hiệu ứng phát sáng khi di chuột để hợp với khối 3D */
+    text-shadow: 0 0 15px rgba(129, 199, 132, 1); 
+    transform: translateY(-2px); 
 }
 
 .dropdown-menu {
     border: none;
-    box-shadow: 0 5px 15px rgba(0,0,0,0.3);
-    border-top: 3px solid #81c784; /* Đồng bộ viền với menu cha */
+    /* Đồng bộ hiệu ứng 3D nhẹ cho menu con */
+    box-shadow: 0 6px 0 #0b2114, 0 15px 30px rgba(0,0,0,0.3);
+    border-top: 2px solid #81c784; 
 }
 
 /* --- 3. FOOTER --- */
@@ -90,7 +121,7 @@ footer {
     color: #ffffff;
     padding-top: 3rem;
     padding-bottom: 2rem;
-    box-shadow: 0 -5px 20px rgba(0,0,0,0.3); /* Thêm bóng cho footer tách khỏi nền */
+    box-shadow: 0 -5px 20px rgba(0,0,0,0.3); 
 }
 footer h5 { color: #81c784; font-weight: 700; }
 footer a { color: #e0e0e0; text-decoration: none; transition: 0.3s; }
@@ -125,13 +156,18 @@ footer hr { opacity: 0.2; border-color: white; }
     padding: 12px 40px;
     font-weight: 600;
     border: 2px solid #4caf50;
-    transition: all 0.3s ease;
-    box-shadow: 0 4px 15px rgba(0,0,0,0.3);
+    /* Cập nhật nút bấm cũng thành khối 3D nhỏ */
+    box-shadow: 0 4px 0 #2e7d32, 0 8px 15px rgba(0,0,0,0.3);
+    transition: all 0.2s ease;
+    transform: translateY(0);
 }
 .btn-custom:hover {
-    background-color: transparent;
-    border-color: #fff;
+    background-color: #43a047;
+    border-color: #43a047;
     color: #fff;
+    /* Hiệu ứng nhấn nút khi di chuột */
+    box-shadow: 0 2px 0 #2e7d32, 0 4px 10px rgba(0,0,0,0.3);
+    transform: translateY(2px);
 }
 
 .card {
