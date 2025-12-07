@@ -1,6 +1,6 @@
 /* =======================================================
    FILE: css/styles.css
-   MASTER CSS - ĐÃ SỬA LẠI ĐƯỜNG DẪN ẢNH NỀN (FIXED)
+   MASTER CSS - ĐÃ BỎ LÀM MỜ ẢNH NỀN
    ======================================================= */
 
 /* --- 1. CẤU HÌNH CƠ BẢN --- */
@@ -8,12 +8,12 @@ body {
     font-family: 'Montserrat', sans-serif;
     color: #333;
     line-height: 1.6;
-    background-color: transparent; /* Bắt buộc trong suốt */
+    background-color: transparent; 
     position: relative;
     min-height: 100vh;
 }
 
-/* TẠO LỚP ẢNH NỀN MỜ */
+/* TẠO LỚP ẢNH NỀN (RÕ NÉT) */
 body::before {
     content: "";
     position: fixed;
@@ -23,16 +23,15 @@ body::before {
     height: 100%;
     z-index: -1;
     
-    /* --- ĐÃ SỬA LẠI TẠI ĐÂY --- */
-    /* Thêm '../' để thoát khỏi thư mục css, ra ngoài tìm thư mục images */
+    /* Đường dẫn ảnh (giữ nguyên cái đã sửa đúng) */
     background-image: url('../images/nentrangweb.jpg'); 
     
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
     
-    filter: blur(8px); /* Độ mờ */
-    transform: scale(1.1);
+    /* ĐÃ XÓA: filter: blur(8px); */
+    /* ĐÃ XÓA: transform: scale(1.1); */
 }
 
 /* --- CÁC PHẦN CÒN LẠI GIỮ NGUYÊN --- */
