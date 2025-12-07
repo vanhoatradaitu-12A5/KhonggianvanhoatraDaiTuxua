@@ -1,6 +1,7 @@
 /* =======================================================
    FILE: css/styles.css
-   MASTER CSS - MENU KHỐI 3D CAO CẤP
+   THEME: TRÀ ĐẠI TỪ - THÁI NGUYÊN
+   STYLE: FLOATING PILL 3D (MENU VIÊN THUỐC)
    ======================================================= */
 
 /* --- 1. CẤU HÌNH CƠ BẢN --- */
@@ -13,7 +14,7 @@ body {
     min-height: 100vh;
 }
 
-/* TẠO LỚP ẢNH NỀN */
+/* TẠO LỚP ẢNH NỀN CỐ ĐỊNH (FIXED BACKGROUND) */
 body::before {
     content: "";
     position: fixed;
@@ -22,14 +23,15 @@ body::before {
     width: 100%;
     height: 100%;
     z-index: -1;
+    /* Đảm bảo đường dẫn ảnh đúng với thư mục của bạn */
     background-image: url('../images/nentrangweb.jpg'); 
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
 }
 
-/* --- CÁC PHẦN CÒN LẠI --- */
-h1, h2, h3, h4, h5, .navbar-brand, .card-header {
+/* --- TYPOGRAPHY CHUNG --- */
+h1, h2, h3, h4, h5, .card-header {
     font-family: 'Playfair Display', serif;
     color: #1a422a; 
 }
@@ -37,82 +39,104 @@ h1, h2, h3, h4, h5, .navbar-brand, .card-header {
 .text-justify { text-align: justify; }
 .text-success { color: #1a422a !important; }
 
-/* --- 2. NAVBAR (HIỆU ỨNG KHỐI 3D ĐẶC BIỆT) --- */
+/* =======================================================
+   2. NAVBAR (PHONG CÁCH VIÊN THUỐC 3D - MỚI CẬP NHẬT)
+   ======================================================= */
 .navbar {
-    background-color: #1a422a !important;
-    /* Loại bỏ viền border-bottom cũ để dùng shadow thay thế */
-    border: none; 
+    /* Vị trí & Kích thước: Treo lơ lửng */
+    position: fixed;
+    top: 25px;            /* Cách mép trên 25px */
+    left: 50%;
+    transform: translateX(-50%); /* Căn giữa màn hình */
+    width: 90%;           /* Chiều rộng chiếm 90% màn hình */
+    max-width: 1100px;    /* Giới hạn chiều rộng tối đa cho đẹp */
+    padding: 10px 30px;   /* Khoảng cách bên trong */
     
-    /* KỸ THUẬT TẠO KHỐI 3D BẰNG NHIỀU LỚP SHADOW */
+    /* Hình dáng & Màu sắc 3D */
+    border-radius: 50px;  /* Bo tròn hình viên thuốc */
+    border: none;         /* Bỏ viền cũ */
+    
+    /* Gradient tạo khối cầu: Xanh già -> Xanh rêu đậm */
+    background: linear-gradient(135deg, #2E5E2E 0%, #1B4D3E 100%);
+    
+    /* Hiệu ứng Đổ bóng 3D cao cấp (Bay nổi) */
     box-shadow: 
-        /* Lớp 1 (Inset): Viền sáng nhẹ ở cạnh trên (ánh sáng chiếu vào) */
-        inset 0 1px 1px rgba(255,255,255,0.2),
-        
-        /* Lớp 2 (Inset): Tạo độ sâu tối ở cạnh dưới bên trong */
-        inset 0 -2px 5px rgba(0,0,0,0.3),
+        inset 0 1px 1px rgba(255, 255, 255, 0.4), /* Viền sáng trên đỉnh */
+        0 15px 35px rgba(0, 0, 0, 0.4),           /* Bóng đổ xa tạo độ cao */
+        0 5px 15px rgba(0, 0, 0, 0.2);            /* Bóng viền mờ */
 
-        /* Lớp 3 (Solid): Tạo "độ dày" vật lý cho khối (màu xanh đậm hơn nền chính) */
-        /* Số 6px ở đây là độ dày của khối */
-        0 6px 0 #0b2114,
-
-        /* Lớp 4 (Solid): Viền sáng xanh lá cây làm điểm nhấn dưới khối 3D */
-        0 8px 0 #81c784,
-
-        /* Lớp 5 (Soft Blur): Bóng đổ mềm lớn tạo cảm giác nổi lên khỏi nền web */
-        0 20px 40px rgba(0, 0, 0, 0.6);
-
-    transition: all 0.3s ease; /* Chuyển động mượt mà cho hiệu ứng hover */
     z-index: 1000;
-    padding-top: 1rem;
-    padding-bottom: 1rem;
+    transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275); /* Hiệu ứng nảy nhẹ */
 }
 
-/* Hiệu ứng khi di chuột vào menu: Khối 3D hơi "lún" xuống */
+/* Hiệu ứng khi di chuột vào thanh menu */
 .navbar:hover {
-    transform: translateY(4px); /* Di chuyển menu xuống 4px */
+    transform: translateX(-50%) translateY(-3px); /* Bay lên nhẹ */
     box-shadow: 
-        inset 0 1px 1px rgba(255,255,255,0.2),
-        inset 0 -1px 3px rgba(0,0,0,0.3),
-        /* Giảm độ dày shadow cứng từ 6px xuống 2px để tạo cảm giác bị nén */
-        0 2px 0 #0b2114,
-        /* Viền sáng cũng di chuyển theo */
-        0 4px 0 #81c784,
-        /* Bóng đổ mềm nhỏ lại và gần hơn */
-        0 10px 20px rgba(0, 0, 0, 0.5);
+        inset 0 1px 1px rgba(255, 255, 255, 0.5),
+        0 20px 45px rgba(0, 0, 0, 0.5), 
+        0 5px 15px rgba(0, 0, 0, 0.2);
 }
 
-
+/* Logo thương hiệu */
 .navbar-brand {
     font-weight: 700;
     letter-spacing: 1px;
     font-size: 1.6rem; 
-    color: #ffffff !important;
-    text-shadow: 2px 2px 4px rgba(0,0,0,0.5); 
+    color: #FFD700 !important; /* Màu Vàng Kim (Gold) */
+    text-shadow: 0 2px 4px rgba(0,0,0,0.4); 
 }
+.navbar-brand:hover { color: #fff8b0 !important; }
 
-.navbar-brand:hover { color: #e0e0e0 !important; }
-
+/* Các liên kết menu */
 .nav-link {
     font-family: 'Montserrat', sans-serif;
     font-weight: 600; 
     text-transform: uppercase;
-    font-size: 0.95rem; 
+    font-size: 0.9rem; 
+    margin: 0 8px;
+    color: #ffffff !important; /* Màu trắng nguyên bản */
     transition: all 0.3s;
-    color: #ffffff !important; 
+    position: relative;
 }
 
+/* Hiệu ứng Hover vào Link: Chữ vàng + Gạch chân */
 .nav-link:hover, .nav-link.active {
-    color: #81c784 !important;
-    /* Tăng hiệu ứng phát sáng khi di chuột để hợp với khối 3D */
-    text-shadow: 0 0 15px rgba(129, 199, 132, 1); 
-    transform: translateY(-2px); 
+    color: #FFD700 !important;
+    transform: translateY(-1px);
+    text-shadow: 0 0 10px rgba(255, 215, 0, 0.5); /* Phát sáng nhẹ */
 }
 
+/* Gạch chân chạy ra từ giữa khi hover */
+.nav-link::after {
+    content: '';
+    position: absolute;
+    width: 0;
+    height: 2px;
+    bottom: 0;
+    left: 50%;
+    background-color: #FFD700;
+    transition: all 0.3s ease;
+}
+.nav-link:hover::after {
+    width: 100%;
+    left: 0;
+}
+
+/* Menu con (Dropdown) */
 .dropdown-menu {
     border: none;
-    /* Đồng bộ hiệu ứng 3D nhẹ cho menu con */
-    box-shadow: 0 6px 0 #0b2114, 0 15px 30px rgba(0,0,0,0.3);
-    border-top: 2px solid #81c784; 
+    border-radius: 15px;
+    background-color: #1B4D3E; /* Đồng bộ màu xanh đậm */
+    margin-top: 15px !important;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.4);
+    overflow: hidden;
+    border-top: 2px solid #FFD700; /* Viền trên vàng kim */
+}
+.dropdown-item { color: #fff !important; }
+.dropdown-item:hover {
+    background-color: rgba(255, 215, 0, 0.2); /* Nền vàng nhạt khi hover */
+    color: #FFD700 !important;
 }
 
 /* --- 3. FOOTER --- */
@@ -125,11 +149,12 @@ footer {
 }
 footer h5 { color: #81c784; font-weight: 700; }
 footer a { color: #e0e0e0; text-decoration: none; transition: 0.3s; }
-footer a:hover { color: #81c784; }
+footer a:hover { color: #FFD700; } /* Update màu hover thành vàng kim */
 footer hr { opacity: 0.2; border-color: white; }
 
 /* --- 4. HERO BANNER --- */
 .hero {
+    /* Giữ nguyên hero cũ, lớp phủ tối giúp menu nổi bật hơn */
     background: linear-gradient(to bottom, rgba(0,0,0,0.3), rgba(0,0,0,0.6)), url('../images/banner5.jpg');
     background-size: cover;
     background-position: center;
@@ -148,7 +173,7 @@ footer hr { opacity: 0.2; border-color: white; }
     text-shadow: 3px 3px 6px rgba(0,0,0,0.8);
 }
 
-/* --- 5. COMPONENTS --- */
+/* --- 5. COMPONENTS (NÚT BẤM & CARD) --- */
 .btn-custom {
     background-color: #4caf50;
     color: white;
@@ -156,7 +181,7 @@ footer hr { opacity: 0.2; border-color: white; }
     padding: 12px 40px;
     font-weight: 600;
     border: 2px solid #4caf50;
-    /* Cập nhật nút bấm cũng thành khối 3D nhỏ */
+    /* Giữ style khối 3D cho nút bấm để tạo cảm giác bấm được */
     box-shadow: 0 4px 0 #2e7d32, 0 8px 15px rgba(0,0,0,0.3);
     transition: all 0.2s ease;
     transform: translateY(0);
@@ -165,7 +190,6 @@ footer hr { opacity: 0.2; border-color: white; }
     background-color: #43a047;
     border-color: #43a047;
     color: #fff;
-    /* Hiệu ứng nhấn nút khi di chuột */
     box-shadow: 0 2px 0 #2e7d32, 0 4px 10px rgba(0,0,0,0.3);
     transform: translateY(2px);
 }
@@ -174,32 +198,34 @@ footer hr { opacity: 0.2; border-color: white; }
     border: none;
     box-shadow: 0 2px 5px rgba(0,0,0,0.05);
     transition: all 0.3s;
-    background-color: rgba(255, 255, 255, 0.98); 
+    background-color: rgba(255, 255, 255, 0.95); 
+    border-radius: 15px;
 }
 .card:hover {
     transform: translateY(-5px);
-    box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+    box-shadow: 0 15px 30px rgba(0,0,0,0.15);
 }
 
 /* --- 6. SECTION CONTENT --- */
 .section-content {
-    background-color: rgba(255, 255, 255, 0.98); 
+    background-color: rgba(255, 255, 255, 0.95); 
     padding: 40px;
-    border-radius: 15px;
-    box-shadow: 0 5px 15px rgba(0,0,0,0.08);
+    border-radius: 20px;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.1); /* Tăng bóng đổ nhẹ */
     margin: 40px 0;
     backdrop-filter: blur(5px);
 }
 
-/* --- 7. IMAGES --- */
+/* --- 7. IMAGES & EXTRAS --- */
 .img-custom {
     object-fit: cover;
-    border-radius: 10px;
+    border-radius: 15px;
     transition: transform 0.3s;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.2);
 }
 .section-content .img-custom:hover { transform: scale(1.02); }
 
-/* --- 8. TIMELINE & EXTRAS --- */
+/* Timeline */
 .step-timeline {
     position: relative;
     padding-left: 20px;
@@ -229,10 +255,11 @@ footer hr { opacity: 0.2; border-color: white; }
     text-decoration: underline;
 }
 
+/* Polaroid Photos */
 .sticky-polaroid {
     position: -webkit-sticky;
     position: sticky;
-    top: 100px;
+    top: 120px; /* Điều chỉnh lại vì menu mới chiếm không gian khác */
     z-index: 1;
 }
 .polaroid-frame {
@@ -252,7 +279,26 @@ footer hr { opacity: 0.2; border-color: white; }
     cursor: pointer;
 }
 .step-image:hover { transform: scale(1.02); }
-.sticky-image-wrapper { position: sticky; top: 100px; z-index: 1; }
+.sticky-image-wrapper { position: sticky; top: 120px; z-index: 1; }
 
 .fade-in { animation: fadeIn 1.5s ease-out; }
 @keyframes fadeIn { from { opacity: 0; transform: translateY(20px); } to { opacity: 1; transform: translateY(0); } }
+
+/* --- RESPONSIVE MENU CHO ĐIỆN THOẠI --- */
+@media (max-width: 991px) {
+    .navbar {
+        top: 10px;
+        width: 95%;
+        padding: 10px 20px;
+        border-radius: 25px; /* Bo góc ít hơn chút cho gọn */
+    }
+    .navbar-collapse {
+        background: transparent;
+        padding-top: 15px;
+        border-top: 1px solid rgba(255,255,255,0.1);
+        margin-top: 10px;
+    }
+    .nav-link {
+        margin: 5px 0; /* Tăng khoảng cách dòng khi mở menu trên đt */
+    }
+}
