@@ -1,37 +1,38 @@
 /* =======================================================
    FILE: css/styles.css
-   MASTER CSS - PHIÊN BẢN CẬP NHẬT: NỀN MỜ (BLUR BACKGROUND)
+   MASTER CSS - FINAL (ĐÃ SỬA LỖI HIỂN THỊ NỀN MỜ)
    ======================================================= */
 
-/* --- 1. CẤU HÌNH CƠ BẢN & ẢNH NỀN MỜ --- */
+/* --- 1. CẤU HÌNH CƠ BẢN & ẢNH NỀN --- */
 body {
     font-family: 'Montserrat', sans-serif;
     color: #333;
     line-height: 1.6;
-    background-color: #fdfbf7; /* Màu nền dự phòng khi ảnh chưa load */
-    position: relative; /* Định vị để lớp giả (pseudo-element) bám theo */
+    /* QUAN TRỌNG: Để trong suốt để nhìn thấy lớp ảnh nền phía sau */
+    background-color: transparent; 
+    position: relative;
     min-height: 100vh;
 }
 
-/* TẠO LỚP ẢNH NỀN MỜ RIÊNG BIỆT */
+/* TẠO LỚP GIẢ ĐỂ CHỨA ẢNH NỀN MỜ */
 body::before {
     content: "";
-    position: fixed; /* Cố định ảnh khi cuộn chuột */
+    position: fixed; /* Cố định ảnh, không trôi khi cuộn */
     top: 0;
     left: 0;
     width: 100%;
     height: 100%;
-    z-index: -1; /* Đẩy ra sau lưng nội dung */
+    z-index: -1; /* Đẩy ra sau cùng */
     
-    /* Đường dẫn ảnh: Lưu ý folder là 'images' hay 'image' tùy máy bạn */
-    background-image: url('images/nentrangweb.jpg'); 
+    /* ĐÃ SỬA: Đường dẫn đúng tên thư mục 'image' */
+    background-image: url('../image/nentrangweb.jpg');
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
     
-    /* Hiệu ứng làm mờ */
-    filter: blur(8px); /* Độ mờ 8px (Tăng giảm tùy ý) */
-    transform: scale(1.1); /* Phóng to nhẹ để che các cạnh bị mờ trắng */
+    /* Hiệu ứng mờ */
+    filter: blur(8px); 
+    transform: scale(1.1); /* Phóng to nhẹ để che mép mờ */
 }
 
 /* Font cho tiêu đề: Sang trọng */
@@ -40,7 +41,7 @@ h1, h2, h3, h4, h5, .navbar-brand, .card-header {
     color: #1a422a; /* Màu xanh rêu đậm chủ đạo */
 }
 
-/* Font viết tay (Dùng cho trang Tinh Hoa) */
+/* Font viết tay */
 .handmade-font {
     font-family: 'Patrick Hand', cursive;
 }
@@ -51,7 +52,7 @@ h1, h2, h3, h4, h5, .navbar-brand, .card-header {
 
 /* --- 2. NAVBAR (MENU) --- */
 .navbar {
-    background-color: #1a422a !important; /* Giữ nền menu đậm để dễ đọc */
+    background-color: #1a422a !important;
     box-shadow: 0 4px 12px rgba(0,0,0,0.15);
 }
 
@@ -87,8 +88,8 @@ h1, h2, h3, h4, h5, .navbar-brand, .card-header {
 
 /* --- 3. FOOTER --- */
 footer {
-    /* Thêm độ trong suốt nhẹ cho footer để hòa hợp với nền */
-    background-color: rgba(26, 66, 42, 0.95) !important; 
+    /* Nền footer hơi trong suốt để hòa hợp với background */
+    background-color: rgba(26, 66, 42, 0.95) !important;
     color: #ffffff;
     padding-top: 3rem;
     padding-bottom: 2rem;
@@ -100,8 +101,8 @@ footer hr { opacity: 0.2; border-color: white; }
 
 /* --- 4. HERO BANNER --- */
 .hero {
-    /* Banner trang chủ */
-    background: linear-gradient(to bottom, rgba(0,0,0,0.3), rgba(0,0,0,0.6)), url('images/banner5.jpg');
+    /* Banner vẫn dùng ảnh riêng của nó (banner5.jpg) để nổi bật */
+    background: linear-gradient(to bottom, rgba(0,0,0,0.3), rgba(0,0,0,0.6)), url('../images/banner5.jpg');
     background-size: cover;
     background-position: center;
     background-attachment: fixed;
@@ -136,12 +137,12 @@ footer hr { opacity: 0.2; border-color: white; }
     color: #fff;
 }
 
-/* Card - Làm nền card trong suốt nhẹ để thấy nền mờ phía sau */
+/* Card trong suốt nhẹ */
 .card {
     border: none;
     box-shadow: 0 2px 5px rgba(0,0,0,0.05);
     transition: all 0.3s;
-    background-color: rgba(255, 255, 255, 0.9); /* Card hơi trong suốt */
+    background-color: rgba(255, 255, 255, 0.9);
 }
 .card:hover {
     transform: translateY(-5px);
@@ -150,13 +151,13 @@ footer hr { opacity: 0.2; border-color: white; }
 
 /* --- 6. CONTAINER NỘI DUNG (QUAN TRỌNG) --- */
 .section-content {
-    /* Nền trắng mờ 90% giúp đọc chữ dễ dàng trên nền ảnh mờ */
-    background-color: rgba(255, 255, 255, 0.9); 
+    /* Nền trắng mờ 90% giúp chữ dễ đọc trên nền ảnh mờ */
+    background-color: rgba(255, 255, 255, 0.9);
     padding: 40px;
     border-radius: 15px;
     box-shadow: 0 5px 15px rgba(0,0,0,0.08);
     margin: 40px 0;
-    backdrop-filter: blur(5px); /* Hiệu ứng kính mờ (glassmorphism) */
+    backdrop-filter: blur(5px);
 }
 
 /* --- 7. HÌNH ẢNH --- */
@@ -167,7 +168,7 @@ footer hr { opacity: 0.2; border-color: white; }
 }
 .section-content .img-custom:hover { transform: scale(1.02); }
 
-/* --- 8. TIMELINE & KHÁC --- */
+/* --- 8. CÁC THÀNH PHẦN KHÁC --- */
 .step-timeline {
     position: relative;
     padding-left: 20px;
@@ -225,4 +226,3 @@ footer hr { opacity: 0.2; border-color: white; }
 /* --- 9. ANIMATION --- */
 .fade-in { animation: fadeIn 1.5s ease-out; }
 @keyframes fadeIn { from { opacity: 0; transform: translateY(20px); } to { opacity: 1; transform: translateY(0); } }
-
