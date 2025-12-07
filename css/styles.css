@@ -1,6 +1,6 @@
 /* =======================================================
    FILE: css/styles.css
-   MASTER CSS - PHIÊN BẢN HỢP NHẤT (FINAL)
+   MASTER CSS - PHIÊN BẢN HỢP NHẤT (FINAL - ĐÃ SỬA LOGO TRẮNG)
    ======================================================= */
 
 /* --- 1. CẤU HÌNH CƠ BẢN --- */
@@ -12,6 +12,7 @@ body {
 }
 
 /* Font cho tiêu đề: Sang trọng */
+/* Lưu ý: .navbar-brand vẫn dùng font này, nhưng màu sẽ được ghi đè ở phần 2 */
 h1, h2, h3, h4, h5, .navbar-brand, .card-header {
     font-family: 'Playfair Display', serif;
     color: #1a422a; /* Màu xanh rêu đậm chủ đạo */
@@ -36,6 +37,11 @@ h1, h2, h3, h4, h5, .navbar-brand, .card-header {
     font-weight: 700;
     letter-spacing: 1px;
     font-size: 1.5rem;
+    color: #ffffff !important; /* [ĐÃ SỬA] Chuyển chữ và icon sang màu trắng */
+}
+
+.navbar-brand:hover {
+    color: #e0e0e0 !important; /* Hiệu ứng hover nhẹ */
 }
 
 .nav-link {
@@ -71,7 +77,7 @@ footer hr { opacity: 0.2; border-color: white; }
 
 /* --- 4. HERO BANNER (TRANG CHỦ) --- */
 .hero {
-    /* Lưu ý đường dẫn ảnh này */
+    /* Đã giữ nguyên banner5.jpg theo yêu cầu của bạn */
     background: linear-gradient(to bottom, rgba(0,0,0,0.3), rgba(0,0,0,0.6)), url('images/banner5.jpg');
     background-size: cover;
     background-position: center;
@@ -194,4 +200,3 @@ footer hr { opacity: 0.2; border-color: white; }
 /* --- 10. ANIMATION --- */
 .fade-in { animation: fadeIn 1.5s ease-out; }
 @keyframes fadeIn { from { opacity: 0; transform: translateY(20px); } to { opacity: 1; transform: translateY(0); } }
-
