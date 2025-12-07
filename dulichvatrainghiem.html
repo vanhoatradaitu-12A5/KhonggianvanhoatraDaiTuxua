@@ -1,58 +1,49 @@
-<!-- Đây là tag DOCTYPE, khai báo loại tài liệu là HTML5. Tại sao dùng: Để trình duyệt biết cách render trang đúng chuẩn, tránh lỗi hiển thị ở các trình duyệt cũ. Lưu ý liên kết: Nếu thay đổi loại tài liệu, cần kiểm tra tính tương thích ở tất cả các file HTML khác vì chúng chia sẻ cấu trúc chung. -->
 <!DOCTYPE html>
-<!-- Tag html chính, định nghĩa ngôn ngữ là tiếng Việt (vi). Tại sao dùng: Giúp công cụ tìm kiếm và trình đọc màn hình hiểu ngôn ngữ, cải thiện SEO và accessibility. Lưu ý liên kết: Nếu thay đổi ngôn ngữ (lang), cần cập nhật ở tất cả các file HTML để giữ tính nhất quán toàn website. -->
 <html lang="vi">
 <head>
-  <!-- Tag meta charset, đặt mã hóa ký tự là UTF-8. Tại sao dùng: Đảm bảo hiển thị đúng ký tự tiếng Việt có dấu, tránh lỗi garbled text. Lưu ý liên kết: Đây là thiết lập chung, nếu thay đổi charset có thể ảnh hưởng đến hiển thị nội dung ở tất cả các file, đặc biệt nếu có ký tự đặc biệt. -->
   <meta charset="UTF-8">
-  <!-- Tag meta viewport, làm cho trang responsive trên mobile. Tại sao dùng: Cho phép trang điều chỉnh kích thước theo thiết bị, cải thiện trải nghiệm người dùng trên điện thoại. Lưu ý liên kết: Thiết lập này ảnh hưởng đến layout responsive ở tất cả các file, nếu thay đổi cần kiểm tra hiển thị trên mobile cho toàn bộ site. -->
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"> 
-  <!-- Tag title, đặt tiêu đề trang. Tại sao dùng: Hiển thị trên tab trình duyệt và giúp SEO, vì công cụ tìm kiếm dùng title để mô tả trang. Lưu ý liên kết: Tiêu đề này liên quan đến nội dung trang, nếu thay đổi cần đảm bảo phù hợp với menu link ở navbar của các file khác (ví dụ: href="dulichvatrainghiem.html" ở index.html). -->
-  <title>Du Lịch & Trải Nghiệm</title>
-  <!-- Tag link liên kết CSS Bootstrap. Tại sao dùng: Để sử dụng framework Bootstrap giúp thiết kế nhanh, responsive mà không cần viết CSS từ đầu, tiết kiệm thời gian. Lưu ý liên kết: Nếu thay đổi phiên bản Bootstrap, cần cập nhật link ở tất cả các file HTML và kiểm tra class Bootstrap (như row, col-md-6) ở các file khác để tránh lỗi layout. -->
-  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet"> 
-  <!-- Tag link liên kết Font Awesome. Tại sao dùng: Để thêm icon (như lá cây), làm trang sinh động hơn mà không cần hình ảnh nặng, dễ tùy chỉnh. Lưu ý liên kết: Nếu thay đổi phiên bản Font Awesome, cần cập nhật ở tất cả các file và kiểm tra các icon (ví dụ: fas fa-leaf) ở navbar của các file khác. -->
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Du Lịch & Trải Nghiệm - Trà Đại Từ</title>
+  
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
-  <!-- Tag link liên kết file CSS tùy chỉnh. Tại sao dùng: Để override hoặc thêm style riêng, giữ code CSS tách biệt khỏi HTML, dễ bảo trì. Lưu ý liên kết: File styles.css được dùng chung, nếu thay đổi class ở đây (ví dụ: .img-custom), cần kiểm tra tất cả các file HTML sử dụng class đó (như index.html, gioithieu.html) để đảm bảo style nhất quán. -->
-  <link href="css/styles.css" rel="stylesheet"> 
+  
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@700&family=Montserrat:wght@300;400;500;600&family=Patrick+Hand&family=Playfair+Display:ital,wght@0,700;1,400&display=swap" rel="stylesheet">
+
+  <link href="css/styles.css" rel="stylesheet">
 </head>
 <body>
 
-<!-- Tag nav, tạo thanh navigation. Tại sao dùng: Để người dùng dễ dàng điều hướng giữa các trang, cải thiện UX (user experience). Lưu ý liên kết: Navbar này giống ở tất cả các file, nếu thay đổi cấu trúc (thêm/xóa item), cần copy-paste và cập nhật ở mọi file HTML để menu nhất quán. -->
-<nav class="navbar navbar-expand-lg navbar-dark sticky-top"> 
-  <!-- Div container, giới hạn nội dung trong chiều rộng cố định. Tại sao dùng: Giữ layout cân đối, tránh nội dung trải rộng trên màn hình lớn. Lưu ý liên kết: Class container từ Bootstrap, nếu thay đổi cần kiểm tra ở các section khác trong file này và các file khác. -->
+<nav class="navbar navbar-expand-lg navbar-dark sticky-top">
   <div class="container">
-    <!-- Tag a navbar-brand, logo và link về trang chủ. Tại sao dùng: Tạo nhận diện thương hiệu, icon lá cây làm nổi bật chủ đề trà. Lưu ý liên kết: Href trỏ đến index.html, nếu đổi tên file trang chủ thì cần cập nhật ở navbar của tất cả các file. -->
-    <a class="navbar-brand" href="index.html"><i class="fas fa-leaf me-2"></i> Trà Đại Từ</a> 
-    <!-- Button toggler cho menu trên mobile. Tại sao dùng: Làm menu collapse (thu gọn) trên màn hình nhỏ, responsive. Lưu ý liên kết: Data-bs-target liên kết với id #navbarNav, nếu thay đổi id thì cần cập nhật ở button này và div collapse. -->
+    <a class="navbar-brand" href="index.html"><i class="fas fa-leaf me-2"></i> Trà Đại Từ</a>
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
-      <span class="navbar-toggler-icon"></span> 
+      <span class="navbar-toggler-icon"></span>
     </button>
-    <!-- Div collapse, phần menu chính. Tại sao dùng: Ẩn menu trên mobile và hiện khi click, tiết kiệm không gian. Lưu ý liên kết: Id navbarNav được dùng ở button toggler, nếu thay đổi cần cập nhật đồng bộ. -->
     <div class="collapse navbar-collapse" id="navbarNav">
-      <!-- Ul navbar-nav, danh sách menu. Tại sao dùng ms-auto: Đẩy menu sang phải, tạo layout cân đối. Lưu ý liên kết: Các item menu giống nhau ở tất cả file, nếu thêm menu mới cần cập nhật ở mọi navbar. -->
-      <ul class="navbar-nav ms-auto"> 
+      <ul class="navbar-nav ms-auto">
         <li class="nav-item"><a class="nav-link" href="index.html">Trang Chủ</a></li>
         <li class="nav-item dropdown">
           <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown">Giới thiệu</a>
-          <ul class="dropdown-menu"> 
+          <ul class="dropdown-menu">
             <li><a class="dropdown-item" href="gioithieuchung.html">Giới Thiệu Chung</a></li>
             <li><a class="dropdown-item" href="sumenh.html">Sứ Mệnh</a></li>
           </ul>
         </li>
-        <!-- Li dropdown, menu thả xuống. Tại sao dùng: Nhóm các liên kết liên quan, tránh menu quá dài. Lưu ý liên kết: Dropdown này giống ở các file, nếu thay đổi item bên trong cần cập nhật ở tất cả navbar. -->
         <li class="nav-item dropdown">
           <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown">Văn Hóa Trà</a>
-          <ul class="dropdown-menu"> 
+          <ul class="dropdown-menu">
             <li><a class="dropdown-item" href="tinhhoatraviet.html">Tinh Hoa Trà Việt</a></li>
             <li><a class="dropdown-item" href="vanhoathuongtra.html">Văn Hóa Thưởng Trà</a></li>
           </ul>
         </li>
         <li class="nav-item"><a class="nav-link" href="sanphamnoibat.html">Sản Phẩm</a></li>
         <li class="nav-item dropdown">
-          <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown">Trải Nghiệm</a>
-          <ul class="dropdown-menu"> 
-             <li><a class="dropdown-item" href="dulichvatrainghiem.html">Du Lịch</a></li>
+          <a class="nav-link active" href="#" role="button" data-bs-toggle="dropdown">Trải Nghiệm</a>
+          <ul class="dropdown-menu">
+             <li><a class="dropdown-item active" href="dulichvatrainghiem.html">Du Lịch</a></li>
              <li><a class="dropdown-item" href="thuvienmedia.html">Media</a></li>
           </ul>
         </li>
@@ -62,57 +53,83 @@
   </div>
 </nav>
 
-<!-- Section container, phần nội dung chính. Tại sao dùng fade-in: Để thêm animation, làm trang hấp dẫn hơn khi load. Lưu ý liên kết: Class section fade-in từ styles.css, nếu thay đổi ở CSS thì ảnh hưởng đến animation ở các section của file khác (ví dụ: index.html). -->
-<section class="container section fade-in"> 
-  <!-- H1 text-center, tiêu đề chính. Tại sao dùng mb-5: Tạo khoảng cách dưới, giữ layout thoáng. Lưu ý liên kết: Style h1 từ styles.css, nếu thay đổi font hoặc color ở CSS thì ảnh hưởng đến tất cả h1 ở các file. -->
-  <h1 class="text-center mb-5">Du Lịch Về Miền Chè</h1> 
-  <!-- Div row, lưới Bootstrap. Tại sao dùng mt-4: Tạo khoảng cách trên, chia cột cho nội dung. Lưu ý liên kết: Row và col từ Bootstrap, nếu thay đổi cấu trúc grid cần kiểm tra ở các row khác trong file này và các file như sanphamnoibat.html. -->
-  <div class="row mt-4"> 
-    <!-- Col-md-6, cột chiếm nửa màn hình trên medium+. Tại sao dùng: Responsive, hiển thị 2 cột trên desktop, 1 cột trên mobile. Lưu ý liên kết: Nếu thay đổi col-md-6 thành col-md-4, cần điều chỉnh tổng col trong row để =12, và kiểm tra responsive ở các grid tương tự. -->
-    <div class="col-md-6">
-      <h2>Tour Tham Quan Đồi Chè</h2> 
-      <p>Hòa mình vào không gian xanh bát ngát của đồi chè Cầu Đá – Hoàng Nông. Thưởng thức làn sương mai – hít căng lồng ngực không khí trong lành và lưu giữ những khoảnh khắc ‘check-in’ tuyệt đẹp. Một trải nghiệm thiên nhiên thanh bình mà bạn khó quên.</p> 
-      <!-- Img img-fluid, hình ảnh responsive. Tại sao dùng img-custom: Thêm style tùy chỉnh như border-radius. Lưu ý liên kết: Class img-custom từ styles.css, nếu thay đổi style ở CSS thì ảnh hưởng đến tất cả img ở các file (ví dụ: index.html). -->
-      <img src="images/anhcauda.jpg" class="img-fluid img-custom" alt="Tour đồi chè"> 
+<section class="container section-content fade-in mt-5">
+  <div class="text-center mb-5">
+      <h1>Du Lịch & Trải Nghiệm</h1>
+      <p class="lead text-muted">Khám phá vẻ đẹp bất tận của vùng đất Thái Nguyên</p>
+      <hr class="w-25 mx-auto">
+  </div>
+
+  <div class="row mt-4">
+    
+    <div class="col-md-6 mb-5">
+      <h2>Tour Tham Quan Đồi Chè</h2>
+      <p class="text-justify mb-3">Hòa mình vào không gian xanh bát ngát của đồi chè Cầu Đá – Hoàng Nông. Thưởng thức làn sương mai – hít căng lồng ngực không khí trong lành và lưu giữ những khoảnh khắc ‘check-in’ tuyệt đẹp.</p>
+      
+      <div class="ratio ratio-16x9 mb-3 rounded shadow overflow-hidden">
+         <video controls class="w-100 h-100" style="object-fit: cover;">
+             <source src="images/video_tour.mp4" type="video/mp4">
+             Trình duyệt của bạn không hỗ trợ thẻ video.
+         </video>
+      </div>
+
+      <img src="images/anhcauda.jpg" class="img-fluid img-custom shadow" alt="Tour đồi chè">
     </div>
-    <div class="col-md-6 mt-4 mt-md-0">
+
+    <div class="col-md-6 mb-5">
       <h2>Trải Nghiệm Làm Nông Dân</h2>
-      <p>Trở thành nông dân một ngày — tự tay đeo gùi, hái những búp chè non non nõn ‘một tôm hai lá’ cùng người dân bản địa. Trải nghiệm nghệ thuật sao chè cổ truyền, cảm nhận mùi hương nồng nàn khi lá chè lướt qua chảo nóng. Cuối ngày, thưởng thức chính thức ‘thành quả’ của bạn — một tách chè xanh đậm đà, tự tay làm nên.
-      </p>
-      <img src="images/anhhaiche1.jpg" class="img-fluid img-custom" alt="Hái trà"> 
-    </div> 
+      <p class="text-justify mb-3">Trở thành nông dân một ngày — tự tay đeo gùi, hái những búp chè non non nõn ‘một tôm hai lá’ cùng người dân bản địa. Trải nghiệm nghệ thuật sao chè cổ truyền.</p>
+      
+      <div class="ratio ratio-16x9 mb-3 rounded shadow overflow-hidden">
+         <video controls class="w-100 h-100" style="object-fit: cover;">
+             <source src="images/video_nongdan.mp4" type="video/mp4">
+             Trình duyệt của bạn không hỗ trợ thẻ video.
+         </video>
+      </div>
+
+      <img src="images/anhhaiche1.jpg" class="img-fluid img-custom shadow" alt="Hái trà">
+    </div>
   </div>
   
-  <!-- Div text-center, căn giữa nội dung. Tại sao dùng mt-5: Tạo khoảng cách lớn trên. Lưu ý liên kết: Style text-center từ Bootstrap, nếu thay đổi cần kiểm tra ở các phần text-center khác (ví dụ: footer ở tất cả file). -->
-  <div class="text-center mt-5"> 
-    <!-- Iframe YouTube, nhúng video. Tại sao dùng allowfullscreen: Cho phép xem full screen, cải thiện UX. Lưu ý liên kết: Nếu thay đổi src video, cần kiểm tra nếu có video tương tự ở các file khác như vanhoathuongtra.html. -->
-    <iframe width="560" height="315" src="https://www.youtube.com/embed/_bEkTnOPn0c" frameborder="0" allowfullscreen class="img-custom"></iframe> 
-  </div> 
+  <div class="text-center mt-4">
+    <h3 class="mb-4">Video Giới Thiệu Tổng Quan</h3>
+    <iframe width="100%" height="450" src="https://www.youtube.com/embed/_bEkTnOPn0c" title="Video Trà Đại Từ" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen class="img-custom shadow"></iframe>
+  </div>
   
   <div class="text-center mt-5">
-    <h3 class="mb-3">Bản Đồ Đến Vùng Trà</h3>
-    <!-- Div ratio, giữ tỷ lệ khung. Tại sao dùng: Đảm bảo iframe map không bị méo trên các thiết bị. Lưu ý liên kết: Class ratio từ Bootstrap, nếu thay đổi cần kiểm tra ở các iframe khác (ví dụ: thuvienmedia.html). -->
-    <div class="ratio ratio-21x9 mx-auto border border-success border-3 rounded img-custom">
-      <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3718.3581310618867!2d105.6312!3d21.6458!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x31352e8007155555%3A0x0!2zMjHCsDM4JzQ1LjAiTiAxMDXCsDM3JzUyLjMiRQ!5e0!3m2!1svi!2s!4v1631234567890" loading="lazy"></iframe>
+    <h3 class="mb-4">Bản Đồ Đến Vùng Trà Đại Từ</h3>
+    <div class="ratio ratio-21x9 mx-auto border border-success border-3 rounded img-custom shadow">
+        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d59463.34960756786!2d105.6036836!3d21.6375056!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x313526e41b072235%3A0x67690197d1303831!2zxJDhuqFpIFThu6s!5e0!3m2!1svi!2s!4v1700000000000!5m2!1svi!2s" loading="lazy"></iframe>
     </div>
   </div>
 </section>
 
-<!-- Footer, phần chân trang. Tại sao dùng text-center: Căn giữa nội dung, tạo sự chuyên nghiệp. Lưu ý liên kết: Footer giống ở các file, nếu thay đổi nội dung (ví dụ: năm copyright), cần cập nhật ở tất cả footer để nhất quán. -->
 <footer class="text-center">
   <div class="container">
-    <p class="mb-0">&copy; 2025 Không Gian Văn Hóa Trà Đại Từ.</p> 
+    <div class="row">
+      <div class="col-md-4 text-start">
+        <h5>Trà Đại Từ</h5>
+        <p>Mang tinh hoa trà Việt đến mọi nhà.</p>
+      </div>
+      <div class="col-md-4">
+        <h5>Liên Kết</h5>
+        <ul class="list-unstyled">
+           <li><a href="index.html">Trang Chủ</a></li>
+           <li><a href="sanphamnoibat.html">Sản Phẩm</a></li>
+        </ul>
+      </div>
+      <div class="col-md-4 text-end">
+        <h5>Liên Hệ</h5>
+        <p><i class="fas fa-phone me-2"></i> 0912 345 678</p>
+      </div>
+    </div>
+    <hr class="my-4">
+    <p class="mb-0">© 2025 Không Gian Văn Hóa Trà Đại Từ.</p>
   </div>
 </footer>
 
-<!-- Script Bootstrap JS. Tại sao dùng: Để kích hoạt các tính năng như dropdown, carousel, responsive. Lưu ý liên kết: Nếu thay đổi phiên bản Bootstrap JS, cần cập nhật ở tất cả file và kiểm tra chức năng như dropdown ở navbar. -->
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
-<!-- Script JS tùy chỉnh. Tại sao dùng: Thêm chức năng động như animation, event listener. Lưu ý liên kết: File script.js dùng chung, nếu thay đổi hàm trong JS (ví dụ: fade-in), cần kiểm tra class fade-in ở các file HTML. -->
 <script src="js/script.js"></script>
 </body>
 </html>
-
-
-
-
 
