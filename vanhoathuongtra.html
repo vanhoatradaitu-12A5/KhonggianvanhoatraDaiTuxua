@@ -4,71 +4,21 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0"> 
   <title>Văn Hóa Thưởng Trà - Tinh Hoa Đại Từ</title>
-  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet"> 
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
   
-  <style>
-      /* --- CSS NỘI BỘ --- */
-      
-      /* Hiệu ứng zoom nhẹ khi di chuột vào ảnh */
-      .img-custom {
-          object-fit: cover;
-          transition: transform 0.3s ease;
-      }
-      .img-custom:hover {
-          transform: scale(1.02);
-      }
-      
-      /* Căn đều văn bản */
-      .text-justify {
-          text-align: justify;
-      }
-      
-      /* Hiệu ứng thẻ Card */
-      .card {
-          transition: all 0.3s;
-      }
-      
-      /* --- CSS CHO ẢNH SƠ ĐỒ 5 BƯỚC --- */
-      .step-image-container {
-          max-width: 500px;
-          margin: 0 auto; 
-      }
-      .step-image {
-        box-shadow: 0 4px 8px rgba(0,0,0,0.1);
-        transition: transform 0.3s, box-shadow 0.3s; 
-        border-radius: 0.375rem; 
-      }
-      .step-image:hover {
-        transform: scale(1.02); 
-        box-shadow: 0 8px 16px rgba(0,0,0,0.2);
-        cursor: pointer; 
-      }
-      
-      /* Tùy chỉnh Menu: Hiệu ứng hover cho link */
-      .navbar-nav .nav-link {
-          transition: color 0.3s;
-      }
-      .navbar-nav .nav-link:hover {
-          color: #fff !important;
-          text-shadow: 0 0 5px rgba(255,255,255,0.5);
-      }
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet"> 
+  
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+  <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@700&family=Montserrat:wght@400;600&family=Patrick+Hand&family=Playfair+Display:wght@400;700&display=swap" rel="stylesheet">
+  
+  <link rel="stylesheet" href="css/styles.css">
 
-      /* CSS RIÊNG ĐỂ CĂN ẢNH NHẤT THỦY - NGŨ QUẦN ANH */
-      .full-height-img {
-          height: 100%;
-          width: 100%;
-          object-fit: cover; /* Quan trọng: giúp ảnh phủ kín khung mà không bị méo */
-          border-radius: 0.375rem; /* Bo góc giống Bootstrap rounded */
-      }
-  </style>
 </head>
 <body>
 
-<nav class="navbar navbar-expand-lg navbar-dark bg-success sticky-top shadow"> 
+<nav class="navbar navbar-expand-lg"> 
   <div class="container">
-    <a class="navbar-brand fw-bold" href="index.html">
-        <i class="fas fa-leaf me-2 text-white"></i> Trà Đại Từ
+    <a class="navbar-brand" href="index.html">
+        <i class="fas fa-leaf me-2"></i> Trà Đại Từ
     </a> 
     
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
@@ -117,226 +67,219 @@
   </div>
 </nav>
 
-<section class="container section fade-in py-5"> 
-  <h1 class="text-center mb-5 text-uppercase fw-bold text-success">Văn Hóa Thưởng Trà Đại Từ</h1> 
-
-  <div class="row align-items-center mb-5"> 
-    <div class="col-md-7">
-      <h2 class="mb-3 text-success">1. Trà Trong Đời Sống Nhân Dân</h2> 
-      <p class="text-justify">Văn hóa thưởng trà của người Thái Nguyên nói chung và người Đại Từ nói riêng đều xoay quanh việc <strong>kết nối con người với con người</strong>, với thiên nhiên và với quê hương đất mẹ. Nghệ thuật thưởng trà đi sâu vào trái tim mỗi người, trở thành một phần không thể thiếu trong đời sống thường ngày.</p>
-      <p class="text-justify">Người dân trân trọng giá trị nét đẹp văn hóa ấy qua việc sử dụng trà như một phương tiện giao tiếp, tạo sự gắn kết và mang lại cảm giác bình yên, thư thái. Chén trà là khởi đầu cho những câu chuyện tâm sự giữa gia đình, bạn bè hoặc khách đến nhà.</p>
-      <blockquote class="blockquote border-start border-4 border-success ps-3 fst-italic bg-light p-3 rounded">
-          "Thay thế dần cho 'miếng trầu là đầu câu chuyện' truyền thống, 'chén trà là đầu câu chuyện' tiếp bước thể hiện sự tôn trọng và nét lịch sự trong văn hóa giao tiếp."
-      </blockquote>
-      <p>Thưởng trà yêu cầu một tâm thế thư thái, tĩnh lặng để cảm nhận trọn vẹn hương vị tinh tế của trà. Bỏ qua những lo toan để thưởng thức trà giúp cuộc sống chậm lại, nhẹ nhàng hơn.</p>
-    </div>
-    <div class="col-md-5">
-      <img src="images/anhvanhoatra.jpg" class="img-fluid img-custom rounded shadow" alt="Văn hóa trà Đại Từ"> 
-    </div>
-  </div>
+<section class="container fade-in"> 
   
-  <hr class="my-5 text-success opacity-50">
-
-  <div class="mb-5">
-      <h2 class="mb-4 text-success text-center">2. Nghệ Thuật Thưởng Trà</h2>
-      <p class="mb-5 text-justify w-75 mx-auto">Mỗi dân tộc, vùng miền có cách thưởng trà mang đặc trưng riêng. Người Việt đúc kết nghệ thuật này qua câu nói "Nhất thuỷ, nhì trà, tam bôi, tứ ấm, ngũ quân anh".</p>
+  <div class="section-content">
       
-      <div class="row">
-        
-        <div class="col-lg-7 pe-lg-5 mb-4 mb-lg-0">
-            <div class="row g-3 h-100">
-                <div class="col-12">
-                    <div class="h-100 p-3 border rounded bg-white shadow-sm d-flex align-items-start">
-                        <h3 class="text-success me-3 mb-0"><i class="fas fa-water"></i></h3>
-                        <div>
-                             <h5 class="text-success fw-bold mb-1">Nhất Thủy</h5>
-                             <p class="small text-muted mb-0 text-justify">Nước là yếu tố quan trọng nhất. Người xưa dùng nước suối hoặc sương trên lá sen. Ngày nay có thể dùng nước tinh khiết để đảm bảo độ ngon.</p>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-12">
-                    <div class="h-100 p-3 border rounded bg-white shadow-sm d-flex align-items-start">
-                          <h3 class="text-success me-3 mb-0"><i class="fas fa-leaf"></i></h3>
-                        <div>
-                            <h5 class="text-success fw-bold mb-1">Nhì Trà</h5>
-                            <p class="small text-muted mb-0 text-justify">Chọn trà theo tiêu chuẩn: thanh, sắc, vị, thần. Loại trà phù hợp sở thích và chất lượng tốt sẽ đảm bảo hương vị chuẩn.</p>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-12">
-                    <div class="h-100 p-3 border rounded bg-white shadow-sm d-flex align-items-start">
-                        <h3 class="text-success me-3 mb-0"><i class="fas fa-mug-saucer"></i></h3>
-                        <div>
-                            <h5 class="text-success fw-bold mb-1">Tam Bôi</h5>
-                            <p class="small text-muted mb-0 text-justify">"Tam pha" tức là cách pha trà. Người thưởng trà cần biết các bước cơ bản để đánh thức hương vị trà ngon nhất.</p>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-12">
-                    <div class="h-100 p-3 border rounded bg-white shadow-sm d-flex align-items-start">
-                          <h3 class="text-success me-3 mb-0" style="width: 32px;">
-                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" width="30" height="30">
-                                <path d="M10 3c0-1.1 0.9-2 2-2s2 0.9 2 2H10z" opacity="0.6"><animate attributeName="d" values="M10 3c0-1.1 0.9-2 2-2s2 0.9 2 2H10z;M10 2c0-1.1 0.9-2 2-2s2 0.9 2 2H10z;M10 3c0-1.1 0.9-2 2-2s2 0.9 2 2H10z" dur="2s" repeatCount="indefinite"/></path>
-                                <path d="M20 16V9c0-2.8-2.2-5-5-5h-2V3h-2v1H8.7C6.4 4.2 4.4 5.7 3.6 7.9L2 7.3l-0.7 1.8l1.6 0.6C2.4 11.2 2 12.5 2 14c0 3.3 2.7 6 6 6h8c2.2 0 4-1.8 4-4h2v-2H20z M16 16c0 1.1-0.9 2-2 2H8c-2.2 0-4-1.8-4-4s1.8-4 4-4h7c1.1 0 2 0.9 2 2H16z"/>
-                            </svg>
-                          </h3>
-                        <div>
-                            <h5 class="text-success fw-bold mb-1">Tứ Ấm</h5>
-                            <p class="small text-muted mb-0 text-justify">Tùy lối uống "độc ẩm, song ẩm hay quần ẩm" mà chọn ấm chén phù hợp, giúp giữ nguyên hương vị bản sắc.</p>
-                        </div>
-                    </div>
-                </div>
-                 <div class="col-12">
-                    <div class="h-100 p-3 border rounded bg-white shadow-sm d-flex align-items-start">
-                          <h3 class="text-success me-3 mb-0"><i class="fas fa-users"></i></h3>
-                        <div>
-                            <h5 class="text-success fw-bold mb-1">Ngũ Quần Anh</h5>
-                            <p class="small text-muted mb-0 text-justify">Trà ngon không thể thiếu bạn hiền. Tìm được bạn trà tâm giao (tri kỷ) để cùng thưởng thức là điều quý giá nhất.</p>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
+      <h1 class="text-center mb-5 text-uppercase fw-bold text-highlight">Văn Hóa Thưởng Trà Đại Từ</h1> 
 
-        <div class="col-lg-5">
-            <img src="images/nhatnhitamtu.jpg"
-                 class="full-height-img shadow"
-                 alt="Nhất thuỷ, nhì trà, tam bôi, tứ ấm, ngũ quân anh">
+      <div class="row align-items-center mb-5"> 
+        <div class="col-md-7">
+          <h2 class="mb-3">1. Trà Trong Đời Sống Nhân Dân</h2> 
+          <p class="text-justify">Văn hóa thưởng trà của người Thái Nguyên nói chung và người Đại Từ nói riêng đều xoay quanh việc <strong>kết nối con người với con người</strong>, với thiên nhiên và với quê hương đất mẹ. Nghệ thuật thưởng trà đi sâu vào trái tim mỗi người, trở thành một phần không thể thiếu trong đời sống thường ngày.</p>
+          <p class="text-justify">Người dân trân trọng giá trị nét đẹp văn hóa ấy qua việc sử dụng trà như một phương tiện giao tiếp, tạo sự gắn kết và mang lại cảm giác bình yên, thư thái.</p>
+          
+          <blockquote class="blockquote border-start border-4 border-secondary ps-3 fst-italic bg-light p-3 rounded" style="border-color: #8D6E63 !important;">
+              "Thay thế dần cho 'miếng trầu là đầu câu chuyện' truyền thống, 'chén trà là đầu câu chuyện' tiếp bước thể hiện sự tôn trọng và nét lịch sự trong văn hóa giao tiếp."
+          </blockquote>
+          <p>Thưởng trà yêu cầu một tâm thế thư thái, tĩnh lặng để cảm nhận trọn vẹn hương vị tinh tế của trà. Bỏ qua những lo toan để thưởng thức trà giúp cuộc sống chậm lại, nhẹ nhàng hơn.</p>
+        </div>
+        <div class="col-md-5">
+          <img src="images/anhvanhoatra.jpg" class="img-fluid img-custom" alt="Văn hóa trà Đại Từ"> 
         </div>
       </div>
-  </div>
+      
+      <hr class="my-5 opacity-25" style="border-color: #8D6E63;">
 
-  <hr class="my-5 text-success opacity-50">
-
-  <div class="row mb-5"> 
-    <div class="col-12">
-        <h2 class="mb-4 text-success text-center">3. Quy Trình Pha Trà Chuẩn Vị</h2>
-        <p class="text-center mb-5">Để tạo nên tách trà Thái Nguyên thơm ngon chuẩn vị, cần trải qua các bước tỉ mỉ sau:</p>
-        
-        <div class="row row-cols-1 row-cols-md-3 row-cols-lg-5 g-3 mb-5">
-            <div class="col">
-                <div class="card h-100 border-success shadow-sm">
-                    <div class="card-header bg-success text-white text-center fw-bold">Bước 1</div>
-                    <div class="card-body">
-                        <h6 class="card-title text-center text-success">Làm nóng ấm</h6>
-                        <p class="card-text small">Dùng nước sôi 90°C tráng qua ấm chén rồi đổ đi. Giúp làm sạch và giữ nhiệt.</p>
+      <div class="mb-5">
+          <h2 class="mb-4 text-center">2. Nghệ Thuật Thưởng Trà</h2>
+          <p class="mb-5 text-justify w-75 mx-auto">Mỗi dân tộc, vùng miền có cách thưởng trà mang đặc trưng riêng. Người Việt đúc kết nghệ thuật này qua câu nói "Nhất thuỷ, nhì trà, tam bôi, tứ ấm, ngũ quân anh".</p>
+          
+          <div class="row">
+            <div class="col-lg-7 pe-lg-5 mb-4 mb-lg-0">
+                <div class="row g-3 h-100">
+                    <div class="col-12">
+                        <div class="card p-3 d-flex flex-row align-items-start h-100">
+                            <h3 class="text-highlight me-3 mb-0"><i class="fas fa-water"></i></h3>
+                            <div>
+                                 <h5 class="fw-bold mb-1">Nhất Thủy</h5>
+                                 <p class="small text-muted mb-0 text-justify">Nước là yếu tố quan trọng nhất. Người xưa dùng nước suối hoặc sương trên lá sen. Ngày nay có thể dùng nước tinh khiết.</p>
+                            </div>
+                        </div>
                     </div>
-                </div>
-            </div>
-            <div class="col">
-                <div class="card h-100 border-success shadow-sm">
-                    <div class="card-header bg-success text-white text-center fw-bold">Bước 2</div>
-                    <div class="card-body">
-                        <h6 class="card-title text-center text-success">Đong trà</h6>
-                        <p class="card-text small">Cho một lượng trà khô vừa đủ (khoảng 1/5 ấm) vào ấm đã làm nóng.</p>
+                    <div class="col-12">
+                        <div class="card p-3 d-flex flex-row align-items-start h-100">
+                              <h3 class="text-highlight me-3 mb-0"><i class="fas fa-leaf"></i></h3>
+                            <div>
+                                <h5 class="fw-bold mb-1">Nhì Trà</h5>
+                                <p class="small text-muted mb-0 text-justify">Chọn trà theo tiêu chuẩn: thanh, sắc, vị, thần. Loại trà phù hợp sở thích và chất lượng tốt sẽ đảm bảo hương vị chuẩn.</p>
+                            </div>
+                        </div>
                     </div>
-                </div>
-            </div>
-            <div class="col">
-                <div class="card h-100 border-success shadow-sm">
-                    <div class="card-header bg-success text-white text-center fw-bold">Bước 3</div>
-                    <div class="card-body">
-                        <h6 class="card-title text-center text-success">Đánh thức trà</h6>
-                        <p class="card-text small">Đổ nước xăm xắp trà rồi chắt ngay. Giúp lá trà sạch bụi và bắt đầu nở.</p>
+                    <div class="col-12">
+                        <div class="card p-3 d-flex flex-row align-items-start h-100">
+                            <h3 class="text-highlight me-3 mb-0"><i class="fas fa-mug-saucer"></i></h3>
+                            <div>
+                                <h5 class="fw-bold mb-1">Tam Bôi</h5>
+                                <p class="small text-muted mb-0 text-justify">"Tam pha" tức là cách pha trà. Người thưởng trà cần biết các bước cơ bản để đánh thức hương vị trà ngon nhất.</p>
+                            </div>
+                        </div>
                     </div>
-                </div>
-            </div>
-            <div class="col">
-                <div class="card h-100 border-success shadow-sm">
-                    <div class="card-header bg-success text-white text-center fw-bold">Bước 4</div>
-                    <div class="card-body">
-                        <h6 class="card-title text-center text-success">Hãm trà</h6>
-                        <p class="card-text small">Đổ nước sôi 80-85°C. Hãm trong khoảng 1-2 phút tùy khẩu vị đậm nhạt.</p>
+                    <div class="col-12">
+                        <div class="card p-3 d-flex flex-row align-items-start h-100">
+                              <h3 class="text-highlight me-3 mb-0" style="width: 32px;">
+                                <i class="fas fa-flask"></i> </h3>
+                            <div>
+                                <h5 class="fw-bold mb-1">Tứ Ấm</h5>
+                                <p class="small text-muted mb-0 text-justify">Tùy lối uống "độc ẩm, song ẩm hay quần ẩm" mà chọn ấm chén phù hợp, giúp giữ nguyên hương vị bản sắc.</p>
+                            </div>
+                        </div>
                     </div>
-                </div>
-            </div>
-            <div class="col">
-                <div class="card h-100 border-success shadow-sm">
-                    <div class="card-header bg-success text-white text-center fw-bold">Bước 5</div>
-                    <div class="card-body">
-                        <h6 class="card-title text-center text-success">Rót & Thưởng</h6>
-                        <p class="card-text small">Rót trà đều qua các chén (xoay vòng) để độ đậm đều nhau. Thưởng thức nóng.</p>
-                    </div>
-                </div>
-            </div>
-        </div>
-
-        <div class="row align-items-center g-4 mt-4">
-            
-            <div class="col-md-6">
-                <div class="step-image-container">
-                    <div class="card border-0 shadow-sm">
-                        <img src="images/cacbuocphatra.jpg" 
-                             class="img-fluid rounded step-image" 
-                             alt="Sơ đồ 5 bước pha trà Đại Từ"
-                             data-bs-toggle="modal" 
-                             data-bs-target="#imageModal">
-                        <p class="text-center text-muted fst-italic mt-2 small">Sơ đồ tóm tắt quy trình pha trà (Click để phóng to)</p>
-                    </div>
-                </div>
-            </div>
-
-            <div class="col-md-6">
-                 <div class="card h-100 border-success shadow">
-                    <div class="card-header bg-success text-white fw-bold text-center">
-                        <i class="fas fa-video me-2"></i>Video Hướng Dẫn Thực Tế
-                    </div>
-                    <div class="card-body p-2 bg-light">
-                        <div class="ratio ratio-16x9">
-                            <iframe src="https://www.youtube.com/embed/dqdHcEdw4sE" title="Hướng dẫn pha trà" allowfullscreen></iframe>
+                    <div class="col-12">
+                        <div class="card p-3 d-flex flex-row align-items-start h-100">
+                              <h3 class="text-highlight me-3 mb-0"><i class="fas fa-users"></i></h3>
+                            <div>
+                                <h5 class="fw-bold mb-1">Ngũ Quần Anh</h5>
+                                <p class="small text-muted mb-0 text-justify">Trà ngon không thể thiếu bạn hiền. Tìm được bạn trà tâm giao (tri kỷ) để cùng thưởng thức là điều quý giá nhất.</p>
+                            </div>
                         </div>
                     </div>
                 </div>
             </div>
 
+            <div class="col-lg-5">
+                <img src="images/nhatnhitamtu.jpg" class="img-fluid img-custom h-100 w-100" style="object-fit: cover;" alt="Nhất thuỷ, nhì trà, tam bôi, tứ ấm, ngũ quân anh">
+            </div>
+          </div>
+      </div>
+
+      <hr class="my-5 opacity-25" style="border-color: #8D6E63;">
+
+      <div class="row mb-5"> 
+        <div class="col-12">
+            <h2 class="mb-4 text-center">3. Quy Trình Pha Trà Chuẩn Vị</h2>
+            <p class="text-center mb-5">Để tạo nên tách trà Thái Nguyên thơm ngon chuẩn vị, cần trải qua các bước tỉ mỉ sau:</p>
+            
+            <div class="row row-cols-1 row-cols-md-3 row-cols-lg-5 g-3 mb-5">
+                <div class="col">
+                    <div class="card h-100 text-center">
+                        <div class="card-header text-white fw-bold" style="background-color: #8D6E63;">Bước 1</div>
+                        <div class="card-body">
+                            <h6 class="card-title fw-bold" style="color: #5d4037;">Làm nóng ấm</h6>
+                            <p class="card-text small">Dùng nước sôi 90°C tráng qua ấm chén rồi đổ đi. Giúp làm sạch và giữ nhiệt.</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col">
+                    <div class="card h-100 text-center">
+                        <div class="card-header text-white fw-bold" style="background-color: #8D6E63;">Bước 2</div>
+                        <div class="card-body">
+                            <h6 class="card-title fw-bold" style="color: #5d4037;">Đong trà</h6>
+                            <p class="card-text small">Cho một lượng trà khô vừa đủ (khoảng 1/5 ấm) vào ấm đã làm nóng.</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col">
+                    <div class="card h-100 text-center">
+                        <div class="card-header text-white fw-bold" style="background-color: #8D6E63;">Bước 3</div>
+                        <div class="card-body">
+                             <h6 class="card-title fw-bold" style="color: #5d4037;">Đánh thức trà</h6>
+                            <p class="card-text small">Đổ nước xăm xắp trà rồi chắt ngay. Giúp lá trà sạch bụi và bắt đầu nở.</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col">
+                    <div class="card h-100 text-center">
+                        <div class="card-header text-white fw-bold" style="background-color: #8D6E63;">Bước 4</div>
+                        <div class="card-body">
+                            <h6 class="card-title fw-bold" style="color: #5d4037;">Hãm trà</h6>
+                            <p class="card-text small">Đổ nước sôi 80-85°C. Hãm trong khoảng 1-2 phút tùy khẩu vị đậm nhạt.</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col">
+                    <div class="card h-100 text-center">
+                        <div class="card-header text-white fw-bold" style="background-color: #8D6E63;">Bước 5</div>
+                        <div class="card-body">
+                            <h6 class="card-title fw-bold" style="color: #5d4037;">Rót & Thưởng</h6>
+                            <p class="card-text small">Rót trà đều qua các chén (xoay vòng). Thưởng thức khi còn nóng.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="row align-items-center g-4 mt-4">
+                <div class="col-md-6">
+                    <div class="step-image-container sticky-polaroid"> <div class="polaroid-frame">
+                            <img src="images/cacbuocphatra.jpg" 
+                                 class="img-fluid step-image" 
+                                 alt="Sơ đồ 5 bước pha trà Đại Từ"
+                                 data-bs-toggle="modal" 
+                                 data-bs-target="#imageModal">
+                            <p class="text-center text-muted handmade-font mt-2 fs-5">Quy trình pha trà (Click để xem)</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-md-6">
+                     <div class="card h-100">
+                        <div class="card-header text-white fw-bold text-center" style="background-color: #388e3c;"> <i class="fas fa-video me-2"></i>Video Hướng Dẫn Thực Tế
+                        </div>
+                        <div class="card-body p-2 bg-light">
+                            <div class="ratio ratio-16x9">
+                                <iframe src="https://www.youtube.com/embed/dqdHcEdw4sE" title="Hướng dẫn pha trà" allowfullscreen></iframe>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
         </div>
+      </div>
+
+      <hr class="my-5 opacity-25" style="border-color: #8D6E63;">
+
+      <div class="row align-items-center">
+        <div class="col-md-5 order-2 order-md-1">
+              <img src="https://images.unsplash.com/photo-1576092768241-dec231879fc3?q=80&w=1000&auto=format&fit=crop" class="img-fluid img-custom" alt="Ý nghĩa trà Việt"> 
         </div>
-  </div>
+        <div class="col-md-7 order-1 order-md-2">
+            <h2 class="mb-3">4. Ý Nghĩa Văn Hóa Trà Việt</h2>
+            
+            <p class="text-center fw-bold mb-4" style="color: #5d4037;"> 
+               Văn hóa thưởng thức trà của người dân Việt Nam từ xưa nay đều được <br> phát triển dựa vào truyền thống quý báu tốt đẹp của dân tộc
+            </p>
 
-  <hr class="my-5 text-success opacity-50">
-
-  <div class="row align-items-center">
-    <div class="col-md-5 order-2 order-md-1">
-          <img src="https://images.unsplash.com/photo-1576092768241-dec231879fc3?q=80&w=1000&auto=format&fit=crop" class="img-fluid img-custom rounded shadow" alt="Ý nghĩa trà Việt"> 
-    </div>
-    <div class="col-md-7 order-1 order-md-2">
-        <h2 class="mb-3 text-success">4. Ý Nghĩa Văn Hóa Trà Việt</h2>
-        
-        <p class="text-center fw-bold mb-4"> 
-           Văn hóa thưởng thức trà của người dân Việt Nam từ xưa nay đều được <br> phát triển dựa vào truyền thống quý báu tốt đẹp của dân tộc
-        </p>
-
-        <p class="text-justify">
-            <strong>Văn hoá trà Việt Nam</strong> gợi nhớ tới những câu chuyện bên chén trà. Chúng ta bỏ qua những quy tắc cầu kỳ để cùng nhau thủ thỉ nhâm nhi tách trà với khung cảnh bình dị mà nên thơ.
-        </p>
-        <p class="text-justify">
-            Nước trà mới rót mang màu vàng xanh tươi mát, hương trà toả ngát phòng. Khi nếm thử, sau vị chát đắng ấy là sự cảm nhận về nỗi vất vả, sự tỉ mỉ trong quá trình lao động tạo ra chén trà ngon. Vị ngọt thanh đọng lại chính là ẩn ý cho tâm hồn người dân ta: trọng nghĩa tình, thuỷ chung son sắt. Thưởng thức một chén trà như chiêm ngưỡng nét văn hoá Việt rất riêng, đậm đà bản sắc dân tộc.
-        </p>
-    </div>
-  </div>
-
-</section>
+            <p class="text-justify">
+                <strong>Văn hoá trà Việt Nam</strong> gợi nhớ tới những câu chuyện bên chén trà. Chúng ta bỏ qua những quy tắc cầu kỳ để cùng nhau thủ thỉ nhâm nhi tách trà với khung cảnh bình dị mà nên thơ.
+            </p>
+            <p class="text-justify">
+                Nước trà mới rót mang màu vàng xanh tươi mát, hương trà toả ngát phòng. Khi nếm thử, sau vị chát đắng ấy là sự cảm nhận về nỗi vất vả, sự tỉ mỉ trong quá trình lao động tạo ra chén trà ngon. Vị ngọt thanh đọng lại chính là ẩn ý cho tâm hồn người dân ta: trọng nghĩa tình, thuỷ chung son sắt.
+            </p>
+        </div>
+      </div>
+      
+  </div> </section>
 
 <div class="modal fade" id="imageModal" tabindex="-1" aria-labelledby="imageModalLabel" aria-hidden="true">
   <div class="modal-dialog modal-xl modal-dialog-centered">
     <div class="modal-content bg-transparent border-0">
       <div class="modal-body text-center p-0">
-        <img src="images/cacbuocphatra.jpg" class="img-fluid rounded shadow" alt="Sơ đồ 5 bước pha trà Đại Từ - Phóng to">
+        <img src="images/cacbuocphatra.jpg" class="img-fluid rounded shadow" style="border: 10px solid #fff;" alt="Sơ đồ 5 bước pha trà Đại Từ - Phóng to">
       </div>
       <div class="modal-footer justify-content-center border-0">
-        <button type="button" class="btn btn-outline-light" data-bs-dismiss="modal">Đóng (Close)</button>
+        <button type="button" class="btn btn-custom" data-bs-dismiss="modal">Đóng (Close)</button>
       </div>
     </div>
   </div>
 </div>
 
-<footer class="text-center bg-dark text-white py-4 mt-5">
+<footer class="text-center">
   <div class="container">
-    <p class="mb-0">&copy; 2025 Không Gian Văn Hóa Trà Đại Từ - Tinh Hoa Đất Thái.</p> 
+    <h5 class="mb-3">KHÔNG GIAN VĂN HÓA TRÀ ĐẠI TỪ</h5>
+    <p class="mb-0">&copy; 2025 Tinh Hoa Đất Thái. Design by You.</p> 
   </div>
 </footer>
 
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
-<script src="js/script.js"></script>
 </body>
 </html>
