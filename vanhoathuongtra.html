@@ -9,8 +9,28 @@
   <link href="css/styles.css" rel="stylesheet"> 
   
   <style>
-      /* --- CSS NỘI BỘ (Để demo nhanh) --- */
+      /* --- CSS NỘI BỘ --- */
       
+      /* 1. CẤU HÌNH ẢNH NỀN (ĐÃ SỬA: Thêm ảnh nền, bỏ làm mờ) */
+      body {
+          /* Bạn nhớ thay đường dẫn ảnh nền của bạn vào đây */
+          background-image: url('images/background-tra.jpg'); 
+          background-size: cover;
+          background-position: center;
+          background-repeat: no-repeat;
+          background-attachment: fixed; /* Giữ cố định ảnh khi cuộn */
+      }
+
+      /* 2. CẤU HÌNH KHUNG NỘI DUNG (ĐÃ SỬA: Thêm nền trắng mờ để nổi bật chữ) */
+      .section {
+          background-color: rgba(255, 255, 255, 0.95); /* Trắng mờ 95% */
+          border-radius: 15px;
+          box-shadow: 0 0 20px rgba(0,0,0,0.15);
+          margin-top: 30px;
+          margin-bottom: 30px;
+          padding: 40px !important;
+      }
+
       /* Hiệu ứng zoom nhẹ khi di chuột vào ảnh */
       .img-custom {
           object-fit: cover;
@@ -30,15 +50,11 @@
           transition: all 0.3s;
       }
       
-      /* --- CSS ĐÃ CHỈNH SỬA CHO ẢNH SƠ ĐỒ 5 BƯỚC --- */
-      
-      /* Giới hạn kích thước khung chứa ảnh sơ đồ và căn giữa */
+      /* --- CSS CHO ẢNH SƠ ĐỒ 5 BƯỚC --- */
       .step-image-container {
-          max-width: 500px; /* Kích thước ảnh tối đa (Desktop) */
+          max-width: 500px;
           margin: 0 auto; 
       }
-
-      /* Hiệu ứng hover cho ảnh sơ đồ 5 bước */
       .step-image {
         box-shadow: 0 4px 8px rgba(0,0,0,0.1);
         transition: transform 0.3s, box-shadow 0.3s; 
@@ -49,9 +65,8 @@
         box-shadow: 0 8px 16px rgba(0,0,0,0.2);
         cursor: pointer; 
       }
-      /* --- KẾT THÚC CHỈNH SỬA CSS CHO ẢNH SƠ ĐỒ --- */
       
-      /* Tùy chỉnh Menu: Hiệu ứng hover cho link */
+      /* Tùy chỉnh Menu */
       .navbar-nav .nav-link {
           transition: color 0.3s;
       }
@@ -139,7 +154,7 @@
       <h2 class="mb-4 text-success text-center">2. Nghệ Thuật Thưởng Trà</h2>
       <p class="mb-5 text-justify w-75 mx-auto">Mỗi dân tộc, vùng miền có cách thưởng trà mang đặc trưng riêng. Người Việt đúc kết nghệ thuật này qua câu nói "Nhất thuỷ, nhì trà, tam bôi, tứ ấm, ngũ quân anh".</p>
   
-      <div class="row align-items-start">
+      <div class="row">
         
         <div class="col-lg-7 pe-lg-5">
             <div class="row g-3">
@@ -196,12 +211,11 @@
             </div>
         </div>
 
-        <div class="col-lg-5 mt-4 mt-lg-0" style="z-index: 1;">
-            <div class="sticky-top" style="top: 80px;">
-                <img src="images/nhatnhitamtu.jpg"
-                     class="img-fluid rounded shadow w-100"
-                     alt="Nhất thuỷ, nhì trà, tam bôi, tứ ấm, ngũ quân anh">
-            </div>
+        <div class="col-lg-5 mt-4 mt-lg-0 h-100">
+             <img src="images/nhatnhitamtu.jpg"
+                  class="img-fluid rounded shadow w-100 h-100"
+                  style="object-fit: cover; min-height: 300px;"
+                  alt="Nhất thuỷ, nhì trà, tam bôi, tứ ấm, ngũ quân anh">
         </div>
       </div>
   </div>
@@ -306,9 +320,9 @@
         <b>Văn hóa thưởng thức trà của người dân Việt Nam từ xưa nay đều được <br> phát triển dựa vào truyền thống quý báu tốt đẹp của dân tộc </b>
     </p>
 
-        <p class="text-justify"> <strong>Văn hoá trà Việt Nam</strong>, gợi nhớ tới những câu chuyện bên chén trà.Chúng ta bỏ qua những quy tắc cầu kỳ để cùng nhau thủ thỉ nhâm nhi tách trà với khung cảnh bình dị mà nên thơ. Nước trà mới rót mang màu vàng xanh tươi mát, hương trà toả ngát phòng và khi nếm thử tách trà, sau vị chát đắng ấy giống như bộc lộ nỗi vất, sự tỷ mỉ trong quá trình lao động tạo ra được một chén trà ngon. Còn đối với vị ngọt thanh như hằng ẩn ý chính là tâm hồn của người dân ta, trọng nghĩa tình, thuỷ chung son sắt. Vì vậy, thưởng thức một chén trà  như chiêm ngưỡng được một nét văn hoá trà Việt rất riêng mang đậm bản sắc dân tộc. </p>
+        <p class="text-justify"> <strong>Văn hoá trà Việt Nam</strong>, gợi nhớ tới những câu chuyện bên chén trà.Chúng ta bỏ qua những quy tắc cầu kỳ để cùng nhau thủ thỉ nhâm nhi tách trà với khung cảnh bình dị mà nên thơ. Nước trà mới rót mang màu vàng xanh tươi mát, hương trà toả ngát phòng và khi nếm thử tách trà, sau vị chát đắng ấy giống như bộc lộ nỗi vất, sự tỷ mỉ trong quá trình lao động tạo ra được một chén trà ngon. Còn đối với vị ngọt thanh như hằng ẩn ý chính là tâm hồn của người dân ta, trọng nghĩa tình, thuỷ chung son sắt. Vì vậy, thưởng thức một chén trà  như chiêm ngưỡng được một nét văn hoá trà Việt rất riêng mang đậm bản sắc dân tộc. </p>
         
-       
+        
         </div>
         </div>
 
@@ -326,6 +340,7 @@
     </div>
   </div>
 </div>
+
 <footer class="text-center bg-dark text-white py-4 mt-5">
   <div class="container">
     <p class="mb-0">&copy; 2025 Không Gian Văn Hóa Trà Đại Từ - Tinh Hoa Đất Thái.</p> 
@@ -336,5 +351,3 @@
 <script src="js/script.js"></script>
 </body>
 </html>
-
-
