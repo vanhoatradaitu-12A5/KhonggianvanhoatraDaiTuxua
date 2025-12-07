@@ -1,6 +1,6 @@
 /* =======================================================
    FILE: css/styles.css
-   MASTER CSS - ĐÃ TĂNG ĐỘ ĐẬM NỀN TRẮNG (DỄ ĐỌC CHỮ)
+   MASTER CSS - MENU NỔI BẬT (ĐẬM ĐÀ & CÓ VIỀN)
    ======================================================= */
 
 /* --- 1. CẤU HÌNH CƠ BẢN --- */
@@ -13,7 +13,7 @@ body {
     min-height: 100vh;
 }
 
-/* TẠO LỚP ẢNH NỀN (RÕ NÉT - KHÔNG BLUR) */
+/* TẠO LỚP ẢNH NỀN */
 body::before {
     content: "";
     position: fixed;
@@ -22,66 +22,66 @@ body::before {
     width: 100%;
     height: 100%;
     z-index: -1;
-    
-    /* Đường dẫn ảnh từ thư mục css ra thư mục images */
     background-image: url('../images/nentrangweb.jpg'); 
-    
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
-    
-    /* Đã bỏ filter blur và transform scale */
 }
 
 /* --- CÁC PHẦN CÒN LẠI --- */
 
-/* Font cho tiêu đề */
 h1, h2, h3, h4, h5, .navbar-brand, .card-header {
     font-family: 'Playfair Display', serif;
     color: #1a422a; 
 }
 
-/* Font viết tay */
-.handmade-font {
-    font-family: 'Patrick Hand', cursive;
-}
-
-/* Tiện ích */
+.handmade-font { font-family: 'Patrick Hand', cursive; }
 .text-justify { text-align: justify; }
 .text-success { color: #1a422a !important; }
 
-/* --- 2. NAVBAR --- */
+/* --- 2. NAVBAR (ĐÃ CHỈNH SỬA ĐỂ NỔI BẬT) --- */
 .navbar {
     background-color: #1a422a !important;
-    box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+    
+    /* 1. Tăng bóng đổ mạnh hơn (đen và rộng hơn) */
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.6); 
+    
+    /* 2. Thêm viền dưới màu xanh sáng để tách biệt hẳn với nền */
+    border-bottom: 3px solid #81c784; 
+    
+    /* Đảm bảo menu luôn nằm trên các thành phần khác */
+    z-index: 1000; 
 }
 
 .navbar-brand {
     font-weight: 700;
     letter-spacing: 1px;
-    font-size: 1.5rem;
+    font-size: 1.6rem; /* Tăng nhẹ kích thước logo */
     color: #ffffff !important;
+    text-shadow: 2px 2px 4px rgba(0,0,0,0.5); /* Thêm bóng chữ cho logo */
 }
 
 .navbar-brand:hover { color: #e0e0e0 !important; }
 
 .nav-link {
     font-family: 'Montserrat', sans-serif;
-    font-weight: 500;
+    font-weight: 600; /* Tăng độ dày chữ từ 500 lên 600 */
     text-transform: uppercase;
-    font-size: 0.9rem;
-    transition: color 0.3s;
-    color: rgba(255,255,255,0.9) !important;
+    font-size: 0.95rem; /* Tăng nhẹ kích thước chữ */
+    transition: all 0.3s;
+    color: #ffffff !important; /* Chuyển sang trắng tinh */
 }
 
 .nav-link:hover, .nav-link.active {
     color: #81c784 !important;
-    text-shadow: 0 0 5px rgba(129, 199, 132, 0.5);
+    text-shadow: 0 0 10px rgba(129, 199, 132, 0.8); /* Hiệu ứng phát sáng khi di chuột */
+    transform: translateY(-2px); /* Nhấc nhẹ chữ lên khi di chuột */
 }
 
 .dropdown-menu {
     border: none;
-    box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+    box-shadow: 0 5px 15px rgba(0,0,0,0.3);
+    border-top: 3px solid #81c784; /* Đồng bộ viền với menu cha */
 }
 
 /* --- 3. FOOTER --- */
@@ -90,6 +90,7 @@ footer {
     color: #ffffff;
     padding-top: 3rem;
     padding-bottom: 2rem;
+    box-shadow: 0 -5px 20px rgba(0,0,0,0.3); /* Thêm bóng cho footer tách khỏi nền */
 }
 footer h5 { color: #81c784; font-weight: 700; }
 footer a { color: #e0e0e0; text-decoration: none; transition: 0.3s; }
@@ -133,12 +134,10 @@ footer hr { opacity: 0.2; border-color: white; }
     color: #fff;
 }
 
-/* SỬA LẠI: Tăng độ đậm nền thẻ Card */
 .card {
     border: none;
     box-shadow: 0 2px 5px rgba(0,0,0,0.05);
     transition: all 0.3s;
-    /* Tăng từ 0.9 lên 0.98 để nền trắng đặc hơn */
     background-color: rgba(255, 255, 255, 0.98); 
 }
 .card:hover {
@@ -146,11 +145,9 @@ footer hr { opacity: 0.2; border-color: white; }
     box-shadow: 0 10px 20px rgba(0,0,0,0.1);
 }
 
-/* --- 6. SECTION CONTENT (SỬA LẠI: TĂNG ĐỘ ĐẬM) --- */
+/* --- 6. SECTION CONTENT --- */
 .section-content {
-    /* Tăng từ 0.9 lên 0.98 để chữ dễ đọc trên nền ảnh rõ nét */
     background-color: rgba(255, 255, 255, 0.98); 
-    
     padding: 40px;
     border-radius: 15px;
     box-shadow: 0 5px 15px rgba(0,0,0,0.08);
