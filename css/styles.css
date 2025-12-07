@@ -1,44 +1,46 @@
 /* =======================================================
    FILE: css/styles.css
-   MASTER CSS - FINAL (ĐÃ SỬA LỖI HIỂN THỊ NỀN MỜ)
+   MASTER CSS - ĐÃ SỬA LẠI ĐƯỜNG DẪN ẢNH NỀN
    ======================================================= */
 
-/* --- 1. CẤU HÌNH CƠ BẢN & ẢNH NỀN --- */
+/* --- 1. CẤU HÌNH CƠ BẢN --- */
 body {
     font-family: 'Montserrat', sans-serif;
     color: #333;
     line-height: 1.6;
-    /* QUAN TRỌNG: Để trong suốt để nhìn thấy lớp ảnh nền phía sau */
-    background-color: transparent; 
+    background-color: transparent; /* Bắt buộc trong suốt */
     position: relative;
     min-height: 100vh;
 }
 
-/* TẠO LỚP GIẢ ĐỂ CHỨA ẢNH NỀN MỜ */
+/* TẠO LỚP ẢNH NỀN MỜ */
 body::before {
     content: "";
-    position: fixed; /* Cố định ảnh, không trôi khi cuộn */
+    position: fixed;
     top: 0;
     left: 0;
     width: 100%;
     height: 100%;
-    z-index: -1; /* Đẩy ra sau cùng */
+    z-index: -1;
     
-    /* ĐÃ SỬA: Đường dẫn đúng tên thư mục 'image' */
-    background-image: url('../image/nentrangweb.jpg');
+    /* --- SỬA LẠI Ở ĐÂY --- */
+    /* Dùng 'images' (có s) vì code cũ của bạn đều dùng thư mục này */
+    background-image: url('../images/nentrangweb.jpg'); 
+    
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
     
-    /* Hiệu ứng mờ */
-    filter: blur(8px); 
-    transform: scale(1.1); /* Phóng to nhẹ để che mép mờ */
+    filter: blur(8px); /* Độ mờ */
+    transform: scale(1.1);
 }
 
-/* Font cho tiêu đề: Sang trọng */
+/* --- CÁC PHẦN CÒN LẠI GIỮ NGUYÊN --- */
+
+/* Font cho tiêu đề */
 h1, h2, h3, h4, h5, .navbar-brand, .card-header {
     font-family: 'Playfair Display', serif;
-    color: #1a422a; /* Màu xanh rêu đậm chủ đạo */
+    color: #1a422a; 
 }
 
 /* Font viết tay */
@@ -50,7 +52,7 @@ h1, h2, h3, h4, h5, .navbar-brand, .card-header {
 .text-justify { text-align: justify; }
 .text-success { color: #1a422a !important; }
 
-/* --- 2. NAVBAR (MENU) --- */
+/* --- 2. NAVBAR --- */
 .navbar {
     background-color: #1a422a !important;
     box-shadow: 0 4px 12px rgba(0,0,0,0.15);
@@ -63,9 +65,7 @@ h1, h2, h3, h4, h5, .navbar-brand, .card-header {
     color: #ffffff !important;
 }
 
-.navbar-brand:hover {
-    color: #e0e0e0 !important;
-}
+.navbar-brand:hover { color: #e0e0e0 !important; }
 
 .nav-link {
     font-family: 'Montserrat', sans-serif;
@@ -88,7 +88,6 @@ h1, h2, h3, h4, h5, .navbar-brand, .card-header {
 
 /* --- 3. FOOTER --- */
 footer {
-    /* Nền footer hơi trong suốt để hòa hợp với background */
     background-color: rgba(26, 66, 42, 0.95) !important;
     color: #ffffff;
     padding-top: 3rem;
@@ -101,7 +100,6 @@ footer hr { opacity: 0.2; border-color: white; }
 
 /* --- 4. HERO BANNER --- */
 .hero {
-    /* Banner vẫn dùng ảnh riêng của nó (banner5.jpg) để nổi bật */
     background: linear-gradient(to bottom, rgba(0,0,0,0.3), rgba(0,0,0,0.6)), url('../images/banner5.jpg');
     background-size: cover;
     background-position: center;
@@ -120,7 +118,7 @@ footer hr { opacity: 0.2; border-color: white; }
     text-shadow: 3px 3px 6px rgba(0,0,0,0.8);
 }
 
-/* --- 5. COMPONENT: NÚT BẤM & CARD --- */
+/* --- 5. COMPONENTS --- */
 .btn-custom {
     background-color: #4caf50;
     color: white;
@@ -137,7 +135,6 @@ footer hr { opacity: 0.2; border-color: white; }
     color: #fff;
 }
 
-/* Card trong suốt nhẹ */
 .card {
     border: none;
     box-shadow: 0 2px 5px rgba(0,0,0,0.05);
@@ -149,9 +146,8 @@ footer hr { opacity: 0.2; border-color: white; }
     box-shadow: 0 10px 20px rgba(0,0,0,0.1);
 }
 
-/* --- 6. CONTAINER NỘI DUNG (QUAN TRỌNG) --- */
+/* --- 6. SECTION CONTENT (NỀN TRẮNG MỜ) --- */
 .section-content {
-    /* Nền trắng mờ 90% giúp chữ dễ đọc trên nền ảnh mờ */
     background-color: rgba(255, 255, 255, 0.9);
     padding: 40px;
     border-radius: 15px;
@@ -160,7 +156,7 @@ footer hr { opacity: 0.2; border-color: white; }
     backdrop-filter: blur(5px);
 }
 
-/* --- 7. HÌNH ẢNH --- */
+/* --- 7. IMAGES --- */
 .img-custom {
     object-fit: cover;
     border-radius: 10px;
@@ -168,7 +164,7 @@ footer hr { opacity: 0.2; border-color: white; }
 }
 .section-content .img-custom:hover { transform: scale(1.02); }
 
-/* --- 8. CÁC THÀNH PHẦN KHÁC --- */
+/* --- 8. TIMELINE & EXTRAS --- */
 .step-timeline {
     position: relative;
     padding-left: 20px;
@@ -223,6 +219,5 @@ footer hr { opacity: 0.2; border-color: white; }
 .step-image:hover { transform: scale(1.02); }
 .sticky-image-wrapper { position: sticky; top: 100px; z-index: 1; }
 
-/* --- 9. ANIMATION --- */
 .fade-in { animation: fadeIn 1.5s ease-out; }
 @keyframes fadeIn { from { opacity: 0; transform: translateY(20px); } to { opacity: 1; transform: translateY(0); } }
