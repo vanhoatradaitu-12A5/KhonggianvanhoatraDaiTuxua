@@ -1,261 +1,141 @@
-/* =======================================================
-   FILE: css/styles.css
-   MASTER CSS - MENU GỖ ĐẤT NUNG (KHÔNG BÁM DÍNH - SCROLL BÌNH THƯỜNG)
-   ======================================================= */
+/* =========================================
+   1. NHÚNG FONT CHỮ & CÀI ĐẶT CƠ BẢN
+   ========================================= */
+/* Nhúng font "Dancing Script" cho Logo và "Playfair Display" cho Menu */
+@import url('https://fonts.googleapis.com/css2?family=Dancing+Script:wght@700&family=Playfair+Display:wght@400;600&display=swap');
 
-/* --- 1. CẤU HÌNH CƠ BẢN --- */
+:root {
+    --primary-color: #1a332a; /* Xanh rêu đậm chủ đạo */
+    --gradient-top: #2b4f3a;  /* Xanh sáng hơn cho phần trên */
+    --gradient-mid: #15281e;  /* Xanh tối ở giữa tạo độ sâu */
+    --gold-text: #e6c888;     /* Vàng kim loại sáng cho chữ */
+    --gold-border: #6b5c38;   /* Vàng đồng tối cho viền */
+    --gold-hover: #fff5d7;    /* Màu sáng khi di chuột vào */
+}
+
 body {
-    font-family: 'Montserrat', sans-serif;
-    color: #3e2723; 
-    line-height: 1.6;
-    background-color: transparent; 
-    position: relative;
-    min-height: 100vh;
-    
-    /* CẬP NHẬT: Bỏ padding-top vì menu không còn che nội dung */
-    padding-top: 0; 
+    font-family: 'Playfair Display', serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f4f4f4; /* Màu nền web tạm thời */
 }
 
-/* TẠO LỚP ẢNH NỀN (CỐ ĐỊNH, KHÔNG MỜ) */
-body::before {
-    content: "";
-    position: fixed; /* Ảnh nền vẫn giữ cố định */
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    z-index: -1;
-    background-image: url('../images/nentrangweb.jpg'); 
-    background-size: cover;
-    background-position: center;
-    background-repeat: no-repeat;
-}
-
-/* --- TYPOGRAPHY --- */
-h1, h2, h3, h4, h5, .card-header {
-    font-family: 'Playfair Display', serif; 
-    color: #5d4037; 
-    font-weight: 700;
-}
-.handmade-font { font-family: 'Patrick Hand', cursive; }
-.text-justify { text-align: justify; }
-.text-highlight { color: #8D6E63 !important; }
-
-/* --- 2. NAVBAR (MENU GỖ - TRÔI THEO TRANG) --- */
+/* =========================================
+   2. THANH MENU (NAVBAR)
+   ========================================= */
 .navbar {
-    /* CẬP NHẬT: Dùng relative để menu nằm ở đầu trang và cuộn đi mất */
-    position: relative; 
-    width: 100%;
-    z-index: 1000;
-
-    /* MÀU SẮC & VÂN GỖ GIẢ LẬP */
-    background-color: #8D6E63; 
-    background: linear-gradient(to bottom, #a1887f 0%, #8d6e63 40%, #6d4c41 100%);
-    
-    /* HIỆU ỨNG VÁT CẠNH (BEVEL) */
-    border-top: 2px solid #d7ccc8; 
-    border-bottom: 3px solid #4e342e; 
-
-    /* ĐỔ BÓNG CỨNG (HARD SHADOW) */
-    box-shadow: 0 5px 0 #3e2723, 0 12px 10px rgba(0,0,0,0.3);
-
-    padding: 0.8rem 1rem;
-    transition: all 0.3s ease;
-    
-    /* Thêm khoảng cách dưới chân menu để bóng đổ không đè quá sát vào banner */
-    margin-bottom: 0; 
-}
-
-.navbar-brand {
-    font-family: 'Playfair Display', serif;
-    font-weight: 700;
-    letter-spacing: 1px;
-    font-size: 1.6rem; 
-    color: #FFF8E1 !important; 
-    text-shadow: 1px 1px 0px #3e2723; 
-}
-
-.nav-link {
-    font-family: 'Playfair Display', serif;
-    font-weight: 600; 
-    text-transform: uppercase;
-    font-size: 0.95rem; 
-    color: #FFF8E1 !important; 
-    margin: 0 8px;
-    transition: all 0.2s;
-}
-
-.nav-link:hover, .nav-link.active {
-    color: #ffe0b2 !important; 
-    transform: translateY(1px);
-    text-shadow: none;
-}
-
-/* MENU CON */
-.dropdown-menu {
-    background-color: #8D6E63;
-    border: 2px solid #5d4037;
-    border-radius: 0;
-    box-shadow: 4px 4px 0 #3e2723;
-    margin-top: 5px;
-}
-.dropdown-item {
-    color: #FFF8E1 !important;
-    font-family: 'Playfair Display', serif;
-    border-bottom: 1px dashed rgba(255,248,225, 0.3);
-}
-.dropdown-item:hover {
-    background-color: #6d4c41;
-    color: #fff !important;
-}
-
-.navbar-toggler {
-    border: 2px solid #5d4037;
-    background-color: #6d4c41;
-    box-shadow: 0 2px 0 #3e2723;
-}
-.navbar-toggler-icon {
-    background-image: url("data:image/svg+xml,%3csvg viewBox='0 0 30 30' xmlns='http://www.w3.org/2000/svg'%3e%3cpath stroke='rgba(255, 248, 225, 1)' stroke-width='2' stroke-linecap='round' stroke-miterlimit='10' d='M4 7h22M4 15h22M4 23h22'/%3e%3c/svg%3e");
-}
-
-/* --- 3. FOOTER --- */
-footer {
-    background-color: #3e2723 !important; 
-    color: #d7ccc8;
-    padding-top: 3rem;
-    padding-bottom: 2rem;
-    border-top: 5px solid #8D6E63;
-}
-footer h5 { color: #FFF8E1; font-family: 'Playfair Display', serif; }
-footer a { color: #d7ccc8; text-decoration: none; transition: 0.3s; }
-footer a:hover { color: #8D6E63; }
-footer hr { opacity: 0.3; border-color: #8D6E63; }
-
-/* --- 4. HERO BANNER --- */
-.hero {
-    background: linear-gradient(to bottom, rgba(62, 39, 35, 0.3), rgba(62, 39, 35, 0.6)), url('../images/banner5.jpg');
-    background-size: cover;
-    background-position: center;
-    background-attachment: fixed;
-    min-height: 85vh;
     display: flex;
+    justify-content: space-between; /* Logo bên trái, Menu bên phải */
+    align-items: center;
+    
+    /* Kích thước và vị trí */
+    width: 100%;
+    max-width: 1200px; /* Giới hạn chiều rộng menu */
+    height: 80px;
+    margin: 20px auto; /* Căn giữa màn hình */
+    padding: 0 40px;
+    
+    /* --- XỬ LÝ MÀU NỀN & GRADIENT GIỐNG ẢNH --- */
+    background: linear-gradient(
+        180deg, 
+        var(--gradient-top) 0%, 
+        var(--gradient-mid) 45%, 
+        var(--primary-color) 100%
+    );
+    
+    /* --- XỬ LÝ VIỀN & ĐỔ BÓNG 3D --- */
+    border: 2px solid var(--gold-border);
+    border-radius: 12px; /* Bo góc nhẹ */
+    
+    /* Shadow phức tạp để tạo độ nổi khối */
+    box-shadow: 
+        inset 0 1px 5px rgba(255, 255, 255, 0.1), /* Sáng nhẹ cạnh trên */
+        inset 0 0 20px rgba(0, 0, 0, 0.8), /* Bóng tối bên trong */
+        0 5px 15px rgba(0, 0, 0, 0.3); /* Bóng đổ xuống nền web */
+    
+    position: relative;
+    box-sizing: border-box;
+}
+
+/* Tạo đường viền mảnh (inner border) mờ bên trong để tăng vẻ sang trọng */
+.navbar::after {
+    content: '';
+    position: absolute;
+    top: 3px; bottom: 3px; left: 3px; right: 3px;
+    border: 1px solid rgba(212, 175, 55, 0.2);
+    border-radius: 8px;
+    pointer-events: none;
+}
+
+/* =========================================
+   3. PHẦN LOGO (TRÀ ĐẠI TỪ)
+   ========================================= */
+.logo-container {
+    display: flex;
+    flex-direction: column; /* Icon ở trên, chữ ở dưới */
     align-items: center;
     justify-content: center;
-    text-align: center;
-    color: white;
-}
-.hero h1 {
-    font-family: 'Dancing Script', cursive;
-    font-size: 5rem;
-    color: #fff;
-    text-shadow: 3px 3px 6px rgba(0,0,0,0.8);
+    color: var(--gold-text);
+    text-shadow: 0 2px 4px rgba(0,0,0,0.8); /* Bóng chữ đậm */
+    margin-right: auto; /* Đẩy menu sang phải */
 }
 
-/* --- 5. COMPONENTS --- */
-.btn-custom {
-    background-color: #388e3c; 
-    color: white;
-    border-radius: 4px;
-    padding: 12px 40px;
-    font-weight: 600;
-    font-family: 'Playfair Display', serif;
-    border: 2px solid #1b5e20;
-    box-shadow: 0 4px 0 #1b5e20, 0 5px 10px rgba(0,0,0,0.2);
-    transition: all 0.2s ease;
-    transform: translateY(0);
-}
-.btn-custom:hover {
-    background-color: #43a047;
-    color: #fff;
-    box-shadow: 0 2px 0 #1b5e20, 0 3px 5px rgba(0,0,0,0.2);
-    transform: translateY(2px);
+.icon-cup {
+    font-size: 24px;
+    line-height: 1;
+    color: var(--gold-text);
+    margin-bottom: -5px; /* Kéo icon gần chữ hơn */
 }
 
-.card {
-    border: none;
-    box-shadow: 0 3px 6px rgba(0,0,0,0.1);
-    transition: all 0.3s;
-    background-color: rgba(255, 255, 255, 0.95); 
-    border-radius: 4px;
-    border-bottom: 3px solid #8D6E63; 
-}
-.card:hover {
-    transform: translateY(-5px);
-    box-shadow: 0 10px 20px rgba(141, 110, 99, 0.2);
+.brand-name {
+    font-family: 'Dancing Script', cursive; /* Font viết tay */
+    font-size: 32px;
+    font-weight: 700;
+    letter-spacing: 0.5px;
 }
 
-/* --- 6. SECTION CONTENT --- */
-.section-content {
-    background-color: rgba(255, 255, 255, 0.98); 
-    padding: 40px;
-    border-radius: 4px;
-    box-shadow: 0 5px 15px rgba(0,0,0,0.08);
-    border: 1px solid #d7ccc8;
-    margin: 40px 0;
+/* =========================================
+   4. DANH SÁCH LIÊN KẾT (MENU ITEMS)
+   ========================================= */
+.nav-links {
+    display: flex;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    align-items: center;
+    gap: 30px; /* Khoảng cách giữa các mục menu */
 }
 
-/* --- 7. IMAGES --- */
-.img-custom {
-    object-fit: cover;
-    border-radius: 4px;
-    transition: transform 0.3s;
-    border: 5px solid #fff;
-    box-shadow: 0 3px 10px rgba(0,0,0,0.2);
-}
-.section-content .img-custom:hover { transform: scale(1.02); }
-
-/* --- 8. TIMELINE & EXTRAS --- */
-.step-timeline {
+.nav-links li {
     position: relative;
-    padding-left: 20px;
-    border-left: 3px dashed #8D6E63; 
-}
-.step-item {
-    position: relative;
-    padding-bottom: 40px;
-    padding-left: 20px;
-}
-.step-item:last-child { border-left: 3px solid transparent; margin-left: -3px; }
-.step-marker {
-    position: absolute;
-    left: -29px;
-    top: 0;
-    width: 22px;
-    height: 22px;
-    background-color: #8D6E63;
-    border: 4px solid #fff;
-    border-radius: 50%;
-    box-shadow: 0 2px 5px rgba(0,0,0,0.2);
-}
-.step-number {
-    font-family: 'Patrick Hand', cursive;
-    font-size: 1.5rem;
-    color: #8D6E63;
-    font-weight: bold;
 }
 
-.sticky-polaroid {
-    position: -webkit-sticky;
-    position: sticky;
-    /* CẬP NHẬT: Giảm xuống 20px vì không còn menu che ở trên */
-    top: 20px; 
-    z-index: 10;
+.nav-links li a {
+    text-decoration: none;
+    color: #cbb07a; /* Màu vàng đồng nhạt (trầm hơn logo) */
+    font-size: 14px;
+    font-weight: 500;
+    text-transform: uppercase; /* Chữ in hoa */
+    letter-spacing: 0.5px;
+    transition: all 0.3s ease;
 }
-.polaroid-frame {
-    background: #fff;
-    padding: 15px;
-    box-shadow: 0 5px 15px rgba(0,0,0,0.15);
-    transform: rotate(2deg);
-    transition: transform 0.3s;
-}
-.polaroid-frame:hover { transform: rotate(0deg); }
 
-.step-image {
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-    transition: transform 0.3s;
-    border-radius: 4px;
+/* Hiệu ứng khi di chuột vào (Hover) */
+.nav-links li a:hover {
+    color: var(--gold-hover);
+    text-shadow: 0 0 8px rgba(212, 175, 55, 0.6); /* Phát sáng nhẹ */
 }
-.step-image:hover { transform: scale(1.02); }
 
-.fade-in { animation: fadeIn 1.5s ease-out; }
-@keyframes fadeIn { from { opacity: 0; transform: translateY(20px); } to { opacity: 1; transform: translateY(0); } }
+/* =========================================
+   5. ICON MŨI TÊN (BÊN PHẢI CÙNG)
+   ========================================= */
+.arrow-icon i {
+    font-size: 12px;
+    color: #cbb07a;
+    transition: transform 0.3s ease;
+}
+
+.arrow-icon:hover i {
+    transform: translateY(-2px); /* Nhảy nhẹ lên khi hover */
+    color: var(--gold-hover);
+}
