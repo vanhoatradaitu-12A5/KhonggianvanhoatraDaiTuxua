@@ -16,7 +16,7 @@
     /* Nền trang màu xanh cốm nhạt */
     body {
         background-color: #f1f8e9;
-        font-family: 'Merriweather', serif; /* Font chữ có chân giống sách báo */
+        font-family: 'Merriweather', serif;
     }
     
     /* Khung nội dung */
@@ -29,62 +29,103 @@
         margin-bottom: 30px;
     }
     
-    /* Màu chữ tiêu đề xanh đậm */
     h1, h2, h3, .h4 {
         color: #1b5e20 !important;
-        font-family: system-ui, -apple-system, sans-serif; /* Tiêu đề lớn giữ font hiện đại cho dễ đọc */
+        font-family: system-ui, -apple-system, sans-serif;
     }
     
     .text-justify {
         text-align: justify;
     }
 
-    .img-custom {
+    /* --- CẬP NHẬT CSS CHO ẢNH --- */
+    
+    /* 1. Class bọc ngoài để cắt phần ảnh thừa khi zoom */
+    .img-wrapper-zoom {
+        overflow: hidden; /* Quan trọng: Giữ ảnh không tràn ra ngoài khi zoom */
         border-radius: 10px;
         box-shadow: 0 4px 8px rgba(0,0,0,0.1);
     }
 
-    /* --- STYLE RIÊNG CHO PHẦN QUY TRÌNH "THỦ CÔNG" --- */
-    .handmade-font {
-        font-family: 'Patrick Hand', cursive; /* Font viết tay */
+    /* 2. Class cho chính bức ảnh */
+    .img-custom {
+        border-radius: 10px; /* Bo góc nếu không dùng wrapper */
+        transition: transform 0.5s ease; /* Hiệu ứng mượt mà trong 0.5s */
+        cursor: zoom-in; /* Đổi con trỏ chuột thành hình kính lúp */
+        width: 100%;
+        display: block;
     }
 
-    .step-timeline {
-        position: relative;
-        padding-left: 20px;
-        border-left: 2px dashed #81c784; /* Đường kẻ đứt nét bên trái */
+    /* Khi rê chuột vào Wrapper thì ảnh bên trong sẽ phóng to */
+    .img-wrapper-zoom:hover .img-custom, 
+    .card:hover .img-custom {
+        transform: scale(1.1); /* Phóng to 1.1 lần */
     }
 
-    .step-item {
-        position: relative;
-        padding-bottom: 40px;
-        padding-left: 20px;
-    }
-
-    /* Dấu chấm tròn đánh dấu bước */
-    .step-marker {
-        position: absolute;
-        left: -29px;
+    /* --- CSS CHO LIGHTBOX (PHÓNG TO TOÀN MÀN HÌNH) --- */
+    #lightbox {
+        display: none; /* Mặc định ẩn */
+        position: fixed;
+        z-index: 9999; /* Luôn nằm trên cùng */
         top: 0;
-        width: 20px;
-        height: 20px;
-        background-color: #2e7d32;
-        border: 4px solid #f1f8e9;
-        border-radius: 50%;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background-color: rgba(0, 0, 0, 0.9); /* Nền đen mờ 90% */
+        justify-content: center;
+        align-items: center;
+        opacity: 0;
+        transition: opacity 0.3s ease;
     }
 
-    /* Số bước kiểu đóng dấu */
-    .step-number {
-        font-family: 'Patrick Hand', cursive;
-        font-size: 1.5rem;
-        color: #2e7d32;
-        font-weight: bold;
-        text-decoration: underline;
+    #lightbox.active {
+        display: flex;
+        opacity: 1;
     }
+
+    #lightbox img {
+        max-width: 90%;
+        max-height: 90vh;
+        border: 2px solid white;
+        border-radius: 5px;
+        box-shadow: 0 0 20px rgba(0,0,0,0.5);
+        transform: scale(0.8);
+        transition: transform 0.3s ease;
+    }
+
+    #lightbox.active img {
+        transform: scale(1);
+    }
+
+    #lightbox-close {
+        position: absolute;
+        top: 20px;
+        right: 30px;
+        color: white;
+        font-size: 40px;
+        cursor: pointer;
+        transition: color 0.3s;
+    }
+
+    #lightbox-close:hover {
+        color: #ff5252;
+    }
+
+    /* --- STYLE CŨ CHO QUY TRÌNH --- */
+    .handmade-font { font-family: 'Patrick Hand', cursive; }
+    .step-timeline { position: relative; padding-left: 20px; border-left: 2px dashed #81c784; }
+    .step-item { position: relative; padding-bottom: 40px; padding-left: 20px; }
+    .step-marker { position: absolute; left: -29px; top: 0; width: 20px; height: 20px; background-color: #2e7d32; border: 4px solid #f1f8e9; border-radius: 50%; }
+    .step-number { font-family: 'Patrick Hand', cursive; font-size: 1.5rem; color: #2e7d32; font-weight: bold; text-decoration: underline; }
 
   </style>
 </head>
 <body>
+
+<div id="lightbox">
+    <span id="lightbox-close">&times;</span>
+    <img id="lightbox-img" src="" alt="Full Screen Image">
+</div>
 
 <nav class="navbar navbar-expand-lg navbar-dark sticky-top" style="background-color: #2e7d32; z-index: 1030;"> 
   <div class="container">
@@ -130,7 +171,9 @@
    
     <div class="row mb-5 align-items-center">
        <div class="col-md-6 mb-4">
-         <img src="images/lichsuhinhthanh2.jpg" class="img-fluid img-custom w-100" alt="Văn hóa trà">
+         <div class="img-wrapper-zoom">
+            <img src="images/lichsuhinhthanh2.jpg" class="img-fluid img-custom" alt="Văn hóa trà">
+         </div>
        </div>
        <div class="col-md-6 ps-md-5">
          <h2 class="mt-0">Lịch Sử Hình Thành</h2>
@@ -155,7 +198,9 @@
                 <p class="text-justify">Với đôi bàn tay chăm chỉ, cần mẫn, người dân Đại Từ đã tạo nên bao đồi chè xanh mướt, trở thành một trong những vùng trồng chè lớn và có lịch sử lâu đời ở tỉnh Thái Nguyên. Truyền thống đó cứ tiếp nối, tiếp nối, làm nên sự đa dạng và phong phú trong từng tách trà với những giống chè quý như chè Ta, chè Lai, chè Long Vân…. có giá trị cực kì to lớn.</p>
             </div>
             <div class="col-lg-6 mt-4 mt-lg-0">
-                <img src="images/suongsom.jpg" class="img-fluid img-custom w-100" style="min-height: 400px; object-fit: cover;" alt="Đồi chè Thái Nguyên">
+                <div class="img-wrapper-zoom">
+                    <img src="images/suongsom.jpg" class="img-fluid img-custom" style="min-height: 400px; object-fit: cover;" alt="Đồi chè Thái Nguyên">
+                </div>
             </div>
         </div>
 
@@ -165,7 +210,7 @@
                 <p class="text-justify mb-4 mb-lg-0">Người Thái Nguyên có kỹ thuật sao trà bằng tay độc đáo: dùng chảo gang, canh lửa thủ công, cảm nhận độ chín bằng tay trần, ủ trà bằng bao tải bông… Những công đoạn đòi hỏi sự tinh tế đã giúp tạo nên hương cốm non đặc trưng của chè Thái Nguyên – thứ hương không nơi nào khác có thể lẫn lộn.</p>
             </div>
             <div class="col-lg-6 mt-4 mt-lg-0">
-                <div class="card shadow-sm border-0 bg-light h-100">
+                <div class="card shadow-sm border-0 bg-light h-100 overflow-hidden">
                     <img src="images/quytrinhchebien.jpg" class="card-img-top img-fluid img-custom" style="object-fit: cover; height: 300px;" alt="Sao trà">
                     
                     <div class="card-body p-4 text-center">
@@ -174,7 +219,7 @@
                     </div>
                 </div>
             </div>
-            </div>
+        </div>
     </div>
     
     <hr class="my-5" style="color: #2e7d32;">
@@ -182,7 +227,7 @@
     <h2 class="text-center mb-5">Quy Trình Trồng và Chăm Sóc</h2>
     <div class="row mt-4">
       <div class="col-md-6 mb-4">
-        <div class="card h-100 shadow-sm border-0">
+        <div class="card h-100 shadow-sm border-0 overflow-hidden">
             <div class="card-body">
                 <h3 class="h4 text-success">1. Quy Trình Trồng</h3>
                 <p>Khâu chuẩn bị đất, lựa chọn giống chè (Trung du, Lai F1...) và kỹ thuật trồng đảm bảo mật độ thích hợp là nền tảng cho cây chè phát triển bền vững.</p>
@@ -192,7 +237,7 @@
         </div>
       </div>
       <div class="col-md-6 mb-4">
-        <div class="card h-100 shadow-sm border-0">
+        <div class="card h-100 shadow-sm border-0 overflow-hidden">
             <div class="card-body">
                 <h3 class="h4 text-success">2. Quy Trình Chăm Sóc</h3>
                 <div class="text-justify">
@@ -218,68 +263,47 @@
             
             <div class="col-lg-7 pe-lg-5">
                 <div class="step-timeline">
-                    
                     <div class="step-item">
                         <div class="step-marker"></div>
                         <span class="step-number">Bước 1: Phơi Héo</span>
-                        <p class="text-justify mt-2 mb-0">
-                            Chè sau khi thu hái sẽ được mang về phơi héo tự nhiên, quá trình phơi héo nhằm mục đích giúp khô sương hoặc thoát hết khí nóng ẩm trong quá trình vận chuyển từ đồi chè về. Quá trình phơi héo chè thường được thực hiện bằng cách cho chè rải trực tiếp trên nong, nia hoặc nền sạch, thoáng mát; độ dầy lớp chè để 15 – 20 cm. Thời gian phơi héo phụ thuộc vào điều kiện thời tiết.
-                        </p>
+                        <p class="text-justify mt-2 mb-0">Chè sau khi thu hái sẽ được mang về phơi héo tự nhiên...</p>
                     </div>
-
-                    <div class="step-item">
+                     <div class="step-item">
                         <div class="step-marker"></div>
                         <span class="step-number">Bước 2: Diệt Men (Ốp chè)</span>
-                        <p class="text-justify mt-2 mb-0">
-                            Sau bước 1, lá chè được cho vào trong chảo tôn nóng quay. Quá trình diệt men nhằm mục đích làm cho chè chín, giảm độ chát, ngái của chè. Sau khi diệt men xong phải thấy được mùi thơm đặc trưng của chè thay cho mùi hăng lúc ban đầu, lá chè không còn màu xanh tươi mà chuyển sang xanh sẫm, lá chè mềm dẻo, dùng tay xoắn nhẹ lại lá chè và búp chè không tiết ra nước bên vỏ ngoài.
-                        </p>
+                        <p class="text-justify mt-2 mb-0">Sau bước 1, lá chè được cho vào trong chảo tôn nóng quay...</p>
                     </div>
-
                     <div class="step-item">
                         <div class="step-marker"></div>
                         <span class="step-number">Bước 3: Vò Chè</span>
-                        <p class="text-justify mt-2 mb-0">
-                            Đây chính là công đoạn quan trọng quyết định độ đẹp và bền của cánh chè. Tùy từng mục đích chế biến các loại chè khác nhau (chè móc câu, tôm nõn hoặc chè đinh) mà điều tiết thời gian vò chè. Trước đây chưa có máy móc người làm chè phải tiến hành vò chè bằng tay hoàn toàn. Song nay với công nghệ mới, sau khi diệt men, người làm chè tiến hành vò chè bằng tay, loại bỏ những cánh chè nát vụn, sau đó sẽ đưa vào cối (máy vò) vò tiếp đến khi đạt yêu cầu về tổng thời gian.
-                        </p>
+                        <p class="text-justify mt-2 mb-0">Đây chính là công đoạn quan trọng quyết định độ đẹp và bền của cánh chè...</p>
                     </div>
-
                     <div class="step-item">
                         <div class="step-marker"></div>
                         <span class="step-number">Bước 4: Rũ Tơi</span>
-                        <p class="text-justify mt-2 mb-0">
-                            Sau khi vò chè đã đủ thời gian, người làm chè tiến hành rũ tơi các cánh chè. Việc rũ tơi nhằm thoát nhiệt cho chè và tránh vón cục, tạo ra sự đồng đều về chất lượng cho chè trong quá trình tiếp theo.
-                        </p>
+                        <p class="text-justify mt-2 mb-0">Sau khi vò chè đã đủ thời gian, người làm chè tiến hành rũ tơi các cánh chè...</p>
                     </div>
-
                     <div class="step-item">
                         <div class="step-marker"></div>
                         <span class="step-number">Bước 5: Sao Khô</span>
-                        <p class="text-justify mt-2 mb-0">
-                            Là công đoạn quan trọng ảnh hưởng lớn đến chất lượng sản phẩm. Để tạo ra chất lượng chè đỉnh cao, người làm chè tiến hành sao khô rất tỉ mỉ qua 2 lần thực hiện bằng chảo củi.
-                        </p>
+                        <p class="text-justify mt-2 mb-0">Là công đoạn quan trọng ảnh hưởng lớn đến chất lượng sản phẩm...</p>
                     </div>
-
                     <div class="step-item">
                         <div class="step-marker"></div>
                         <span class="step-number">Bước 6: Quay Hương, Đánh Mốc</span>
-                        <p class="text-justify mt-2 mb-0">
-                            Chè sau khi để hồi lại, ổn định chất lượng thì tiến hành quay hương, đánh mốc. Việc quay hương giúp phá vỡ các liên kết tanin và este trong chè, từ đó giúp chè có độ chát dịu, không đắng, vị ngọt hậu và hương cốm thơm mát khi thưởng thức chè.
-                        </p>
+                        <p class="text-justify mt-2 mb-0">Chè sau khi để hồi lại, ổn định chất lượng thì tiến hành quay hương, đánh mốc...</p>
                     </div>
-
                     <div class="step-item" style="border-left: none;"> <div class="step-marker"></div>
                         <span class="step-number">Bước 7: Đóng Gói, Bảo Quản</span>
-                        <p class="text-justify mt-2 mb-0">
-                            Sau khi đánh hương để nguội, chè sẽ được phân loại, đóng gói theo yêu cầu và bán trên thị trường hoặc hút chân không nếu chưa muốn sử dụng ngay.
-                        </p>
+                        <p class="text-justify mt-2 mb-0">Sau khi đánh hương để nguội, chè sẽ được phân loại, đóng gói...</p>
                     </div>
                 </div>
             </div>
 
             <div class="col-lg-5 d-none d-lg-block">
                 <div class="sticky-top" style="top: 100px; z-index: 1;">
-                    <div class="bg-white p-2 shadow-sm" style="transform: rotate(2deg);">
-                        <img src="images/quytrinhchebien.jpg" class="img-fluid w-100" style="height: 500px; object-fit: cover;" alt="Quy trình chế biến chè">
+                    <div class="bg-white p-2 shadow-sm img-wrapper-zoom" style="transform: rotate(2deg);">
+                        <img src="images/quytrinhchebien.jpg" class="img-fluid w-100 img-custom" style="height: 500px; object-fit: cover;" alt="Quy trình chế biến chè">
                         <div class="text-center pt-2 pb-1 handmade-font fs-4 text-muted">Hương vị từ đôi bàn tay nghệ nhân</div>
                     </div>
                 </div>
@@ -290,7 +314,7 @@
 
     <div class="text-center mt-5">
       <h3 class="mb-4">Video: Quy Trình Sao Chè Truyền Thống</h3>
-      <div class="ratio ratio-16x9 mx-auto img-custom" style="max-width: 800px;">
+      <div class="ratio ratio-16x9 mx-auto img-custom" style="max-width: 800px; border-radius: 10px;">
           <iframe src="https://www.youtube.com/embed/ptVghUUjn74" title="Quy trình sao chè" allowfullscreen></iframe>
       </div>
     </div>
@@ -306,5 +330,54 @@
 
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
 <script src="js/script.js"></script>
+
+<script>
+    // Lấy các phần tử
+    const lightbox = document.getElementById('lightbox');
+    const lightboxImg = document.getElementById('lightbox-img');
+    const closeBtn = document.getElementById('lightbox-close');
+    
+    // Chọn tất cả các ảnh có class 'img-custom' trừ cái video (vì iframe không phải img)
+    const images = document.querySelectorAll('.img-custom:not(iframe)');
+
+    // Thêm sự kiện click cho từng ảnh
+    images.forEach(img => {
+        img.addEventListener('click', function() {
+            // Đặt nguồn ảnh cho lightbox bằng nguồn của ảnh vừa click
+            lightboxImg.src = this.src;
+            // Hiển thị lightbox (thêm class active nếu dùng transition, hoặc style.display)
+            lightbox.style.display = 'flex';
+            setTimeout(() => {
+                lightbox.classList.add('active');
+            }, 10); // Delay nhỏ để hiệu ứng fade-in hoạt động
+        });
+    });
+
+    // Hàm đóng lightbox
+    function closeLightbox() {
+        lightbox.classList.remove('active');
+        setTimeout(() => {
+            lightbox.style.display = 'none';
+        }, 300); // Chờ hết hiệu ứng mới ẩn hẳn
+    }
+
+    // Đóng khi ấn nút X
+    closeBtn.addEventListener('click', closeLightbox);
+
+    // Đóng khi ấn vào vùng đen bên ngoài ảnh
+    lightbox.addEventListener('click', function(e) {
+        if (e.target === lightbox) {
+            closeLightbox();
+        }
+    });
+
+    // Đóng khi ấn phím ESC
+    document.addEventListener('keydown', function(e) {
+        if (e.key === "Escape" && lightbox.style.display === 'flex') {
+            closeLightbox();
+        }
+    });
+</script>
+
 </body>
 </html>
