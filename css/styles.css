@@ -1,74 +1,319 @@
-/* --- CẤU HÌNH MÀU SẮC & FONT --- */
+/* =========================================
+   1. CÀI ĐẶT CHUNG & BẢNG MÀU (VARIABLES)
+   ========================================= */
 :root {
-    --nav-bg-top: #2E5E2E;      /* Xanh lá phía trên (sáng hơn chút) */
-    --nav-bg-bottom: #1B4D3E;   /* Xanh lá phía dưới (đậm để tạo khối) */
-    --gold-border: #D4AF37;     /* Màu vàng kim loại cho viền */
-    --text-color: #F8F9FA;      /* Màu chữ trắng kem */
+    /* Bảng màu lấy cảm hứng từ ảnh Menu mẫu */
+    --primary-green: #1a332a;   /* Xanh rêu đậm (màu nền chính) */
+    --gradient-start: #2b4f3a;  /* Xanh sáng (phía trên menu) */
+    --gradient-mid: #15281e;    /* Xanh tối (giữa menu tạo độ sâu) */
+    
+    --gold-text: #e6c888;       /* Vàng kim loại sáng (cho Logo/Tiêu đề) */
+    --gold-dim: #cbb07a;        /* Vàng đồng trầm (cho Menu text) */
+    --gold-border: #6b5c38;     /* Vàng nâu (cho viền khung) */
+    --gold-highlight: #fff5d7;  /* Vàng rất sáng (khi di chuột) */
+    
+    --text-body: #333333;       /* Màu chữ nội dung */
+    --bg-body: #fdfdfd;         /* Màu nền web (trắng ngà nhẹ) */
 }
 
-/* --- THANH TIÊU ĐỀ NỔI (FLOATING NAVBAR) --- */
-.navbar-floating {
-    /* 1. Kích thước & Vị trí */
-    width: 95%;                 /* Không chiếm hết 100%, chừa lề 2 bên */
-    max-width: 1300px;          /* Giới hạn chiều rộng tối đa cho đẹp */
-    margin: 20px auto 0 auto;   /* Canh giữa và cách mép trên 20px */
-    left: 0; 
-    right: 0;                   /* Đảm bảo căn giữa tuyệt đối */
-    padding: 10px 20px;         /* Độ dày của thanh menu */
-    
-    /* 2. Màu sắc & Hiệu ứng 3D */
-    background: linear-gradient(180deg, var(--nav-bg-top) 0%, var(--nav-bg-bottom) 100%);
-    border: 1px solid rgba(255, 255, 255, 0.2);     /* Viền sáng nhẹ tạo độ nổi */
-    border-bottom: 3px solid #143a2d;               /* Viền đáy đậm tạo bóng khối */
-    border-radius: 50px;                            /* Bo tròn 2 đầu (hình viên thuốc) */
-    
-    /* 3. Đổ bóng (Shadow) - Giúp thanh menu "bay" lên khỏi nền */
-    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.6); 
+/* Reset cơ bản */
+body {
+    font-family: 'Montserrat', sans-serif; /* Font nội dung hiện đại, dễ đọc */
+    color: var(--text-body);
+    background-color: var(--bg-body);
+    margin: 0;
+    padding: 0;
 }
 
-/* --- LOGO --- */
-.navbar-brand {
+/* Các tiêu đề dùng font có chân sang trọng */
+h1, h2, h3, h4, h5 {
     font-family: 'Playfair Display', serif;
-    font-size: 1.6rem;
+    color: var(--primary-green);
+}
+
+/* =========================================
+   2. NAVBAR (MENU) - HIỆU ỨNG 3D & KIM LOẠI
+   ========================================= */
+.navbar {
+    /* Gradient tạo khối tròn 3D như thanh gỗ/kim loại */
+    background: linear-gradient(
+        180deg, 
+        var(--gradient-start) 0%, 
+        var(--gradient-mid) 45%, 
+        var(--primary-green) 100%
+    ) !important;
+    
+    /* Viền bao quanh màu vàng tối */
+    border-bottom: 2px solid var(--gold-border);
+    border-top: 1px solid var(--gold-border);
+    
+    /* Đổ bóng phức tạp để menu nổi lên khỏi trang web */
+    box-shadow: 
+        inset 0 1px 5px rgba(255, 255, 255, 0.15), /* Ánh sáng cạnh trên */
+        inset 0 0 20px rgba(0, 0, 0, 0.5),         /* Bóng tối bên trong */
+        0 5px 15px rgba(0, 0, 0, 0.3);             /* Bóng đổ xuống nền */
+        
+    padding: 0.5rem 1rem;
+    position: sticky; /* Dính menu khi cuộn */
+    top: 0;
+    z-index: 1000;
+}
+
+/* Đường viền mảnh bên trong (Inner Border) tạo sự tinh tế */
+.navbar::after {
+    content: '';
+    position: absolute;
+    top: 3px; bottom: 3px; left: 0; right: 0;
+    border-top: 1px solid rgba(212, 175, 55, 0.2);
+    border-bottom: 1px solid rgba(212, 175, 55, 0.2);
+    pointer-events: none;
+}
+
+/* --- LOGO / TÊN THƯƠNG HIỆU --- */
+.navbar-brand {
+    font-family: 'Dancing Script', cursive; /* Font viết tay */
     font-weight: 700;
-    color: var(--text-color) !important;
-    text-shadow: 1px 1px 2px rgba(0,0,0,0.8);
+    font-size: 2rem; /* Chữ to nổi bật */
+    color: var(--gold-text) !important;
+    text-shadow: 2px 2px 4px rgba(0,0,0,0.8); /* Bóng chữ đậm */
+    padding-left: 10px;
 }
 
+/* Icon lá trà bên cạnh logo */
 .navbar-brand i {
-    color: var(--gold-border); /* Lá trà màu vàng kim */
+    color: var(--gold-text);
+    font-size: 1.5rem;
 }
 
-/* --- MENU LINKS --- */
+/* --- LIÊN KẾT MENU (LINKS) --- */
 .nav-link {
-    font-family: 'Montserrat', sans-serif;
-    font-size: 0.95rem;
-    font-weight: 500;
+    font-family: 'Playfair Display', serif;
+    font-weight: 600;
     text-transform: uppercase;
-    color: var(--text-color) !important;
-    margin: 0 5px;
+    font-size: 0.95rem;
+    letter-spacing: 1px;
+    color: var(--gold-dim) !important; /* Màu vàng đồng trầm */
+    padding: 10px 15px !important;
     transition: all 0.3s ease;
+    text-shadow: 1px 1px 2px rgba(0,0,0,0.5);
 }
 
-/* Hiệu ứng khi di chuột vào menu */
+/* Hiệu ứng khi di chuột vào (Hover) */
 .nav-link:hover, .nav-link.active {
-    color: var(--gold-border) !important; /* Chữ chuyển vàng */
-    text-shadow: 0 0 10px rgba(212, 175, 55, 0.5); /* Phát sáng nhẹ */
-    transform: translateY(-1px); /* Nhích nhẹ lên trên */
+    color: var(--gold-highlight) !important; /* Sáng rực lên */
+    text-shadow: 0 0 8px rgba(230, 200, 136, 0.8); /* Hiệu ứng phát sáng (Glow) */
+    transform: translateY(-1px);
 }
 
-/* --- XỬ LÝ TRÊN ĐIỆN THOẠI (RESPONSIVE) --- */
+/* --- DROPDOWN MENU (MENU CON) --- */
+.dropdown-menu {
+    background-color: var(--primary-green); /* Nền xanh đồng bộ */
+    border: 1px solid var(--gold-border);
+    border-radius: 0;
+    margin-top: 12px;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.5);
+}
+
+.dropdown-item {
+    color: var(--gold-dim) !important;
+    font-family: 'Montserrat', sans-serif;
+    font-size: 0.9rem;
+    padding: 10px 20px;
+    transition: all 0.2s;
+    border-bottom: 1px solid rgba(255,255,255,0.05);
+}
+
+.dropdown-item:hover {
+    background-color: rgba(255, 255, 255, 0.1);
+    color: var(--gold-highlight) !important;
+    padding-left: 25px; /* Hiệu ứng đẩy chữ sang phải */
+}
+
+/* Nút 3 gạch trên Mobile */
+.navbar-toggler {
+    border: 1px solid var(--gold-border);
+}
+.navbar-toggler-icon {
+    /* Thay đổi màu icon hamburger sang màu vàng */
+    background-image: url("data:image/svg+xml;charset=utf8,%3Csvg viewBox='0 0 30 30' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath stroke='rgba(230, 200, 136, 1)' stroke-width='2' stroke-linecap='round' stroke-miterlimit='10' d='M4 7h22M4 15h22M4 23h22'/%3E%3C/svg%3E");
+}
+
+/* =========================================
+   3. HERO SECTION (BANNER CHÍNH)
+   ========================================= */
+.hero {
+    /* Lớp phủ màu xanh tối đè lên ảnh để làm nổi bật chữ */
+    background: linear-gradient(to bottom, rgba(26, 51, 42, 0.5), rgba(20, 30, 25, 0.8)), url('../images/banner5.jpg');
+    background-size: cover;
+    background-position: center center;
+    background-attachment: fixed; /* Hiệu ứng Parallax */
+    color: white;
+    padding: 0;
+    text-align: center;
+    min-height: 85vh; /* Chiều cao banner */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    /* Xử lý khoảng cách với menu sticky */
+    margin-top: -76px; 
+    padding-top: 76px;
+}
+
+.hero h1 {
+    font-family: 'Dancing Script', cursive;
+    font-size: 5.5rem; /* Chữ cực lớn */
+    font-weight: 700;
+    margin-bottom: 15px;
+    color: var(--gold-text) !important;
+    text-shadow: 0 4px 6px rgba(0,0,0,0.9);
+    line-height: 1.1;
+}
+
+.hero p.lead {
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 300;
+    font-size: 1.3rem;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    color: #f0f0f0 !important;
+    text-shadow: 1px 1px 3px rgba(0,0,0,0.8);
+    margin-bottom: 40px;
+    border-top: 1px solid var(--gold-text);
+    border-bottom: 1px solid var(--gold-text);
+    display: inline-block;
+    padding: 10px 20px;
+}
+
+/* =========================================
+   4. NÚT BẤM (BUTTONS)
+   ========================================= */
+.btn-custom {
+    background-color: transparent; /* Nền trong suốt */
+    color: var(--gold-text);
+    border-radius: 50px;
+    padding: 12px 45px;
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 600;
+    font-size: 1rem;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    border: 2px solid var(--gold-text); /* Viền vàng */
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.3);
+}
+
+.btn-custom:hover {
+    background-color: var(--gold-text);
+    border-color: var(--gold-text);
+    color: var(--primary-green); /* Chữ chuyển sang màu xanh đậm */
+    transform: translateY(-3px);
+    box-shadow: 0 6px 20px rgba(230, 200, 136, 0.4); /* Bóng vàng tỏa ra */
+}
+
+/* =========================================
+   5. CÁC SECTION NỘI DUNG
+   ========================================= */
+.section {
+    padding: 60px 0;
+}
+
+/* Hiệu ứng Fade In */
+.fade-in {
+    animation: fadeInUp 1.2s ease-out;
+}
+@keyframes fadeInUp {
+    from { opacity: 0; transform: translateY(40px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+/* Ảnh giới thiệu */
+.img-custom {
+    border: 5px solid white; /* Khung ảnh trắng giống ảnh chụp */
+    box-shadow: 0 10px 25px rgba(0,0,0,0.15);
+    border-radius: 4px;
+    overflow: hidden;
+}
+
+.img-custom img {
+    height: 400px;
+    object-fit: cover;
+    transition: transform 0.5s ease;
+}
+
+/* Zoom nhẹ ảnh khi hover */
+.img-custom:hover img {
+    transform: scale(1.05);
+}
+
+/* Carousel controls */
+.carousel-control-prev-icon,
+.carousel-control-next-icon {
+    filter: invert(1); /* Đổi màu mũi tên sang tối */
+}
+
+/* =========================================
+   6. FOOTER (CHÂN TRANG)
+   ========================================= */
+footer {
+    background-color: var(--primary-green);
+    color: #dcdcdc;
+    border-top: 4px solid var(--gold-border);
+    font-size: 0.95rem;
+}
+
+footer h5 {
+    font-weight: 700;
+    color: var(--gold-text); /* Tiêu đề màu vàng */
+    margin-bottom: 25px;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    font-size: 1.1rem;
+}
+
+footer ul li {
+    margin-bottom: 10px;
+}
+
+footer a {
+    color: #b0b0b0;
+    text-decoration: none;
+    transition: color 0.3s;
+}
+
+footer a:hover {
+    color: var(--gold-highlight);
+    padding-left: 5px; /* Hiệu ứng chuyển động nhẹ */
+}
+
+footer hr {
+    opacity: 0.3;
+    border-color: var(--gold-text);
+}
+
+footer i {
+    color: var(--gold-dim);
+    width: 20px;
+}
+
+/* =========================================
+   7. RESPONSIVE (DI ĐỘNG)
+   ========================================= */
 @media (max-width: 991px) {
-    .navbar-floating {
-        width: 100%;    /* Trên điện thoại thì full màn hình cho dễ bấm */
-        margin: 0;
-       
+    .navbar-collapse {
+        background-color: rgba(26, 51, 42, 0.95);
+        padding: 20px;
+        margin-top: 10px;
+        border-radius: 8px;
+        border: 1px solid var(--gold-border);
     }
     
-    .navbar-collapse {
-        background: rgba(27, 77, 62, 0.95); /* Nền menu xổ xuống */
-        padding: 15px;
-        border-radius: 15px;
-        margin-top: 10px;
+    .hero h1 {
+        font-size: 3.5rem;
+    }
+    
+    .hero p.lead {
+        font-size: 1rem;
+        letter-spacing: 1px;
     }
 }
