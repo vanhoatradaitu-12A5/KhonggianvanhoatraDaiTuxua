@@ -116,44 +116,49 @@ h1, h2, h3, h4, h5, .navbar-brand {
 }
 
 /* =========================================
-   3. HERO SECTION (BANNER) - ĐÃ CẬP NHẬT
+  /* =========================================
+   3. HERO SECTION (BANNER) - ĐÃ SỬA LỖI
    ========================================= */
 .hero {
-    /* Đảm bảo đường dẫn ảnh đúng với tên file bạn lưu */
+    /* Thay đường dẫn ảnh của bạn vào đây */
     background: url('../images/banner7.jpg'); 
     
-    /* Căn giữa ảnh để luôn thấy cuộn giấy */
+    /* 1. Xử lý ảnh tự động điều chỉnh */
     background-position: center center;
     background-repeat: no-repeat;
-    background-size: cover;
+    background-size: cover; /* Ảnh phủ kín khung */
     
-    /* Chiều cao Banner trên máy tính */
-    min-height: 85vh; 
+    /* 2. Kỹ thuật Aspect Ratio: 
+       Giúp banner tự chỉnh độ cao theo độ rộng.
+       Nếu ảnh của bạn tỉ lệ 16:9, hãy để 56.25%.
+       Nếu ảnh dài và dẹt (ví dụ 1920x800), hãy để khoảng 40-45%.
+    */
+    width: 100%;
+    height: 0;
+    padding-bottom: 45%; /* <-- CHỈNH SỐ NÀY để banner cao/thấp theo ý muốn */
     
     position: relative;
-    display: flex;
     
-    /* Đẩy nút bấm xuống dưới cùng (Bottom) để không che chữ */
-    align-items: flex-end; 
-    justify-content: center;
-    
-    /* Khoảng cách từ nút bấm tới đáy ảnh */
-    padding-bottom: 80px; 
-    
-    /* Bù trừ cho navbar sticky */
-    margin-top: -76px; 
+    /* 3. Xử lý menu không lấn vào banner */
+    margin-top: 0; /* Đặt về 0 để nằm tách biệt dưới menu */
 }
 
-/* Responsive cho Mobile */
+/* Nội dung chữ/nút bấm nằm trên banner */
+.hero-content {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    text-align: center;
+    width: 100%;
+}
+
+/* Mobile: Tăng chiều cao lên chút để dễ nhìn hơn */
 @media (max-width: 768px) {
     .hero {
-        /* Trên điện thoại, giảm chiều cao để ảnh không bị phóng quá to */
-        min-height: 50vh; 
-        background-position: center top; 
-        padding-bottom: 40px;
+        padding-bottom: 70%; /* Trên điện thoại cho banner cao hơn chút */
     }
 }
-
 /* =========================================
    4. NÚT BẤM (BUTTONS)
    ========================================= */
@@ -247,3 +252,4 @@ footer hr {
         border: 1px solid var(--gold-border);
     }
 }
+
