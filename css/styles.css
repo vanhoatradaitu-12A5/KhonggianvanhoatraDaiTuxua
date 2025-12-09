@@ -120,6 +120,7 @@ h1, h2, h3, h4, h5, .navbar-brand {
    ========================================= */
 .hero {
     /* Kết hợp ảnh nền và lớp phủ tối màu xanh */
+    /* LƯU Ý: Đảm bảo bạn có file images/banner5.jpg */
     background: linear-gradient(to bottom, rgba(26, 66, 42, 0.4), rgba(0, 0, 0, 0.7)), url('../images/banner5.jpg');
     background-size: cover;
     background-position: center center;
@@ -132,7 +133,7 @@ h1, h2, h3, h4, h5, .navbar-brand {
     align-items: center;
     justify-content: center;
     position: relative;
-    margin-top: -80px; /* Đẩy lên đè menu nếu muốn menu trong suốt, ở đây giữ nguyên logic sticky */
+    margin-top: -80px; /* Đẩy lên đè menu nếu muốn menu trong suốt */
     padding-top: 80px; /* Bù lại khoảng cách menu */
 }
 
