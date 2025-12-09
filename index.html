@@ -4,18 +4,19 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Trang Chủ - Trà Đại Từ</title>
+  
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
   
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@700&family=Montserrat:wght@300;400;500;600&family=Patrick+Hand&family=Playfair+Display:ital,wght@0,700;1,400&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@700&family=Montserrat:wght@300;400;500;600&family=Playfair+Display:ital,wght@0,700;1,400&display=swap" rel="stylesheet">
 
   <link href="css/styles.css" rel="stylesheet">
 </head>
 <body>
 
-<nav class="navbar navbar-expand-lg navbar-dark sticky-top">
+<nav class="navbar navbar-expand-lg navbar-dark">
   <div class="container">
     <a class="navbar-brand" href="index.html"><i class="fas fa-leaf me-2"></i> Trà Đại Từ</a>
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
@@ -24,6 +25,7 @@
     <div class="collapse navbar-collapse" id="navbarNav">
       <ul class="navbar-nav ms-auto">
         <li class="nav-item"><a class="nav-link active" href="index.html">Trang Chủ</a></li>
+        
         <li class="nav-item dropdown">
           <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown">Giới thiệu</a>
           <ul class="dropdown-menu">
@@ -31,6 +33,7 @@
             <li><a class="dropdown-item" href="sumenh.html">Sứ Mệnh</a></li>
           </ul>
         </li>
+
         <li class="nav-item dropdown">
           <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown">Văn Hóa Trà</a>
           <ul class="dropdown-menu">
@@ -38,7 +41,9 @@
             <li><a class="dropdown-item" href="vanhoathuongtra.html">Văn Hóa Thưởng Trà</a></li>
           </ul>
         </li>
+
         <li class="nav-item"><a class="nav-link" href="sanphamnoibat.html">Sản Phẩm</a></li>
+
         <li class="nav-item dropdown">
           <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown">Trải Nghiệm</a>
           <ul class="dropdown-menu">
@@ -46,33 +51,40 @@
              <li><a class="dropdown-item" href="thuvienmedia.html">Media</a></li>
           </ul>
         </li>
+
         <li class="nav-item"><a class="nav-link" href="lienhe.html">Liên Hệ</a></li>
       </ul>
     </div>
   </div>
 </nav>
 
-<div class="hero" style="background-image: url('images/banner6.jpg'); background-size: cover; background-position: center; position: relative;">
+<div class="hero">
   <div class="container fade-in">
-    <br><a href="dulichvatrainghiem.html" class="btn btn-custom mt-3">Khám Phá Ngay</a>
+    <h1>Không Gian Văn Hóa<br>Trà Đại Từ</h1>
+    <p>Nơi hội tụ tinh hoa đất trời và bàn tay nghệ nhân Việt</p>
+    <a href="dulichvatrainghiem.html" class="btn btn-custom">Khám Phá Ngay</a>
   </div>
 </div>
 
-<section class="container section-content fade-in">
+<section class="container section-content fade-in" style="padding: 80px 0;">
   <div class="row align-items-center">
     <div class="col-md-6">
-      <h2>Chào mừng đến với không gian văn hóa trà Đại Từ xưa</h2>
-      <p class="lead text-muted mb-4">Nơi hội tụ của đất, nước và bàn tay nghệ nhân.</p>
-      <p class="text-justify">Trà Đại Từ không chỉ là một thức uống, đó là một di sản. Với lịch sử hàng trăm năm, những đồi chè bát ngát tại Cầu Đá, Hoàng Nông, hay những miền xanh vô tận ở Tân Linh, La Bằng đã tạo nên hương vị "tiền chát, hậu ngọt" đặc trưng không nơi nào có được. Theo dõi để cảm nhận sự tươi đẹp của nơi đây!</p>
+      <h2>Về Vùng Đất Chè Huyền Thoại</h2>
+      <p class="lead text-muted mb-4" style="font-family: 'Playfair Display', serif;">"Tiền chát, hậu ngọt" - Hương vị khó quên.</p>
+      <p class="text-justify">
+        Trà Đại Từ không chỉ là một thức uống, đó là một di sản. Với lịch sử hàng trăm năm, những đồi chè bát ngát tại Cầu Đá, Hoàng Nông, hay những miền xanh vô tận ở Tân Linh, La Bằng đã tạo nên thương hiệu nức tiếng. Hãy cùng chúng tôi khám phá vẻ đẹp và hương vị tuyệt vời của nơi đây!
+      </p>
+      <a href="gioithieuchung.html" class="btn btn-outline-success mt-3 rounded-pill px-4">Xem Chi Tiết</a>
     </div>
+    
     <div class="col-md-6">
-      <div id="carouselHome" class="carousel slide img-custom overflow-hidden rounded shadow" data-bs-ride="carousel">
+      <div id="carouselHome" class="carousel slide img-custom" data-bs-ride="carousel">
         <div class="carousel-inner">
           <div class="carousel-item active">
-            <img src="images/anhcauda.jpg" class="d-block w-100" style="height: 400px; object-fit: cover;" alt="Đồi chè"208</p>
-            </div>
+            <img src="images/anhcauda.jpg" class="d-block w-100" alt="Đồi chè Cầu Đá">
+          </div>
           <div class="carousel-item">
-             <img src="images/suongsom.jpg" class="d-block w-100" alt="Cảnh quan trà">  
+             <img src="images/suongsom.jpg" class="d-block w-100" alt="Sương sớm trên đồi chè">  
           </div> 
         </div>
         <button class="carousel-control-prev" type="button" data-bs-target="#carouselHome" data-bs-slide="prev"><span class="carousel-control-prev-icon"></span></button> 
@@ -92,9 +104,9 @@
       <div class="col-md-4">
         <h5>Liên Kết Nhanh</h5>
         <ul class="list-unstyled">
-            <li><a href="gioithieu.html" class="text-decoration-none">Giới Thiệu</a></li>
-            <li><a href="sanphamnoibat.html" class="text-decoration-none">Sản Phẩm</a></li>
-            <li><a href="dulichvatrainghiem.html" class="text-decoration-none">Du Lịch</a></li>
+            <li><a href="gioithieu.html"><i class="fas fa-chevron-right me-2"></i>Giới Thiệu</a></li>
+            <li><a href="sanphamnoibat.html"><i class="fas fa-chevron-right me-2"></i>Sản Phẩm</a></li>
+            <li><a href="dulichvatrainghiem.html"><i class="fas fa-chevron-right me-2"></i>Du Lịch</a></li>
         </ul>
       </div>
       <div class="col-md-4 text-end">
@@ -112,11 +124,3 @@
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
 </body>
 </html>
-       
-
-
-
-
-
-
-
