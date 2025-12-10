@@ -22,23 +22,25 @@ body {
     margin: 0;
 }
 
-/* --- XỬ LÝ NỀN TRANG WEB (NGUYÊN BẢN) --- */
+/* --- CẤU HÌNH NỀN MẶC ĐỊNH CHO TOÀN BỘ WEB --- */
 body::before {
     content: '';
-    position: fixed; 
+    position: fixed; /* Giúp ảnh nền đứng yên khi cuộn trang */
     top: 0; left: 0; width: 100%; height: 100%;
     
-    /* ẢNH NỀN: nentrangweb */
-    background: url('images/nentrangweb.jpg') no-repeat center center;
+    /* ĐƯỜNG DẪN ẢNH NỀN MẶC ĐỊNH */
+    /* Code này sẽ áp dụng cho mọi trang */
+    background: url('../images/nentrangweb.jpg') no-repeat center center;
     background-size: cover;
     
-    /* Không làm mờ, giữ nguyên độ nét */
+    /* Giữ ảnh sắc nét nguyên bản */
     filter: none; 
     
+    /* Đẩy xuống lớp dưới cùng */
     z-index: -2; 
 }
 
-/* ĐÃ XÓA LỚP PHỦ MÀU TRẮNG (body::after) TẠI ĐÂY */
+/* (Đã xóa bỏ hoàn toàn lớp phủ màu trắng để thấy rõ ảnh nền) */
 
 /* Font cho các tiêu đề */
 h1, h2, h3, h4, h5, .navbar-brand {
@@ -202,3 +204,42 @@ h1, h2, h3, h4, h5, .navbar-brand {
     background: #fff;
 }
 
+h2 {
+    color: var(--primary-green);
+    font-weight: 700;
+    margin-bottom: 1rem;
+    /* Viền trắng dày hơn chút để chữ không bị chìm vào nền ảnh */
+    text-shadow: 2px 0 #fff, -2px 0 #fff, 0 2px #fff, 0 -2px #fff,
+                 1px 1px #fff, -1px -1px #fff, 1px -1px #fff, -1px 1px #fff;
+}
+
+/* Footer */
+footer {
+    background-color: var(--primary-green);
+    color: #e0e0e0;
+    border-top: 3px solid var(--gold-border);
+    position: relative;
+    z-index: 1;
+}
+
+footer h5 {
+    font-weight: 700;
+    color: var(--gold-text);
+    margin-bottom: 20px;
+    font-family: 'Playfair Display', serif;
+    letter-spacing: 1px;
+}
+
+footer a { color: #b0b0b0; transition: color 0.3s; }
+footer a:hover { color: var(--gold-hover); text-decoration: none; }
+footer hr { opacity: 0.3; border-color: var(--gold-text); }
+
+@media (max-width: 991px) {
+    .navbar-collapse {
+        background-color: var(--primary-green);
+        padding: 20px;
+        margin-top: 10px;
+        border-radius: 10px;
+        border: 1px solid var(--gold-border);
+    }
+}
