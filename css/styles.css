@@ -29,7 +29,7 @@ body::before {
     top: 0; left: 0; width: 100%; height: 100%;
     
     /* THAY ĐỔI ẢNH NỀN CHUNG TẠI DÒNG DƯỚI NÀY */
-    background: url('../images/banner7.jpg') no-repeat center center;
+    background: url('images/nentrangweb.jpg') no-repeat center center;
     
     background-size: cover;
     
@@ -249,3 +249,4 @@ footer hr { opacity: 0.3; border-color: var(--gold-text); }
         border: 1px solid var(--gold-border);
     }
 }
+
