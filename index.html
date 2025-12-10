@@ -14,15 +14,17 @@
   <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@700&family=Montserrat:wght@300;400;500;600&family=Playfair+Display:ital,wght@0,700;1,400&display=swap" rel="stylesheet">
 
   <style>
-    /* 1. Cấu trúc để đẩy footer xuống đáy */
+    /* --- 1. CẤU TRÚC LAYOUT (Đẩy Footer xuống đáy) --- */
     html, body {
         height: 100%;
         margin: 0;
     }
+    
     body {
         display: flex;
-        flex-direction: column;
-        /* Ảnh nền chính */
+        flex-direction: column; /* Xếp dọc các thành phần */
+        
+        /* Ảnh nền toàn trang */
         background-image: url('images/nentrangweb.jpg'); 
         background-size: cover; 
         background-position: center; 
@@ -30,28 +32,31 @@
         background-attachment: fixed;
     }
 
-    /* Phần chứa nội dung chính sẽ giãn ra để đẩy footer xuống */
-    .main-wrapper {
-        flex: 1;
-    }
+    /* --- 2. MENU (Giữ nguyên gốc) --- */
+    /* Không can thiệp CSS của Navbar để giữ nguyên như cũ */
 
-    /* 2. Style cho Banner (Đã thu nhỏ) */
+    /* --- 3. BANNER (Đã tăng kích thước) --- */
     .hero {
         position: relative;
         width: 100%;
-        /* Giới hạn chiều cao banner, ví dụ 380px */
-        height: 380px; 
-        overflow: hidden; /* Cắt phần thừa */
+        /* Tăng chiều cao lên 550px cho to đẹp */
+        height: 550px; 
+        overflow: hidden;
     }
     .hero img {
         width: 100%;
         height: 100%;
-        /* Quan trọng: Giúp ảnh không bị méo khi thu nhỏ chiều cao */
-        object-fit: cover; 
+        object-fit: cover; /* Đảm bảo ảnh full khung không bị méo */
         object-position: center;
     }
 
-    /* 3. Style nội dung giữa (Màu trắng mờ) */
+    /* --- 4. NỘI DUNG CHÍNH --- */
+    /* Flex: 1 giúp phần này giãn ra, đẩy footer xuống tận cùng */
+    .main-content-wrapper {
+        flex: 1;
+        width: 100%;
+    }
+
     .section-content {
         background-color: rgba(255, 255, 255, 0.95);
         border-radius: 15px;
@@ -61,37 +66,33 @@
         box-shadow: 0 4px 15px rgba(0,0,0,0.1);
     }
 
-    /* 4. Style Footer (Màu tối giống Banner/Theme Trà) */
+    /* --- 5. FOOTER (Màu xanh đậm giống Banner & Chữ trắng) --- */
     footer {
-        /* Màu xanh rêu đậm (Dark Green) phù hợp chủ đề Trà */
-        background-color: #143b29; 
-        color: #ffffff; /* Chữ màu trắng */
-        padding-top: 50px;
+        /* Màu xanh rêu đậm (Tone sur tone với lá trà) */
+        background-color: #0f3d2e; 
+        color: white; 
+        padding-top: 40px;
         padding-bottom: 20px;
-        margin-top: auto; /* Đảm bảo an toàn */
-        border-top: 4px solid #198754; /* Viền xanh sáng ngăn cách */
+        margin-top: auto; /* Đảm bảo luôn nằm dưới cùng */
+        border-top: 5px solid #198754; /* Viền xanh sáng tạo điểm nhấn */
     }
 
-    /* Chỉnh màu chữ link trong footer */
+    /* Chỉnh màu chữ link trong footer cho dễ đọc */
+    footer h5 {
+        color: #81c784; /* Tiêu đề màu xanh sáng */
+        font-family: 'Playfair Display', serif;
+        font-weight: 700;
+    }
     footer a {
-        color: #d1e7dd; /* Màu xanh nhạt */
+        color: #e9ecef;
         transition: 0.3s;
     }
     footer a:hover {
         color: #fff;
         text-decoration: underline !important;
     }
-    footer h5 {
-        color: #fff; /* Tiêu đề màu trắng */
-        font-family: 'Playfair Display', serif;
-        font-weight: 700;
-        margin-bottom: 20px;
-    }
     footer .text-muted {
-        color: #adb5bd !important; /* Chỉnh lại màu text-muted thành xám sáng */
-    }
-    footer hr {
-        border-color: rgba(255,255,255,0.2);
+        color: #ced4da !important; /* Đổi màu chữ mờ thành xám sáng */
     }
 
     /* Style nút bấm */
@@ -99,14 +100,14 @@
         background-color: #198754;
         color: white;
         border: none;
-        padding: 10px 30px;
+        padding: 12px 35px;
+        font-size: 1.1rem;
         font-weight: 600;
         border-radius: 50px;
         transition: all 0.3s;
     }
     .btn-custom:hover {
         background-color: #146c43;
-        color: white;
         transform: translateY(-2px);
     }
     
@@ -120,49 +121,49 @@
 
 <body>
 
-<div class="main-wrapper">
-
-    <nav class="navbar navbar-expand-lg navbar-dark bg-dark sticky-top shadow">
-      <div class="container">
-        <a class="navbar-brand" href="index.html"><i class="fas fa-leaf me-2 text-success"></i> Trà Đại Từ</a>
-        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
-          <span class="navbar-toggler-icon"></span>
-        </button>
-        <div class="collapse navbar-collapse" id="navbarNav">
-          <ul class="navbar-nav ms-auto">
-            <li class="nav-item"><a class="nav-link active" href="index.html">Trang Chủ</a></li>
-            
-            <li class="nav-item dropdown">
-              <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown">Giới thiệu</a>
-              <ul class="dropdown-menu">
-                <li><a class="dropdown-item" href="gioithieuchung.html">Giới Thiệu Chung</a></li>
-                <li><a class="dropdown-item" href="sumenh.html">Sứ Mệnh</a></li>
-              </ul>
-            </li>
-
-            <li class="nav-item dropdown">
-              <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown">Văn Hóa Trà</a>
-              <ul class="dropdown-menu">
-                <li><a class="dropdown-item" href="tinhhoatraviet.html">Tinh Hoa Trà Việt</a></li>
-                <li><a class="dropdown-item" href="vanhoathuongtra.html">Văn Hóa Thưởng Trà</a></li>
-              </ul>
-            </li>
-
-            <li class="nav-item"><a class="nav-link" href="sanphamnoibat.html">Sản Phẩm</a></li>
-
-            <li class="nav-item dropdown">
-              <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown">Trải Nghiệm</a>
-              <ul class="dropdown-menu">
-                  <li><a class="dropdown-item" href="dulichvatrainghiem.html">Du Lịch</a></li>
-                  <li><a class="dropdown-item" href="thuvienmedia.html">Media</a></li>
-              </ul>
-            </li>
-
-            <li class="nav-item"><a class="nav-link" href="lienhe.html">Liên Hệ</a></li>
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark sticky-top shadow">
+  <div class="container">
+    <a class="navbar-brand" href="index.html"><i class="fas fa-leaf me-2 text-success"></i> Trà Đại Từ</a>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarNav">
+      <ul class="navbar-nav ms-auto">
+        <li class="nav-item"><a class="nav-link active" href="index.html">Trang Chủ</a></li>
+        
+        <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown">Giới thiệu</a>
+          <ul class="dropdown-menu">
+            <li><a class="dropdown-item" href="gioithieuchung.html">Giới Thiệu Chung</a></li>
+            <li><a class="dropdown-item" href="sumenh.html">Sứ Mệnh</a></li>
           </ul>
-        </div>
-      </div>
-    </nav>
+        </li>
+
+        <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown">Văn Hóa Trà</a>
+          <ul class="dropdown-menu">
+            <li><a class="dropdown-item" href="tinhhoatraviet.html">Tinh Hoa Trà Việt</a></li>
+            <li><a class="dropdown-item" href="vanhoathuongtra.html">Văn Hóa Thưởng Trà</a></li>
+          </ul>
+        </li>
+
+        <li class="nav-item"><a class="nav-link" href="sanphamnoibat.html">Sản Phẩm</a></li>
+
+        <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown">Trải Nghiệm</a>
+          <ul class="dropdown-menu">
+              <li><a class="dropdown-item" href="dulichvatrainghiem.html">Du Lịch</a></li>
+              <li><a class="dropdown-item" href="thuvienmedia.html">Media</a></li>
+          </ul>
+        </li>
+
+        <li class="nav-item"><a class="nav-link" href="lienhe.html">Liên Hệ</a></li>
+      </ul>
+    </div>
+  </div>
+</nav>
+
+<div class="main-content-wrapper">
 
     <div class="hero">
         <img src="images/banner7.jpg" alt="Banner Trà Đại Từ">
@@ -200,32 +201,31 @@
       </div>
     </section>
 
-</div> <footer>
+</div> 
+<footer class="text-center">
   <div class="container">
     <div class="row">
-      <div class="col-md-4 text-start mb-4">
+      <div class="col-md-4 text-start mb-3">
         <h5 class="text-uppercase border-bottom pb-2 d-inline-block border-success">Trà Đại Từ</h5>
-        <p class="mt-3 text-white-50">Dự án STEM quảng bá văn hóa trà Việt Nam, mang tinh hoa đất Việt đến mọi nhà.</p>
+        <p class="mt-2">Dự án STEM quảng bá văn hóa trà Việt Nam, mang tinh hoa đất Việt đến mọi nhà.</p>
       </div>
-      <div class="col-md-4 mb-4">
+      <div class="col-md-4 mb-3">
         <h5>Liên Kết Nhanh</h5>
         <ul class="list-unstyled">
-            <li class="mb-2"><a href="gioithieu.html" class="text-decoration-none"><i class="fas fa-chevron-right me-2 small"></i>Giới Thiệu</a></li>
-            <li class="mb-2"><a href="sanphamnoibat.html" class="text-decoration-none"><i class="fas fa-chevron-right me-2 small"></i>Sản Phẩm</a></li>
-            <li class="mb-2"><a href="dulichvatrainghiem.html" class="text-decoration-none"><i class="fas fa-chevron-right me-2 small"></i>Du Lịch</a></li>
+            <li><a href="gioithieu.html" class="text-decoration-none"><i class="fas fa-chevron-right me-2 small"></i>Giới Thiệu</a></li>
+            <li><a href="sanphamnoibat.html" class="text-decoration-none"><i class="fas fa-chevron-right me-2 small"></i>Sản Phẩm</a></li>
+            <li><a href="dulichvatrainghiem.html" class="text-decoration-none"><i class="fas fa-chevron-right me-2 small"></i>Du Lịch</a></li>
         </ul>
       </div>
-      <div class="col-md-4 text-end mb-4">
+      <div class="col-md-4 text-end mb-3">
         <h5>Liên Hệ</h5>
         <p><i class="fas fa-map-marker-alt me-2 text-warning"></i> Xã Đại Phúc, Tỉnh Thái Nguyên</p>
         <p><i class="fas fa-phone me-2 text-warning"></i> 0329 305 208</p>
         <p><i class="fas fa-envelope me-2 text-warning"></i> lienhe@tradaitu.vn</p>
       </div>
     </div>
-    <hr>
-    <div class="text-center pt-2">
-        <p class="mb-0 text-white-50">&copy; 2025 Không Gian Văn Hóa Trà Đại Từ. Designed with <i class="fas fa-heart text-danger"></i></p> 
-    </div>
+    <hr style="opacity: 0.2;">
+    <p class="mb-0 text-white-50">&copy; 2025 Không Gian Văn Hóa Trà Đại Từ.</p> 
   </div>
 </footer>
 
