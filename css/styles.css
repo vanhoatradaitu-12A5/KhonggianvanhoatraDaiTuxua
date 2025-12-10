@@ -30,7 +30,7 @@ body::before {
     top: 0; left: 0; width: 100%; height: 100%;
     
     /* Dùng ảnh giống banner */
-    background: url('../images/banner7.jpg') no-repeat center center;
+    background: url('../images/nentrangweb.jpg') no-repeat center center;
     background-size: cover;
     
     /* Hiệu ứng làm mờ */
@@ -280,3 +280,4 @@ footer hr {
         border: 1px solid var(--gold-border);
     }
 }
+
