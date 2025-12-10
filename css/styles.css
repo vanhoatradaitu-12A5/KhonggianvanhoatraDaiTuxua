@@ -17,7 +17,36 @@
 body {
     font-family: 'Montserrat', sans-serif;
     color: var(--text-dark);
-    background-color: #f9f9f9;
+    position: relative;
+    min-height: 100vh;
+    margin: 0;
+}
+
+/* --- XỬ LÝ NỀN TRANG WEB (LÀM MỜ) --- */
+/* Lớp 1: Ảnh nền bị làm mờ nằm dưới cùng */
+body::before {
+    content: '';
+    position: fixed; /* Cố định để khi cuộn trang nền vẫn đứng yên */
+    top: 0; left: 0; width: 100%; height: 100%;
+    
+    /* Dùng ảnh giống banner */
+    background: url('../images/banner7.jpg') no-repeat center center;
+    background-size: cover;
+    
+    /* Hiệu ứng làm mờ */
+    filter: blur(15px); 
+    
+    /* Đẩy xuống dưới cùng */
+    z-index: -2; 
+}
+
+/* Lớp 2: Phủ màu trắng mờ để chữ dễ đọc hơn trên nền ảnh */
+body::after {
+    content: '';
+    position: fixed;
+    top: 0; left: 0; width: 100%; height: 100%;
+    background-color: rgba(249, 249, 249, 0.85); /* Màu trắng đục 85% */
+    z-index: -1;
 }
 
 /* Font cho các tiêu đề */
@@ -29,7 +58,6 @@ h1, h2, h3, h4, h5, .navbar-brand {
    2. NAVBAR (MENU) - PHONG CÁCH GỖ/KIM LOẠI 3D
    ========================================= */
 .navbar {
-    /* Gradient tạo khối tròn như thanh gỗ/kim loại */
     background: linear-gradient(
         180deg, 
         var(--gradient-top) 0%, 
@@ -37,18 +65,17 @@ h1, h2, h3, h4, h5, .navbar-brand {
         var(--primary-green) 100%
     ) !important;
     
-    /* Viền vàng và đổ bóng */
     border-bottom: 2px solid var(--gold-border);
     box-shadow: 
-        inset 0 1px 5px rgba(255, 255, 255, 0.1), /* Sáng cạnh trên */
-        0 4px 12px rgba(0,0,0,0.4); /* Bóng đổ xuống trang web */
+        inset 0 1px 5px rgba(255, 255, 255, 0.1),
+        0 4px 12px rgba(0,0,0,0.4);
     padding: 0.8rem 1rem;
     position: sticky;
     top: 0;
-    z-index: 1000;
+    z-index: 1000; /* Luôn nằm trên cùng */
 }
 
-/* Đường viền mờ bên trong (tạo vẻ tinh tế) */
+/* Đường viền mờ bên trong */
 .navbar::after {
     content: '';
     position: absolute;
@@ -66,18 +93,17 @@ h1, h2, h3, h4, h5, .navbar-brand {
     text-shadow: 0 2px 4px rgba(0,0,0,0.8);
 }
 
-/* Các liên kết menu (Nav Items) */
+/* Các liên kết menu */
 .nav-link {
     font-weight: 500;
     text-transform: uppercase;
     font-size: 0.9rem;
     letter-spacing: 1px;
-    color: #cbb07a !important; /* Vàng đồng nhạt */
+    color: #cbb07a !important;
     transition: all 0.3s ease;
     padding: 10px 15px !important;
 }
 
-/* Hiệu ứng Hover menu */
 .nav-link:hover, .nav-link.active {
     color: var(--gold-hover) !important;
     text-shadow: 0 0 8px rgba(230, 200, 136, 0.6);
@@ -104,7 +130,7 @@ h1, h2, h3, h4, h5, .navbar-brand {
 .dropdown-item:hover {
     background-color: rgba(255, 255, 255, 0.05);
     color: var(--gold-hover) !important;
-    padding-left: 25px; /* Hiệu ứng đẩy chữ sang phải */
+    padding-left: 25px;
 }
 
 /* Nút Toggler trên Mobile */
@@ -116,34 +142,32 @@ h1, h2, h3, h4, h5, .navbar-brand {
 }
 
 /* =========================================
-  /* =========================================
-   3. HERO SECTION (BANNER) - ĐÃ SỬA LỖI
+   3. HERO SECTION (BANNER) - SẮC NÉT
    ========================================= */
 .hero {
-    /* Thay đường dẫn ảnh của bạn vào đây */
+    /* Ảnh nền banner: RÕ NÉT */
     background: url('../images/banner7.jpg'); 
     
-    /* 1. Xử lý ảnh tự động điều chỉnh */
     background-position: center center;
     background-repeat: no-repeat;
-    background-size: cover; /* Ảnh phủ kín khung */
+    background-size: cover;
     
-    /* 2. Kỹ thuật Aspect Ratio: 
-       Giúp banner tự chỉnh độ cao theo độ rộng.
-       Nếu ảnh của bạn tỉ lệ 16:9, hãy để 56.25%.
-       Nếu ảnh dài và dẹt (ví dụ 1920x800), hãy để khoảng 40-45%.
-    */
+    /* Aspect Ratio */
     width: 100%;
     height: 0;
-    padding-bottom: 45%; /* <-- CHỈNH SỐ NÀY để banner cao/thấp theo ý muốn */
+    padding-bottom: 45%; 
     
     position: relative;
+    margin-top: 0;
     
-    /* 3. Xử lý menu không lấn vào banner */
-    margin-top: 0; /* Đặt về 0 để nằm tách biệt dưới menu */
+    /* QUAN TRỌNG: z-index dương để nổi lên trên lớp nền mờ của body */
+    z-index: 1;
+    
+    /* Tạo bóng đổ để tách biệt banner khỏi nền trang web */
+    box-shadow: 0 10px 30px rgba(0,0,0,0.5);
+    border-bottom: 1px solid var(--gold-border);
 }
 
-/* Nội dung chữ/nút bấm nằm trên banner */
 .hero-content {
     position: absolute;
     top: 50%;
@@ -153,17 +177,17 @@ h1, h2, h3, h4, h5, .navbar-brand {
     width: 100%;
 }
 
-/* Mobile: Tăng chiều cao lên chút để dễ nhìn hơn */
 @media (max-width: 768px) {
     .hero {
-        padding-bottom: 70%; /* Trên điện thoại cho banner cao hơn chút */
+        padding-bottom: 70%; 
     }
 }
+
 /* =========================================
    4. NÚT BẤM (BUTTONS)
    ========================================= */
 .btn-custom {
-    background-color: rgba(26, 51, 42, 0.8); /* Thêm nền mờ để nút rõ hơn trên ảnh */
+    background-color: rgba(26, 51, 42, 0.85);
     color: var(--gold-text);
     border-radius: 50px;
     padding: 12px 45px;
@@ -174,7 +198,7 @@ h1, h2, h3, h4, h5, .navbar-brand {
     transition: all 0.3s ease;
     box-shadow: 0 4px 15px rgba(0,0,0,0.3);
     text-transform: uppercase;
-    backdrop-filter: blur(5px); /* Hiệu ứng mờ nền sau nút */
+    backdrop-filter: blur(5px);
 }
 
 .btn-custom:hover {
@@ -204,12 +228,14 @@ h1, h2, h3, h4, h5, .navbar-brand {
 .img-custom {
     box-shadow: 0 10px 30px rgba(0,0,0,0.2);
     border: 2px solid #fff;
+    background: #fff; /* Thêm nền trắng cho khung ảnh */
 }
 
 h2 {
     color: var(--primary-green);
     font-weight: 700;
     margin-bottom: 1rem;
+    text-shadow: 1px 1px 0px rgba(255,255,255,0.5); /* Giúp tiêu đề nổi bật trên nền mờ */
 }
 
 /* Footer */
@@ -217,6 +243,8 @@ footer {
     background-color: var(--primary-green);
     color: #e0e0e0;
     border-top: 3px solid var(--gold-border);
+    position: relative;
+    z-index: 1; /* Đảm bảo footer nổi lên trên nền mờ */
 }
 
 footer h5 {
@@ -242,7 +270,7 @@ footer hr {
     border-color: var(--gold-text);
 }
 
-/* Xử lý hiển thị trên Mobile cho các phần khác */
+/* Mobile Fixes */
 @media (max-width: 991px) {
     .navbar-collapse {
         background-color: var(--primary-green);
