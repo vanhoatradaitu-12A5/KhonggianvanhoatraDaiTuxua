@@ -23,7 +23,7 @@ body {
         /* Tùy chọn: Lớp phủ mờ (xanh rêu đậm, 8%) để ảnh không quá sáng) */
         linear-gradient(rgba(26, 51, 42, 0.08), rgba(26, 51, 42, 0.08)),
         /* Thay đường dẫn ảnh của bạn vào đây: */
-        url('../images/tiled-texture.jpg') repeat;
+        url('../images/nentrangweb.jpg') repeat;
     background-color: var(--secondary-bg); /* Màu nền dự phòng */
     background-attachment: fixed; /* Cố định nền nếu dùng texture nhỏ */
     line-height: 1.6;
@@ -293,3 +293,4 @@ footer hr {
         box-shadow: 0 5px 15px rgba(0,0,0,0.5);
     }
 }
+
