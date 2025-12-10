@@ -14,12 +14,40 @@
   <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@700&family=Montserrat:wght@300;400;500;600&family=Playfair+Display:ital,wght@0,700;1,400&display=swap" rel="stylesheet">
 
   <link href="css/styles.css" rel="stylesheet">
+
+  <style>
+    body {
+        /* Đường dẫn đến ảnh nền */
+        background-image: url('images/nentrangweb.jpg'); 
+        
+        /* Đảm bảo ảnh bao phủ toàn màn hình */
+        background-size: cover; 
+        
+        /* Căn giữa ảnh */
+        background-position: center; 
+        
+        /* Không lặp lại ảnh */
+        background-repeat: no-repeat; 
+        
+        /* Cố định ảnh nền khi cuộn chuột (tạo hiệu ứng đẹp hơn) */
+        background-attachment: fixed; 
+    }
+
+    /* Tùy chọn: Thêm màu nền trắng mờ cho các nội dung để chữ dễ đọc hơn trên nền ảnh */
+    .section-content, footer {
+        background-color: rgba(255, 255, 255, 0.9); /* Màu trắng độ mờ 90% */
+        border-radius: 15px; /* Bo góc nhẹ */
+        padding: 20px; /* Tạo khoảng cách đệm */
+        margin-top: 20px;
+        margin-bottom: 20px;
+    }
+  </style>
+
 </head>
 
 <body>
 
-<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
-  <div class="container">
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark"> <div class="container">
     <a class="navbar-brand" href="index.html"><i class="fas fa-leaf me-2"></i> Trà Đại Từ</a>
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
       <span class="navbar-toggler-icon"></span>
@@ -60,29 +88,13 @@
   </div>
 </nav>
 
-<div class="hero" style="position: relative; 
-            background-image: url('images/banner7.jpg'); 
-            background-size: cover; 
-            background-position: center; 
-            height: 600px; 
-            display: flex; 
-            align-items: center; 
-            justify-content: center;">
-            
-  <div class="container fade-in text-center text-white" style="z-index: 10;">
-    <h1 class="display-2 fw-bold mb-3" style="font-family: 'Dancing Script', cursive; text-shadow: 3px 3px 6px rgba(0,0,0,0.6);">
-        Tinh Hoa Trà Đại Từ
-    </h1>
-    <p class="fs-4 mb-4" style="text-shadow: 2px 2px 4px rgba(0,0,0,0.6);">
-        Hương vị đậm đà - Bản sắc quê hương
-    </p>
-    <a href="dulichvatrainghiem.html" class="btn btn-success btn-lg rounded-pill px-5 shadow-lg">
-        Khám Phá Ngay
-    </a>
+<div class="hero" style="position: relative;">
+  <div class="container fade-in text-center" style="position: absolute; bottom: 30px; left: 0; right: 0; z-index: 10;">
+    <a href="dulichvatrainghiem.html" class="btn btn-custom" style="padding-top: 10px; padding-bottom: 10px;">Khám Phá Ngay</a>
   </div>
 </div>
-<section class="container section-content fade-in" style="padding: 80px 0;">
-  <div class="row align-items-center">
+
+<section class="container section-content fade-in" style="padding: 80px 20px;"> <div class="row align-items-center">
     <div class="col-md-6">
       <h2>Về Vùng Đất Chè Huyền Thoại</h2>
       <p class="lead text-muted mb-4" style="font-family: 'Playfair Display', serif;">"Tiền chát, hậu ngọt" - Hương vị khó quên.</p>
@@ -109,7 +121,7 @@
   </div>
 </section>
 
-<footer class="text-center py-5 bg-dark text-white">
+<footer class="text-center py-5">
   <div class="container">
     <div class="row">
       <div class="col-md-4 text-start">
@@ -119,9 +131,9 @@
       <div class="col-md-4">
         <h5>Liên Kết Nhanh</h5>
         <ul class="list-unstyled">
-            <li><a href="gioithieu.html" class="text-decoration-none text-white"><i class="fas fa-chevron-right me-2"></i>Giới Thiệu</a></li>
-            <li><a href="sanphamnoibat.html" class="text-decoration-none text-white"><i class="fas fa-chevron-right me-2"></i>Sản Phẩm</a></li>
-            <li><a href="dulichvatrainghiem.html" class="text-decoration-none text-white"><i class="fas fa-chevron-right me-2"></i>Du Lịch</a></li>
+            <li><a href="gioithieu.html"><i class="fas fa-chevron-right me-2"></i>Giới Thiệu</a></li>
+            <li><a href="sanphamnoibat.html"><i class="fas fa-chevron-right me-2"></i>Sản Phẩm</a></li>
+            <li><a href="dulichvatrainghiem.html"><i class="fas fa-chevron-right me-2"></i>Du Lịch</a></li>
         </ul>
       </div>
       <div class="col-md-4 text-end">
@@ -131,7 +143,8 @@
         <p><i class="fas fa-envelope me-2"></i> lienhe@tradaitu.vn</p>
       </div>
     </div>
-    <hr class="my-4" style="border-color: rgba(255,255,255,0.3);"> <p class="mb-0">&copy; 2025 Không Gian Văn Hóa Trà Đại Từ.</p> 
+    <hr class="my-4">
+    <p class="mb-0">&copy; 2025 Không Gian Văn Hóa Trà Đại Từ.</p> 
   </div>
 </footer>
 
