@@ -129,7 +129,7 @@ h1, h2, h3, h4, h5, .navbar-brand {
 .hero {
     /* Nếu bạn muốn banner này trong suốt để thấy ảnh nền body thì bỏ background này đi, 
        còn nếu muốn giữ banner riêng thì để lại */
-    /* background: url('../images/banner7.jpg'); */ 
+    /* background: url('images/banner7.jpg'); */ 
     background: transparent; /* Đặt trong suốt để thấy ảnh nền đồi chè đẹp bên dưới */
     
     width: 100%;
@@ -236,3 +236,4 @@ footer h5 {
     color: var(--gold-text);
     text-shadow: none;
 }
+
