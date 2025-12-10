@@ -14,16 +14,16 @@
     --secondary-bg: #f9f9f9;      /* Nền trắng/xám nhẹ cho nội dung */
 }
 
-/* Reset font chữ chung (Thêm ảnh nền trang) */
+/* Reset font chữ chung (Thêm ảnh nền trang VÀ LỚP PHỦ) */
 body {
     font-family: 'Montserrat', sans-serif;
     color: var(--text-dark);
-    /* Thay thế nền màu bằng ảnh nền (ví dụ) */
+    
+    /* 💥 ĐÃ CHỈNH SỬA: Lớp phủ mờ (xanh rêu 15%) được áp dụng LÊN TRÊN ảnh nền 💥 */
     background: 
-        /* Tùy chọn: Lớp phủ mờ (xanh rêu đậm, 8%) để ảnh không quá sáng) */
-        linear-gradient(rgba(26, 51, 42, 0.08), rgba(26, 51, 42, 0.08)),
-        /* Thay đường dẫn ảnh của bạn vào đây: */
-        url('../images/nentrangweb.jpg') repeat;
+        linear-gradient(rgba(26, 51, 42, 0.15), rgba(26, 51, 42, 0.15)), 
+        /* Thay đường dẫn ảnh nền của bạn vào đây: */
+        url('../images/tiled-texture.jpg') repeat;
     background-color: var(--secondary-bg); /* Màu nền dự phòng */
     background-attachment: fixed; /* Cố định nền nếu dùng texture nhỏ */
     line-height: 1.6;
@@ -35,7 +35,7 @@ h1, h2, h3, h4, h5, .navbar-brand {
 }
 
 /* =========================================
-   2. NAVBAR (MENU) - PHONG CÁCH GỖ/KIM LOẠI 3D (Đã tinh chỉnh)
+   2. NAVBAR (MENU) - PHONG CÁCH GỖ/KIM LOẠI 3D 
    ========================================= */
 .navbar {
     /* Gradient tạo khối tròn như thanh gỗ/kim loại */
@@ -47,14 +47,14 @@ h1, h2, h3, h4, h5, .navbar-brand {
     ) !important;
     
     /* Viền vàng và đổ bóng */
-    border-bottom: 3px solid var(--gold-border); /* Dày hơn */
+    border-bottom: 3px solid var(--gold-border); 
     box-shadow: 
-        inset 0 1px 5px rgba(255, 255, 255, 0.1), /* Sáng cạnh trên */
-        0 6px 15px rgba(0,0,0,0.5); /* Bóng đổ xuống trang web đậm hơn */
+        inset 0 1px 5px rgba(255, 255, 255, 0.1), 
+        0 6px 15px rgba(0,0,0,0.5); 
     padding: 0.8rem 1rem;
     position: sticky;
     top: 0;
-    z-index: 1020; /* Tăng z-index để nổi bật hơn */
+    z-index: 1020; 
 }
 
 /* Đường viền mờ bên trong (tạo vẻ tinh tế) */
@@ -62,7 +62,7 @@ h1, h2, h3, h4, h5, .navbar-brand {
     content: '';
     position: absolute;
     bottom: 3px; left: 0; right: 0; height: 1px;
-    background: rgba(230, 200, 136, 0.5); /* Vàng rõ hơn */
+    background: rgba(230, 200, 136, 0.5); 
     pointer-events: none;
 }
 
@@ -70,66 +70,65 @@ h1, h2, h3, h4, h5, .navbar-brand {
 .navbar-brand {
     font-family: 'Dancing Script', cursive;
     font-weight: 700;
-    font-size: 2rem; /* Lớn hơn */
+    font-size: 2rem; 
     color: var(--gold-text) !important;
-    text-shadow: 0 3px 5px rgba(0,0,0,0.9); /* Bóng đổ đậm hơn */
+    text-shadow: 0 3px 5px rgba(0,0,0,0.9); 
     letter-spacing: 1.5px;
 }
 
-/* Các liên kết menu (Nav Items) */
+/* Các liên kết menu (Nav Items) - KÍCH THƯỚC CHỮ NHỎ */
 .nav-link {
-    font-weight: 600; /* Dày hơn */
+    font-weight: 600; 
     text-transform: uppercase;
-    font-size: 0.95rem; /* Lớn hơn chút */
+    font-size: 0.85rem; /* Kích thước chữ menu nhỏ */
     letter-spacing: 1.2px;
-    color: #cbb07a !important; /* Vàng đồng nhạt */
+    color: #cbb07a !important; 
     transition: all 0.3s ease;
-    padding: 10px 18px !important; /* Khoảng cách rộng hơn */
+    padding: 8px 15px !important; 
 }
 
 /* Hiệu ứng Hover menu */
 .nav-link:hover, .nav-link.active {
     color: var(--gold-hover) !important;
-    text-shadow: 0 0 10px rgba(255, 245, 215, 0.8); /* Bóng sáng rõ hơn */
-    transform: translateY(-2px); /* Nhảy lên cao hơn */
+    text-shadow: 0 0 10px rgba(255, 245, 215, 0.8); 
+    transform: translateY(-2px); 
 }
 
 /* Dropdown Menu (Đã tinh chỉnh) */
 .dropdown-menu {
     background-color: var(--primary-green);
     border: 1px solid var(--gold-border);
-    border-radius: 4px; /* Góc vuông hơn */
-    margin-top: 5px; /* Giảm khoảng cách */
+    border-radius: 4px; 
+    margin-top: 5px; 
     box-shadow: 0 8px 20px rgba(0,0,0,0.6);
 }
 
 .dropdown-item {
     color: #cbb07a !important;
     font-family: 'Montserrat', sans-serif;
-    font-size: 0.9rem;
-    padding: 12px 20px;
+    font-size: 0.85rem; /* Kích thước chữ dropdown nhỏ */
+    padding: 10px 20px;
     transition: all 0.3s;
 }
 
 .dropdown-item:hover {
-    background-color: var(--gradient-mid); /* Nền hover tối hơn */
+    background-color: var(--gradient-mid); 
     color: var(--gold-hover) !important;
-    padding-left: 30px; /* Hiệu ứng đẩy chữ sang phải mạnh hơn */
+    padding-left: 30px; 
 }
 
 /* Nút Toggler trên Mobile */
 .navbar-toggler {
     border-color: var(--gold-border);
     padding: 0.25rem 0.75rem;
-    box-shadow: 0 0 0 0.2rem rgba(230, 200, 136, 0.5); /* Thêm viền khi focus */
+    box-shadow: 0 0 0 0.2rem rgba(230, 200, 136, 0.5); 
 }
 .navbar-toggler-icon {
-    /* Đã giữ nguyên SVG để đảm bảo màu vàng */
     background-image: url("data:image/svg+xml;charset=utf8,%3Csvg viewBox='0 0 30 30' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath stroke='rgba(230, 200, 136, 1)' stroke-width='2' stroke-linecap='round' stroke-miterlimit='10' d='M4 7h22M4 15h22M4 23h22'/%3E%3C/svg%3E");
 }
 
 /* =========================================
-   3. HERO SECTION (BANNER) - CỐ ĐỊNH CHIỀU CAO
+   3. HERO SECTION (BANNER) - KHÔNG CÓ LỚP PHỦ
    ========================================= */
 .hero {
     /* Thay đường dẫn ảnh của bạn vào đây */
@@ -139,16 +138,13 @@ h1, h2, h3, h4, h5, .navbar-brand {
     background-repeat: no-repeat;
     background-size: cover; 
     
-    /* Cố định chiều cao (vd: 500px), hoặc dùng padding-bottom như cũ */
-    height: 550px; /* Chiều cao cố định */
-    /* width: 100%; */
-    /* padding-bottom: 45%; */
+    height: 550px; 
     
     position: relative;
     margin-top: 0; 
 
-    /* Thêm lớp phủ mờ (overlay) để làm nổi bật chữ */
-    box-shadow: inset 0 0 0 1000px rgba(0, 0, 0, 0.4); 
+    /* 💥 ĐÃ CHỈNH SỬA: XÓA LỚP PHỦ NỀN ĐEN 💥 */
+    box-shadow: none; 
 }
 
 /* Nội dung chữ/nút bấm nằm trên banner */
@@ -158,7 +154,7 @@ h1, h2, h3, h4, h5, .navbar-brand {
     left: 50%;
     transform: translate(-50%, -50%);
     text-align: center;
-    width: 90%; /* Chiếm 90% chiều rộng */
+    width: 90%; 
     max-width: 900px;
 }
 
@@ -171,8 +167,7 @@ h1, h2, h3, h4, h5, .navbar-brand {
 /* Mobile: Giảm chiều cao banner */
 @media (max-width: 768px) {
     .hero {
-        height: 400px; /* Trên điện thoại cho banner cao 400px */
-        /* Nếu dùng padding-bottom, để 70% như cũ */
+        height: 400px; 
     }
     .hero-content h1 {
         font-size: 2.5rem;
@@ -183,28 +178,27 @@ h1, h2, h3, h4, h5, .navbar-brand {
    4. NÚT BẤM (BUTTONS) - HIỆU ỨNG 3D VÀNG
    ========================================= */
 .btn-custom {
-    /* Thêm nền mờ để nút rõ hơn trên ảnh, dùng màu primary-green */
     background-color: var(--primary-green); 
     color: var(--gold-text);
     border-radius: 50px;
-    padding: 15px 50px; /* Lớn hơn */
+    padding: 15px 50px; 
     font-family: 'Montserrat', sans-serif;
-    font-weight: 700; /* Đậm hơn */
+    font-weight: 700; 
     font-size: 1.1rem;
-    border: 3px solid var(--gold-text); /* Viền dày hơn */
+    border: 3px solid var(--gold-text); 
     transition: all 0.3s ease;
-    box-shadow: 0 6px 18px rgba(0,0,0,0.4); /* Bóng đổ mạnh hơn */
+    box-shadow: 0 6px 18px rgba(0,0,0,0.4); 
     text-transform: uppercase;
     letter-spacing: 1px;
-    backdrop-filter: blur(8px); /* Hiệu ứng mờ nền sau nút mạnh hơn */
+    backdrop-filter: blur(8px); 
 }
 
 .btn-custom:hover {
     background-color: var(--gold-text);
     border-color: var(--gold-text);
     color: var(--primary-green);
-    transform: translateY(-4px); /* Nhảy lên cao hơn */
-    box-shadow: 0 8px 25px rgba(230, 200, 136, 0.6); /* Bóng sáng rõ hơn */
+    transform: translateY(-4px); 
+    box-shadow: 0 8px 25px rgba(230, 200, 136, 0.6); 
 }
 
 /* =========================================
@@ -215,7 +209,7 @@ h1, h2, h3, h4, h5, .navbar-brand {
 h2 {
     color: var(--primary-green);
     font-weight: 700;
-    margin-bottom: 1.5rem; /* Khoảng cách lớn hơn */
+    margin-bottom: 1.5rem; 
     text-transform: uppercase;
     letter-spacing: 2px;
 }
@@ -230,27 +224,27 @@ h2 {
 }
 
 .img-custom img {
-    height: 400px; /* Giảm chút chiều cao mặc định để linh hoạt */
+    height: 400px; 
     width: 100%;
     object-fit: cover;
     border-radius: 8px;
     transition: transform 0.3s ease;
 }
 .img-custom {
-    box-shadow: 0 12px 35px rgba(0,0,0,0.3); /* Bóng đổ mạnh hơn */
-    border: 4px solid var(--gold-text); /* Viền vàng nổi bật */
+    box-shadow: 0 12px 35px rgba(0,0,0,0.3); 
+    border: 4px solid var(--gold-text); 
     border-radius: 12px;
-    overflow: hidden; /* Cần thiết để góc bo hoạt động tốt */
+    overflow: hidden; 
 }
 .img-custom:hover img {
-    transform: scale(1.05); /* Phóng to nhẹ khi hover */
+    transform: scale(1.05); 
 }
 
 /* Footer (Đã tinh chỉnh) */
 footer {
     background-color: var(--primary-green);
-    color: #d8d8d8; /* Màu sáng hơn chút */
-    border-top: 5px solid var(--gold-border); /* Viền dày và rõ hơn */
+    color: #d8d8d8; 
+    border-top: 5px solid var(--gold-border); 
     padding: 40px 0 20px 0;
 }
 
@@ -264,10 +258,10 @@ footer h5 {
 }
 
 footer a {
-    color: #c0c0c0; /* Màu sáng hơn */
+    color: #c0c0c0; 
     transition: color 0.3s;
     text-decoration: none;
-    display: block; /* Đảm bảo link chiếm dòng riêng */
+    display: block; 
     padding: 3px 0;
 }
 
@@ -277,7 +271,7 @@ footer a:hover {
 }
 
 footer hr {
-    opacity: 0.5; /* Rõ hơn */
+    opacity: 0.5; 
     border-color: var(--gold-text);
     margin: 25px 0;
 }
@@ -293,4 +287,3 @@ footer hr {
         box-shadow: 0 5px 15px rgba(0,0,0,0.5);
     }
 }
-
