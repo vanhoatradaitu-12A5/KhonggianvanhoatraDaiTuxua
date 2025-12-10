@@ -22,36 +22,23 @@ body {
     margin: 0;
 }
 
-/* --- XỬ LÝ NỀN TRANG WEB (SẮC NÉT) --- */
-/* Lớp 1: Ảnh nền cố định */
+/* --- XỬ LÝ NỀN TRANG WEB (NGUYÊN BẢN) --- */
 body::before {
     content: '';
     position: fixed; 
     top: 0; left: 0; width: 100%; height: 100%;
     
-    /* --- ĐÃ ĐỔI TÊN ẢNH NỀN TẠI ĐÂY --- */
-    /* Lưu ý: Nếu đuôi ảnh của bạn là .png thì sửa lại thành .png nhé */
+    /* ẢNH NỀN: nentrangweb */
     background: url('../images/nentrangweb.jpg') no-repeat center center;
-    
     background-size: cover;
     
-    /* Ảnh sắc nét, không bị mờ */
+    /* Không làm mờ, giữ nguyên độ nét */
     filter: none; 
     
     z-index: -2; 
 }
 
-/* Lớp 2: Lớp phủ trắng cực mỏng (để chữ dễ đọc) */
-body::after {
-    content: '';
-    position: fixed;
-    top: 0; left: 0; width: 100%; height: 100%;
-    
-    /* Độ mờ 0.15: Rất trong, nhìn rõ ảnh nền */
-    background-color: rgba(255, 255, 255, 0.15); 
-    
-    z-index: -1;
-}
+/* ĐÃ XÓA LỚP PHỦ MÀU TRẮNG (body::after) TẠI ĐÂY */
 
 /* Font cho các tiêu đề */
 h1, h2, h3, h4, h5, .navbar-brand {
@@ -142,7 +129,6 @@ h1, h2, h3, h4, h5, .navbar-brand {
    3. HERO SECTION (BANNER)
    ========================================= */
 .hero {
-    /* Ảnh Banner riêng biệt (Vẫn giữ tên cũ là banner7.jpg) */
     background: url('../images/banner7.jpg'); 
     background-position: center center;
     background-repeat: no-repeat;
@@ -214,42 +200,4 @@ h1, h2, h3, h4, h5, .navbar-brand {
     box-shadow: 0 10px 30px rgba(0,0,0,0.2);
     border: 2px solid #fff;
     background: #fff;
-}
-
-h2 {
-    color: var(--primary-green);
-    font-weight: 700;
-    margin-bottom: 1rem;
-    text-shadow: 1px 1px 0 #fff, -1px -1px 0 #fff, 1px -1px 0 #fff, -1px 1px 0 #fff; 
-}
-
-/* Footer */
-footer {
-    background-color: var(--primary-green);
-    color: #e0e0e0;
-    border-top: 3px solid var(--gold-border);
-    position: relative;
-    z-index: 1;
-}
-
-footer h5 {
-    font-weight: 700;
-    color: var(--gold-text);
-    margin-bottom: 20px;
-    font-family: 'Playfair Display', serif;
-    letter-spacing: 1px;
-}
-
-footer a { color: #b0b0b0; transition: color 0.3s; }
-footer a:hover { color: var(--gold-hover); text-decoration: none; }
-footer hr { opacity: 0.3; border-color: var(--gold-text); }
-
-@media (max-width: 991px) {
-    .navbar-collapse {
-        background-color: var(--primary-green);
-        padding: 20px;
-        margin-top: 10px;
-        border-radius: 10px;
-        border: 1px solid var(--gold-border);
-    }
 }
