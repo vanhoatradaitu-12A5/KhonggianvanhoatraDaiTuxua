@@ -4,42 +4,46 @@
 :root {
     /* --- Bảng màu trích xuất từ ảnh "Đồi chè hoàng hôn" --- */
     
-    /* Màu xanh đậm nhất của lá trà (dùng cho nền menu, nút bấm) */
+    /* Màu xanh đậm nhất của lá trà */
     --primary-green: #0e2e22;   
     
-    /* Gradient cho menu: chuyển từ xanh lá sẫm sang xanh rêu */
+    /* Gradient cho menu */
     --gradient-top: #1f4532;    
     --gradient-mid: #0e2e22;    
     
-    /* Màu cam vàng rực rỡ của mặt trời (dùng cho text nổi bật/tiêu đề) */
-    --gold-text: #ffc107;      
+    /* Màu cam vàng rực rỡ */
+    --gold-text: #ffc107;       
     
     /* Màu viền vàng nhạt hơn */
     --gold-border: #d4af37;     
     
-    /* Màu hover: Vàng kem của mây */
+    /* Màu hover: Vàng kem */
     --gold-hover: #fff8e1;      
     
-    /* --- CẬP NHẬT MỚI --- */
-    /* Màu chữ nội dung: Nâu đất đậm (thay cho màu trắng cũ) */
+    /* Màu chữ nội dung: Nâu đất đậm */
     --text-body: #4e342e; 
+
+    /* --- CẬP NHẬT MỚI: Màu lớp phủ (Overlay) --- */
+    /* Màu xám đen (Gray) với độ trong suốt 0.6 (60%) */
+    /* Bạn có thể chỉnh 0.6 thành số nhỏ hơn để nhạt hơn, hoặc lớn hơn để đậm hơn */
+    --overlay-color: rgba(60, 60, 60, 0.6); 
 }
 
 /* Reset font chữ chung */
 body {
     font-family: 'Montserrat', sans-serif;
     
-    /* CẬP NHẬT: Màu nâu */
+    /* Màu nâu */
     color: var(--text-body); 
     
-    /* CẬP NHẬT: Bỏ bóng đổ (text-shadow) */
+    /* Bỏ bóng đổ */
     text-shadow: none; 
     
     position: relative;
     min-height: 100vh;
     margin: 0;
     
-    /* Tăng độ dày chữ lên một chút để màu nâu dễ đọc hơn */
+    /* Tăng độ dày chữ lên một chút */
     font-weight: 600; 
 }
 
@@ -49,8 +53,13 @@ body::before {
     position: fixed; 
     top: 0; left: 0; width: 100%; height: 100%;
     
-    /* Ảnh nền */
-    background: url('../images/nentrangweb.jpg') no-repeat center center;
+    /* --- CẬP NHẬT: Thêm lớp phủ màu xám đè lên ảnh --- */
+    background-image: 
+        linear-gradient(var(--overlay-color), var(--overlay-color)), 
+        url('../images/nentrangweb.jpg');
+    
+    background-position: center center;
+    background-repeat: no-repeat;
     background-size: cover;
     
     /* Giữ ảnh sắc nét */
@@ -69,7 +78,7 @@ h1, h2, h3, h4, h5, .navbar-brand {
 .navbar {
     background: linear-gradient(
         180deg, 
-        rgba(31, 69, 50, 0.95) 0%,   
+        rgba(31, 69, 50, 0.95) 0%,    
         rgba(14, 46, 34, 0.95) 100%
     ) !important;
     
@@ -86,7 +95,7 @@ h1, h2, h3, h4, h5, .navbar-brand {
     font-weight: 700;
     font-size: 1.8rem;
     color: var(--gold-text) !important;
-    /* Giữ một chút bóng nhẹ cho Logo để nó không bị chìm vào menu tối */
+    /* Giữ một chút bóng nhẹ cho Logo */
     text-shadow: 1px 1px 2px rgba(0,0,0,0.5); 
 }
 
@@ -102,7 +111,6 @@ h1, h2, h3, h4, h5, .navbar-brand {
 
 .nav-link:hover, .nav-link.active {
     color: var(--gold-text) !important; 
-    /* Bỏ hiệu ứng glow quá mạnh, giữ lại sự đơn giản */
     text-shadow: none;
     transform: translateY(-1px);
 }
@@ -150,21 +158,21 @@ h1, h2, h3, h4, h5, .navbar-brand {
     font-family: 'Montserrat', sans-serif;
     font-weight: 700;
     border: 2px solid var(--gold-text);
-    box-shadow: none; /* Bỏ bóng đổ của nút theo yêu cầu */
+    box-shadow: none; 
 }
 
 .btn-custom:hover {
     background-color: var(--gold-text); 
     color: var(--primary-green); 
     border-color: var(--gold-hover);
-    box-shadow: none; /* Bỏ bóng đổ hover */
+    box-shadow: none; 
 }
 
 /* Nút "Xem chi tiết" (btn-outline-success) */
 .btn-outline-success {
     color: var(--text-body) !important; /* Đổi thành màu nâu */
     border-color: var(--text-body) !important; /* Viền nâu */
-    background-color: rgba(255,255,255,0.4); /* Nền sáng mờ để thấy nút nâu */
+    background-color: rgba(255,255,255,0.4); /* Nền sáng mờ */
     text-shadow: none;
     font-weight: 700;
 }
@@ -187,32 +195,27 @@ h1, h2, h3, h4, h5, .navbar-brand {
     height: 450px;
     object-fit: cover;
     border-radius: 8px;
-    border: none; /* Bỏ viền trắng cũ cho sạch */
+    border: none; 
 }
 .img-custom {
-    box-shadow: none; /* Bỏ bóng đổ ảnh */
+    box-shadow: none; 
 }
 
 /* Tiêu đề H2 */
 h2 {
-    /* Giữ màu vàng cam cho tiêu đề để nổi bật */
     color: var(--gold-text); 
     font-weight: 800;
     margin-bottom: 1rem;
-    
-    /* CẬP NHẬT: Bỏ viền đen và bóng đổ */
     text-shadow: none;
-    
     letter-spacing: 1px;
 }
 
 /* Đoạn text mô tả đặc biệt */
 .lead.text-muted {
-    /* CẬP NHẬT: Đổi sang màu nâu đồng bộ với body */
     color: var(--text-body) !important; 
     font-style: italic;
     font-weight: 600;
-    text-shadow: none; /* Bỏ bóng */
+    text-shadow: none; 
 }
 
 /* Footer */
