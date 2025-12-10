@@ -3,12 +3,12 @@
    ========================================= */
 :root {
     /* Bảng màu "Hoàng Gia" */
-    --primary-green: #1a332a;  /* Xanh rêu đậm chủ đạo */
-    --gradient-top: #2b4f3a;   /* Xanh sáng hơn */
-    --gradient-mid: #15281e;   /* Xanh tối tạo chiều sâu */
-    --gold-text: #e6c888;      /* Vàng kim loại cho chữ */
-    --gold-border: #6b5c38;    /* Vàng đồng tối cho viền */
-    --gold-hover: #fff5d7;     /* Vàng sáng khi hover */
+    --primary-green: #1a332a;  
+    --gradient-top: #2b4f3a;   
+    --gradient-mid: #15281e;   
+    --gold-text: #e6c888;      
+    --gold-border: #6b5c38;    
+    --gold-hover: #fff5d7;     
     --text-dark: #333333;
     --text-light: #f4f4f4;
 }
@@ -22,31 +22,33 @@ body {
     margin: 0;
 }
 
-/* --- XỬ LÝ NỀN TRANG WEB --- */
+/* --- XỬ LÝ NỀN TRANG WEB (SẮC NÉT) --- */
 /* Lớp 1: Ảnh nền cố định */
 body::before {
     content: '';
-    position: fixed; /* Cố định nền khi cuộn trang */
+    position: fixed; 
     top: 0; left: 0; width: 100%; height: 100%;
     
-    /* ĐƯỜNG DẪN ẢNH NỀN MẶC ĐỊNH */
-    background: url('images/nentrangweb.jpg') no-repeat center center;
+    /* --- ĐÃ ĐỔI TÊN ẢNH NỀN TẠI ĐÂY --- */
+    /* Lưu ý: Nếu đuôi ảnh của bạn là .png thì sửa lại thành .png nhé */
+    background: url('../images/nentrangweb.jpg') no-repeat center center;
+    
     background-size: cover;
     
-    /* YÊU CẦU: Blur 2px (Mờ nhẹ, thấy rõ hình) */
-    filter: blur(2px); 
+    /* Ảnh sắc nét, không bị mờ */
+    filter: none; 
     
     z-index: -2; 
 }
 
-/* Lớp 2: Lớp phủ trắng mờ */
+/* Lớp 2: Lớp phủ trắng cực mỏng (để chữ dễ đọc) */
 body::after {
     content: '';
     position: fixed;
     top: 0; left: 0; width: 100%; height: 100%;
     
-    /* YÊU CẦU: Độ trong suốt 0.4 (Nhìn xuyên qua tốt hơn) */
-    background-color: rgba(249, 249, 249, 0.2); 
+    /* Độ mờ 0.15: Rất trong, nhìn rõ ảnh nền */
+    background-color: rgba(255, 255, 255, 0.15); 
     
     z-index: -1;
 }
@@ -109,7 +111,6 @@ h1, h2, h3, h4, h5, .navbar-brand {
     transform: translateY(-1px);
 }
 
-/* Dropdown */
 .dropdown-menu {
     background-color: var(--primary-green);
     border: 1px solid var(--gold-border);
@@ -132,19 +133,17 @@ h1, h2, h3, h4, h5, .navbar-brand {
     padding-left: 25px;
 }
 
-/* Nút Toggler Mobile */
 .navbar-toggler { border-color: var(--gold-border); }
 .navbar-toggler-icon {
     background-image: url("data:image/svg+xml;charset=utf8,%3Csvg viewBox='0 0 30 30' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath stroke='rgba(230, 200, 136, 1)' stroke-width='2' stroke-linecap='round' stroke-miterlimit='10' d='M4 7h22M4 15h22M4 23h22'/%3E%3C/svg%3E");
 }
 
 /* =========================================
-   3. HERO SECTION (BANNER) - SẮC NÉT
+   3. HERO SECTION (BANNER)
    ========================================= */
 .hero {
-    /* Ảnh Banner: SẮC NÉT (Không bị ảnh hưởng bởi lớp mờ body) */
+    /* Ảnh Banner riêng biệt (Vẫn giữ tên cũ là banner7.jpg) */
     background: url('../images/banner7.jpg'); 
-    
     background-position: center center;
     background-repeat: no-repeat;
     background-size: cover;
@@ -152,13 +151,9 @@ h1, h2, h3, h4, h5, .navbar-brand {
     width: 100%;
     height: 0;
     padding-bottom: 45%; 
-    
     position: relative;
     margin-top: 0;
-    
-    /* QUAN TRỌNG: z-index dương để nổi lên trên lớp nền mờ */
-    z-index: 1;
-    
+    z-index: 1; 
     box-shadow: 0 10px 30px rgba(0,0,0,0.5);
     border-bottom: 1px solid var(--gold-border);
 }
@@ -225,7 +220,7 @@ h2 {
     color: var(--primary-green);
     font-weight: 700;
     margin-bottom: 1rem;
-    text-shadow: 1px 1px 0px rgba(255,255,255,0.5);
+    text-shadow: 1px 1px 0 #fff, -1px -1px 0 #fff, 1px -1px 0 #fff, -1px 1px 0 #fff; 
 }
 
 /* Footer */
@@ -234,7 +229,7 @@ footer {
     color: #e0e0e0;
     border-top: 3px solid var(--gold-border);
     position: relative;
-    z-index: 1; /* Nổi lên trên nền mờ */
+    z-index: 1;
 }
 
 footer h5 {
@@ -249,7 +244,6 @@ footer a { color: #b0b0b0; transition: color 0.3s; }
 footer a:hover { color: var(--gold-hover); text-decoration: none; }
 footer hr { opacity: 0.3; border-color: var(--gold-text); }
 
-/* Mobile Fixes */
 @media (max-width: 991px) {
     .navbar-collapse {
         background-color: var(--primary-green);
@@ -259,5 +253,3 @@ footer hr { opacity: 0.3; border-color: var(--gold-text); }
         border: 1px solid var(--gold-border);
     }
 }
-
-
