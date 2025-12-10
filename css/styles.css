@@ -1,43 +1,46 @@
 /* =========================================
-   1. CÀI ĐẶT CHUNG & BIẾN MÀU SẮC (THEO ẢNH NỀN)
+   1. CÀI ĐẶT CHUNG & BIẾN MÀU SẮC
    ========================================= */
 :root {
     /* --- Bảng màu trích xuất từ ảnh "Đồi chè hoàng hôn" --- */
     
     /* Màu xanh đậm nhất của lá trà (dùng cho nền menu, nút bấm) */
-    --primary-green: #0e2e22;  
+    --primary-green: #0e2e22;   
     
     /* Gradient cho menu: chuyển từ xanh lá sẫm sang xanh rêu */
-    --gradient-top: #1f4532;   
-    --gradient-mid: #0e2e22;   
+    --gradient-top: #1f4532;    
+    --gradient-mid: #0e2e22;    
     
-    /* Màu cam vàng rực rỡ của mặt trời (dùng cho text nổi bật) */
-    --gold-text: #ffc107;      /* Đã chỉnh sang vàng cam sáng hơn để dễ đọc trên nền xanh */
+    /* Màu cam vàng rực rỡ của mặt trời (dùng cho text nổi bật/tiêu đề) */
+    --gold-text: #ffc107;      
     
     /* Màu viền vàng nhạt hơn */
-    --gold-border: #d4af37;    
+    --gold-border: #d4af37;     
     
     /* Màu hover: Vàng kem của mây */
-    --gold-hover: #fff8e1;     
+    --gold-hover: #fff8e1;      
     
-    /* Màu chữ chính: Trắng ngà (để nổi bật trên nền đồi chè tối màu) */
-    --text-body: #fdfdfd; 
+    /* --- CẬP NHẬT MỚI --- */
+    /* Màu chữ nội dung: Nâu đất đậm (thay cho màu trắng cũ) */
+    --text-body: #4e342e; 
 }
 
 /* Reset font chữ chung */
 body {
     font-family: 'Montserrat', sans-serif;
     
-    /* QUAN TRỌNG: Chuyển chữ sang màu trắng để đọc được trên nền lá cây */
+    /* CẬP NHẬT: Màu nâu */
     color: var(--text-body); 
     
-    /* QUAN TRỌNG: Thêm bóng đen đậm cho chữ để đọc được cả khi chữ nằm đè lên phần mặt trời sáng */
-    text-shadow: 0 2px 4px rgba(0, 0, 0, 0.9);
+    /* CẬP NHẬT: Bỏ bóng đổ (text-shadow) */
+    text-shadow: none; 
     
     position: relative;
     min-height: 100vh;
     margin: 0;
-    font-weight: 500; /* Tăng độ dày chữ một chút để rõ hơn */
+    
+    /* Tăng độ dày chữ lên một chút để màu nâu dễ đọc hơn */
+    font-weight: 600; 
 }
 
 /* --- CẤU HÌNH NỀN MẶC ĐỊNH --- */
@@ -46,11 +49,11 @@ body::before {
     position: fixed; 
     top: 0; left: 0; width: 100%; height: 100%;
     
-    /* Ảnh nền bạn gửi */
+    /* Ảnh nền */
     background: url('../images/nentrangweb.jpg') no-repeat center center;
     background-size: cover;
     
-    /* Không dùng filter mờ để giữ ảnh sắc nét như ý bạn */
+    /* Giữ ảnh sắc nét */
     filter: none; 
     z-index: -2; 
 }
@@ -66,12 +69,12 @@ h1, h2, h3, h4, h5, .navbar-brand {
 .navbar {
     background: linear-gradient(
         180deg, 
-        rgba(31, 69, 50, 0.95) 0%,   /* Thêm độ trong suốt nhẹ để hòa vào nền */
+        rgba(31, 69, 50, 0.95) 0%,   
         rgba(14, 46, 34, 0.95) 100%
     ) !important;
     
     border-bottom: 1px solid var(--gold-border);
-    box-shadow: 0 4px 12px rgba(0,0,0,0.6); /* Tăng bóng đổ để tách biệt menu */
+    box-shadow: 0 4px 12px rgba(0,0,0,0.6); 
     padding: 0.8rem 1rem;
     position: sticky;
     top: 0;
@@ -83,33 +86,35 @@ h1, h2, h3, h4, h5, .navbar-brand {
     font-weight: 700;
     font-size: 1.8rem;
     color: var(--gold-text) !important;
-    text-shadow: 2px 2px 4px rgba(0,0,0,0.8); /* Bóng chữ mạnh hơn */
+    /* Giữ một chút bóng nhẹ cho Logo để nó không bị chìm vào menu tối */
+    text-shadow: 1px 1px 2px rgba(0,0,0,0.5); 
 }
 
 .nav-link {
-    font-weight: 600; /* Đậm hơn */
+    font-weight: 600; 
     text-transform: uppercase;
     font-size: 0.9rem;
     letter-spacing: 1px;
-    color: #e0d0b0 !important; /* Màu be sáng */
+    color: #e0d0b0 !important; /* Màu be sáng cho menu */
     transition: all 0.3s ease;
     padding: 10px 15px !important;
 }
 
 .nav-link:hover, .nav-link.active {
-    color: var(--gold-text) !important; /* Khi hover chuyển sang màu vàng mặt trời */
-    text-shadow: 0 0 10px rgba(255, 193, 7, 0.6); /* Hiệu ứng phát sáng */
+    color: var(--gold-text) !important; 
+    /* Bỏ hiệu ứng glow quá mạnh, giữ lại sự đơn giản */
+    text-shadow: none;
     transform: translateY(-1px);
 }
 
 .dropdown-menu {
-    background-color: rgba(14, 46, 34, 0.95); /* Màu xanh đậm nền menu con */
+    background-color: rgba(14, 46, 34, 0.95); 
     border: 1px solid var(--gold-border);
 }
 
 .dropdown-item {
     color: #e0d0b0 !important;
-    text-shadow: none; /* Menu con không cần bóng chữ quá đậm */
+    text-shadow: none; 
 }
 
 .dropdown-item:hover {
@@ -127,53 +132,46 @@ h1, h2, h3, h4, h5, .navbar-brand {
    3. HERO SECTION (BANNER)
    ========================================= */
 .hero {
-    /* Nếu bạn muốn banner này trong suốt để thấy ảnh nền body thì bỏ background này đi, 
-       còn nếu muốn giữ banner riêng thì để lại */
-    /* background: url('images/banner7.jpg'); */ 
-    background: transparent; /* Đặt trong suốt để thấy ảnh nền đồi chè đẹp bên dưới */
-    
+    background: transparent; 
     width: 100%;
-    /* Điều chỉnh chiều cao tùy ý */
     padding-bottom: 5%; 
     position: relative;
     z-index: 1; 
 }
 
 /* =========================================
-   4. NÚT BẤM (BUTTONS) - Lấy cảm hứng từ màu trà và nắng
+   4. NÚT BẤM (BUTTONS)
    ========================================= */
 .btn-custom {
-    /* Nền nút là màu xanh lá đậm pha chút trong suốt */
-    background-color: rgba(14, 46, 34, 0.8); 
+    background-color: rgba(14, 46, 34, 0.9); 
     color: var(--gold-text);
     border-radius: 50px;
     padding: 12px 45px;
     font-family: 'Montserrat', sans-serif;
     font-weight: 700;
     border: 2px solid var(--gold-text);
-    box-shadow: 0 0 15px rgba(0,0,0,0.5); /* Bóng đổ đậm giúp nút nổi lên */
-    backdrop-filter: blur(4px); /* Làm mờ nhẹ nền dưới nút */
+    box-shadow: none; /* Bỏ bóng đổ của nút theo yêu cầu */
 }
 
 .btn-custom:hover {
-    background-color: var(--gold-text); /* Hover thành màu vàng mặt trời */
-    color: var(--primary-green); /* Chữ chuyển thành màu xanh đậm */
+    background-color: var(--gold-text); 
+    color: var(--primary-green); 
     border-color: var(--gold-hover);
-    box-shadow: 0 0 20px rgba(255, 193, 7, 0.8); /* Phát sáng rực rỡ */
+    box-shadow: none; /* Bỏ bóng đổ hover */
 }
 
 /* Nút "Xem chi tiết" (btn-outline-success) */
 .btn-outline-success {
-    color: #fff !important;
-    border-color: #fff !important;
-    background-color: rgba(0,0,0,0.3); /* Nền đen mờ nhẹ */
+    color: var(--text-body) !important; /* Đổi thành màu nâu */
+    border-color: var(--text-body) !important; /* Viền nâu */
+    background-color: rgba(255,255,255,0.4); /* Nền sáng mờ để thấy nút nâu */
     text-shadow: none;
-    font-weight: 600;
+    font-weight: 700;
 }
 .btn-outline-success:hover {
-    background-color: var(--gold-text) !important;
-    border-color: var(--gold-text) !important;
-    color: var(--primary-green) !important;
+    background-color: var(--text-body) !important;
+    border-color: var(--text-body) !important;
+    color: #fff !important; /* Hover thì chữ trắng */
 }
 
 /* =========================================
@@ -189,43 +187,36 @@ h1, h2, h3, h4, h5, .navbar-brand {
     height: 450px;
     object-fit: cover;
     border-radius: 8px;
-    border: 3px solid rgba(255,255,255,0.8); /* Viền ảnh trắng mờ */
+    border: none; /* Bỏ viền trắng cũ cho sạch */
 }
 .img-custom {
-    box-shadow: 0 15px 40px rgba(0,0,0,0.6); /* Bóng đổ ảnh đậm hơn */
+    box-shadow: none; /* Bỏ bóng đổ ảnh */
 }
 
-/* Tiêu đề H2 - Điều chỉnh để nổi trên nền ảnh */
+/* Tiêu đề H2 */
 h2 {
-    /* Dùng màu vàng cam của mặt trời */
+    /* Giữ màu vàng cam cho tiêu đề để nổi bật */
     color: var(--gold-text); 
     font-weight: 800;
     margin-bottom: 1rem;
     
-    /* Viền chữ màu đen thay vì trắng để tạo độ sâu và dễ đọc hơn trên nền sáng */
-    text-shadow: 
-        2px 2px 0px #000, 
-        -1px -1px 0 #000,  
-        1px -1px 0 #000,
-        -1px 1px 0 #000,
-        1px 1px 0 #000;
+    /* CẬP NHẬT: Bỏ viền đen và bóng đổ */
+    text-shadow: none;
     
     letter-spacing: 1px;
 }
 
 /* Đoạn text mô tả đặc biệt */
 .lead.text-muted {
-    /* Text-muted mặc định là màu xám sẽ không thấy gì trên nền ảnh này */
-    /* Đổi sang màu trắng kem */
-    color: #eee !important; 
+    /* CẬP NHẬT: Đổi sang màu nâu đồng bộ với body */
+    color: var(--text-body) !important; 
     font-style: italic;
-    font-weight: 500;
-    text-shadow: 0 2px 5px #000;
+    font-weight: 600;
+    text-shadow: none; /* Bỏ bóng */
 }
 
 /* Footer */
 footer {
-    /* Nền footer màu tối đậm để kết thúc trang vững chãi */
     background-color: rgba(10, 30, 20, 0.95); 
     color: #ccc;
     border-top: 1px solid var(--gold-border);
@@ -236,4 +227,3 @@ footer h5 {
     color: var(--gold-text);
     text-shadow: none;
 }
-
