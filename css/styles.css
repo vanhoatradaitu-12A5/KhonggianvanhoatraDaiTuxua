@@ -29,7 +29,7 @@ body::before {
     top: 0; left: 0; width: 100%; height: 100%;
     
     /* ẢNH NỀN: nentrangweb */
-    background: url('../images/nentrangweb.jpg') no-repeat center center;
+    background: url('images/nentrangweb.jpg') no-repeat center center;
     background-size: cover;
     
     /* Không làm mờ, giữ nguyên độ nét */
@@ -201,3 +201,4 @@ h1, h2, h3, h4, h5, .navbar-brand {
     border: 2px solid #fff;
     background: #fff;
 }
+
