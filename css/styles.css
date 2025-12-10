@@ -1,23 +1,32 @@
 /* =========================================
-   1. CÀI ĐẶT CHUNG & BIẾN MÀU SẮC
+   1. CÀI ĐẶT CHUNG & BIẾN MÀU SẮC (Cải tiến)
    ========================================= */
 :root {
     /* Bảng màu "Hoàng Gia" */
-    --primary-green: #1a332a;  /* Xanh rêu đậm chủ đạo */
-    --gradient-top: #2b4f3a;   /* Xanh sáng hơn */
-    --gradient-mid: #15281e;   /* Xanh tối tạo chiều sâu */
-    --gold-text: #e6c888;      /* Vàng kim loại cho chữ */
-    --gold-border: #6b5c38;    /* Vàng đồng tối cho viền */
-    --gold-hover: #fff5d7;     /* Vàng sáng khi hover */
+    --primary-green: #1a332a;     /* Xanh rêu đậm chủ đạo */
+    --gradient-top: #2b4f3a;      /* Xanh sáng hơn */
+    --gradient-mid: #15281e;      /* Xanh tối tạo chiều sâu */
+    --gold-text: #e6c888;         /* Vàng kim loại cho chữ */
+    --gold-border: #6b5c38;       /* Vàng đồng tối cho viền */
+    --gold-hover: #fff5d7;        /* Vàng sáng khi hover */
     --text-dark: #333333;
     --text-light: #f4f4f4;
+    --secondary-bg: #f9f9f9;      /* Nền trắng/xám nhẹ cho nội dung */
 }
 
-/* Reset font chữ chung */
+/* Reset font chữ chung (Thêm ảnh nền trang) */
 body {
     font-family: 'Montserrat', sans-serif;
     color: var(--text-dark);
-    background-color: #f9f9f9;
+    /* Thay thế nền màu bằng ảnh nền (ví dụ) */
+    background: 
+        /* Tùy chọn: Lớp phủ mờ (xanh rêu đậm, 8%) để ảnh không quá sáng) */
+        linear-gradient(rgba(26, 51, 42, 0.08), rgba(26, 51, 42, 0.08)),
+        /* Thay đường dẫn ảnh của bạn vào đây: */
+        url('../images/tiled-texture.jpg') repeat;
+    background-color: var(--secondary-bg); /* Màu nền dự phòng */
+    background-attachment: fixed; /* Cố định nền nếu dùng texture nhỏ */
+    line-height: 1.6;
 }
 
 /* Font cho các tiêu đề */
@@ -26,7 +35,7 @@ h1, h2, h3, h4, h5, .navbar-brand {
 }
 
 /* =========================================
-   2. NAVBAR (MENU) - PHONG CÁCH GỖ/KIM LOẠI 3D
+   2. NAVBAR (MENU) - PHONG CÁCH GỖ/KIM LOẠI 3D (Đã tinh chỉnh)
    ========================================= */
 .navbar {
     /* Gradient tạo khối tròn như thanh gỗ/kim loại */
@@ -38,22 +47,22 @@ h1, h2, h3, h4, h5, .navbar-brand {
     ) !important;
     
     /* Viền vàng và đổ bóng */
-    border-bottom: 2px solid var(--gold-border);
+    border-bottom: 3px solid var(--gold-border); /* Dày hơn */
     box-shadow: 
         inset 0 1px 5px rgba(255, 255, 255, 0.1), /* Sáng cạnh trên */
-        0 4px 12px rgba(0,0,0,0.4); /* Bóng đổ xuống trang web */
+        0 6px 15px rgba(0,0,0,0.5); /* Bóng đổ xuống trang web đậm hơn */
     padding: 0.8rem 1rem;
     position: sticky;
     top: 0;
-    z-index: 1000;
+    z-index: 1020; /* Tăng z-index để nổi bật hơn */
 }
 
 /* Đường viền mờ bên trong (tạo vẻ tinh tế) */
 .navbar::after {
     content: '';
     position: absolute;
-    bottom: 2px; left: 0; right: 0; height: 1px;
-    background: rgba(212, 175, 55, 0.3);
+    bottom: 3px; left: 0; right: 0; height: 1px;
+    background: rgba(230, 200, 136, 0.5); /* Vàng rõ hơn */
     pointer-events: none;
 }
 
@@ -61,86 +70,85 @@ h1, h2, h3, h4, h5, .navbar-brand {
 .navbar-brand {
     font-family: 'Dancing Script', cursive;
     font-weight: 700;
-    font-size: 1.8rem;
+    font-size: 2rem; /* Lớn hơn */
     color: var(--gold-text) !important;
-    text-shadow: 0 2px 4px rgba(0,0,0,0.8);
+    text-shadow: 0 3px 5px rgba(0,0,0,0.9); /* Bóng đổ đậm hơn */
+    letter-spacing: 1.5px;
 }
 
 /* Các liên kết menu (Nav Items) */
 .nav-link {
-    font-weight: 500;
+    font-weight: 600; /* Dày hơn */
     text-transform: uppercase;
-    font-size: 0.9rem;
-    letter-spacing: 1px;
+    font-size: 0.95rem; /* Lớn hơn chút */
+    letter-spacing: 1.2px;
     color: #cbb07a !important; /* Vàng đồng nhạt */
     transition: all 0.3s ease;
-    padding: 10px 15px !important;
+    padding: 10px 18px !important; /* Khoảng cách rộng hơn */
 }
 
 /* Hiệu ứng Hover menu */
 .nav-link:hover, .nav-link.active {
     color: var(--gold-hover) !important;
-    text-shadow: 0 0 8px rgba(230, 200, 136, 0.6);
-    transform: translateY(-1px);
+    text-shadow: 0 0 10px rgba(255, 245, 215, 0.8); /* Bóng sáng rõ hơn */
+    transform: translateY(-2px); /* Nhảy lên cao hơn */
 }
 
-/* Dropdown Menu */
+/* Dropdown Menu (Đã tinh chỉnh) */
 .dropdown-menu {
     background-color: var(--primary-green);
     border: 1px solid var(--gold-border);
-    border-radius: 0 0 8px 8px;
-    margin-top: 10px;
-    box-shadow: 0 5px 15px rgba(0,0,0,0.5);
+    border-radius: 4px; /* Góc vuông hơn */
+    margin-top: 5px; /* Giảm khoảng cách */
+    box-shadow: 0 8px 20px rgba(0,0,0,0.6);
 }
 
 .dropdown-item {
     color: #cbb07a !important;
     font-family: 'Montserrat', sans-serif;
     font-size: 0.9rem;
-    padding: 10px 20px;
-    transition: all 0.2s;
+    padding: 12px 20px;
+    transition: all 0.3s;
 }
 
 .dropdown-item:hover {
-    background-color: rgba(255, 255, 255, 0.05);
+    background-color: var(--gradient-mid); /* Nền hover tối hơn */
     color: var(--gold-hover) !important;
-    padding-left: 25px; /* Hiệu ứng đẩy chữ sang phải */
+    padding-left: 30px; /* Hiệu ứng đẩy chữ sang phải mạnh hơn */
 }
 
 /* Nút Toggler trên Mobile */
 .navbar-toggler {
     border-color: var(--gold-border);
+    padding: 0.25rem 0.75rem;
+    box-shadow: 0 0 0 0.2rem rgba(230, 200, 136, 0.5); /* Thêm viền khi focus */
 }
 .navbar-toggler-icon {
+    /* Đã giữ nguyên SVG để đảm bảo màu vàng */
     background-image: url("data:image/svg+xml;charset=utf8,%3Csvg viewBox='0 0 30 30' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath stroke='rgba(230, 200, 136, 1)' stroke-width='2' stroke-linecap='round' stroke-miterlimit='10' d='M4 7h22M4 15h22M4 23h22'/%3E%3C/svg%3E");
 }
 
 /* =========================================
-  /* =========================================
-   3. HERO SECTION (BANNER) - ĐÃ SỬA LỖI
+   3. HERO SECTION (BANNER) - CỐ ĐỊNH CHIỀU CAO
    ========================================= */
 .hero {
     /* Thay đường dẫn ảnh của bạn vào đây */
     background: url('../images/banner7.jpg'); 
     
-    /* 1. Xử lý ảnh tự động điều chỉnh */
     background-position: center center;
     background-repeat: no-repeat;
-    background-size: cover; /* Ảnh phủ kín khung */
+    background-size: cover; 
     
-    /* 2. Kỹ thuật Aspect Ratio: 
-       Giúp banner tự chỉnh độ cao theo độ rộng.
-       Nếu ảnh của bạn tỉ lệ 16:9, hãy để 56.25%.
-       Nếu ảnh dài và dẹt (ví dụ 1920x800), hãy để khoảng 40-45%.
-    */
-    width: 100%;
-    height: 0;
-    padding-bottom: 45%; /* <-- CHỈNH SỐ NÀY để banner cao/thấp theo ý muốn */
+    /* Cố định chiều cao (vd: 500px), hoặc dùng padding-bottom như cũ */
+    height: 550px; /* Chiều cao cố định */
+    /* width: 100%; */
+    /* padding-bottom: 45%; */
     
     position: relative;
-    
-    /* 3. Xử lý menu không lấn vào banner */
-    margin-top: 0; /* Đặt về 0 để nằm tách biệt dưới menu */
+    margin-top: 0; 
+
+    /* Thêm lớp phủ mờ (overlay) để làm nổi bật chữ */
+    box-shadow: inset 0 0 0 1000px rgba(0, 0, 0, 0.4); 
 }
 
 /* Nội dung chữ/nút bấm nằm trên banner */
@@ -150,44 +158,69 @@ h1, h2, h3, h4, h5, .navbar-brand {
     left: 50%;
     transform: translate(-50%, -50%);
     text-align: center;
-    width: 100%;
+    width: 90%; /* Chiếm 90% chiều rộng */
+    max-width: 900px;
 }
 
-/* Mobile: Tăng chiều cao lên chút để dễ nhìn hơn */
+.hero-content h1 {
+    font-size: 3.5rem;
+    color: var(--gold-hover);
+    text-shadow: 0 4px 6px rgba(0,0,0,0.9);
+}
+
+/* Mobile: Giảm chiều cao banner */
 @media (max-width: 768px) {
     .hero {
-        padding-bottom: 70%; /* Trên điện thoại cho banner cao hơn chút */
+        height: 400px; /* Trên điện thoại cho banner cao 400px */
+        /* Nếu dùng padding-bottom, để 70% như cũ */
+    }
+    .hero-content h1 {
+        font-size: 2.5rem;
     }
 }
+
 /* =========================================
-   4. NÚT BẤM (BUTTONS)
+   4. NÚT BẤM (BUTTONS) - HIỆU ỨNG 3D VÀNG
    ========================================= */
 .btn-custom {
-    background-color: rgba(26, 51, 42, 0.8); /* Thêm nền mờ để nút rõ hơn trên ảnh */
+    /* Thêm nền mờ để nút rõ hơn trên ảnh, dùng màu primary-green */
+    background-color: var(--primary-green); 
     color: var(--gold-text);
     border-radius: 50px;
-    padding: 12px 45px;
+    padding: 15px 50px; /* Lớn hơn */
     font-family: 'Montserrat', sans-serif;
-    font-weight: 600;
+    font-weight: 700; /* Đậm hơn */
     font-size: 1.1rem;
-    border: 2px solid var(--gold-text);
+    border: 3px solid var(--gold-text); /* Viền dày hơn */
     transition: all 0.3s ease;
-    box-shadow: 0 4px 15px rgba(0,0,0,0.3);
+    box-shadow: 0 6px 18px rgba(0,0,0,0.4); /* Bóng đổ mạnh hơn */
     text-transform: uppercase;
-    backdrop-filter: blur(5px); /* Hiệu ứng mờ nền sau nút */
+    letter-spacing: 1px;
+    backdrop-filter: blur(8px); /* Hiệu ứng mờ nền sau nút mạnh hơn */
 }
 
 .btn-custom:hover {
     background-color: var(--gold-text);
     border-color: var(--gold-text);
     color: var(--primary-green);
-    transform: translateY(-3px);
-    box-shadow: 0 6px 20px rgba(230, 200, 136, 0.4);
+    transform: translateY(-4px); /* Nhảy lên cao hơn */
+    box-shadow: 0 8px 25px rgba(230, 200, 136, 0.6); /* Bóng sáng rõ hơn */
 }
 
 /* =========================================
    5. CÁC THÀNH PHẦN KHÁC (SECTION, FOOTER)
    ========================================= */
+
+/* Tiêu đề Section */
+h2 {
+    color: var(--primary-green);
+    font-weight: 700;
+    margin-bottom: 1.5rem; /* Khoảng cách lớn hơn */
+    text-transform: uppercase;
+    letter-spacing: 2px;
+}
+
+/* Ảnh/Khối nội dung có bóng đổ */
 .fade-in {
     animation: fadeIn 1.5s ease-out;
 }
@@ -197,49 +230,56 @@ h1, h2, h3, h4, h5, .navbar-brand {
 }
 
 .img-custom img {
-    height: 450px;
+    height: 400px; /* Giảm chút chiều cao mặc định để linh hoạt */
+    width: 100%;
     object-fit: cover;
     border-radius: 8px;
+    transition: transform 0.3s ease;
 }
 .img-custom {
-    box-shadow: 0 10px 30px rgba(0,0,0,0.2);
-    border: 2px solid #fff;
+    box-shadow: 0 12px 35px rgba(0,0,0,0.3); /* Bóng đổ mạnh hơn */
+    border: 4px solid var(--gold-text); /* Viền vàng nổi bật */
+    border-radius: 12px;
+    overflow: hidden; /* Cần thiết để góc bo hoạt động tốt */
+}
+.img-custom:hover img {
+    transform: scale(1.05); /* Phóng to nhẹ khi hover */
 }
 
-h2 {
-    color: var(--primary-green);
-    font-weight: 700;
-    margin-bottom: 1rem;
-}
-
-/* Footer */
+/* Footer (Đã tinh chỉnh) */
 footer {
     background-color: var(--primary-green);
-    color: #e0e0e0;
-    border-top: 3px solid var(--gold-border);
+    color: #d8d8d8; /* Màu sáng hơn chút */
+    border-top: 5px solid var(--gold-border); /* Viền dày và rõ hơn */
+    padding: 40px 0 20px 0;
 }
 
 footer h5 {
     font-weight: 700;
     color: var(--gold-text);
-    margin-bottom: 20px;
+    margin-bottom: 25px;
     font-family: 'Playfair Display', serif;
-    letter-spacing: 1px;
+    letter-spacing: 2px;
+    text-transform: uppercase;
 }
 
 footer a {
-    color: #b0b0b0;
+    color: #c0c0c0; /* Màu sáng hơn */
     transition: color 0.3s;
+    text-decoration: none;
+    display: block; /* Đảm bảo link chiếm dòng riêng */
+    padding: 3px 0;
 }
 
 footer a:hover {
     color: var(--gold-hover);
-    text-decoration: none;
+    text-decoration: underline;
 }
 
 footer hr {
-    opacity: 0.3;
+    opacity: 0.5; /* Rõ hơn */
     border-color: var(--gold-text);
+    margin: 25px 0;
 }
 
 /* Xử lý hiển thị trên Mobile cho các phần khác */
@@ -250,6 +290,6 @@ footer hr {
         margin-top: 10px;
         border-radius: 10px;
         border: 1px solid var(--gold-border);
+        box-shadow: 0 5px 15px rgba(0,0,0,0.5);
     }
 }
-
