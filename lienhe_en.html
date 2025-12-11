@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"> 
+  <title>Liên Hệ - Trà Đại Từ</title>
+  
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet"> 
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+  <link href="css/styles.css" rel="stylesheet"> 
+  
+  <style>
+    /* Nền trang màu xanh cốm nhạt */
+    body {
+        background-color: #f1f8e9; 
+    }
+    /* Khung nội dung màu trắng */
+    .section-content {
+        background-color: #ffffff;
+        padding: 40px;
+        border-radius: 15px;
+        box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+        margin-top: 30px;
+        margin-bottom: 30px;
+    }
+    /* Màu chữ tiêu đề xanh đậm */
+    h1, h2, h3 {
+        color: #1b5e20 !important;
+    }
+    /* Style cho ảnh bo góc */
+    .img-custom {
+        border-radius: 10px;
+        box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+    }
+    /* Nút gửi tin nhắn màu xanh */
+    .btn-custom {
+        background-color: #2e7d32;
+        color: white;
+        font-weight: bold;
+    }
+    .btn-custom:hover {
+        background-color: #1b5e20;
+        color: white;
+    }
+  </style>
+</head>
+<body>
+
+<nav class="navbar navbar-expand-lg navbar-dark sticky-top" style="background-color: #2e7d32; z-index: 1030;"> 
+  <div class="container">
+    <a class="navbar-brand" href="index.html"><i class="fas fa-leaf me-2"></i> Trà Đại Từ</a> 
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+      <span class="navbar-toggler-icon"></span> 
+    </button>
+    
+    <div class="collapse navbar-collapse" id="navbarNav">
+      <ul class="navbar-nav ms-auto"> 
+        <li class="nav-item"><a class="nav-link" href="index.html">Trang Chủ</a></li>
+        
+        <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown">Giới thiệu</a>
+          <ul class="dropdown-menu"> 
+            <li><a class="dropdown-item" href="gioithieuchung.html">Giới Thiệu Chung</a></li>
+            <li><a class="dropdown-item" href="sumenh.html">Sứ Mệnh</a></li>
+          </ul>
+        </li>
+
+        <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown">Văn Hóa Trà</a>
+          <ul class="dropdown-menu"> 
+            <li><a class="dropdown-item" href="tinhhoatraviet.html">Tinh Hoa Trà Việt</a></li>
+            <li><a class="dropdown-item" href="vanhoathuongtra.html">Văn Hóa Thưởng Trà</a></li>
+          </ul>
+        </li>
+
+        <li class="nav-item"><a class="nav-link" href="sanphamnoibat.html">Sản Phẩm</a></li>
+
+        <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown">Trải Nghiệm</a>
+          <ul class="dropdown-menu"> 
+             <li><a class="dropdown-item" href="dulichvatrainghiem.html">Du Lịch</a></li>
+             <li><a class="dropdown-item" href="thuvienmedia.html">Media</a></li>
+          </ul>
+        </li>
+
+        <li class="nav-item"><a class="nav-link active" href="lienhe.html">Liên Hệ</a></li>
+      </ul>
+    </div>
+  </div>
+</nav>
+
+<div class="container">
+  <section class="section-content fade-in"> 
+    
+    <div class="row">
+      <div class="col-md-5 mb-5">
+          <h2 class="mb-4">Thông Tin Liên Hệ</h2>
+          <p>Chúng tôi luôn sẵn sàng lắng nghe và hỗ trợ bạn mọi thắc mắc về sản phẩm và các tour trải nghiệm.</p>
+          <ul class="list-unstyled mt-4">
+              <li class="mb-3 d-flex align-items-center">
+                  <i class="fas fa-map-marker-alt text-success me-3 fs-5"></i>
+                  <span>Xã Đại Phúc, Tỉnh Thái Nguyên</span>
+              </li>
+              <li class="mb-3 d-flex align-items-center">
+                  <i class="fas fa-phone text-success me-3 fs-5"></i>
+                  <span>0329 305 208</span>
+              </li>
+              <li class="mb-3 d-flex align-items-center">
+                  <i class="fas fa-envelope text-success me-3 fs-5"></i>
+                  <span>vanhoatradaitu@gmail.com</span>
+              </li>
+          </ul>
+          <img src="images/anhhaiche1.jpg" class="img-fluid img-custom mt-4 w-100" alt="Liên hệ trà">
+      </div>
+      
+      <div class="col-md-7">
+        <div class="card p-4 shadow-sm border-0 bg-light">
+            <h3 class="text-center mb-4">Gửi Tin Nhắn</h3>
+            <form> 
+              <div class="mb-3"> 
+                <label for="name" class="form-label fw-bold">Họ và Tên</label> 
+                <input type="text" class="form-control" id="name" placeholder="Nhập tên của bạn" required> 
+              </div>
+              <div class="mb-3">
+                <label for="email" class="form-label fw-bold">Email</label>
+                <input type="email" class="form-control" id="email" placeholder="email@example.com" required>
+              </div>
+              <div class="mb-3">
+                <label for="message" class="form-label fw-bold">Nội Dung</label>
+                <textarea class="form-control" id="message" rows="5" placeholder="Bạn cần hỗ trợ gì?" required></textarea> 
+              </div> 
+              <button type="submit" class="btn btn-custom w-100 py-2">Gửi Tin Nhắn</button> 
+            </form>
+        </div>
+      </div>
+    </div>
+
+  </section>
+</div>
+
+<footer class="text-center py-4" style="background-color: #2e7d32; color: white;">
+  <div class="container">
+    <p class="mb-0">© 2025 Không Gian Văn Hóa Trà Đại Từ.</p> 
+  </div>
+</footer>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+<script src="js/script.js"></script>
+</body>
+</html>
+
