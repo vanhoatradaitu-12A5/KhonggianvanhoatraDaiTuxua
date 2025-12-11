@@ -23,9 +23,8 @@
     /* Màu chữ nội dung: Nâu đất đậm */
     --text-body: #4e342e; 
 
-    /* --- CẬP NHẬT MỚI: Màu lớp phủ (Overlay) --- */
-    /* Màu xám đen (Gray) với độ trong suốt 0.6 (60%) */
-    /* Bạn có thể chỉnh 0.6 thành số nhỏ hơn để nhạt hơn, hoặc lớn hơn để đậm hơn */
+    /* --- Màu lớp phủ (Overlay) --- */
+    /* Màu xám đen với độ trong suốt 0.6 */
     --overlay-color: rgba(60, 60, 60, 0.6); 
 }
 
@@ -53,7 +52,7 @@ body::before {
     position: fixed; 
     top: 0; left: 0; width: 100%; height: 100%;
     
-    /* --- CẬP NHẬT: Thêm lớp phủ màu xám đè lên ảnh --- */
+    /* Lớp phủ màu xám đè lên ảnh nentrangweb.jpg */
     background-image: 
         linear-gradient(var(--overlay-color), var(--overlay-color)), 
         url('../images/nentrangweb.jpg');
@@ -62,7 +61,6 @@ body::before {
     background-repeat: no-repeat;
     background-size: cover;
     
-    /* Giữ ảnh sắc nét */
     filter: none; 
     z-index: -2; 
 }
@@ -78,7 +76,7 @@ h1, h2, h3, h4, h5, .navbar-brand {
 .navbar {
     background: linear-gradient(
         180deg, 
-        rgba(31, 69, 50, 0.95) 0%,    
+        rgba(31, 69, 50, 0.95) 0%,     
         rgba(14, 46, 34, 0.95) 100%
     ) !important;
     
@@ -170,16 +168,16 @@ h1, h2, h3, h4, h5, .navbar-brand {
 
 /* Nút "Xem chi tiết" (btn-outline-success) */
 .btn-outline-success {
-    color: var(--text-body) !important; /* Đổi thành màu nâu */
-    border-color: var(--text-body) !important; /* Viền nâu */
-    background-color: rgba(255,255,255,0.4); /* Nền sáng mờ */
+    color: var(--text-body) !important; 
+    border-color: var(--text-body) !important; 
+    background-color: rgba(255,255,255,0.4); 
     text-shadow: none;
     font-weight: 700;
 }
 .btn-outline-success:hover {
     background-color: var(--text-body) !important;
     border-color: var(--text-body) !important;
-    color: #fff !important; /* Hover thì chữ trắng */
+    color: #fff !important; 
 }
 
 /* =========================================
@@ -229,4 +227,58 @@ footer {
 footer h5 {
     color: var(--gold-text);
     text-shadow: none;
+}
+
+/* =========================================
+   6. LANGUAGE SWITCHER (MỚI THÊM)
+   ========================================= */
+/* Khung bao quanh các nút ngôn ngữ */
+.language-group {
+    gap: 10px; /* Khoảng cách giữa các ô */
+}
+
+/* Style cho từng ô ngôn ngữ */
+.lang-box {
+    display: flex;              /* Để icon và chữ nằm ngang */
+    align-items: center;        /* Căn giữa dọc */
+    justify-content: center;    /* Căn giữa ngang */
+    
+    border: 1px solid var(--gold-border); /* Viền màu vàng gold */
+    border-radius: 4px;         /* Bo góc nhẹ */
+    padding: 5px 10px;          /* Khoảng cách bên trong */
+    
+    text-decoration: none;      /* Bỏ gạch chân link */
+    color: #e0d0b0;             /* Màu chữ be sáng (giống menu) */
+    font-size: 0.85rem;         /* Cỡ chữ nhỏ gọn */
+    font-weight: 600;
+    
+    background-color: rgba(0, 0, 0, 0.2); /* Nền tối mờ nhẹ */
+    transition: all 0.3s ease;
+}
+
+/* Style cho hình lá cờ */
+.lang-box img {
+    width: 20px;       /* Chiều rộng lá cờ */
+    height: auto;
+    margin-right: 6px; /* Khoảng cách giữa cờ và chữ */
+    border-radius: 2px;
+    box-shadow: 0 0 2px rgba(0,0,0,0.5);
+}
+
+/* Hiệu ứng khi di chuột vào (Hover) */
+.lang-box:hover {
+    background-color: var(--gold-text); /* Nền chuyển sang vàng */
+    color: var(--primary-green);        /* Chữ chuyển sang xanh đậm */
+    border-color: var(--gold-hover);
+    transform: translateY(-2px);        /* Nổi lên nhẹ */
+}
+
+/* --- Responsive cho Mobile --- */
+/* Khi màn hình nhỏ (dưới 991px), chỉnh lại để không bị dính */
+@media (max-width: 991px) {
+    .language-group {
+        margin-top: 15px;      /* Cách menu chính ra một chút */
+        margin-left: 0 !important; /* Bỏ margin trái */
+        justify-content: flex-start; /* Căn trái */
+    }
 }
