@@ -1,0 +1,383 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Tinh Hoa Trà Việt - Trà Đại Từ</title>
+  
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+  
+  <link href="https://fonts.googleapis.com/css2?family=Patrick+Hand&family=Merriweather:ital,wght@0,300;0,400;0,700;1,400&display=swap" rel="stylesheet">
+  
+  <link href="css/styles.css" rel="stylesheet">
+  
+  <style>
+    /* Nền trang màu xanh cốm nhạt */
+    body {
+        background-color: #f1f8e9;
+        font-family: 'Merriweather', serif;
+    }
+    
+    /* Khung nội dung */
+    .section-content {
+        background-color: #ffffff;
+        padding: 40px;
+        border-radius: 15px;
+        box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+        margin-top: 30px;
+        margin-bottom: 30px;
+    }
+    
+    h1, h2, h3, .h4 {
+        color: #1b5e20 !important;
+        font-family: system-ui, -apple-system, sans-serif;
+    }
+    
+    .text-justify {
+        text-align: justify;
+    }
+
+    /* --- CẬP NHẬT CSS CHO ẢNH --- */
+    
+    /* 1. Class bọc ngoài để cắt phần ảnh thừa khi zoom */
+    .img-wrapper-zoom {
+        overflow: hidden; /* Quan trọng: Giữ ảnh không tràn ra ngoài khi zoom */
+        border-radius: 10px;
+        box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+    }
+
+    /* 2. Class cho chính bức ảnh */
+    .img-custom {
+        border-radius: 10px; /* Bo góc nếu không dùng wrapper */
+        transition: transform 0.5s ease; /* Hiệu ứng mượt mà trong 0.5s */
+        cursor: zoom-in; /* Đổi con trỏ chuột thành hình kính lúp */
+        width: 100%;
+        display: block;
+    }
+
+    /* Khi rê chuột vào Wrapper thì ảnh bên trong sẽ phóng to */
+    .img-wrapper-zoom:hover .img-custom, 
+    .card:hover .img-custom {
+        transform: scale(1.1); /* Phóng to 1.1 lần */
+    }
+
+    /* --- CSS CHO LIGHTBOX (PHÓNG TO TOÀN MÀN HÌNH) --- */
+    #lightbox {
+        display: none; /* Mặc định ẩn */
+        position: fixed;
+        z-index: 9999; /* Luôn nằm trên cùng */
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background-color: rgba(0, 0, 0, 0.9); /* Nền đen mờ 90% */
+        justify-content: center;
+        align-items: center;
+        opacity: 0;
+        transition: opacity 0.3s ease;
+    }
+
+    #lightbox.active {
+        display: flex;
+        opacity: 1;
+    }
+
+    #lightbox img {
+        max-width: 90%;
+        max-height: 90vh;
+        border: 2px solid white;
+        border-radius: 5px;
+        box-shadow: 0 0 20px rgba(0,0,0,0.5);
+        transform: scale(0.8);
+        transition: transform 0.3s ease;
+    }
+
+    #lightbox.active img {
+        transform: scale(1);
+    }
+
+    #lightbox-close {
+        position: absolute;
+        top: 20px;
+        right: 30px;
+        color: white;
+        font-size: 40px;
+        cursor: pointer;
+        transition: color 0.3s;
+    }
+
+    #lightbox-close:hover {
+        color: #ff5252;
+    }
+
+    /* --- STYLE CŨ CHO QUY TRÌNH --- */
+    .handmade-font { font-family: 'Patrick Hand', cursive; }
+    .step-timeline { position: relative; padding-left: 20px; border-left: 2px dashed #81c784; }
+    .step-item { position: relative; padding-bottom: 40px; padding-left: 20px; }
+    .step-marker { position: absolute; left: -29px; top: 0; width: 20px; height: 20px; background-color: #2e7d32; border: 4px solid #f1f8e9; border-radius: 50%; }
+    .step-number { font-family: 'Patrick Hand', cursive; font-size: 1.5rem; color: #2e7d32; font-weight: bold; text-decoration: underline; }
+
+  </style>
+</head>
+<body>
+
+<div id="lightbox">
+    <span id="lightbox-close">&times;</span>
+    <img id="lightbox-img" src="" alt="Full Screen Image">
+</div>
+
+<nav class="navbar navbar-expand-lg navbar-dark sticky-top" style="background-color: #2e7d32; z-index: 1030;"> 
+  <div class="container">
+    <a class="navbar-brand" href="index.html"><i class="fas fa-leaf me-2"></i> Trà Đại Từ</a>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarNav">
+      <ul class="navbar-nav ms-auto"> 
+        <li class="nav-item"><a class="nav-link" href="index.html">Trang Chủ</a></li>
+        <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown">Giới thiệu</a>
+          <ul class="dropdown-menu"> 
+            <li><a class="dropdown-item" href="gioithieuchung.html">Giới Thiệu Chung</a></li>
+            <li><a class="dropdown-item" href="sumenh.html">Sứ Mệnh</a></li>
+          </ul>
+        </li>
+        <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle active" href="#" role="button" data-bs-toggle="dropdown">Văn Hóa Trà</a>
+          <ul class="dropdown-menu"> 
+            <li><a class="dropdown-item active" href="tinhhoatraviet.html">Tinh Hoa Trà Việt</a></li>
+            <li><a class="dropdown-item" href="vanhoathuongtra.html">Văn Hóa Thưởng Trà</a></li>
+          </ul>
+        </li>
+        <li class="nav-item"><a class="nav-link" href="sanphamnoibat.html">Sản Phẩm</a></li>
+        <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown">Trải Nghiệm</a>
+          <ul class="dropdown-menu"> 
+             <li><a class="dropdown-item" href="dulichvatrainghiem.html">Du Lịch</a></li>
+             <li><a class="dropdown-item" href="thuvienmedia.html">Media</a></li>
+          </ul>
+        </li>
+        <li class="nav-item"><a class="nav-link" href="lienhe.html">Liên Hệ</a></li>
+      </ul>
+    </div>
+  </div>
+</nav>
+
+<div class="container">
+  <section class="section-content fade-in">
+    
+    <h1 class="text-center mb-5">Tinh Hoa Trà Việt</h1>
+   
+    <div class="row mb-5 align-items-center">
+       <div class="col-md-6 mb-4">
+         <div class="img-wrapper-zoom">
+            <img src="images/lichsuhinhthanh2.jpg" class="img-fluid img-custom" alt="Văn hóa trà">
+         </div>
+       </div>
+       <div class="col-md-6 ps-md-5">
+         <h2 class="mt-0">Lịch Sử Hình Thành</h2>
+         <p class="lead text-muted fst-italic">"Hơn cả một thức uống, đó là dòng chảy lịch sử."</p>
+         <p class="mb-3 text-justify">Câu chuyện bắt nguồn từ thời xa xưa, tương truyền rằng quý phi của Hùng Duệ Vương... đã về làng Văn Luông dạy dân biết trồng chè. Kể từ đó, dân cư khắp nơi đã tụ về sinh sống, lập xóm lập làng, phát triển thành xóm Bãi Chè để tưởng nhớ công ơn bà.</p>
+         <p class="mb-3 text-justify">Trong công cuộc dựng nước và giữ nước, văn hóa trà vươn mình như một nhân chứng sống... Dù gia đình quý tộc hay thường dân, ta có thể dễ dàng bắt gặp tách trà trong đời sống thường nhật.</p>
+         <p class="text-justify">Có thể nói văn hóa trà Việt Nam là dòng suối mát chảy âm ỉ chảy dài theo bề dày lịch sử và ở mãi trong trái tim người con đất Việt mang dòng máu Lạc Hồng.</p>
+       </div>
+    </div>
+    
+    <hr class="my-5" style="color: #2e7d32;"> 
+    
+    <div class="mb-5">
+        <h2 class="mb-5 text-center">Từ điều kiện thuận lợi tới thủ phủ trà Việt</h2>
+        <div class="row align-items-center mb-5"> 
+            <div class="col-lg-6 pe-lg-5"> 
+                <p class="text-justify lead fw-bold mb-4">Không phải ngẫu nhiên mà Thái Nguyên được mệnh danh là “thủ phủ chè” của cả nước. Đó là sự hội tụ của các điều kiện tự nhiên ưu đãi, truyền thống canh tác lâu đời, cùng những đôi bàn tay khéo léo của người nghệ nhân.</p>
+                <h3 class="mb-3">Thổ nhưỡng – khí hậu lý tưởng</h3>
+                <p class="text-justify">So với một số cây trồng khác, cây chè yêu cầu về đất không quá khó tính. Song để cây chè sinh trưởng tốt, năng suất cao và ổn định thì đất trồng chè phải đạt những yêu cầu: Đất tốt, nhiều mùn, độ sâu, độ pH và khả năng thoát nước. Độ pH thích hợp cho chè phát triển là 4,5 - 6,0. Đất trồng phải có độ sâu ít nhất là 80 cm, mực nước ngầm phải dưới 1 mét thì hệ rễ mới phát triển bình thường.</p>
+                <p class="text-justify">Đất trung du Thái Nguyên là đất feralit đỏ vàng, tơi xốp, nhiều mùn, thoát nước tốt – rất thích hợp với rễ cây chè. Khí hậu cận nhiệt đới ẩm, có sương mù sáng sớm, nhiệt độ ôn hòa và lượng mưa trung bình 1.500–2.000mm/năm – tạo điều kiện hoàn hảo để chè phát triển hương vị tinh tế.</p>
+                <h3 class="mt-4 mb-3">Truyền thống canh tác lâu đời</h3>
+                <p class="text-justify">Với đôi bàn tay chăm chỉ, cần mẫn, người dân Đại Từ đã tạo nên bao đồi chè xanh mướt, trở thành một trong những vùng trồng chè lớn và có lịch sử lâu đời ở tỉnh Thái Nguyên. Truyền thống đó cứ tiếp nối, tiếp nối, làm nên sự đa dạng và phong phú trong từng tách trà với những giống chè quý như chè Ta, chè Lai, chè Long Vân…. có giá trị cực kì to lớn.</p>
+            </div>
+            <div class="col-lg-6 mt-4 mt-lg-0">
+                <div class="img-wrapper-zoom">
+                    <img src="images/suongsom.jpg" class="img-fluid img-custom" style="min-height: 400px; object-fit: cover;" alt="Đồi chè Thái Nguyên">
+                </div>
+            </div>
+        </div>
+
+        <div class="row align-items-center">
+            <div class="col-lg-6 pe-lg-5">
+                <h3 class="mb-3">Kĩ thuật sao chè truyền thống</h3>
+                <p class="text-justify mb-4 mb-lg-0">Người Thái Nguyên có kỹ thuật sao trà bằng tay độc đáo: dùng chảo gang, canh lửa thủ công, cảm nhận độ chín bằng tay trần, ủ trà bằng bao tải bông… Những công đoạn đòi hỏi sự tinh tế đã giúp tạo nên hương cốm non đặc trưng của chè Thái Nguyên – thứ hương không nơi nào khác có thể lẫn lộn.</p>
+            </div>
+            <div class="col-lg-6 mt-4 mt-lg-0">
+                <div class="card shadow-sm border-0 bg-light h-100 overflow-hidden">
+                    <img src="images/quytrinhsaotra.jpg" class="card-img-top img-fluid img-custom" style="object-fit: cover; height: 300px;" alt="Sao trà">
+                    
+                    <div class="card-body p-4 text-center">
+                        <p class="card-text lead mb-4 text-muted fst-italic">Bí quyết tạo nên hương vị "Tiền chát, hậu ngọt" trứ danh của các nghệ nhân.</p>
+                        <a href="nghethuatsaotra.html" class="btn btn-lg btn-outline-success">Xem Ngay <i class="fas fa-arrow-right ms-1"></i></a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <hr class="my-5" style="color: #2e7d32;">
+    
+    <h2 class="text-center mb-5">Quy Trình Trồng và Chăm Sóc</h2>
+    <div class="row mt-4">
+      <div class="col-md-6 mb-4">
+        <div class="card h-100 shadow-sm border-0 overflow-hidden">
+            <div class="card-body">
+                <h3 class="h4 text-success">1. Quy Trình Trồng</h3>
+                <p>Khâu chuẩn bị đất, lựa chọn giống chè (Trung du, Lai F1...) và kỹ thuật trồng đảm bảo mật độ thích hợp là nền tảng cho cây chè phát triển bền vững.</p>
+                <a href="trongvachamsoc.html" class="btn btn-outline-success btn-sm w-50 mb-3">Xem Chi Tiết <i class="fas fa-arrow-right ms-1"></i></a>
+            </div>
+            <img src="images/anhtrongvachamsoc.jpg" class="card-img-bottom img-custom" style="height: 350px; object-fit: cover;" alt="Quy trình trồng">
+        </div>
+      </div>
+      <div class="col-md-6 mb-4">
+        <div class="card h-100 shadow-sm border-0 overflow-hidden">
+            <div class="card-body">
+                <h3 class="h4 text-success">2. Quy Trình Chăm Sóc</h3>
+                <div class="text-justify">
+                    <p class="mb-2"><strong><i class="fas fa-tint text-primary me-1"></i> Tưới nước:</strong> Chè cần lượng nước vừa đủ để sinh trưởng, nhất là trong giai đoạn cây non. Trong mùa khô, cần tưới nước đều đặn 2 - 3 lần/tuần để giữ ẩm cho đất.</p>
+                    <p class="mb-2"><strong><i class="fas fa-seedling text-success me-1"></i> Bón phân:</strong> Ưu tiên phân hữu cơ, phân vi sinh hữu cơ để tăng cường năng suất và chất lượng cây chè. Chia làm 3 - 4 đợt bón phân mỗi năm, ưu tiên vào mùa xuân và đầu mùa mưa.</p>
+                    <p class="mb-0"><strong><i class="fas fa-shield-alt text-warning me-1"></i> Phòng trừ sâu bệnh:</strong> Cần theo dõi và chăm sóc chè thường xuyên và trau dồi kiến thức về phòng trừ sâu bệnh cho cây chè để đảm bảo cây được phát triển tốt và cho năng suất cao.</p>
+                </div>
+            </div>
+            <img src="images/banner5.jpg" class="card-img-bottom img-custom" style="height: 350px; object-fit: cover;" alt="Quy trình chăm sóc">
+        </div>
+      </div>
+    </div>
+
+    <hr class="my-5" style="color: #2e7d32;">
+
+    <div class="mb-5">
+        <h2 class="text-center mb-4 handmade-font" style="font-size: 3rem;">Quy Trình Chế Biến Chè</h2>
+        <p class="text-center text-muted mb-5 text-justify mx-auto fst-italic" style="max-width: 900px;">
+            "Để cho ra những sản phẩm trà có chất lượng tuyệt hảo, người làm trà cần phải có những kinh nghiệm nhất định để điều tiết tất cả các công đoạn chế biến sao cho phù hợp với từng loại chè."
+        </p>
+
+        <div class="row">
+            
+            <div class="col-lg-7 pe-lg-5">
+                <div class="step-timeline">
+                    <div class="step-item">
+                        <div class="step-marker"></div>
+                        <span class="step-number">Bước 1: Phơi Héo</span>
+                        <p class="text-justify mt-2 mb-0">Chè sau khi thu hái sẽ được mang về phơi héo tự nhiên...</p>
+                    </div>
+                     <div class="step-item">
+                        <div class="step-marker"></div>
+                        <span class="step-number">Bước 2: Diệt Men (Ốp chè)</span>
+                        <p class="text-justify mt-2 mb-0">Sau bước 1, lá chè được cho vào trong chảo tôn nóng quay...</p>
+                    </div>
+                    <div class="step-item">
+                        <div class="step-marker"></div>
+                        <span class="step-number">Bước 3: Vò Chè</span>
+                        <p class="text-justify mt-2 mb-0">Đây chính là công đoạn quan trọng quyết định độ đẹp và bền của cánh chè...</p>
+                    </div>
+                    <div class="step-item">
+                        <div class="step-marker"></div>
+                        <span class="step-number">Bước 4: Rũ Tơi</span>
+                        <p class="text-justify mt-2 mb-0">Sau khi vò chè đã đủ thời gian, người làm chè tiến hành rũ tơi các cánh chè...</p>
+                    </div>
+                    <div class="step-item">
+                        <div class="step-marker"></div>
+                        <span class="step-number">Bước 5: Sao Khô</span>
+                        <p class="text-justify mt-2 mb-0">Là công đoạn quan trọng ảnh hưởng lớn đến chất lượng sản phẩm...</p>
+                    </div>
+                    <div class="step-item">
+                        <div class="step-marker"></div>
+                        <span class="step-number">Bước 6: Quay Hương, Đánh Mốc</span>
+                        <p class="text-justify mt-2 mb-0">Chè sau khi để hồi lại, ổn định chất lượng thì tiến hành quay hương, đánh mốc...</p>
+                    </div>
+                    <div class="step-item" style="border-left: none;"> <div class="step-marker"></div>
+                        <span class="step-number">Bước 7: Đóng Gói, Bảo Quản</span>
+                        <p class="text-justify mt-2 mb-0">Sau khi đánh hương để nguội, chè sẽ được phân loại, đóng gói...</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-lg-5 d-none d-lg-block">
+                <div class="sticky-top" style="top: 100px; z-index: 1;">
+                    <div class="bg-white p-2 shadow-sm img-wrapper-zoom" style="transform: rotate(2deg);">
+                        <img src="images/quytrinhchebien.jpg" class="img-fluid w-100 img-custom" style="height: 500px; object-fit: cover;" alt="Quy trình chế biến chè">
+                        <div class="text-center pt-2 pb-1 handmade-font fs-4 text-muted">Hương vị từ đôi bàn tay nghệ nhân</div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+    <div class="text-center mt-5">
+      <h3 class="mb-4">Video: Quy Trình Sao Chè Truyền Thống</h3>
+      <div class="ratio ratio-16x9 mx-auto img-custom" style="max-width: 800px; border-radius: 10px;">
+          <iframe src="https://www.youtube.com/embed/ptVghUUjn74" title="Quy trình sao chè" allowfullscreen></iframe>
+      </div>
+    </div>
+
+  </section>
+</div>
+
+<footer class="text-center py-4" style="background-color: #2e7d32; color: white;">
+  <div class="container">
+    <p class="mb-0">© 2025 Không Gian Văn Hóa Trà Đại Từ.</p>
+  </div>
+</footer>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+<script src="js/script.js"></script>
+
+<script>
+    // Lấy các phần tử
+    const lightbox = document.getElementById('lightbox');
+    const lightboxImg = document.getElementById('lightbox-img');
+    const closeBtn = document.getElementById('lightbox-close');
+    
+    // Chọn tất cả các ảnh có class 'img-custom' trừ cái video (vì iframe không phải img)
+    const images = document.querySelectorAll('.img-custom:not(iframe)');
+
+    // Thêm sự kiện click cho từng ảnh
+    images.forEach(img => {
+        img.addEventListener('click', function() {
+            // Đặt nguồn ảnh cho lightbox bằng nguồn của ảnh vừa click
+            lightboxImg.src = this.src;
+            // Hiển thị lightbox (thêm class active nếu dùng transition, hoặc style.display)
+            lightbox.style.display = 'flex';
+            setTimeout(() => {
+                lightbox.classList.add('active');
+            }, 10); // Delay nhỏ để hiệu ứng fade-in hoạt động
+        });
+    });
+
+    // Hàm đóng lightbox
+    function closeLightbox() {
+        lightbox.classList.remove('active');
+        setTimeout(() => {
+            lightbox.style.display = 'none';
+        }, 300); // Chờ hết hiệu ứng mới ẩn hẳn
+    }
+
+    // Đóng khi ấn nút X
+    closeBtn.addEventListener('click', closeLightbox);
+
+    // Đóng khi ấn vào vùng đen bên ngoài ảnh
+    lightbox.addEventListener('click', function(e) {
+        if (e.target === lightbox) {
+            closeLightbox();
+        }
+    });
+
+    // Đóng khi ấn phím ESC
+    document.addEventListener('keydown', function(e) {
+        if (e.key === "Escape" && lightbox.style.display === 'flex') {
+            closeLightbox();
+        }
+    });
+</script>
+
+</body>
+</html>

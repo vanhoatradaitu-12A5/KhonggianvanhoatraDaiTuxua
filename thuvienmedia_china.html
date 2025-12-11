@@ -1,0 +1,152 @@
+
+
+
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"> 
+  <title>Thư Viện Hình Ảnh - Trà Đại Từ</title>
+  
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet"> 
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+  <link href="css/styles.css" rel="stylesheet"> 
+  
+  <style>
+    /* Nền trang xanh nhạt */
+    body {
+        background-color: #f1f8e9; 
+    }
+    /* Khung nội dung trắng */
+    .section-content {
+        background-color: #ffffff;
+        padding: 40px;
+        border-radius: 15px;
+        box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+        margin-top: 30px;
+        margin-bottom: 30px;
+    }
+    /* Màu chữ tiêu đề */
+    h1, h2, h3 {
+        color: #1b5e20 !important;
+    }
+    /* Style ảnh bo góc */
+    .img-custom {
+        border-radius: 10px;
+        box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+        transition: transform 0.3s ease; /* Hiệu ứng khi di chuột */
+        object-fit: cover; /* Đảm bảo ảnh cắt đều không bị méo */
+        height: 250px; /* Cố định chiều cao để hàng lối thẳng tắp */
+        width: 100%;
+    }
+    /* Hiệu ứng phóng to nhẹ khi di chuột vào ảnh */
+    .img-custom:hover {
+        transform: scale(1.02);
+    }
+    /* Style cho dòng chú thích ảnh */
+    .img-caption {
+        text-align: center;
+        margin-top: 10px;
+        font-style: italic;
+        color: #555;
+        font-weight: 500;
+    }
+  </style>
+</head>
+<body>
+
+<nav class="navbar navbar-expand-lg navbar-dark sticky-top" style="background-color: #2e7d32; z-index: 1030;"> 
+  <div class="container">
+    <a class="navbar-brand" href="index.html"><i class="fas fa-leaf me-2"></i> Trà Đại Từ</a> 
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+      <span class="navbar-toggler-icon"></span> 
+    </button>
+    
+    <div class="collapse navbar-collapse" id="navbarNav">
+      <ul class="navbar-nav ms-auto"> 
+        <li class="nav-item"><a class="nav-link" href="index.html">Trang Chủ</a></li>
+        <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown">Giới thiệu</a>
+          <ul class="dropdown-menu"> 
+            <li><a class="dropdown-item" href="gioithieuchung.html">Giới Thiệu Chung</a></li>
+            <li><a class="dropdown-item" href="sumenh.html">Sứ Mệnh</a></li>
+          </ul>
+        </li>
+        <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown">Văn Hóa Trà</a>
+          <ul class="dropdown-menu"> 
+            <li><a class="dropdown-item" href="tinhhoatraviet.html">Tinh Hoa Trà Việt</a></li>
+            <li><a class="dropdown-item" href="vanhoathuongtra.html">Văn Hóa Thưởng Trà</a></li>
+          </ul>
+        </li>
+        <li class="nav-item"><a class="nav-link" href="sanphamnoibat.html">Sản Phẩm</a></li>
+        <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown">Trải Nghiệm</a>
+          <ul class="dropdown-menu"> 
+             <li><a class="dropdown-item" href="dulichvatrainghiem.html">Du Lịch</a></li>
+             <li><a class="dropdown-item" href="thuvienmedia.html">Media</a></li>
+          </ul>
+        </li>
+        <li class="nav-item"><a class="nav-link" href="lienhe.html">Liên Hệ</a></li>
+      </ul>
+    </div>
+  </div>
+</nav>
+
+<div class="container">
+    <section class="section-content fade-in"> 
+      <h1 class="text-center mb-5">Góc Nhìn Trà Việt</h1> 
+      
+      <div class="row mt-4"> 
+        
+        <div class="col-md-4 mb-5">
+          <img src="https://loctancuong.vn/wp-content/uploads/2021/08/doi-che-tan-cuong-32.jpg" class="img-custom" alt="Đồi chè"> 
+          <p class="img-caption">Đồi chè xanh ngát buổi sớm mai</p>
+        </div>
+
+        <div class="col-md-4 mb-5">
+          <img src="images/buptraxanh.jpg" class="img-custom" alt="Búp trà"> 
+          <p class="img-caption">Những búp chè non "một tôm hai lá"</p>
+        </div>
+
+        <div class="col-md-4 mb-5">
+          <img src="images/thuongtrahuyengui.jpg" class="img-custom" alt="Thưởng trà"> 
+          <p class="img-caption">Nét đẹp văn hóa thưởng trà</p>
+        </div> 
+
+        <div class="col-md-4 mb-5">
+           <img src="images/chebientra.jpg" class="img-custom" alt="Chế biến trà"> 
+           <p class="img-caption">Nghệ nhân đang sao chè thủ công</p>
+        </div>
+
+        <div class="col-md-4 mb-5">
+           <img src="images/anhamtradattrangmedia.jpg" class="img-custom" alt="Ấm trà"> 
+           <p class="img-caption">Bộ ấm chén đất nung mộc mạc</p>
+        </div>
+
+        <div class="col-md-4 mb-5">
+           <img src="images/sanphamtra.jpg" class="img-custom" alt="Sản phẩm trà"> 
+           <p class="img-caption">Thành phẩm trà khô thơm ngát</p>
+        </div>
+
+      </div>
+      
+      <div class="text-center mt-4"> 
+        <h3 class="mb-4">Video Nổi Bật</h3>
+        <div class="ratio ratio-16x9 mx-auto img-custom" style="max-width: 900px;">
+          <iframe src="https://www.youtube.com/embed/ZB2JGQK4dWg" allowfullscreen></iframe> 
+        </div>
+      </div> 
+    </section>
+</div>
+
+<footer class="text-center py-4" style="background-color: #2e7d32; color: white;">
+  <div class="container">
+    <p class="mb-0">© 2025 Không Gian Văn Hóa Trà Đại Từ.</p> 
+  </div>
+</footer>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+<script src="js/script.js"></script>
+</body>
+</html>
