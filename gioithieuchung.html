@@ -4,35 +4,19 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Giới Thiệu Chung - Trà Đại Từ</title>
-  
+   
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
-  <link href="https://fonts.googleapis.com/css2?family=Roboto&display=swap" rel="stylesheet">
+  
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@700&family=Montserrat:wght@300;400;500;600;700&family=Playfair+Display:ital,wght@0,700;1,400&display=swap" rel="stylesheet">
+  
   <link href="css/styles.css" rel="stylesheet">
-
-  <style>
-    /* Nền trang màu xanh cốm nhạt */
-    body {
-        background-color: #f1f8e9; 
-    }
-    /* Khung nội dung màu trắng */
-    .section-content {
-        background-color: #ffffff;
-        padding: 40px;
-        border-radius: 15px;
-        box-shadow: 0 5px 15px rgba(0,0,0,0.1);
-        margin-top: 30px;
-        margin-bottom: 30px;
-    }
-    /* Màu tiêu đề */
-    h1, h2, h3 { color: #1b5e20 !important; }
-    /* Ảnh bo góc */
-    .img-custom { border-radius: 10px; }
-  </style>
 </head>
 <body>
 
-<nav class="navbar navbar-expand-lg navbar-dark sticky-top" style="background-color: #2e7d32; z-index: 1030;">
+<nav class="navbar navbar-expand-lg sticky-top">
   <div class="container">
     <a class="navbar-brand" href="index.html"><i class="fas fa-leaf me-2"></i> Trà Đại Từ</a>
     
@@ -45,7 +29,7 @@
         <li class="nav-item"><a class="nav-link" href="index.html">Trang Chủ</a></li>
         
         <li class="nav-item dropdown">
-          <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown">Giới thiệu</a>
+          <a class="nav-link dropdown-toggle active" href="#" role="button" data-bs-toggle="dropdown">Giới thiệu</a>
           <ul class="dropdown-menu"> 
             <li><a class="dropdown-item" href="gioithieuchung.html">Giới Thiệu Chung</a></li>
             <li><a class="dropdown-item" href="sumenh.html">Sứ Mệnh</a></li>
@@ -76,33 +60,56 @@
   </div>
 </nav>
 
-<div class="container">
-  <section class="section-content fade-in">
-    <h1 class="text-center mb-5">Giới Thiệu Chung</h1>
-    
-    <div class="row align-items-center">
-      <div class="col-md-6">
-        <h2>Trà Đại Từ</h2>
-        <p class="text-justify">
-          Đã từ lâu, trà được viết đến như một nét văn hóa truyền thống của người dân Việt Nam, bởi nó thể hiện thật rõ đời sống sinh hoạt mộc mạc của người Việt ta: Từ chén trà mời khách ấm nồng tình làng nghĩa xóm đến bát nước trà dâng cúng bàn thờ tổ tiên. Văn hóa trà đã mạnh mẽ trải qua những thăng trầm trong lịch sử để tồn tại và phát triển với một vẻ đẹp rất riêng. Chính những nét đẹp ấy đã điểm thêm cho bức tranh sống động về tinh hoa văn hóa nước nhà. Tiếp thu nét đẹp mộc mạc giản dị ấy, Đại Từ tự hào là một trong những vùng đất được biết tới là “Thủ phủ trà” của cả nước. Văn hóa trà Việt đã thổi hồn cho mảnh đất Đại Từ xưa để tạo nên những sản phẩm trà mang hương vị đặc trưng khó lẫn.
-        </p> 
-        <br>
-        <div class="text-center fst-italic text-success fs-5">
-           <p>“Dẫu xa ngàn dặm sơn khê<br>
-           Hương thơm quấn quýt lối về đường đi".</p>
+<div class="main-content-wrapper">
+    <div class="container">
+      <section class="section-content fade-in">
+        <h1 class="text-center mb-5" style="color: var(--primary-green);">Giới Thiệu Chung</h1>
+        
+        <div class="row align-items-center">
+          <div class="col-md-6">
+            <h2>Trà Đại Từ</h2>
+            <p class="text-justify">
+              Đã từ lâu, trà được viết đến như một nét văn hóa truyền thống của người dân Việt Nam, bởi nó thể hiện thật rõ đời sống sinh hoạt mộc mạc của người Việt ta: Từ chén trà mời khách ấm nồng tình làng nghĩa xóm đến bát nước trà dâng cúng bàn thờ tổ tiên. Văn hóa trà đã mạnh mẽ trải qua những thăng trầm trong lịch sử để tồn tại và phát triển với một vẻ đẹp rất riêng. Chính những nét đẹp ấy đã điểm thêm cho bức tranh sống động về tinh hoa văn hóa nước nhà. Tiếp thu nét đẹp mộc mạc giản dị ấy, Đại Từ tự hào là một trong những vùng đất được biết tới là “Thủ phủ trà” của cả nước. Văn hóa trà Việt đã thổi hồn cho mảnh đất Đại Từ xưa để tạo nên những sản phẩm trà mang hương vị đặc trưng khó lẫn.
+            </p> 
+            <br>
+            <div class="text-center fst-italic fs-5" style="color: var(--primary-green);">
+               <p>“Dẫu xa ngàn dặm sơn khê<br>
+               Hương thơm quấn quýt lối về đường đi".</p>
+            </div>
+          </div>
+          
+          <div class="col-md-6 text-center">
+            <img src="images/tachtragtc.jfif" class="img-fluid rounded shadow" alt="Lịch sử trà">
+          </div>
         </div>
-      </div>
-      
-      <div class="col-md-6 text-center">
-        <img src="images/tachtragtc.jfif" class="img-fluid rounded shadow" alt="Lịch sử trà">
-      </div>
+      </section>
     </div>
-  </section>
 </div>
 
-<footer class="text-center py-4" style="background-color: #2e7d32; color: white;">
+<footer class="text-center">
   <div class="container">
-    <p class="mb-0">&copy; 2025 Không Gian Văn Hóa Trà Đại Từ.</p>
+    <div class="row">
+      <div class="col-md-4 text-start mb-3">
+        <h5 class="text-uppercase border-bottom pb-2 d-inline-block" style="border-color: var(--gold-border) !important;">Trà Đại Từ</h5>
+        <p class="mt-2">Dự án STEM quảng bá văn hóa trà Việt Nam, mang tinh hoa đất Việt đến mọi nhà.</p>
+      </div>
+      <div class="col-md-4 mb-3">
+        <h5>Liên Kết Nhanh</h5>
+        <ul class="list-unstyled">
+            <li><a href="gioithieu.html"><i class="fas fa-chevron-right me-2 small"></i>Giới Thiệu</a></li>
+            <li><a href="sanphamnoibat.html"><i class="fas fa-chevron-right me-2 small"></i>Sản Phẩm</a></li>
+            <li><a href="dulichvatrainghiem.html"><i class="fas fa-chevron-right me-2 small"></i>Du Lịch</a></li>
+        </ul>
+      </div>
+      <div class="col-md-4 text-end mb-3">
+        <h5>Liên Hệ</h5>
+        <p><i class="fas fa-map-marker-alt me-2"></i> Xã Đại Phúc, Tỉnh Thái Nguyên</p>
+        <p><i class="fas fa-phone me-2"></i> 0329 305 208</p>
+        <p><i class="fas fa-envelope me-2"></i> lienhe@tradaitu.vn</p>
+      </div>
+    </div>
+    <hr style="opacity: 0.2; border-color: var(--gold-border);">
+    <p class="mb-0">&copy; 2025 Không Gian Văn Hóa Trà Đại Từ.</p> 
   </div>
 </footer>
 
