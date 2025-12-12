@@ -26,6 +26,59 @@ h1, h2, h3, h4, h5, .navbar-brand {
 }
 
 /* =========================================
+   1.1. ẢNH NỀN TOÀN TRANG & LỚP PHỦ MỜ (MỚI)
+   ========================================= */
+
+/* Thiết lập ảnh nền cho toàn bộ trang */
+body {
+    /* (Giữ nguyên các thuộc tính font và màu chữ đã có)
+    font-family: 'Montserrat', sans-serif;
+    color: var(--text-dark);
+    background-color: #f9f9f9; 
+    */
+    
+    /* Ảnh nền: Thay đổi đường dẫn ảnh của bạn tại đây */
+    background-image: url('images/nentrangweb.jpg'); 
+    background-size: cover;          /* Ảnh phủ kín khung */
+    background-attachment: fixed;    /* Cố định ảnh khi cuộn */
+    background-repeat: no-repeat;
+    background-position: center center;
+    
+    position: relative; /* Quan trọng: để lớp phủ mờ (pseudo-element) hoạt động */
+    z-index: 1; /* Đảm bảo nội dung (text, button) nằm trên lớp phủ */
+}
+
+/* Tạo lớp phủ mờ (overlay) để làm dịu ảnh nền */
+body::before {
+    content: '';
+    position: fixed; /* Quan trọng: cố định lớp phủ */
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    
+    /* Màu lớp phủ: Sử dụng màu xanh rêu đậm chủ đạo (primary-green) */
+    background-color: var(--primary-green); 
+    
+    /* Độ mờ: Chỉnh giá trị opacity từ 0.1 đến 0.8 tùy ý */
+    opacity: 0.8; /* <-- CHỈNH SỐ NÀY */
+    
+    z-index: -1; /* Đặt lớp phủ dưới nội dung (body z-index: 1) */
+    pointer-events: none; /* Đảm bảo lớp phủ không chặn sự kiện click */
+}
+
+/* Cập nhật màu nền cho main content để nó nổi bật hơn trên background */
+/* Giả sử nội dung chính nằm trong một thẻ <main> hoặc <div> có class .main-content */
+.main-content, .section-content {
+    background-color: rgba(255, 255, 255, 0.95); /* Nền trắng hơi mờ */
+    padding: 30px;
+    margin: 20px auto;
+    border-radius: 8px;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+}
+
+
+/* =========================================
    2. NAVBAR (MENU) - PHONG CÁCH GỖ/KIM LOẠI 3D
    ========================================= */
 .navbar {
@@ -116,7 +169,6 @@ h1, h2, h3, h4, h5, .navbar-brand {
 }
 
 /* =========================================
-  /* =========================================
    3. HERO SECTION (BANNER) - ĐÃ SỬA LỖI
    ========================================= */
 .hero {
@@ -241,47 +293,49 @@ footer hr {
     opacity: 0.3;
     border-color: var(--gold-text);
 }
-6. LANGUAGE SWITCHER (MỚI THÊM)
-   ========================================= */
+
+/* =========================================
+   6. LANGUAGE SWITCHER (MỚI THÊM)
+   ========================================= */
 /* Khung bao quanh các nút ngôn ngữ */
 .language-group {
-    gap: 10px; /* Khoảng cách giữa các ô */
+    gap: 10px; /* Khoảng cách giữa các ô */
 }
 
 /* Style cho từng ô ngôn ngữ */
 .lang-box {
-    display: flex;              /* Để icon và chữ nằm ngang */
-    align-items: center;        /* Căn giữa dọc */
-    justify-content: center;    /* Căn giữa ngang */
-    
-    border: 1px solid var(--gold-border); /* Viền màu vàng gold */
-    border-radius: 4px;         /* Bo góc nhẹ */
-    padding: 5px 10px;          /* Khoảng cách bên trong */
-    
-    text-decoration: none;      /* Bỏ gạch chân link */
-    color: #e0d0b0;             /* Màu chữ be sáng (giống menu) */
-    font-size: 0.85rem;         /* Cỡ chữ nhỏ gọn */
-    font-weight: 600;
-    
-    background-color: rgba(0, 0, 0, 0.2); /* Nền tối mờ nhẹ */
-    transition: all 0.3s ease;
+    display: flex;              /* Để icon và chữ nằm ngang */
+    align-items: center;        /* Căn giữa dọc */
+    justify-content: center;    /* Căn giữa ngang */
+     
+    border: 1px solid var(--gold-border); /* Viền màu vàng gold */
+    border-radius: 4px;         /* Bo góc nhẹ */
+    padding: 5px 10px;          /* Khoảng cách bên trong */
+     
+    text-decoration: none;      /* Bỏ gạch chân link */
+    color: #e0d0b0;             /* Màu chữ be sáng (giống menu) */
+    font-size: 0.85rem;         /* Cỡ chữ nhỏ gọn */
+    font-weight: 600;
+     
+    background-color: rgba(0, 0, 0, 0.2); /* Nền tối mờ nhẹ */
+    transition: all 0.3s ease;
 }
 
 /* Style cho hình lá cờ */
 .lang-box img {
-    width: 20px;       /* Chiều rộng lá cờ */
-    height: auto;
-    margin-right: 6px; /* Khoảng cách giữa cờ và chữ */
-    border-radius: 2px;
-    box-shadow: 0 0 2px rgba(0,0,0,0.5);
+    width: 20px;       /* Chiều rộng lá cờ */
+    height: auto;
+    margin-right: 6px; /* Khoảng cách giữa cờ và chữ */
+    border-radius: 2px;
+    box-shadow: 0 0 2px rgba(0,0,0,0.5);
 }
 
 /* Hiệu ứng khi di chuột vào (Hover) */
 .lang-box:hover {
-    background-color: var(--gold-text); /* Nền chuyển sang vàng */
-    color: var(--primary-green);        /* Chữ chuyển sang xanh đậm */
-    border-color: var(--gold-hover);
-    transform: translateY(-2px);        /* Nổi lên nhẹ */
+    background-color: var(--gold-text); /* Nền chuyển sang vàng */
+    color: var(--primary-green);        /* Chữ chuyển sang xanh đậm */
+    border-color: var(--gold-hover);
+    transform: translateY(-2px);        /* Nổi lên nhẹ */
 }
 
 /* Xử lý hiển thị trên Mobile cho các phần khác */
