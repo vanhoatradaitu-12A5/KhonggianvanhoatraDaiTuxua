@@ -1,284 +1,298 @@
 /* =========================================
-   1. CÀI ĐẶT CHUNG & BIẾN MÀU SẮC
-   ========================================= */
+   1. CÀI ĐẶT CHUNG & BIẾN MÀU SẮC (ĐÃ SỬA MÀU CHỮ NỘI DUNG)
+   ========================================= */
 :root {
-    /* --- Bảng màu trích xuất từ ảnh "Đồi chè hoàng hôn" --- */
-    
-    /* Màu xanh đậm nhất của lá trà */
-    --primary-green: #0e2e22;   
-    
-    /* Gradient cho menu */
-    --gradient-top: #1f4532;    
-    --gradient-mid: #0e2e22;    
-    
-    /* Màu cam vàng rực rỡ */
-    --gold-text: #ffc107;       
-    
-    /* Màu viền vàng nhạt hơn */
-    --gold-border: #d4af37;     
-    
-    /* Màu hover: Vàng kem */
-    --gold-hover: #fff8e1;      
-    
-    /* Màu chữ nội dung: Nâu đất đậm */
-    --text-body: #4e342e; 
+    /* --- Bảng màu trích xuất từ ảnh "Đồi chè hoàng hôn" --- */
+    
+    /* Màu xanh đậm nhất của lá trà */
+    --primary-green: #0e2e22;   
+    
+    /* Gradient cho menu */
+    --gradient-top: #1f4532;    
+    --gradient-mid: #0e2e22;    
+    
+    /* Màu cam vàng rực rỡ */
+    --gold-text: #ffc107;       
+    
+    /* Màu viền vàng nhạt hơn */
+    --gold-border: #d4af37;     
+    
+    /* Màu hover: Vàng kem */
+    --gold-hover: #fff8e1;      
+    
+    /* Màu chữ nội dung: ĐÃ ĐỔI SANG MÀU TRẮNG NGÀ (#f5f5dc) để tương phản */
+    --text-body: #f5f5dc; 
 
-    /* --- Màu lớp phủ (Overlay) --- */
-    /* Màu xám đen với độ trong suốt 0.6 */
-    --overlay-color: rgba(60, 60, 60, 0.6); 
+    /* --- Màu lớp phủ (Overlay) --- */
+    /* Màu xám đen với độ trong suốt 0.6 */
+    --overlay-color: rgba(60, 60, 60, 0.6); 
 }
 
-/* Reset font chữ chung */
+/* Reset font chữ chung (ĐÃ THÊM TEXT-SHADOW) */
 body {
-    font-family: 'Montserrat', sans-serif;
-    
-    /* Màu nâu */
-    color: var(--text-body); 
-    
-    /* Bỏ bóng đổ */
-    text-shadow: none; 
-    
-    position: relative;
-    min-height: 100vh;
-    margin: 0;
-    
-    /* Tăng độ dày chữ lên một chút */
-    font-weight: 600; 
+    font-family: 'Montserrat', sans-serif;
+    
+    /* Màu chữ nội dung mới (Trắng ngà) */
+    color: var(--text-body); 
+    
+    /* Thêm bóng đổ nhẹ để chữ nổi bật hơn trên nền phức tạp */
+    text-shadow: 0 0 3px rgba(0, 0, 0, 0.8); 
+    
+    position: relative;
+    min-height: 100vh;
+    margin: 0;
+    
+    /* Tăng độ dày chữ lên một chút */
+    font-weight: 600; 
 }
 
 /* --- CẤU HÌNH NỀN MẶC ĐỊNH --- */
 body::before {
-    content: '';
-    position: fixed; 
-    top: 0; left: 0; width: 100%; height: 100%;
-    
-    /* Lớp phủ màu xám đè lên ảnh nentrangweb.jpg */
-    background-image: 
-        linear-gradient(var(--overlay-color), var(--overlay-color)), 
-        url('../images/nentrangweb.jpg');
-    
-    background-position: center center;
-    background-repeat: no-repeat;
-    background-size: cover;
-    
-    filter: none; 
-    z-index: -2; 
+    content: '';
+    position: fixed; 
+    top: 0; left: 0; width: 100%; height: 100%;
+    
+    /* Lớp phủ màu xám đè lên ảnh nentrangweb.jpg */
+    background-image: 
+        linear-gradient(var(--overlay-color), var(--overlay-color)), 
+        url('../images/nentrangweb.jpg');
+    
+    background-position: center center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    
+    filter: none; 
+    z-index: -2; 
 }
 
 /* Font cho các tiêu đề */
 h1, h2, h3, h4, h5, .navbar-brand {
-    font-family: 'Playfair Display', serif;
+    font-family: 'Playfair Display', serif;
 }
 
 /* =========================================
-   2. NAVBAR (MENU)
-   ========================================= */
+   2. NAVBAR (MENU)
+   ========================================= */
 .navbar {
-    background: linear-gradient(
-        180deg, 
-        rgba(31, 69, 50, 0.95) 0%,     
-        rgba(14, 46, 34, 0.95) 100%
-    ) !important;
-    
-    border-bottom: 1px solid var(--gold-border);
-    box-shadow: 0 4px 12px rgba(0,0,0,0.6); 
-    padding: 0.8rem 1rem;
-    position: sticky;
-    top: 0;
-    z-index: 1000;
+    background: linear-gradient(
+        180deg, 
+        rgba(31, 69, 50, 0.95) 0%,     
+        rgba(14, 46, 34, 0.95) 100%
+    ) !important;
+    
+    border-bottom: 1px solid var(--gold-border);
+    box-shadow: 0 4px 12px rgba(0,0,0,0.6); 
+    padding: 0.8rem 1rem;
+    position: sticky;
+    top: 0;
+    z-index: 1000;
 }
 
 .navbar-brand {
-    font-family: 'Dancing Script', cursive;
-    font-weight: 700;
-    font-size: 1.8rem;
-    color: var(--gold-text) !important;
-    /* Giữ một chút bóng nhẹ cho Logo */
-    text-shadow: 1px 1px 2px rgba(0,0,0,0.5); 
+    font-family: 'Dancing Script', cursive;
+    font-weight: 700;
+    font-size: 1.8rem;
+    color: var(--gold-text) !important;
+    /* Giữ một chút bóng nhẹ cho Logo */
+    text-shadow: 1px 1px 2px rgba(0,0,0,0.5); 
 }
 
 .nav-link {
-    font-weight: 600; 
-    text-transform: uppercase;
-    font-size: 0.9rem;
-    letter-spacing: 1px;
-    color: #e0d0b0 !important; /* Màu be sáng cho menu */
-    transition: all 0.3s ease;
-    padding: 10px 15px !important;
+    font-weight: 600; 
+    text-transform: uppercase;
+    font-size: 0.9rem;
+    letter-spacing: 1px;
+    color: #e0d0b0 !important; /* Màu be sáng cho menu */
+    transition: all 0.3s ease;
+    padding: 10px 15px !important;
 }
 
 .nav-link:hover, .nav-link.active {
-    color: var(--gold-text) !important; 
-    text-shadow: none;
-    transform: translateY(-1px);
+    color: var(--gold-text) !important; 
+    text-shadow: none;
+    transform: translateY(-1px);
 }
 
 .dropdown-menu {
-    background-color: rgba(14, 46, 34, 0.95); 
-    border: 1px solid var(--gold-border);
+    background-color: rgba(14, 46, 34, 0.95); 
+    border: 1px solid var(--gold-border);
 }
 
 .dropdown-item {
-    color: #e0d0b0 !important;
-    text-shadow: none; 
+    color: #e0d0b0 !important;
+    text-shadow: none; 
 }
 
 .dropdown-item:hover {
-    background-color: rgba(255, 255, 255, 0.1);
-    color: var(--gold-text) !important;
+    background-color: rgba(255, 255, 255, 0.1);
+    color: var(--gold-text) !important;
 }
 
 /* Icon menu mobile */
 .navbar-toggler { border-color: var(--gold-border); }
 .navbar-toggler-icon {
-    background-image: url("data:image/svg+xml;charset=utf8,%3Csvg viewBox='0 0 30 30' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath stroke='rgba(255, 193, 7, 1)' stroke-width='2' stroke-linecap='round' stroke-miterlimit='10' d='M4 7h22M4 15h22M4 23h22'/%3E%3C/svg%3E");
+    background-image: url("data:image/svg+xml;charset=utf8,%3Csvg viewBox='0 0 30 30' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath stroke='rgba(255, 193, 7, 1)' stroke-width='2' stroke-linecap='round' stroke-miterlimit='10' d='M4 7h22M4 15h22M4 23h22'/%3E%3C/svg%3E");
 }
 
 /* =========================================
-   3. HERO SECTION (BANNER)
-   ========================================= */
+   3. HERO SECTION (BANNER)
+   ========================================= */
 .hero {
-    background: transparent; 
-    width: 100%;
-    padding-bottom: 5%; 
-    position: relative;
-    z-index: 1; 
+    background: transparent; 
+    width: 100%;
+    padding-bottom: 5%; 
+    position: relative;
+    z-index: 1; 
 }
 
 /* =========================================
-   4. NÚT BẤM (BUTTONS)
-   ========================================= */
+   4. NÚT BẤM (BUTTONS)
+   ========================================= */
 .btn-custom {
-    background-color: rgba(14, 46, 34, 0.9); 
-    color: var(--gold-text);
-    border-radius: 50px;
-    padding: 12px 45px;
-    font-family: 'Montserrat', sans-serif;
-    font-weight: 700;
-    border: 2px solid var(--gold-text);
-    box-shadow: none; 
+    background-color: rgba(14, 46, 34, 0.9); 
+    color: var(--gold-text);
+    border-radius: 50px;
+    padding: 12px 45px;
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 700;
+    border: 2px solid var(--gold-text);
+    box-shadow: none; 
 }
 
 .btn-custom:hover {
-    background-color: var(--gold-text); 
-    color: var(--primary-green); 
-    border-color: var(--gold-hover);
-    box-shadow: none; 
+    background-color: var(--gold-text); 
+    color: var(--primary-green); 
+    border-color: var(--gold-hover);
+    box-shadow: none; 
 }
 
 /* Nút "Xem chi tiết" (btn-outline-success) */
 .btn-outline-success {
-    color: var(--text-body) !important; 
-    border-color: var(--text-body) !important; 
-    background-color: rgba(255,255,255,0.4); 
-    text-shadow: none;
-    font-weight: 700;
+    color: var(--text-body) !important; 
+    border-color: var(--text-body) !important; 
+    background-color: rgba(255,255,255,0.4); 
+    text-shadow: none;
+    font-weight: 700;
 }
 .btn-outline-success:hover {
-    background-color: var(--text-body) !important;
-    border-color: var(--text-body) !important;
-    color: #fff !important; 
+    background-color: var(--text-body) !important;
+    border-color: var(--text-body) !important;
+    color: var(--primary-green) !important; 
 }
 
 /* =========================================
-   5. CÁC THÀNH PHẦN KHÁC
-   ========================================= */
+   5. CÁC THÀNH PHẦN KHÁC (ĐÃ SỬA MÀU CHỮ)
+   ========================================= */
 .fade-in { animation: fadeIn 1.5s ease-out; }
 @keyframes fadeIn {
-    from { opacity: 0; transform: translateY(30px); }
-    to { opacity: 1; transform: translateY(0); }
+    from { opacity: 0; transform: translateY(30px); }
+    to { opacity: 1; transform: translateY(0); }
 }
 
 .img-custom img {
-    height: 450px;
-    object-fit: cover;
-    border-radius: 8px;
-    border: none; 
+    height: 450px;
+    object-fit: cover;
+    border-radius: 8px;
+    border: none; 
 }
 .img-custom {
-    box-shadow: none; 
+    box-shadow: none; 
 }
 
 /* Tiêu đề H2 */
 h2 {
-    color: var(--gold-text); 
-    font-weight: 800;
-    margin-bottom: 1rem;
-    text-shadow: none;
-    letter-spacing: 1px;
+    color: var(--gold-text); 
+    font-weight: 800;
+    margin-bottom: 1rem;
+    text-shadow: none;
+    letter-spacing: 1px;
 }
 
-/* Đoạn text mô tả đặc biệt */
+/* Đoạn text mô tả đặc biệt (ĐÃ SỬA MÀU CHỮ VÀ TEXT-SHADOW) */
 .lead.text-muted {
-    color: var(--text-body) !important; 
-    font-style: italic;
-    font-weight: 600;
-    text-shadow: none; 
+    /* Sử dụng màu trắng ngà mờ để tương phản với nền tối */
+    color: rgba(245, 245, 220, 0.8) !important; 
+    font-style: italic;
+    font-weight: 600;
+    /* Thêm bóng đổ nhẹ để dễ đọc */
+    text-shadow: 0 0 2px rgba(0, 0, 0, 0.9); 
 }
 
 /* Footer */
 footer {
-    background-color: rgba(10, 30, 20, 0.95); 
-    color: #ccc;
-    border-top: 1px solid var(--gold-border);
-    margin-top: 50px;
+    background-color: rgba(10, 30, 20, 0.95); 
+    color: #ccc;
+    border-top: 1px solid var(--gold-border);
+    margin-top: 50px;
 }
 
 footer h5 {
-    color: var(--gold-text);
-    text-shadow: none;
+    color: var(--gold-text);
+    text-shadow: none;
 }
 
 /* =========================================
-   6. LANGUAGE SWITCHER (MỚI THÊM)
-   ========================================= */
+   6. LANGUAGE SWITCHER (ĐÃ SỬA: CHUYỂN SANG CỘT DỌC)
+   ========================================= */
 /* Khung bao quanh các nút ngôn ngữ */
 .language-group {
-    gap: 10px; /* Khoảng cách giữa các ô */
+    /* *** SỬA ĐỔI: Chuyển hướng Flexbox thành cột dọc *** */
+    flex-direction: column; 
+    /* ************************************************* */
+    gap: 10px; /* Khoảng cách giữa các ô */
 }
 
 /* Style cho từng ô ngôn ngữ */
 .lang-box {
-    display: flex;              /* Để icon và chữ nằm ngang */
-    align-items: center;        /* Căn giữa dọc */
-    justify-content: center;    /* Căn giữa ngang */
-    
-    border: 1px solid var(--gold-border); /* Viền màu vàng gold */
-    border-radius: 4px;         /* Bo góc nhẹ */
-    padding: 5px 10px;          /* Khoảng cách bên trong */
-    
-    text-decoration: none;      /* Bỏ gạch chân link */
-    color: #e0d0b0;             /* Màu chữ be sáng (giống menu) */
-    font-size: 0.85rem;         /* Cỡ chữ nhỏ gọn */
-    font-weight: 600;
-    
-    background-color: rgba(0, 0, 0, 0.2); /* Nền tối mờ nhẹ */
-    transition: all 0.3s ease;
+    display: flex;              /* Để icon và chữ nằm ngang */
+    align-items: center;        /* Căn giữa dọc */
+    justify-content: center;    /* Căn giữa ngang */
+    width: 100px; /* Thêm chiều rộng cố định để các ô đều nhau */
+    
+    border: 1px solid var(--gold-border); /* Viền màu vàng gold */
+    border-radius: 4px;         /* Bo góc nhẹ */
+    padding: 5px 10px;          /* Khoảng cách bên trong */
+    
+    text-decoration: none;      /* Bỏ gạch chân link */
+    color: #e0d0b0;             /* Màu chữ be sáng (giống menu) */
+    font-size: 0.85rem;         /* Cỡ chữ nhỏ gọn */
+    font-weight: 600;
+    
+    background-color: rgba(0, 0, 0, 0.2); /* Nền tối mờ nhẹ */
+    transition: all 0.3s ease;
 }
 
 /* Style cho hình lá cờ */
 .lang-box img {
-    width: 20px;       /* Chiều rộng lá cờ */
-    height: auto;
-    margin-right: 6px; /* Khoảng cách giữa cờ và chữ */
-    border-radius: 2px;
-    box-shadow: 0 0 2px rgba(0,0,0,0.5);
+    width: 20px;       /* Chiều rộng lá cờ */
+    height: auto;
+    margin-right: 6px; /* Khoảng cách giữa cờ và chữ */
+    border-radius: 2px;
+    box-shadow: 0 0 2px rgba(0,0,0,0.5);
 }
 
 /* Hiệu ứng khi di chuột vào (Hover) */
 .lang-box:hover {
-    background-color: var(--gold-text); /* Nền chuyển sang vàng */
-    color: var(--primary-green);        /* Chữ chuyển sang xanh đậm */
-    border-color: var(--gold-hover);
-    transform: translateY(-2px);        /* Nổi lên nhẹ */
+    background-color: var(--gold-text); /* Nền chuyển sang vàng */
+    color: var(--primary-green);        /* Chữ chuyển sang xanh đậm */
+    border-color: var(--gold-hover);
+    transform: translateY(-2px);        /* Nổi lên nhẹ */
 }
 
-/* --- Responsive cho Mobile --- */
+/* --- Responsive cho Mobile (ĐÃ SỬA) --- */
 /* Khi màn hình nhỏ (dưới 991px), chỉnh lại để không bị dính */
 @media (max-width: 991px) {
-    .language-group {
-        margin-top: 15px;      /* Cách menu chính ra một chút */
-        margin-left: 0 !important; /* Bỏ margin trái */
-        justify-content: flex-start; /* Căn trái */
+    .language-group {
+        /* Chuyển lại thành hàng ngang trên Mobile */
+        flex-direction: row; 
+        
+        margin-top: 15px;      /* Cách menu chính ra một chút */
+        margin-left: 0 !important; /* Bỏ margin trái */
+        justify-content: flex-start; /* Căn trái */
+    }
+    
+    /* Trên Mobile, bỏ chiều rộng cố định */
+    .language-group .lang-box {
+        width: auto;
     }
 }
