@@ -14,10 +14,9 @@
   
   <style>
     /* =========================================
-       1. CÀI ĐẶT CHUNG & BIẾN MÀU SẮC (ĐỒNG BỘ INDEX)
+       1. CÀI ĐẶT CHUNG & BIẾN MÀU SẮC
        ========================================= */
     :root {
-        /* --- Bảng màu --- */
         --primary-green: #0e2e22;    
         --gradient-top: #1f4532;     
         --gradient-mid: #0e2e22;     
@@ -27,21 +26,50 @@
         --text-dark: #333333;
     }
 
-    /* Reset font chữ chung theo giao diện mới */
+    /* Reset font chữ chung */
+    html, body {
+        height: 100%; 
+    }
+
     body {
         font-family: 'Montserrat', sans-serif;
-        background-color: #f1f8e9; /* Giữ nền xanh cốm nhạt riêng của trang này */
         color: var(--text-dark);
+        position: relative; /* Quan trọng để hiển thị ảnh nền */
+        margin: 0;
+        
+        /* Cấu trúc Flexbox để đẩy Footer xuống đáy nếu nội dung ngắn */
+        display: flex;
+        flex-direction: column;
     }
-    
-    /* Font cho các tiêu đề lớn */
+
+    /* --- [THÊM MỚI] ẢNH NỀN TOÀN TRANG GIỐNG INDEX --- */
+    body::before {
+        content: '';
+        position: fixed; 
+        top: 0; left: 0; width: 100%; height: 100%;
+        /* Đường dẫn ảnh nền */
+        background: url('images/nentrangweb.jpg') no-repeat center center;
+        background-size: cover;
+        z-index: -2; 
+    }
+
+    /* Lớp phủ mờ nhẹ để chữ dễ đọc hơn trên nền ảnh */
+    body::after {
+        content: '';
+        position: fixed;
+        top: 0; left: 0; width: 100%; height: 100%;
+        background-color: rgba(255, 255, 255, 0.4); /* Màu trắng mờ 40% */
+        z-index: -1;
+    }
+
+    /* Font tiêu đề */
     h1, h2, h3, h4, h5, .navbar-brand {
         font-family: 'Playfair Display', serif;
-        color: #1b5e20; /* Màu xanh đậm cho tiêu đề nội dung */
+        color: #1b5e20; 
     }
 
     /* =========================================
-       2. NAVBAR (MENU) - ĐÃ ĐỒNG BỘ VỚI INDEX
+       2. NAVBAR (MENU) - ĐÃ ĐỒNG BỘ
        ========================================= */
     .navbar {
         background: linear-gradient(
@@ -98,14 +126,12 @@
         color: var(--gold-text) !important;
     }
 
-    .navbar-toggler { 
-        border-color: var(--gold-border); 
-    }
+    .navbar-toggler { border-color: var(--gold-border); }
     .navbar-toggler-icon {
         background-image: url("data:image/svg+xml;charset=utf8,%3Csvg viewBox='0 0 30 30' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath stroke='rgba(255, 193, 7, 1)' stroke-width='2' stroke-linecap='round' stroke-miterlimit='10' d='M4 7h22M4 15h22M4 23h22'/%3E%3C/svg%3E");
     }
 
-    /* Style cho Language Group */
+    /* Language Group */
     .language-group { gap: 10px; }
     .lang-box {
         display: flex; align-items: center; justify-content: center;
@@ -125,10 +151,11 @@
     }
 
     /* =========================================
-       3. CSS RIÊNG CỦA TRANG NÀY (GIỮ NGUYÊN)
+       3. NỘI DUNG TRANG TINH HOA
        ========================================= */
     .section-content {
-        background-color: #ffffff;
+        /* Chỉnh nền thành màu trắng hơi trong suốt để thấy ảnh nền mờ phía sau */
+        background-color: rgba(255, 255, 255, 0.95);
         padding: 40px;
         border-radius: 15px;
         box-shadow: 0 5px 15px rgba(0,0,0,0.1);
@@ -138,13 +165,12 @@
     
     .text-justify { text-align: justify; }
 
-    /* Zoom Image Effects */
+    /* Zoom Image */
     .img-wrapper-zoom {
         overflow: hidden; 
         border-radius: 10px;
         box-shadow: 0 4px 8px rgba(0,0,0,0.1);
     }
-
     .img-custom {
         border-radius: 10px; 
         transition: transform 0.5s ease; 
@@ -152,13 +178,12 @@
         width: 100%;
         display: block;
     }
-
     .img-wrapper-zoom:hover .img-custom, 
     .card:hover .img-custom {
         transform: scale(1.1); 
     }
 
-    /* Lightbox Styles */
+    /* Lightbox */
     #lightbox {
         display: none; 
         position: fixed;
@@ -168,18 +193,14 @@
         justify-content: center; align-items: center;
         opacity: 0; transition: opacity 0.3s ease;
     }
-
     #lightbox.active { display: flex; opacity: 1; }
-
     #lightbox img {
         max-width: 90%; max-height: 90vh;
         border: 2px solid white; border-radius: 5px;
         box-shadow: 0 0 20px rgba(0,0,0,0.5);
         transform: scale(0.8); transition: transform 0.3s ease;
     }
-
     #lightbox.active img { transform: scale(1); }
-
     #lightbox-close {
         position: absolute; top: 20px; right: 30px;
         color: white; font-size: 40px; cursor: pointer;
@@ -187,18 +208,19 @@
     }
     #lightbox-close:hover { color: #ff5252; }
 
-    /* Timeline Styles */
+    /* Timeline */
     .handmade-font { font-family: 'Patrick Hand', cursive; }
     .step-timeline { position: relative; padding-left: 20px; border-left: 2px dashed #81c784; }
     .step-item { position: relative; padding-bottom: 40px; padding-left: 20px; }
     .step-marker { position: absolute; left: -29px; top: 0; width: 20px; height: 20px; background-color: #2e7d32; border: 4px solid #f1f8e9; border-radius: 50%; }
     .step-number { font-family: 'Patrick Hand', cursive; font-size: 1.5rem; color: #2e7d32; font-weight: bold; text-decoration: underline; }
 
-    /* Footer Đồng bộ */
+    /* Footer */
     footer {
         background-color: rgba(14, 46, 34, 0.95) !important; 
         color: #e0d0b0 !important; 
         border-top: 1px solid var(--gold-border);
+        margin-top: auto; /* Đẩy footer xuống đáy */
     }
   </style>
 </head>
@@ -266,7 +288,7 @@
 <div class="container">
   <section class="section-content fade-in">
     
-    <h1 class="text-center mb-5">Tinh Hoa Trà Việt </h1>
+    <h1 class="text-center mb-5">Tinh Hoa Trà Việt</h1>
    
     <div class="row mb-5 align-items-center">
        <div class="col-md-6 mb-4">
@@ -286,7 +308,7 @@
     <hr class="my-5" style="color: #2e7d32;"> 
     
     <div class="mb-5">
-        <h2 class="mb-5 text-center">Từ điều kiện thuận lợi tới thủ phủ trà Việt </h2>
+        <h2 class="mb-5 text-center">Từ điều kiện thuận lợi tới thủ phủ trà Việt</h2>
         <div class="row align-items-center mb-5"> 
             <div class="col-lg-6 pe-lg-5"> 
                 <p class="text-justify lead fw-bold mb-4">Không phải ngẫu nhiên mà Thái Nguyên được mệnh danh là “thủ phủ chè” của cả nước. Đó là sự hội tụ của các điều kiện tự nhiên ưu đãi, truyền thống canh tác lâu đời, cùng những đôi bàn tay khéo léo của người nghệ nhân.</p>
@@ -431,46 +453,35 @@
 <script src="js/script.js"></script>
 
 <script>
-    // Lấy các phần tử
     const lightbox = document.getElementById('lightbox');
     const lightboxImg = document.getElementById('lightbox-img');
     const closeBtn = document.getElementById('lightbox-close');
-    
-    // Chọn tất cả các ảnh có class 'img-custom' trừ cái video (vì iframe không phải img)
     const images = document.querySelectorAll('.img-custom:not(iframe)');
 
-    // Thêm sự kiện click cho từng ảnh
     images.forEach(img => {
         img.addEventListener('click', function() {
-            // Đặt nguồn ảnh cho lightbox bằng nguồn của ảnh vừa click
             lightboxImg.src = this.src;
-            // Hiển thị lightbox (thêm class active nếu dùng transition, hoặc style.display)
             lightbox.style.display = 'flex';
             setTimeout(() => {
                 lightbox.classList.add('active');
-            }, 10); // Delay nhỏ để hiệu ứng fade-in hoạt động
+            }, 10);
         });
     });
 
-    // Hàm đóng lightbox
     function closeLightbox() {
         lightbox.classList.remove('active');
         setTimeout(() => {
             lightbox.style.display = 'none';
-        }, 300); // Chờ hết hiệu ứng mới ẩn hẳn
+        }, 300);
     }
 
-    // Đóng khi ấn nút X
     closeBtn.addEventListener('click', closeLightbox);
-
-    // Đóng khi ấn vào vùng đen bên ngoài ảnh
     lightbox.addEventListener('click', function(e) {
         if (e.target === lightbox) {
             closeLightbox();
         }
     });
 
-    // Đóng khi ấn phím ESC
     document.addEventListener('keydown', function(e) {
         if (e.key === "Escape" && lightbox.style.display === 'flex') {
             closeLightbox();
