@@ -8,116 +8,155 @@
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
   
-  <link href="https://fonts.googleapis.com/css2?family=Patrick+Hand&family=Merriweather:ital,wght@0,300;0,400;0,700;1,400&display=swap" rel="stylesheet">
-  
-  <link href="css/styles.css" rel="stylesheet">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@700&family=Montserrat:wght@300;400;500;600;700&family=Playfair+Display:ital,wght@0,700;1,400&family=Patrick+Hand&family=Merriweather:ital,wght@0,300;0,400;0,700;1,400&display=swap" rel="stylesheet">
   
   <style>
-    /* Nền trang màu xanh cốm nhạt */
+    /* =========================================
+       1. CÀI ĐẶT CHUNG & BIẾN MÀU SẮC (GIỐNG INDEX)
+       ========================================= */
+    :root {
+        --primary-green: #0e2e22;    
+        --gradient-top: #1f4532;     
+        --gradient-mid: #0e2e22;     
+        --gold-text: #ffc107;        
+        --gold-border: #d4af37;      
+        --gold-hover: #fff8e1;       
+        --text-dark: #333333;
+    }
+
+    html, body { height: 100%; }
+
+    /* Font chung cho thân trang */
     body {
-        background-color: #f1f8e9;
-        font-family: 'Merriweather', serif;
-    }
-    
-    /* Khung nội dung */
-    .section-content {
-        background-color: #ffffff;
-        padding: 40px;
-        border-radius: 15px;
-        box-shadow: 0 5px 15px rgba(0,0,0,0.1);
-        margin-top: 30px;
-        margin-bottom: 30px;
-    }
-    
-    h1, h2, h3, .h4 {
-        color: #1b5e20 !important;
-        font-family: system-ui, -apple-system, sans-serif;
-    }
-    
-    .text-justify {
-        text-align: justify;
-    }
-
-    /* --- CẬP NHẬT CSS CHO ẢNH --- */
-    
-    /* 1. Class bọc ngoài để cắt phần ảnh thừa khi zoom */
-    .img-wrapper-zoom {
-        overflow: hidden; /* Quan trọng: Giữ ảnh không tràn ra ngoài khi zoom */
-        border-radius: 10px;
-        box-shadow: 0 4px 8px rgba(0,0,0,0.1);
-    }
-
-    /* 2. Class cho chính bức ảnh */
-    .img-custom {
-        border-radius: 10px; /* Bo góc nếu không dùng wrapper */
-        transition: transform 0.5s ease; /* Hiệu ứng mượt mà trong 0.5s */
-        cursor: zoom-in; /* Đổi con trỏ chuột thành hình kính lúp */
-        width: 100%;
-        display: block;
-    }
-
-    /* Khi rê chuột vào Wrapper thì ảnh bên trong sẽ phóng to */
-    .img-wrapper-zoom:hover .img-custom, 
-    .card:hover .img-custom {
-        transform: scale(1.1); /* Phóng to 1.1 lần */
-    }
-
-    /* --- CSS CHO LIGHTBOX (PHÓNG TO TOÀN MÀN HÌNH) --- */
-    #lightbox {
-        display: none; /* Mặc định ẩn */
-        position: fixed;
-        z-index: 9999; /* Luôn nằm trên cùng */
-        top: 0;
-        left: 0;
-        width: 100%;
-        height: 100%;
-        background-color: rgba(0, 0, 0, 0.9); /* Nền đen mờ 90% */
-        justify-content: center;
-        align-items: center;
-        opacity: 0;
-        transition: opacity 0.3s ease;
-    }
-
-    #lightbox.active {
+        font-family: 'Merriweather', serif; /* Giữ font riêng cho bài viết */
+        color: var(--text-dark);
+        position: relative;
+        margin: 0;
         display: flex;
-        opacity: 1;
+        flex-direction: column;
     }
 
-    #lightbox img {
-        max-width: 90%;
-        max-height: 90vh;
-        border: 2px solid white;
-        border-radius: 5px;
-        box-shadow: 0 0 20px rgba(0,0,0,0.5);
-        transform: scale(0.8);
-        transition: transform 0.3s ease;
+    /* ẢNH NỀN TOÀN TRANG */
+    body::before {
+        content: ''; position: fixed; top: 0; left: 0; width: 100%; height: 100%;
+        background: url('images/nentrangweb.jpg') no-repeat center center;
+        background-size: cover; z-index: -2; 
+    }
+    body::after {
+        content: ''; position: fixed; top: 0; left: 0; width: 100%; height: 100%;
+        background-color: rgba(255, 255, 255, 0.4); /* Lớp phủ mờ */
+        z-index: -1;
     }
 
-    #lightbox.active img {
-        transform: scale(1);
+    h1, h2, h3, .h4 { 
+        font-family: 'Playfair Display', serif; 
+        color: #1b5e20 !important; 
+    }
+    
+    /* =========================================
+       2. NAVBAR (MENU) - ĐÃ ĐỒNG BỘ
+       ========================================= */
+    .navbar {
+        font-family: 'Montserrat', sans-serif !important;
+        background: linear-gradient(180deg, rgba(31, 69, 50, 0.95) 0%, rgba(14, 46, 34, 0.95) 100%) !important;
+        border-bottom: 1px solid var(--gold-border);
+        box-shadow: 0 4px 12px rgba(0,0,0,0.6); 
+        padding: 0.8rem 1rem;
+        position: sticky; top: 0; z-index: 1000;
     }
 
-    #lightbox-close {
-        position: absolute;
-        top: 20px;
-        right: 30px;
-        color: white;
-        font-size: 40px;
-        cursor: pointer;
-        transition: color 0.3s;
+    .navbar-brand {
+        font-family: 'Dancing Script', cursive;
+        font-weight: 700; font-size: 1.8rem;
+        color: var(--gold-text) !important;
+        text-shadow: 1px 1px 2px rgba(0,0,0,0.5); 
     }
 
-    #lightbox-close:hover {
-        color: #ff5252;
+    .nav-link {
+        font-weight: 600; text-transform: uppercase;
+        font-size: 0.9rem; letter-spacing: 1px;
+        color: #e0d0b0 !important; 
+        transition: all 0.3s ease; padding: 10px 15px !important;
     }
 
-    /* --- STYLE CŨ CHO QUY TRÌNH --- */
+    .nav-link:hover, .nav-link.active {
+        color: var(--gold-text) !important; 
+        text-shadow: none; transform: translateY(-1px);
+    }
+
+    .dropdown-menu {
+        background-color: rgba(14, 46, 34, 0.95); 
+        border: 1px solid var(--gold-border);
+        font-family: 'Montserrat', sans-serif !important;
+    }
+    .dropdown-item { color: #e0d0b0 !important; }
+    .dropdown-item:hover { background-color: rgba(255, 255, 255, 0.1); color: var(--gold-text) !important; }
+
+    .navbar-toggler { border-color: var(--gold-border); }
+    .navbar-toggler-icon { background-image: url("data:image/svg+xml;charset=utf8,%3Csvg viewBox='0 0 30 30' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath stroke='rgba(255, 193, 7, 1)' stroke-width='2' stroke-linecap='round' stroke-miterlimit='10' d='M4 7h22M4 15h22M4 23h22'/%3E%3C/svg%3E"); }
+
+    /* Language Switcher */
+    .language-group { gap: 10px; }
+    .lang-box {
+        display: flex; align-items: center; justify-content: center;
+        background-color: var(--primary-green);
+        border: 1px solid var(--gold-border);
+        border-radius: 4px; padding: 5px 10px;
+        text-decoration: none; color: #e0d0b0;
+        font-size: 0.85rem; font-weight: 600;
+        transition: all 0.3s ease;
+        font-family: 'Montserrat', sans-serif;
+    }
+    .lang-box img { width: 20px; height: auto; margin-right: 6px; }
+    .lang-box:hover { background-color: var(--gold-text); color: var(--primary-green); }
+
+    /* =========================================
+       3. NỘI DUNG TRANG (GIỮ NGUYÊN)
+       ========================================= */
+    .section-content {
+        background-color: rgba(255, 255, 255, 0.95); /* Nền trắng mờ */
+        padding: 40px; border-radius: 15px;
+        box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+        margin-top: 30px; margin-bottom: 30px;
+    }
+    .text-justify { text-align: justify; }
+
+    /* Zoom Image */
+    .img-wrapper-zoom { overflow: hidden; border-radius: 10px; box-shadow: 0 4px 8px rgba(0,0,0,0.1); }
+    .img-custom { border-radius: 10px; transition: transform 0.5s ease; cursor: zoom-in; width: 100%; display: block; }
+    .img-wrapper-zoom:hover .img-custom, .card:hover .img-custom { transform: scale(1.1); }
+
+    /* Lightbox */
+    #lightbox { display: none; position: fixed; z-index: 9999; top: 0; left: 0; width: 100%; height: 100%; background-color: rgba(0, 0, 0, 0.9); justify-content: center; align-items: center; opacity: 0; transition: opacity 0.3s ease; }
+    #lightbox.active { display: flex; opacity: 1; }
+    #lightbox img { max-width: 90%; max-height: 90vh; border: 2px solid white; border-radius: 5px; box-shadow: 0 0 20px rgba(0,0,0,0.5); transform: scale(0.8); transition: transform 0.3s ease; }
+    #lightbox.active img { transform: scale(1); }
+    #lightbox-close { position: absolute; top: 20px; right: 30px; color: white; font-size: 40px; cursor: pointer; transition: color 0.3s; }
+    #lightbox-close:hover { color: #ff5252; }
+
+    /* Timeline */
     .handmade-font { font-family: 'Patrick Hand', cursive; }
     .step-timeline { position: relative; padding-left: 20px; border-left: 2px dashed #81c784; }
     .step-item { position: relative; padding-bottom: 40px; padding-left: 20px; }
     .step-marker { position: absolute; left: -29px; top: 0; width: 20px; height: 20px; background-color: #2e7d32; border: 4px solid #f1f8e9; border-radius: 50%; }
     .step-number { font-family: 'Patrick Hand', cursive; font-size: 1.5rem; color: #2e7d32; font-weight: bold; text-decoration: underline; }
 
+    /* =========================================
+       4. FOOTER (ĐỒNG BỘ MÀU)
+       ========================================= */
+    footer {
+        font-family: 'Montserrat', sans-serif !important;
+        background-color: rgba(14, 46, 34, 0.95) !important; 
+        color: #e0d0b0 !important; 
+        border-top: 1px solid var(--gold-border);
+        margin-top: auto; padding-top: 40px; padding-bottom: 20px;
+    }
+    footer h5 { color: var(--gold-text); font-weight: 700; font-family: 'Playfair Display', serif; }
+    footer a { color: #e0d0b0; text-decoration: none; transition: 0.3s; }
+    footer a:hover { color: var(--gold-text); text-decoration: underline; }
+    footer i { color: var(--gold-text); }
   </style>
 </head>
 <body>
@@ -127,56 +166,55 @@
     <img id="lightbox-img" src="" alt="Full Screen Image">
 </div>
 
-<nav class="navbar navbar-expand-lg navbar-dark sticky-top" style="background-color: #2e7d32; z-index: 1030;"> 
+<nav class="navbar navbar-expand-lg sticky-top">
   <div class="container">
-    <a class="navbar-brand" href="index_en.html"><i class="fas fa-leaf me-2"></i> Trà Đại Từ</a>
+    <a class="navbar-brand" href="index.html"><i class="fas fa-leaf me-2"></i> Trà Đại Từ</a>
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
       <span class="navbar-toggler-icon"></span>
     </button>
     <div class="collapse navbar-collapse" id="navbarNav">
-      <ul class="navbar-nav ms-auto"> 
-        <li class="nav-item"><a class="nav-link" href="index_en.html">Trang Chủ</a></li>
+      <ul class="navbar-nav ms-auto">
+        <li class="nav-item"><a class="nav-link" href="index.html">Trang Chủ</a></li>
+        
         <li class="nav-item dropdown">
           <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown">Giới thiệu</a>
-          <ul class="dropdown-menu"> 
-            <li><a class="dropdown-item" href="gioithieuchung_en.html">Giới Thiệu Chung</a></li>
-            <li><a class="dropdown-item" href="sumenh_en.html">Sứ Mệnh</a></li>
+          <ul class="dropdown-menu">
+            <li><a class="dropdown-item" href="gioithieuchung.html">Giới Thiệu Chung</a></li>
+            <li><a class="dropdown-item" href="sumenh.html">Sứ Mệnh</a></li>
           </ul>
         </li>
+
         <li class="nav-item dropdown">
           <a class="nav-link dropdown-toggle active" href="#" role="button" data-bs-toggle="dropdown">Văn Hóa Trà</a>
-          <ul class="dropdown-menu"> 
-            <li><a class="dropdown-item active" href="tinhhoatraviet_en.html">Tinh Hoa Trà Việt</a></li>
-            <li><a class="dropdown-item" href="vanhoathuongtra_en.html">Văn Hóa Thưởng Trà</a></li>
+          <ul class="dropdown-menu">
+            <li><a class="dropdown-item active" href="tinhhoatraviet.html">Tinh Hoa Trà Việt</a></li>
+            <li><a class="dropdown-item" href="vanhoathuongtra.html">Văn Hóa Thưởng Trà</a></li>
           </ul>
         </li>
-        <li class="nav-item"><a class="nav-link" href="sanphamnoibat_en.html">Sản Phẩm</a></li>
+
+        <li class="nav-item"><a class="nav-link" href="sanphamnoibat.html">Sản Phẩm</a></li>
+
         <li class="nav-item dropdown">
           <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown">Trải Nghiệm</a>
-          <ul class="dropdown-menu"> 
-             <li><a class="dropdown-item" href="dulichvatrainghiem_en.html">Du Lịch</a></li>
-             <li><a class="dropdown-item" href="thuvienmedia_en.html">Media</a></li>
+          <ul class="dropdown-menu">
+              <li><a class="dropdown-item" href="dulichvatrainghiem.html">Du Lịch</a></li>
+              <li><a class="dropdown-item" href="thuvienmedia.html">Media</a></li>
           </ul>
         </li>
-        <li class="nav-item"><a class="nav-link" href="lienhe_en.html">Liên Hệ</a></li>
+
+        <li class="nav-item"><a class="nav-link" href="lienhe.html">Liên Hệ</a></li>
+        
         <div class="language-group d-flex align-items-center ms-3">
-    
-    <a href="tinhhoatraviet.html" class="lang-box" title="Tiếng Việt">
-        <img src="https://flagcdn.com/w40/vn.png" alt="Vietnam Flag">
-        <span>VN</span>
-    </a>
-    
-    <a href="tinhhoatraviet_en.html" class="lang-box" title="English">
-        <img src="https://flagcdn.com/w40/gb.png" alt="UK Flag">
-        <span>EN</span>
-    </a>
-
-    <a href="tinhhoatraviet_china.html" class="lang-box" title="Chinese">
-        <img src="https://flagcdn.com/w40/cn.png" alt="China Flag">
-        <span>CN</span>
-    </a>
-
-</div>
+            <a href="tinhhoatraviet.html" class="lang-box" title="Tiếng Việt">
+                <img src="https://flagcdn.com/w40/vn.png" alt="Vietnam Flag"><span>VN</span>
+            </a>
+            <a href="tinhhoatraviet_en.html" class="lang-box" title="English">
+                <img src="https://flagcdn.com/w40/gb.png" alt="UK Flag"><span>EN</span>
+            </a>
+            <a href="tinhhoatraviet_china.html" class="lang-box" title="Chinese">
+                <img src="https://flagcdn.com/w40/cn.png" alt="China Flag"><span>CN</span>
+            </a>
+        </div>
       </ul>
     </div>
   </div>
@@ -233,7 +271,7 @@
                     
                     <div class="card-body p-4 text-center">
                         <p class="card-text lead mb-4 text-muted fst-italic">Bí quyết tạo nên hương vị "Tiền chát, hậu ngọt" trứ danh của các nghệ nhân.</p>
-                        <a href="nghethuatsaotra_en.html" class="btn btn-lg btn-outline-success">Xem Ngay <i class="fas fa-arrow-right ms-1"></i></a>
+                        <a href="nghethuatsaotra.html" class="btn btn-lg btn-outline-success">Xem Ngay <i class="fas fa-arrow-right ms-1"></i></a>
                     </div>
                 </div>
             </div>
@@ -249,7 +287,7 @@
             <div class="card-body">
                 <h3 class="h4 text-success">1. Quy Trình Trồng</h3>
                 <p>Khâu chuẩn bị đất, lựa chọn giống chè (Trung du, Lai F1...) và kỹ thuật trồng đảm bảo mật độ thích hợp là nền tảng cho cây chè phát triển bền vững.</p>
-                <a href="trongvachamsoc_en.html" class="btn btn-outline-success btn-sm w-50 mb-3">Xem Chi Tiết <i class="fas fa-arrow-right ms-1"></i></a>
+                <a href="trongvachamsoc.html" class="btn btn-outline-success btn-sm w-50 mb-3">Xem Chi Tiết <i class="fas fa-arrow-right ms-1"></i></a>
             </div>
             <img src="images/anhtrongvachamsoc.jpg" class="card-img-bottom img-custom" style="height: 350px; object-fit: cover;" alt="Quy trình trồng">
         </div>
@@ -340,9 +378,18 @@
   </section>
 </div>
 
-<footer class="text-center py-4" style="background-color: #2e7d32; color: white;">
+<footer class="text-center">
   <div class="container">
-    <p class="mb-0">© 2025 Không Gian Văn Hóa Trà Đại Từ.</p>
+    <div class="row">
+      <div class="col-md-4 text-start mb-3">
+        <h5 class="text-uppercase border-bottom pb-2 d-inline-block" style="border-color: var(--gold-border) !important;">Trà Đại Từ</h5>
+        <p class="mt-2">Dự án STEM quảng bá văn hóa trà Việt Nam, mang tinh hoa đất Việt đến mọi nhà.</p>
+      </div>
+      <div class="col-md-4 mb-3">
+       
+    </div>
+    <hr style="opacity: 0.2; border-color: var(--gold-border);">
+    <p class="mb-0">&copy; 2025 Không Gian Văn Hóa Trà Đại Từ.</p> 
   </div>
 </footer>
 
@@ -399,5 +446,3 @@
 
 </body>
 </html>
-
-
