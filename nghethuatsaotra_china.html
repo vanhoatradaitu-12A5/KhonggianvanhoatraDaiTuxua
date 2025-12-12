@@ -4,21 +4,32 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>炒茶艺术 - 大慈茶</title>
-  
+   
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
   <link href="css/styles.css" rel="stylesheet">
+  
+  <style>
+      /* Thêm CSS inline để thẻ Card đẹp hơn khi không có ảnh */
+      .card {
+          transition: transform 0.3s ease, box-shadow 0.3s ease;
+      }
+      .card:hover {
+          transform: translateY(-5px);
+          box-shadow: 0 10px 20px rgba(0,0,0,0.1) !important;
+      }
+  </style>
 </head>
 <body>
 
 <nav class="navbar navbar-expand-lg navbar-dark bg-dark sticky-top"> 
   <div class="container">
     <a class="navbar-brand" href="index_china.html"><i class="fas fa-leaf me-2"></i> 大慈茶</a>
-    
+     
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
       <span class="navbar-toggler-icon"></span>
     </button>
-    
+     
     <div class="collapse navbar-collapse" id="navbarNav">
       <ul class="navbar-nav ms-auto">
         <li class="nav-item"><a class="nav-link" href="index_china.html">首页</a></li>
@@ -29,7 +40,7 @@
             <li><a class="dropdown-item" href="sumenh_china.html">使命</a></li>
           </ul>
         </li>
-        
+         
         <li class="nav-item dropdown">
           <a class="nav-link dropdown-toggle active" href="#" role="button" data-bs-toggle="dropdown">茶文化</a>
           <ul class="dropdown-menu">
@@ -39,30 +50,30 @@
         </li>
 
         <li class="nav-item"><a class="nav-link" href="sanphamnoibat_china.html">产品</a></li>
-        
+         
         <li class="nav-item dropdown">
           <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown">体验</a>
           <ul class="dropdown-menu">
-             <li><a class="dropdown-item" href="dulichvatrainghiem_china.html">旅游</a></li>
-             <li><a class="dropdown-item" href="thuvienmedia_china.html">媒体中心</a></li>
+              <li><a class="dropdown-item" href="dulichvatrainghiem_china.html">旅游</a></li>
+              <li><a class="dropdown-item" href="thuvienmedia_china.html">媒体中心</a></li>
           </ul>
         </li>
         <li class="nav-item"><a class="nav-link" href="lienhe_china.html">联系我们</a></li>
         <div class="language-group d-flex align-items-center ms-3">
-    
+     
     <a href="nghethuatsaotra.html" class="lang-box" title="Tiếng Việt">
-        <img src="https://flagcdn.com/w40/vn.png" alt="Vietnam Flag">
-        <span>VN</span>
+        <img src="https://flagcdn.com/w40/vn.png" alt="Vietnam Flag" width="30">
+        <span class="text-white ms-1" style="font-size: 0.8rem;">VN</span>
     </a>
-    
-    <a href="nghethuatsaotra_en.html" class="lang-box" title="English">
-        <img src="https://flagcdn.com/w40/gb.png" alt="UK Flag">
-        <span>EN</span>
+     
+    <a href="nghethuatsaotra_en.html" class="lang-box mx-2" title="English">
+        <img src="https://flagcdn.com/w40/gb.png" alt="UK Flag" width="30">
+        <span class="text-white ms-1" style="font-size: 0.8rem;">EN</span>
     </a>
 
     <a href="nghethuatsaotra_china.html" class="lang-box" title="Chinese">
-        <img src="https://flagcdn.com/w40/cn.png" alt="China Flag">
-        <span>CN</span>
+        <img src="https://flagcdn.com/w40/cn.png" alt="China Flag" width="30">
+        <span class="text-white ms-1" style="font-size: 0.8rem;">CN</span>
     </a>
 
 </div>
@@ -79,7 +90,7 @@
 </header>
 
 <section class="container my-5 fade-in">
-    
+     
     <div class="mb-4">
         <a href="tinhhoatraviet_china.html" class="btn btn-outline-secondary">
             <i class="fas fa-arrow-left me-2"></i> 返回“越南茶精粹”
@@ -108,64 +119,36 @@
     <div class="row g-4">
         <div class="col-lg-6">
             <div class="card h-100 border-0 shadow-sm">
-                <div class="row g-0 h-100">
-                    <div class="col-md-4">
-                        <img src="https://images.unsplash.com/photo-1594488513576-96b4b44d3721?q=80&w=1000&auto=format&fit=crop" class="img-fluid rounded-start h-100 object-fit-cover" alt="Ốp chè">
-                    </div>
-                    <div class="col-md-8">
-                        <div class="card-body">
-                            <h4 class="card-title text-success"><span class="badge bg-success me-2">1</span> Ốp Chè (Diệt Men)</h4>
-                            <p class="card-text small">Đây là công đoạn quan trọng nhất để giữ màu xanh. Chè tươi hái về được đưa vào chảo gang hoặc tôn quay nóng rực (250-300°C) trong thời gian ngắn để diệt men oxy hóa, giúp lá chè mềm, dẻo và giữ nguyên màu xanh diệp lục.</p>
-                        </div>
-                    </div>
+                <div class="card-body">
+                    <h4 class="card-title text-success"><span class="badge bg-success me-2">1</span> Ốp Chè (Diệt Men)</h4>
+                    <p class="card-text small text-justify">Đây là công đoạn quan trọng nhất để giữ màu xanh. Chè tươi hái về được đưa vào chảo gang hoặc tôn quay nóng rực (250-300°C) trong thời gian ngắn để diệt men oxy hóa, giúp lá chè mềm, dẻo và giữ nguyên màu xanh diệp lục.</p>
                 </div>
             </div>
         </div>
 
         <div class="col-lg-6">
             <div class="card h-100 border-0 shadow-sm">
-                <div class="row g-0 h-100">
-                    <div class="col-md-4">
-                        <img src="https://images.unsplash.com/photo-1550505294-850942475e79?q=80&w=1000&auto=format&fit=crop" class="img-fluid rounded-start h-100 object-fit-cover" alt="Vò chè">
-                    </div>
-                    <div class="col-md-8">
-                        <div class="card-body">
-                            <h4 class="card-title text-success"><span class="badge bg-success me-2">2</span> Vò Chè</h4>
-                            <p class="card-text small">Sau khi ốp, chè được đem ra vò. Người nghệ nhân khéo léo vò để cánh chè xoăn chặt lại thành hình móc câu đặc trưng mà không làm nát lá. Quá trình này giúp làm vỡ các tế bào lá, để khi pha, tinh chất trà dễ dàng hòa tan vào nước.</p>
-                        </div>
-                    </div>
+                <div class="card-body">
+                    <h4 class="card-title text-success"><span class="badge bg-success me-2">2</span> Vò Chè</h4>
+                    <p class="card-text small text-justify">Sau khi ốp, chè được đem ra vò. Người nghệ nhân khéo léo vò để cánh chè xoăn chặt lại thành hình móc câu đặc trưng mà không làm nát lá. Quá trình này giúp làm vỡ các tế bào lá, để khi pha, tinh chất trà dễ dàng hòa tan vào nước.</p>
                 </div>
             </div>
         </div>
 
         <div class="col-lg-6">
             <div class="card h-100 border-0 shadow-sm">
-                <div class="row g-0 h-100">
-                    <div class="col-md-4">
-                        <img src="https://images.unsplash.com/photo-1596716766432-843de58988a6?q=80&w=1000&auto=format&fit=crop" class="img-fluid rounded-start h-100 object-fit-cover" alt="Sao khô">
-                    </div>
-                    <div class="col-md-8">
-                        <div class="card-body">
-                            <h4 class="card-title text-success"><span class="badge bg-success me-2">3</span> Sao Khô</h4>
-                            <p class="card-text small">Chè sau khi vò được đưa lại vào chảo để sao khô. Lúc này lửa phải được kiểm soát cực kỳ cẩn thận, giảm dần nhiệt độ. Người sao chè phải đảo đều tay liên tục để chè khô đều, không bị cháy khét, nước chè sau này mới trong và xanh.</p>
-                        </div>
-                    </div>
+                <div class="card-body">
+                    <h4 class="card-title text-success"><span class="badge bg-success me-2">3</span> Sao Khô</h4>
+                    <p class="card-text small text-justify">Chè sau khi vò được đưa lại vào chảo để sao khô. Lúc này lửa phải được kiểm soát cực kỳ cẩn thận, giảm dần nhiệt độ. Người sao chè phải đảo đều tay liên tục để chè khô đều, không bị cháy khét, nước chè sau này mới trong và xanh.</p>
                 </div>
             </div>
         </div>
 
         <div class="col-lg-6">
             <div class="card h-100 border-0 shadow-sm">
-                <div class="row g-0 h-100">
-                    <div class="col-md-4">
-                        <img src="https://images.unsplash.com/photo-1627435601361-ec25f5b1d0e5?q=80&w=1000&auto=format&fit=crop" class="img-fluid rounded-start h-100 object-fit-cover" alt="Lên hương">
-                    </div>
-                    <div class="col-md-8">
-                        <div class="card-body">
-                            <h4 class="card-title text-success"><span class="badge bg-success me-2">4</span> Đánh Hương (Lên Hương)</h4>
-                            <p class="card-text small">Công đoạn cuối cùng và tinh tế nhất. Khi chè đã khô, nghệ nhân tăng nhiệt nhẹ để đánh thức mùi hương. Đây là lúc hương cốm non nồng nàn tỏa ra. Chỉ cần quá lửa một giây, hương cốm sẽ bay mất và chè bị đỏ.</p>
-                        </div>
-                    </div>
+                <div class="card-body">
+                    <h4 class="card-title text-success"><span class="badge bg-success me-2">4</span> Đánh Hương (Lên Hương)</h4>
+                    <p class="card-text small text-justify">Công đoạn cuối cùng và tinh tế nhất. Khi chè đã khô, nghệ nhân tăng nhiệt nhẹ để đánh thức mùi hương. Đây là lúc hương cốm non nồng nàn tỏa ra. Chỉ cần quá lửa một giây, hương cốm sẽ bay mất và chè bị đỏ.</p>
                 </div>
             </div>
         </div>
@@ -197,8 +180,4 @@
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
 <script src="js/script.js"></script>
 </body>
-
-
 </html>
-
-
