@@ -10,13 +10,141 @@
   
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@700&family=Montserrat:wght@300;400;500;600&family=Patrick+Hand&family=Playfair+Display:ital,wght@0,700;1,400&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@700&family=Montserrat:wght@300;400;500;600;700&family=Playfair+Display:ital,wght@0,700;1,400&family=Patrick+Hand&display=swap" rel="stylesheet">
 
-  <link href="css/styles.css" rel="stylesheet">
+  <style>
+    /* =========================================
+       1. CÀI ĐẶT CHUNG & BIẾN MÀU SẮC (GIỐNG INDEX)
+       ========================================= */
+    :root {
+        --primary-green: #0e2e22;    
+        --gradient-top: #1f4532;     
+        --gradient-mid: #0e2e22;     
+        --gold-text: #ffc107;        
+        --gold-border: #d4af37;      
+        --gold-hover: #fff8e1;       
+        --text-dark: #333333;
+    }
+
+    html, body { height: 100%; }
+
+    /* Font chung cho thân trang là Montserrat */
+    body {
+        font-family: 'Montserrat', sans-serif;
+        color: var(--text-dark);
+        position: relative;
+        margin: 0;
+        display: flex;
+        flex-direction: column;
+    }
+
+    /* ẢNH NỀN TOÀN TRANG */
+    body::before {
+        content: ''; position: fixed; top: 0; left: 0; width: 100%; height: 100%;
+        background: url('images/nentrangweb.jpg') no-repeat center center;
+        background-size: cover; z-index: -2; 
+    }
+    body::after {
+        content: ''; position: fixed; top: 0; left: 0; width: 100%; height: 100%;
+        background-color: rgba(255, 255, 255, 0.4); /* Lớp phủ mờ */
+        z-index: -1;
+    }
+
+    h1, h2, h3, h4, h5 { font-family: 'Playfair Display', serif; color: #1b5e20; }
+    
+    /* =========================================
+       2. NAVBAR (MENU) - ĐÃ ĐỒNG BỘ
+       ========================================= */
+    .navbar {
+        font-family: 'Montserrat', sans-serif !important;
+        background: linear-gradient(180deg, rgba(31, 69, 50, 0.95) 0%, rgba(14, 46, 34, 0.95) 100%) !important;
+        border-bottom: 1px solid var(--gold-border);
+        box-shadow: 0 4px 12px rgba(0,0,0,0.6); 
+        padding: 0.8rem 1rem;
+        position: sticky; top: 0; z-index: 1000;
+    }
+
+    .navbar-brand {
+        font-family: 'Dancing Script', cursive;
+        font-weight: 700; font-size: 1.8rem;
+        color: var(--gold-text) !important;
+        text-shadow: 1px 1px 2px rgba(0,0,0,0.5); 
+    }
+
+    .nav-link {
+        font-weight: 600; text-transform: uppercase;
+        font-size: 0.9rem; letter-spacing: 1px;
+        color: #e0d0b0 !important; 
+        transition: all 0.3s ease; padding: 10px 15px !important;
+    }
+
+    .nav-link:hover, .nav-link.active {
+        color: var(--gold-text) !important; 
+        text-shadow: none; transform: translateY(-1px);
+    }
+
+    .dropdown-menu {
+        background-color: rgba(14, 46, 34, 0.95); 
+        border: 1px solid var(--gold-border);
+        font-family: 'Montserrat', sans-serif !important;
+    }
+    .dropdown-item { color: #e0d0b0 !important; }
+    .dropdown-item:hover { background-color: rgba(255, 255, 255, 0.1); color: var(--gold-text) !important; }
+
+    .navbar-toggler { border-color: var(--gold-border); }
+    .navbar-toggler-icon { background-image: url("data:image/svg+xml;charset=utf8,%3Csvg viewBox='0 0 30 30' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath stroke='rgba(255, 193, 7, 1)' stroke-width='2' stroke-linecap='round' stroke-miterlimit='10' d='M4 7h22M4 15h22M4 23h22'/%3E%3C/svg%3E"); }
+
+    /* Language Switcher */
+    .language-group { gap: 10px; }
+    .lang-box {
+        display: flex; align-items: center; justify-content: center;
+        background-color: var(--primary-green);
+        border: 1px solid var(--gold-border);
+        border-radius: 4px; padding: 5px 10px;
+        text-decoration: none; color: #e0d0b0;
+        font-size: 0.85rem; font-weight: 600;
+        transition: all 0.3s ease;
+        font-family: 'Montserrat', sans-serif;
+    }
+    .lang-box img { width: 20px; height: auto; margin-right: 6px; }
+    .lang-box:hover { background-color: var(--gold-text); color: var(--primary-green); }
+
+    /* =========================================
+       3. NỘI DUNG TRANG
+       ========================================= */
+    .section-content {
+        background-color: rgba(255, 255, 255, 0.95); /* Nền trắng mờ */
+        padding: 40px; border-radius: 15px;
+        box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+        margin-top: 30px; margin-bottom: 30px;
+    }
+    
+    .text-justify { text-align: justify; }
+    
+    .img-custom, iframe {
+        border-radius: 10px;
+        border: 2px solid white; 
+    }
+
+    /* =========================================
+       4. FOOTER (ĐỒNG BỘ INDEX)
+       ========================================= */
+    footer {
+        font-family: 'Montserrat', sans-serif !important;
+        background-color: rgba(14, 46, 34, 0.95) !important; 
+        color: #e0d0b0 !important; 
+        border-top: 1px solid var(--gold-border);
+        margin-top: auto; padding-top: 40px; padding-bottom: 20px;
+    }
+    footer h5 { color: var(--gold-text); font-weight: 700; font-family: 'Playfair Display', serif; }
+    footer a { color: #e0d0b0; text-decoration: none; transition: 0.3s; }
+    footer a:hover { color: var(--gold-text); text-decoration: underline; }
+    footer i { color: var(--gold-text); }
+  </style>
 </head>
 <body>
 
-<nav class="navbar navbar-expand-lg navbar-dark sticky-top">
+<nav class="navbar navbar-expand-lg sticky-top">
   <div class="container">
     <a class="navbar-brand" href="index_china.html"><i class="fas fa-leaf me-2"></i> 大慈茶</a>
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
@@ -40,97 +168,97 @@
           </ul>
         </li>
         <li class="nav-item"><a class="nav-link" href="sanphamnoibat_china.html">产品</a></li>
+        
         <li class="nav-item dropdown">
           <a class="nav-link active" href="#" role="button" data-bs-toggle="dropdown">体验</a>
           <ul class="dropdown-menu">
-             <li><a class="dropdown-item active" href="dulichvatrainghiem_china.html">旅游</a></li>
-             <li><a class="dropdown-item" href="thuvienmedia_china.html">媒体中心</a></li>
+              <li><a class="dropdown-item active" href="dulichvatrainghiem_china.html">旅游</a></li>
+              <li><a class="dropdown-item" href="thuvienmedia_china.html">媒体中心</a></li>
           </ul>
         </li>
+
         <li class="nav-item"><a class="nav-link" href="lienhe_china.html">联系我们</a></li>
+        
          <div class="language-group d-flex align-items-center ms-3">
-    
-    <a href="dulichvatrainghiem.html" class="lang-box" title="Tiếng Việt">
-        <img src="https://flagcdn.com/w40/vn.png" alt="Vietnam Flag">
-        <span>VN</span>
-    </a>
-    
-    <a href="dulichvatrainghiem_en.html" class="lang-box" title="English">
-        <img src="https://flagcdn.com/w40/gb.png" alt="UK Flag">
-        <span>EN</span>
-    </a>
-
-    <a href="dulichvatrainghiem_china.html" class="lang-box" title="Chinese">
-        <img src="https://flagcdn.com/w40/cn.png" alt="China Flag">
-        <span>CN</span>
-    </a>
-
-</div>
+            <a href="dulichvatrainghiem.html" class="lang-box" title="Tiếng Việt">
+                <img src="https://flagcdn.com/w40/vn.png" alt="Vietnam Flag"><span>VN</span>
+            </a>
+            <a href="dulichvatrainghiem_en.html" class="lang-box" title="English">
+                <img src="https://flagcdn.com/w40/gb.png" alt="UK Flag"><span>EN</span>
+            </a>
+            <a href="dulichvatrainghiem_china.html" class="lang-box" title="Chinese">
+                <img src="https://flagcdn.com/w40/cn.png" alt="China Flag"><span>CN</span>
+            </a>
+        </div>
       </ul>
     </div>
   </div>
 </nav>
 
-<section class="container section-content fade-in mt-5">
-  <div class="text-center mb-5">
-      <h1>旅行和经历</h1>
-      <p class="lead text-muted">探索太原大地的无尽之美</p>
-      <hr class="w-25 mx-auto">
-  </div>
+<div class="container">
+  <section class="section-content fade-in mt-5">
+    <div class="text-center mb-5">
+        <h1>旅行和经历</h1>
+        <p class="lead text-muted">探索太原大地的无尽之美</p>
+        <hr class="w-25 mx-auto" style="border-color: var(--gold-border);">
+    </div>
 
-  <div class="row mt-4">
+    <div class="row mt-4">
+      
+      <div class="col-md-6 mb-5">
+        <h2>Tour du lịch tham quan đồi chè Hoàng Nông</h2>
+        <p class="text-justify mb-3">Hòa mình vào không gian xanh bát ngát của đồi chè Cầu Đá – Hoàng Nông. Thưởng thức làn sương mai – hít căng lồng ngực không khí trong lành và lưu giữ những khoảnh khắc ‘check-in’ tuyệt đẹp.</p>
+        
+        <div class="ratio ratio-16x9 mb-3 rounded shadow overflow-hidden img-custom">
+           <video controls class="w-100 h-100" style="object-fit: cover;">
+               <source src="images/doichehoangnong.mp4" type="video/mp4">
+               Trình duyệt của bạn không hỗ trợ thẻ video.
+           </video>
+        </div>
+
+        <div class="ratio ratio-16x9 mb-3 rounded shadow overflow-hidden img-custom">
+           <video controls class="w-100 h-100" style="object-fit: cover;">
+               <source src="images/vivuchedaitu.mp4" type="video/mp4">
+               Trình duyệt của bạn không hỗ trợ thẻ video.
+           </video>
+        </div>
+      </div>
+
+      <div class="col-md-6 mb-5">
+        <h2>Tour du lịch tham quan  đồi chè Tân Linh</h2>
+        <p class="text-justify mb-3"> Bạn sẽ được hòa mình vào thiên nhiên ....</p>
+        
+        <div class="ratio ratio-16x9 mb-3 rounded shadow overflow-hidden img-custom">
+           <video controls class="w-100 h-100" style="object-fit: cover;">
+               <source src="images/doichetanlinh.mp4" type="video/mp4">
+               Trình duyệt của bạn không hỗ trợ thẻ video.
+           </video>
+        </div>
+
+        <div class="ratio ratio-16x9 mb-3 rounded shadow overflow-hidden img-custom">
+           <video controls class="w-100 h-100" style="object-fit: cover;">
+               <source src="images/doichelabang1.mp4" type="video/mp4">
+               Trình duyệt của bạn không hỗ trợ thẻ video.
+           </video>
+        </div>
+      </div>
+    </div>
     
-    <div class="col-md-6 mb-5">
-      <h2>Tour du lịch tham quan đồi chè Hoàng Nông</h2>
-      <p class="text-justify mb-3">Hòa mình vào không gian xanh bát ngát của đồi chè Cầu Đá – Hoàng Nông. Thưởng thức làn sương mai – hít căng lồng ngực không khí trong lành và lưu giữ những khoảnh khắc ‘check-in’ tuyệt đẹp.</p>
-      
-      <div class="ratio ratio-16x9 mb-3 rounded shadow overflow-hidden">
-         <video controls class="w-100 h-100" style="object-fit: cover;">
-             <source src="images/doichehoangnong.mp4" type="video/mp4">
-             Trình duyệt của bạn không hỗ trợ thẻ video.
-         </video>
-      </div>
-
-      <div class="ratio ratio-16x9 mb-3 rounded shadow overflow-hidden">
-         <video controls class="w-100 h-100" style="object-fit: cover;">
-             <source src="images/vivuchedaitu.mp4" type="video/mp4">
-             Trình duyệt của bạn không hỗ trợ thẻ video.
-         </video>
+    <div class="text-center mt-4">
+      <h3 class="mb-4">Video Giới Thiệu Tổng Quan</h3>
+      <div class="ratio ratio-16x9 mx-auto img-custom shadow">
+          <iframe width="100%" height="450" src="https://www.youtube.com/embed/_bEkTnOPn0c" title="Video Trà Đại Từ" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
       </div>
     </div>
-
-    <div class="col-md-6 mb-5">
-      <h2>Tour du lịch tham quan  đồi chè Tân Linh</h2>
-      <p class="text-justify mb-3"> Bạn sẽ được hòa mình vào thiên nhiên ....</p>
-      
-      <div class="ratio ratio-16x9 mb-3 rounded shadow overflow-hidden">
-         <video controls class="w-100 h-100" style="object-fit: cover;">
-             <source src="images/doichetanlinh.mp4" type="video/mp4">
-             Trình duyệt của bạn không hỗ trợ thẻ video.
-         </video>
-      </div>
-
-      <div class="ratio ratio-16x9 mb-3 rounded shadow overflow-hidden">
-         <video controls class="w-100 h-100" style="object-fit: cover;">
-             <source src="images/doichelabang1.mp4" type="video/mp4">
-             Trình duyệt của bạn không hỗ trợ thẻ video.
-         </video>
+    
+    <div class="text-center mt-5">
+      <h3 class="mb-4">Bản Đồ Đến Vùng Trà Đại Từ</h3>
+      <div class="ratio ratio-21x9 mx-auto border border-success border-3 rounded img-custom shadow">
+          <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3710.594685875245!2d105.65390231533956!3d21.56258798571156!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3135272830333333%3A0x123456789abcdef!2zVHLDoCDEkOG6oWkgVOG7rw!5e0!3m2!1svi!2s!4v1625000000000!5m2!1svi!2s" loading="lazy"></iframe>
       </div>
     </div>
-  </div>
-  
-  <div class="text-center mt-4">
-    <h3 class="mb-4">Video Giới Thiệu Tổng Quan</h3>
-    <iframe width="100%" height="450" src="https://www.youtube.com/embed/_bEkTnOPn0c" title="Video Trà Đại Từ" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen class="img-custom shadow"></iframe>
-  </div>
-  
-  <div class="text-center mt-5">
-    <h3 class="mb-4">Bản Đồ Đến Vùng Trà Đại Từ</h3>
-    <div class="ratio ratio-21x9 mx-auto border border-success border-3 rounded img-custom shadow">
-        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3710.594685875245!2d105.65390231533956!3d21.56258798571156!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3135272830333333%3A0x123456789abcdef!2zVHLDoCDEkOG6oWkgVOG7rw!5e0!3m2!1svi!2s!4v1625000000000!5m2!1svi!2s" loading="lazy"></iframe>
-    </div>
-  </div>
-</section>
+  </section>
+</div>
 
 <footer class="text-center">
   <div class="container">
@@ -151,7 +279,7 @@
         <p><i class="fas fa-phone me-2"></i> 0912 345 678</p>
       </div>
     </div>
-    <hr class="my-4">
+    <hr class="my-4" style="border-color: var(--gold-border);">
     <p class="mb-0">© 2025 大慈茶文化空间.</p>
   </div>
 </footer>
@@ -160,8 +288,3 @@
 <script src="js/script.js"></script>
 </body>
 </html>
-
-
-
-
-
