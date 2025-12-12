@@ -1,236 +1,247 @@
 /* =========================================
-   1. CÀI ĐẶT CHUNG & BIẾN MÀU SẮC
-   ========================================= */
+   1. CÀI ĐẶT CHUNG & BIẾN MÀU SẮC
+   ========================================= */
 :root {
-    /* --- Bảng màu trích xuất từ ảnh "Đồi chè hoàng hôn" --- */
-    
-    /* Màu xanh đậm nhất của lá trà */
-    --primary-green: #0e2e22;   
-    
-    /* Gradient cho menu */
-    --gradient-top: #1f4532;    
-    --gradient-mid: #0e2e22;    
-    
-    /* Màu cam vàng rực rỡ */
-    --gold-text: #ffc107;       
-    
-    /* Màu viền vàng nhạt hơn */
-    --gold-border: #d4af37;     
-    
-    /* Màu hover: Vàng kem */
-    --gold-hover: #fff8e1;      
-    
-    /* Màu chữ nội dung: Nâu đất đậm */
-    --text-body: #4e342e; 
-
-    /* --- Màu lớp phủ (Overlay) --- */
-    /* Màu xám đen với độ trong suốt 0.6 */
-    --overlay-color: rgba(60, 60, 60, 0.6); 
+    /* Bảng màu "Hoàng Gia" */
+    --primary-green: #1a332a;  /* Xanh rêu đậm chủ đạo */
+    --gradient-top: #2b4f3a;   /* Xanh sáng hơn */
+    --gradient-mid: #15281e;   /* Xanh tối tạo chiều sâu */
+    --gold-text: #e6c888;      /* Vàng kim loại cho chữ */
+    --gold-border: #6b5c38;    /* Vàng đồng tối cho viền */
+    --gold-hover: #fff5d7;     /* Vàng sáng khi hover */
+    --text-dark: #333333;
+    --text-light: #f4f4f4;
 }
 
 /* Reset font chữ chung */
 body {
-    font-family: 'Montserrat', sans-serif;
-    
-    /* Màu nâu */
-    color: var(--text-body); 
-    
-    /* Bỏ bóng đổ */
-    text-shadow: none; 
-    
-    position: relative;
-    min-height: 100vh;
-    margin: 0;
-    
-    /* Tăng độ dày chữ lên một chút */
-    font-weight: 600; 
-}
-
-/* --- CẤU HÌNH NỀN MẶC ĐỊNH --- */
-body::before {
-    content: '';
-    position: fixed; 
-    top: 0; left: 0; width: 100%; height: 100%;
-    
-    /* Lớp phủ màu xám đè lên ảnh nentrangweb.jpg */
-    background-image: 
-        linear-gradient(var(--overlay-color), var(--overlay-color)), 
-        url('images/nentrangweb.jpg');
-    
-    background-position: center center;
-    background-repeat: no-repeat;
-    background-size: cover;
-    
-    filter: none; 
-    z-index: -2; 
+    font-family: 'Montserrat', sans-serif;
+    color: var(--text-dark);
+    background-color: #f9f9f9;
 }
 
 /* Font cho các tiêu đề */
 h1, h2, h3, h4, h5, .navbar-brand {
-    font-family: 'Playfair Display', serif;
+    font-family: 'Playfair Display', serif;
 }
 
 /* =========================================
-   2. NAVBAR (MENU)
-   ========================================= */
+   2. NAVBAR (MENU) - PHONG CÁCH GỖ/KIM LOẠI 3D
+   ========================================= */
 .navbar {
-    background: linear-gradient(
-        180deg, 
-        rgba(31, 69, 50, 0.95) 0%,     
-        rgba(14, 46, 34, 0.95) 100%
-    ) !important;
-    
-    border-bottom: 1px solid var(--gold-border);
-    box-shadow: 0 4px 12px rgba(0,0,0,0.6); 
-    padding: 0.8rem 1rem;
-    position: sticky;
-    top: 0;
-    z-index: 1000;
+    /* Gradient tạo khối tròn như thanh gỗ/kim loại */
+    background: linear-gradient(
+        180deg, 
+        var(--gradient-top) 0%, 
+        var(--gradient-mid) 45%, 
+        var(--primary-green) 100%
+    ) !important;
+    
+    /* Viền vàng và đổ bóng */
+    border-bottom: 2px solid var(--gold-border);
+    box-shadow: 
+        inset 0 1px 5px rgba(255, 255, 255, 0.1), /* Sáng cạnh trên */
+        0 4px 12px rgba(0,0,0,0.4); /* Bóng đổ xuống trang web */
+    padding: 0.8rem 1rem;
+    position: sticky;
+    top: 0;
+    z-index: 1000;
 }
 
+/* Đường viền mờ bên trong (tạo vẻ tinh tế) */
+.navbar::after {
+    content: '';
+    position: absolute;
+    bottom: 2px; left: 0; right: 0; height: 1px;
+    background: rgba(212, 175, 55, 0.3);
+    pointer-events: none;
+}
+
+/* Logo / Tên thương hiệu */
 .navbar-brand {
-    font-family: 'Dancing Script', cursive;
-    font-weight: 700;
-    font-size: 1.8rem;
-    color: var(--gold-text) !important;
-    /* Giữ một chút bóng nhẹ cho Logo */
-    text-shadow: 1px 1px 2px rgba(0,0,0,0.5); 
+    font-family: 'Dancing Script', cursive;
+    font-weight: 700;
+    font-size: 1.8rem;
+    color: var(--gold-text) !important;
+    text-shadow: 0 2px 4px rgba(0,0,0,0.8);
 }
 
+/* Các liên kết menu (Nav Items) */
 .nav-link {
-    font-weight: 600; 
-    text-transform: uppercase;
-    font-size: 0.9rem;
-    letter-spacing: 1px;
-    color: #e0d0b0 !important; /* Màu be sáng cho menu */
-    transition: all 0.3s ease;
-    padding: 10px 15px !important;
+    font-weight: 500;
+    text-transform: uppercase;
+    font-size: 0.9rem;
+    letter-spacing: 1px;
+    color: #cbb07a !important; /* Vàng đồng nhạt */
+    transition: all 0.3s ease;
+    padding: 10px 15px !important;
 }
 
+/* Hiệu ứng Hover menu */
 .nav-link:hover, .nav-link.active {
-    color: var(--gold-text) !important; 
-    text-shadow: none;
-    transform: translateY(-1px);
+    color: var(--gold-hover) !important;
+    text-shadow: 0 0 8px rgba(230, 200, 136, 0.6);
+    transform: translateY(-1px);
 }
 
+/* Dropdown Menu */
 .dropdown-menu {
-    background-color: rgba(14, 46, 34, 0.95); 
-    border: 1px solid var(--gold-border);
+    background-color: var(--primary-green);
+    border: 1px solid var(--gold-border);
+    border-radius: 0 0 8px 8px;
+    margin-top: 10px;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.5);
 }
 
 .dropdown-item {
-    color: #e0d0b0 !important;
-    text-shadow: none; 
+    color: #cbb07a !important;
+    font-family: 'Montserrat', sans-serif;
+    font-size: 0.9rem;
+    padding: 10px 20px;
+    transition: all 0.2s;
 }
 
 .dropdown-item:hover {
-    background-color: rgba(255, 255, 255, 0.1);
-    color: var(--gold-text) !important;
+    background-color: rgba(255, 255, 255, 0.05);
+    color: var(--gold-hover) !important;
+    padding-left: 25px; /* Hiệu ứng đẩy chữ sang phải */
 }
 
-/* Icon menu mobile */
-.navbar-toggler { border-color: var(--gold-border); }
+/* Nút Toggler trên Mobile */
+.navbar-toggler {
+    border-color: var(--gold-border);
+}
 .navbar-toggler-icon {
-    background-image: url("data:image/svg+xml;charset=utf8,%3Csvg viewBox='0 0 30 30' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath stroke='rgba(255, 193, 7, 1)' stroke-width='2' stroke-linecap='round' stroke-miterlimit='10' d='M4 7h22M4 15h22M4 23h22'/%3E%3C/svg%3E");
+    background-image: url("data:image/svg+xml;charset=utf8,%3Csvg viewBox='0 0 30 30' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath stroke='rgba(230, 200, 136, 1)' stroke-width='2' stroke-linecap='round' stroke-miterlimit='10' d='M4 7h22M4 15h22M4 23h22'/%3E%3C/svg%3E");
 }
 
 /* =========================================
-   3. HERO SECTION (BANNER)
-   ========================================= */
+  /* =========================================
+   3. HERO SECTION (BANNER) - ĐÃ SỬA LỖI
+   ========================================= */
 .hero {
-    background: transparent; 
-    width: 100%;
-    padding-bottom: 5%; 
-    position: relative;
-    z-index: 1; 
+    /* Thay đường dẫn ảnh của bạn vào đây */
+    background: url('../images/banner7.jpg'); 
+    
+    /* 1. Xử lý ảnh tự động điều chỉnh */
+    background-position: center center;
+    background-repeat: no-repeat;
+    background-size: cover; /* Ảnh phủ kín khung */
+    
+    /* 2. Kỹ thuật Aspect Ratio: 
+       Giúp banner tự chỉnh độ cao theo độ rộng.
+       Nếu ảnh của bạn tỉ lệ 16:9, hãy để 56.25%.
+       Nếu ảnh dài và dẹt (ví dụ 1920x800), hãy để khoảng 40-45%.
+    */
+    width: 100%;
+    height: 0;
+    padding-bottom: 45%; /* <-- CHỈNH SỐ NÀY để banner cao/thấp theo ý muốn */
+    
+    position: relative;
+    
+    /* 3. Xử lý menu không lấn vào banner */
+    margin-top: 0; /* Đặt về 0 để nằm tách biệt dưới menu */
 }
 
+/* Nội dung chữ/nút bấm nằm trên banner */
+.hero-content {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    text-align: center;
+    width: 100%;
+}
+
+/* Mobile: Tăng chiều cao lên chút để dễ nhìn hơn */
+@media (max-width: 768px) {
+    .hero {
+        padding-bottom: 70%; /* Trên điện thoại cho banner cao hơn chút */
+    }
+}
 /* =========================================
-   4. NÚT BẤM (BUTTONS)
-   ========================================= */
+   4. NÚT BẤM (BUTTONS)
+   ========================================= */
 .btn-custom {
-    background-color: rgba(14, 46, 34, 0.9); 
-    color: var(--gold-text);
-    border-radius: 50px;
-    padding: 12px 45px;
-    font-family: 'Montserrat', sans-serif;
-    font-weight: 700;
-    border: 2px solid var(--gold-text);
-    box-shadow: none; 
+    background-color: rgba(26, 51, 42, 0.8); /* Thêm nền mờ để nút rõ hơn trên ảnh */
+    color: var(--gold-text);
+    border-radius: 50px;
+    padding: 12px 45px;
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 600;
+    font-size: 1.1rem;
+    border: 2px solid var(--gold-text);
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.3);
+    text-transform: uppercase;
+    backdrop-filter: blur(5px); /* Hiệu ứng mờ nền sau nút */
 }
 
 .btn-custom:hover {
-    background-color: var(--gold-text); 
-    color: var(--primary-green); 
-    border-color: var(--gold-hover);
-    box-shadow: none; 
-}
-
-/* Nút "Xem chi tiết" (btn-outline-success) */
-.btn-outline-success {
-    color: var(--text-body) !important; 
-    border-color: var(--text-body) !important; 
-    background-color: rgba(255,255,255,0.4); 
-    text-shadow: none;
-    font-weight: 700;
-}
-.btn-outline-success:hover {
-    background-color: var(--text-body) !important;
-    border-color: var(--text-body) !important;
-    color: #fff !important; 
+    background-color: var(--gold-text);
+    border-color: var(--gold-text);
+    color: var(--primary-green);
+    transform: translateY(-3px);
+    box-shadow: 0 6px 20px rgba(230, 200, 136, 0.4);
 }
 
 /* =========================================
-   5. CÁC THÀNH PHẦN KHÁC
-   ========================================= */
-.fade-in { animation: fadeIn 1.5s ease-out; }
+   5. CÁC THÀNH PHẦN KHÁC (SECTION, FOOTER)
+   ========================================= */
+.fade-in {
+    animation: fadeIn 1.5s ease-out;
+}
 @keyframes fadeIn {
-    from { opacity: 0; transform: translateY(30px); }
-    to { opacity: 1; transform: translateY(0); }
+    from { opacity: 0; transform: translateY(30px); }
+    to { opacity: 1; transform: translateY(0); }
 }
 
 .img-custom img {
-    height: 450px;
-    object-fit: cover;
-    border-radius: 8px;
-    border: none; 
+    height: 450px;
+    object-fit: cover;
+    border-radius: 8px;
 }
 .img-custom {
-    box-shadow: none; 
+    box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+    border: 2px solid #fff;
 }
 
-/* Tiêu đề H2 */
 h2 {
-    color: var(--gold-text); 
-    font-weight: 800;
-    margin-bottom: 1rem;
-    text-shadow: none;
-    letter-spacing: 1px;
-}
-
-/* Đoạn text mô tả đặc biệt */
-.lead.text-muted {
-    color: var(--text-body) !important; 
-    font-style: italic;
-    font-weight: 600;
-    text-shadow: none; 
+    color: var(--primary-green);
+    font-weight: 700;
+    margin-bottom: 1rem;
 }
 
 /* Footer */
 footer {
-    background-color: rgba(10, 30, 20, 0.95); 
-    color: #ccc;
-    border-top: 1px solid var(--gold-border);
-    margin-top: 50px;
+    background-color: var(--primary-green);
+    color: #e0e0e0;
+    border-top: 3px solid var(--gold-border);
 }
 
 footer h5 {
-    color: var(--gold-text);
-    text-shadow: none;
+    font-weight: 700;
+    color: var(--gold-text);
+    margin-bottom: 20px;
+    font-family: 'Playfair Display', serif;
+    letter-spacing: 1px;
 }
 
-/* =========================================
-   6. LANGUAGE SWITCHER (MỚI THÊM)
+footer a {
+    color: #b0b0b0;
+    transition: color 0.3s;
+}
+
+footer a:hover {
+    color: var(--gold-hover);
+    text-decoration: none;	
+}
+
+footer hr {
+    opacity: 0.3;
+    border-color: var(--gold-text);
+}
+6. LANGUAGE SWITCHER (MỚI THÊM)
    ========================================= */
 /* Khung bao quanh các nút ngôn ngữ */
 .language-group {
@@ -273,14 +284,13 @@ footer h5 {
     transform: translateY(-2px);        /* Nổi lên nhẹ */
 }
 
-/* --- Responsive cho Mobile --- */
-/* Khi màn hình nhỏ (dưới 991px), chỉnh lại để không bị dính */
+/* Xử lý hiển thị trên Mobile cho các phần khác */
 @media (max-width: 991px) {
-    .language-group {
-        margin-top: 15px;      /* Cách menu chính ra một chút */
-        margin-left: 0 !important; /* Bỏ margin trái */
-        justify-content: flex-start; /* Căn trái */
-    }
-}  
-
-
+    .navbar-collapse {
+        background-color: var(--primary-green);
+        padding: 20px;
+        margin-top: 10px;
+        border-radius: 10px;
+        border: 1px solid var(--gold-border);
+    }
+}
