@@ -296,47 +296,52 @@ footer hr {
 }
 
 /* =========================================
-   6. LANGUAGE SWITCHER (MỚI THÊM)
-   ========================================= */
+/* =========================================
+   6. LANGUAGE SWITCHER (Cập nhật màu nền)
+   ========================================= */
 /* Khung bao quanh các nút ngôn ngữ */
 .language-group {
-    gap: 10px; /* Khoảng cách giữa các ô */
+    gap: 10px;
 }
 
 /* Style cho từng ô ngôn ngữ */
 .lang-box {
-    display: flex;              
-    align-items: center;        
-    justify-content: center;    
-     
-    border: 1px solid var(--gold-border); 
-    border-radius: 4px;         
-    padding: 5px 10px;          
-     
-    text-decoration: none;      
-    color: #e0d0b0;             
-    font-size: 0.85rem;         
-    font-weight: 600;
-     
-    background-color: rgba(0, 0, 0, 0.2); 
-    transition: all 0.3s ease;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    /* ĐÃ CẬP NHẬT: Sử dụng màu Xanh rêu đậm chủ đạo (primary-green) để giống màu nền menu */
+    background-color: var(--primary-green);
+
+    /* Viền vàng kim 1px */
+    border: 1px solid var(--gold-border);
+    border-radius: 4px;
+    padding: 5px 10px;
+
+    text-decoration: none;
+    color: #e0d0b0; /* Màu chữ vàng nhạt */
+    font-size: 0.85rem;
+    font-weight: 600;
+
+    transition: all 0.3s ease;
+    box-shadow: 0 1px 3px rgba(0,0,0,0.3);
 }
 
 /* Style cho hình lá cờ */
 .lang-box img {
-    width: 20px;       
-    height: auto;
-    margin-right: 6px; 
-    border-radius: 2px;
-    box-shadow: 0 0 2px rgba(0,0,0,0.5);
+    width: 20px;
+    height: auto;
+    margin-right: 6px;
+    border-radius: 2px;
+    box-shadow: 0 0 2px rgba(0,0,0,0.5);
 }
 
 /* Hiệu ứng khi di chuột vào (Hover) */
 .lang-box:hover {
-    background-color: var(--gold-text); 
-    color: var(--primary-green);        
-    border-color: var(--gold-hover);
-    transform: translateY(-2px);        
+    background-color: var(--gold-text);
+    color: var(--primary-green);
+    border-color: var(--gold-hover);
+    transform: translateY(-2px);
 }
 
 /* Xử lý hiển thị trên Mobile cho các phần khác */
@@ -349,3 +354,4 @@ footer hr {
         border: 1px solid var(--gold-border);
     }
 }
+
