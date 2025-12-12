@@ -1,513 +1,394 @@
 <!DOCTYPE html>
 <html lang="vi">
+
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Tinh Hoa Trà Việt - Trà Đại Từ</title>
-  
-  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
-  
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@700&family=Montserrat:wght@300;400;500;600;700&family=Playfair+Display:ital,wght@0,700;1,400&family=Patrick+Hand&display=swap" rel="stylesheet">
-  
-  <style>
-    /* =========================================
-       1. CÀI ĐẶT CHUNG & BIẾN MÀU SẮC (GIỐNG HỆT INDEX)
-       ========================================= */
-    :root {
-        --primary-green: #0e2e22;    
-        --gradient-top: #1f4532;     
-        --gradient-mid: #0e2e22;     
-        --gold-text: #ffc107;        
-        --gold-border: #d4af37;      
-        --gold-hover: #fff8e1;       
-        --text-dark: #333333;
-    }
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Trang Chủ - Trà Đại Từ</title>
+  
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+  
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@700&family=Montserrat:wght@300;400;500;600;700&family=Playfair+Display:ital,wght@0,700;1,400&display=swap" rel="stylesheet">
 
-    /* Reset font chữ chung */
-    html, body {
-        height: 100%; 
-    }
+  <style>
+    /* =========================================
+       1. CÀI ĐẶT CHUNG & BIẾN MÀU SẮC
+       ========================================= */
+    :root {
+        /* --- Bảng màu --- */
+        --primary-green: #0e2e22;   
+        --gradient-top: #1f4532;    
+        --gradient-mid: #0e2e22;    
+        --gold-text: #ffc107;       
+        --gold-border: #d4af37;     
+        --gold-hover: #fff8e1;      
+        --text-body: #4e342e; /* Màu chữ nội dung: Nâu đất đậm */
+    }
 
-    body {
-        font-family: 'Montserrat', sans-serif;
-        color: var(--text-dark);
-        position: relative;
-        margin: 0;
-        display: flex;
-        flex-direction: column;
-    }
+    /* Reset font chữ chung */
+    html, body {
+        height: 100%; /* Cần thiết để footer chạm đáy */
+    }
 
-    /* ẢNH NỀN TOÀN TRANG (GIỐNG INDEX) */
-    body::before {
-        content: '';
-        position: fixed; 
-        top: 0; left: 0; width: 100%; height: 100%;
-        background: url('images/nentrangweb.jpg') no-repeat center center;
-        background-size: cover;
-        z-index: -2; 
-    }
+    body {
+        font-family: 'Montserrat', sans-serif;
+        color: var(--text-body); 
+        text-shadow: none; 
+        position: relative;
+        margin: 0;
+        font-weight: 600; 
+        
+        /* Cấu trúc Flexbox để đẩy Footer */
+        display: flex;
+        flex-direction: column;
+    }
 
-    /* Lớp phủ mờ nhẹ để chữ dễ đọc */
-    body::after {
-        content: '';
-        position: fixed;
-        top: 0; left: 0; width: 100%; height: 100%;
-        background-color: rgba(255, 255, 255, 0.4); 
-        z-index: -1;
-    }
+    /* --- CẤU HÌNH NỀN MẶC ĐỊNH --- */
+    body::before {
+        content: '';
+        position: fixed; 
+        top: 0; left: 0; width: 100%; height: 100%;
+        background: url('images/nentrangweb.jpg') no-repeat center center;
+        background-size: cover;
+        filter: none; 
+        z-index: -2; 
+    }
 
-    /* Font tiêu đề */
-    h1, h2, h3, h4, h5, .navbar-brand {
-        font-family: 'Playfair Display', serif;
-    }
+    /* Font cho các tiêu đề */
+    h1, h2, h3, h4, h5, .navbar-brand {
+        font-family: 'Playfair Display', serif;
+    }
 
-    /* =========================================
-       2. NAVBAR (MENU) - COPY TỪ INDEX.HTML
-       ========================================= */
-    .navbar {
-        /* Gradient xanh rêu đậm */
-        background: linear-gradient(
-            180deg, 
-            rgba(31, 69, 50, 0.95) 0%,     
-            rgba(14, 46, 34, 0.95) 100%
-        ) !important;
-        
-        border-bottom: 1px solid var(--gold-border);
-        box-shadow: 0 4px 12px rgba(0,0,0,0.6); 
-        padding: 0.8rem 1rem;
-        position: sticky;
-        top: 0;
-        z-index: 1000;
-    }
+    /* =========================================
+       2. NAVBAR (MENU) - ĐÃ CHỈNH SỬA ĐỂ NHẬN MÀU
+       ========================================= */
+    .navbar {
+        /* Dùng gradient từ CSS của bạn */
+        background: linear-gradient(
+            180deg, 
+            rgba(31, 69, 50, 0.95) 0%,    
+            rgba(14, 46, 34, 0.95) 100%
+        ) !important;
+        
+        border-bottom: 1px solid var(--gold-border);
+        box-shadow: 0 4px 12px rgba(0,0,0,0.6); 
+        padding: 0.8rem 1rem;
+        /* Sticky top giữ nguyên */
+        position: sticky;
+        top: 0;
+        z-index: 1000;
+    }
 
-    .navbar-brand {
-        font-family: 'Dancing Script', cursive;
-        font-weight: 700;
-        font-size: 1.8rem;
-        color: var(--gold-text) !important;
-        text-shadow: 1px 1px 2px rgba(0,0,0,0.5); 
-    }
+    .navbar-brand {
+        font-family: 'Dancing Script', cursive;
+        font-weight: 700;
+        font-size: 1.8rem;
+        color: var(--gold-text) !important;
+        text-shadow: 1px 1px 2px rgba(0,0,0,0.5); 
+    }
 
-    .nav-link {
-        font-weight: 600; 
-        text-transform: uppercase;
-        font-size: 0.9rem;
-        letter-spacing: 1px;
-        color: #e0d0b0 !important; /* Màu be sáng */
-        transition: all 0.3s ease;
-        padding: 10px 15px !important;
-    }
+    .nav-link {
+        font-weight: 600; 
+        text-transform: uppercase;
+        font-size: 0.9rem;
+        letter-spacing: 1px;
+        color: #e0d0b0 !important; /* Màu be sáng */
+        transition: all 0.3s ease;
+        padding: 10px 15px !important;
+    }
 
-    .nav-link:hover, .nav-link.active {
-        color: var(--gold-text) !important; 
-        text-shadow: none;
-        transform: translateY(-1px);
-    }
+    .nav-link:hover, .nav-link.active {
+        color: var(--gold-text) !important; 
+        text-shadow: none;
+        transform: translateY(-1px);
+    }
 
-    .dropdown-menu {
-        background-color: rgba(14, 46, 34, 0.95); 
-        border: 1px solid var(--gold-border);
-    }
+    .dropdown-menu {
+        background-color: rgba(14, 46, 34, 0.95); 
+        border: 1px solid var(--gold-border);
+    }
 
-    .dropdown-item {
-        color: #e0d0b0 !important;
-    }
+    .dropdown-item {
+        color: #e0d0b0 !important;
+        text-shadow: none; 
+    }
 
-    .dropdown-item:hover {
-        background-color: rgba(255, 255, 255, 0.1);
-        color: var(--gold-text) !important;
-    }
+    .dropdown-item:hover {
+        background-color: rgba(255, 255, 255, 0.1);
+        color: var(--gold-text) !important;
+    }
 
-    /* Icon mobile màu vàng */
-    .navbar-toggler { border-color: var(--gold-border); }
-    .navbar-toggler-icon {
-        background-image: url("data:image/svg+xml;charset=utf8,%3Csvg viewBox='0 0 30 30' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath stroke='rgba(255, 193, 7, 1)' stroke-width='2' stroke-linecap='round' stroke-miterlimit='10' d='M4 7h22M4 15h22M4 23h22'/%3E%3C/svg%3E");
-    }
+    /* Icon menu mobile - Đổi màu sang vàng */
+    .navbar-toggler { 
+        border-color: var(--gold-border); 
+    }
+    .navbar-toggler-icon {
+        background-image: url("data:image/svg+xml;charset=utf8,%3Csvg viewBox='0 0 30 30' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath stroke='rgba(255, 193, 7, 1)' stroke-width='2' stroke-linecap='round' stroke-miterlimit='10' d='M4 7h22M4 15h22M4 23h22'/%3E%3C/svg%3E");
+    }
 
-    /* CSS cho bộ chuyển đổi ngôn ngữ */
-    .language-group { gap: 10px; }
-    .lang-box {
-        display: flex; align-items: center; justify-content: center;
-        background-color: var(--primary-green);
-        border: 1px solid var(--gold-border);
-        border-radius: 4px;
-        padding: 5px 10px;
-        text-decoration: none;
-        color: #e0d0b0;
-        font-size: 0.85rem; font-weight: 600;
-        transition: all 0.3s ease;
-    }
-    .lang-box img { width: 20px; height: auto; margin-right: 6px; }
-    .lang-box:hover {
-        background-color: var(--gold-text);
-        color: var(--primary-green);
-    }
+    /* =========================================
+       3. HERO SECTION (BANNER) - GIỮ NGUYÊN KÍCH THƯỚC CŨ
+       ========================================= */
+    .hero {
+        background: transparent; 
+        width: 100%;
+        /* Giữ chiều cao 550px như yêu cầu trước */
+        height: 550px; 
+        position: relative;
+        z-index: 1; 
+        overflow: hidden;
+    }
+    .hero img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+    }
 
-    /* =========================================
-       3. NỘI DUNG TRANG (GIỮ NGUYÊN)
-       ========================================= */
-    .section-content {
-        background-color: rgba(255, 255, 255, 0.95); /* Nền trắng mờ */
-        padding: 40px;
-        border-radius: 15px;
-        box-shadow: 0 5px 15px rgba(0,0,0,0.1);
-        margin-top: 30px;
-        margin-bottom: 30px;
-    }
-    
-    .text-justify { text-align: justify; }
+    /* =========================================
+       4. MAIN CONTENT & BUTTONS
+       ========================================= */
+    /* Wrapper để đẩy footer xuống đáy */
+    .main-content-wrapper {
+        flex: 1;
+    }
 
-    /* CSS cho ảnh Zoom */
-    .img-wrapper-zoom {
-        overflow: hidden; 
-        border-radius: 10px;
-        box-shadow: 0 4px 8px rgba(0,0,0,0.1);
-    }
-    .img-custom {
-        border-radius: 10px; 
-        transition: transform 0.5s ease; 
-        cursor: zoom-in; 
-        width: 100%;
-        display: block;
-    }
-    .img-wrapper-zoom:hover .img-custom, 
-    .card:hover .img-custom {
-        transform: scale(1.1); 
-    }
+    /* Hộp nội dung mờ màu trắng */
+    .section-content {
+        background-color: rgba(255, 255, 255, 0.92);
+        border-radius: 15px;
+        padding: 40px;
+        margin-top: 30px;
+        margin-bottom: 50px;
+        box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+    }
 
-    /* CSS cho Lightbox */
-    #lightbox {
-        display: none; 
-        position: fixed;
-        z-index: 9999; 
-        top: 0; left: 0; width: 100%; height: 100%;
-        background-color: rgba(0, 0, 0, 0.9); 
-        justify-content: center; align-items: center;
-        opacity: 0; transition: opacity 0.3s ease;
-    }
-    #lightbox.active { display: flex; opacity: 1; }
-    #lightbox img {
-        max-width: 90%; max-height: 90vh;
-        border: 2px solid white; border-radius: 5px;
-        box-shadow: 0 0 20px rgba(0,0,0,0.5);
-        transform: scale(0.8); transition: transform 0.3s ease;
-    }
-    #lightbox.active img { transform: scale(1); }
-    #lightbox-close {
-        position: absolute; top: 20px; right: 30px;
-        color: white; font-size: 40px; cursor: pointer;
-        transition: color 0.3s;
-    }
-    #lightbox-close:hover { color: #ff5252; }
+    /* Nút bấm Custom */
+    .btn-custom {
+        background-color: rgba(14, 46, 34, 0.9); 
+        color: var(--gold-text);
+        border-radius: 50px;
+        padding: 12px 45px;
+        font-family: 'Montserrat', sans-serif;
+        font-weight: 700;
+        border: 2px solid var(--gold-text);
+        box-shadow: none;
+        text-decoration: none;
+        display: inline-block;
+        transition: 0.3s;
+    }
 
-    /* CSS cho Timeline */
-    .handmade-font { font-family: 'Patrick Hand', cursive; }
-    .step-timeline { position: relative; padding-left: 20px; border-left: 2px dashed #81c784; }
-    .step-item { position: relative; padding-bottom: 40px; padding-left: 20px; }
-    .step-marker { position: absolute; left: -29px; top: 0; width: 20px; height: 20px; background-color: #2e7d32; border: 4px solid #f1f8e9; border-radius: 50%; }
-    .step-number { font-family: 'Patrick Hand', cursive; font-size: 1.5rem; color: #2e7d32; font-weight: bold; text-decoration: underline; }
+    .btn-custom:hover {
+        background-color: var(--gold-text); 
+        color: var(--primary-green); 
+        border-color: var(--gold-hover);
+        box-shadow: none; 
+    }
 
-    /* FOOTER (ĐỒNG BỘ INDEX) */
-    footer {
-        background-color: rgba(14, 46, 34, 0.95); 
-        color: #e0d0b0; 
-        border-top: 1px solid var(--gold-border);
-        margin-top: auto;
-        padding-top: 40px;
-        padding-bottom: 20px;
-    }
-    footer a { color: #e0d0b0; text-decoration: none; }
-    footer a:hover { color: var(--gold-text); }
-  </style>
+    /* Nút Outline Success */
+    .btn-outline-success {
+        color: var(--text-body) !important;
+        border-color: var(--text-body) !important;
+        background-color: rgba(255,255,255,0.4); 
+        text-shadow: none;
+        font-weight: 700;
+        border-radius: 50px;
+        padding: 10px 30px;
+    }
+    .btn-outline-success:hover {
+        background-color: var(--text-body) !important;
+        border-color: var(--text-body) !important;
+        color: #fff !important; 
+    }
+
+    /* Tiêu đề & Chữ */
+    h2 {
+        color: var(--gold-text); 
+        font-weight: 800;
+        margin-bottom: 1rem;
+        text-shadow: none;
+        letter-spacing: 1px;
+    }
+
+    .lead.text-muted {
+        color: var(--text-body) !important; 
+        font-style: italic;
+        font-weight: 600;
+        text-shadow: none; 
+    }
+
+    .fade-in { animation: fadeIn 1.5s ease-out; }
+    @keyframes fadeIn {
+        from { opacity: 0; transform: translateY(30px); }
+        to { opacity: 1; transform: translateY(0); }
+    }
+
+    /* =========================================
+       5. FOOTER - ĐÃ ĐỒNG BỘ MÀU
+       ========================================= */
+    footer {
+        /* Dùng đúng màu nền footer trong CSS của bạn */
+        background-color: rgba(10, 30, 20, 0.95); 
+        color: #e0d0b0; /* Chữ màu be nhạt cho dễ đọc trên nền tối */
+        border-top: 1px solid var(--gold-border);
+        padding-top: 40px;
+        padding-bottom: 20px;
+        margin-top: auto; 
+    }
+
+    footer h5 {
+        color: var(--gold-text);
+        text-shadow: none;
+        font-weight: 700;
+    }
+    
+    footer a {
+        color: #e0d0b0;
+        text-decoration: none;
+        transition: 0.3s;
+    }
+    footer a:hover {
+        color: var(--gold-text);
+        text-decoration: underline;
+    }
+    footer i {
+        color: var(--gold-text); /* Icon màu vàng */
+    }
+  </style>
+
 </head>
+
 <body>
 
-<div id="lightbox">
-    <span id="lightbox-close">&times;</span>
-    <img id="lightbox-img" src="" alt="Full Screen Image">
-</div>
-
 <nav class="navbar navbar-expand-lg sticky-top">
-  <div class="container">
-    <a class="navbar-brand" href="index.html"><i class="fas fa-leaf me-2"></i> Trà Đại Từ</a>
-    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
-      <span class="navbar-toggler-icon"></span>
-    </button>
-    <div class="collapse navbar-collapse" id="navbarNav">
-      <ul class="navbar-nav ms-auto">
-        <li class="nav-item"><a class="nav-link" href="index.html">Trang Chủ</a></li>
-        
-        <li class="nav-item dropdown">
-          <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown">Giới thiệu</a>
-          <ul class="dropdown-menu">
-            <li><a class="dropdown-item" href="gioithieuchung.html">Giới Thiệu Chung</a></li>
-            <li><a class="dropdown-item" href="sumenh.html">Sứ Mệnh</a></li>
-          </ul>
-        </li>
+  <div class="container">
+    <a class="navbar-brand" href="index.html"><i class="fas fa-leaf me-2"></i> Trà Đại Từ</a>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarNav">
+      <ul class="navbar-nav ms-auto">
+        <li class="nav-item"><a class="nav-link active" href="index.html">Trang Chủ</a></li>
+        
+        <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown">Giới thiệu</a>
+          <ul class="dropdown-menu">
+            <li><a class="dropdown-item" href="gioithieuchung.html">Giới Thiệu Chung</a></li>
+            <li><a class="dropdown-item" href="sumenh.html">Sứ Mệnh</a></li>
+          </ul>
+        </li>
 
-        <li class="nav-item dropdown">
-          <a class="nav-link dropdown-toggle active" href="#" role="button" data-bs-toggle="dropdown">Văn Hóa Trà</a>
-          <ul class="dropdown-menu">
-            <li><a class="dropdown-item active" href="tinhhoatraviet.html">Tinh Hoa Trà Việt</a></li>
-            <li><a class="dropdown-item" href="vanhoathuongtra.html">Văn Hóa Thưởng Trà</a></li>
-          </ul>
-        </li>
+        <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown">Văn Hóa Trà</a>
+          <ul class="dropdown-menu">
+            <li><a class="dropdown-item" href="tinhhoatraviet.html">Tinh Hoa Trà Việt</a></li>
+            <li><a class="dropdown-item" href="vanhoathuongtra.html">Văn Hóa Thưởng Trà</a></li>
+          </ul>
+        </li>
 
-        <li class="nav-item"><a class="nav-link" href="sanphamnoibat.html">Sản Phẩm</a></li>
+        <li class="nav-item"><a class="nav-link" href="sanphamnoibat.html">Sản Phẩm</a></li>
 
-        <li class="nav-item dropdown">
-          <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown">Trải Nghiệm</a>
-          <ul class="dropdown-menu">
-              <li><a class="dropdown-item" href="dulichvatrainghiem.html">Du Lịch</a></li>
-              <li><a class="dropdown-item" href="thuvienmedia.html">Media</a></li>
-          </ul>
-        </li>
+        <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown">Trải Nghiệm</a>
+          <ul class="dropdown-menu">
+              <li><a class="dropdown-item" href="dulichvatrainghiem.html">Du Lịch</a></li>
+              <li><a class="dropdown-item" href="thuvienmedia.html">Media</a></li>
+          </ul>
+        </li>
 
-        <li class="nav-item"><a class="nav-link" href="lienhe.html">Liên Hệ</a></li>
-        
-        <div class="language-group d-flex align-items-center ms-3">
-            <a href="tinhhoatraviet.html" class="lang-box" title="Tiếng Việt">
-                <img src="https://flagcdn.com/w40/vn.png" alt="Vietnam Flag"><span>VN</span>
-            </a>
-            <a href="tinhhoatraviet_en.html" class="lang-box" title="English">
-                <img src="https://flagcdn.com/w40/gb.png" alt="UK Flag"><span>EN</span>
-            </a>
-            <a href="tinhhoatraviet_china.html" class="lang-box" title="Chinese">
-                <img src="https://flagcdn.com/w40/cn.png" alt="China Flag"><span>CN</span>
-            </a>
-        </div>
-      </ul>
-    </div>
-  </div>
+        <li class="nav-item"><a class="nav-link" href="lienhe.html">Liên Hệ</a></li>
+        <div class="language-group d-flex align-items-center ms-3">
+    
+    <a href="index.html" class="lang-box" title="Tiếng Việt">
+        <img src="https://flagcdn.com/w40/vn.png" alt="Vietnam Flag">
+        <span>VN</span>
+    </a>
+    
+    <a href="index_en.html" class="lang-box" title="English">
+        <img src="https://flagcdn.com/w40/gb.png" alt="UK Flag">
+        <span>EN</span>
+    </a>
+
+    <a href="index_china.html" class="lang-box" title="Chinese">
+        <img src="https://flagcdn.com/w40/cn.png" alt="China Flag">
+        <span>CN</span>
+    </a>
+
+</div>
+      </ul>
+    </div>
+  </div>
 </nav>
 
-<div class="container">
-  <section class="section-content fade-in">
-    
-    <h1 class="text-center mb-5">Tinh Hoa Trà Việt</h1>
-   
-    <div class="row mb-5 align-items-center">
-       <div class="col-md-6 mb-4">
-         <div class="img-wrapper-zoom">
-            <img src="images/lichsuhinhthanh2.jpg" class="img-fluid img-custom" alt="Văn hóa trà">
-         </div>
-       </div>
-       <div class="col-md-6 ps-md-5">
-         <h2 class="mt-0" style="color: #1b5e20;">Lịch Sử Hình Thành</h2>
-         <p class="lead text-muted fst-italic">"Hơn cả một thức uống, đó là dòng chảy lịch sử."</p>
-         <p class="mb-3 text-justify">Câu chuyện bắt nguồn từ thời xa xưa, tương truyền rằng quý phi của Hùng Duệ Vương... đã về làng Văn Luông dạy dân biết trồng chè. Kể từ đó, dân cư khắp nơi đã tụ về sinh sống, lập xóm lập làng, phát triển thành xóm Bãi Chè để tưởng nhớ công ơn bà.</p>
-         <p class="mb-3 text-justify">Trong công cuộc dựng nước và giữ nước, văn hóa trà vươn mình như một nhân chứng sống... Dù gia đình quý tộc hay thường dân, ta có thể dễ dàng bắt gặp tách trà trong đời sống thường nhật.</p>
-         <p class="text-justify">Có thể nói văn hóa trà Việt Nam là dòng suối mát chảy âm ỉ chảy dài theo bề dày lịch sử và ở mãi trong trái tim người con đất Việt mang dòng máu Lạc Hồng.</p>
-       </div>
-    </div>
-    
-    <hr class="my-5" style="color: #2e7d32;"> 
-    
-    <div class="mb-5">
-        <h2 class="mb-5 text-center" style="color: #1b5e20;">Từ điều kiện thuận lợi tới thủ phủ trà Việt</h2>
-        <div class="row align-items-center mb-5"> 
-            <div class="col-lg-6 pe-lg-5"> 
-                <p class="text-justify lead fw-bold mb-4">Không phải ngẫu nhiên mà Thái Nguyên được mệnh danh là “thủ phủ chè” của cả nước. Đó là sự hội tụ của các điều kiện tự nhiên ưu đãi, truyền thống canh tác lâu đời, cùng những đôi bàn tay khéo léo của người nghệ nhân.</p>
-                <h3 class="mb-3" style="color: #1b5e20;">Thổ nhưỡng – khí hậu lý tưởng</h3>
-                <p class="text-justify">So với một số cây trồng khác, cây chè yêu cầu về đất không quá khó tính. Song để cây chè sinh trưởng tốt, năng suất cao và ổn định thì đất trồng chè phải đạt những yêu cầu: Đất tốt, nhiều mùn, độ sâu, độ pH và khả năng thoát nước. Độ pH thích hợp cho chè phát triển là 4,5 - 6,0. Đất trồng phải có độ sâu ít nhất là 80 cm, mực nước ngầm phải dưới 1 mét thì hệ rễ mới phát triển bình thường.</p>
-                <p class="text-justify">Đất trung du Thái Nguyên là đất feralit đỏ vàng, tơi xốp, nhiều mùn, thoát nước tốt – rất thích hợp với rễ cây chè. Khí hậu cận nhiệt đới ẩm, có sương mù sáng sớm, nhiệt độ ôn hòa và lượng mưa trung bình 1.500–2.000mm/năm – tạo điều kiện hoàn hảo để chè phát triển hương vị tinh tế.</p>
-                <h3 class="mt-4 mb-3" style="color: #1b5e20;">Truyền thống canh tác lâu đời</h3>
-                <p class="text-justify">Với đôi bàn tay chăm chỉ, cần mẫn, người dân Đại Từ đã tạo nên bao đồi chè xanh mướt, trở thành một trong những vùng trồng chè lớn và có lịch sử lâu đời ở tỉnh Thái Nguyên. Truyền thống đó cứ tiếp nối, tiếp nối, làm nên sự đa dạng và phong phú trong từng tách trà với những giống chè quý như chè Ta, chè Lai, chè Long Vân…. có giá trị cực kì to lớn.</p>
-            </div>
-            <div class="col-lg-6 mt-4 mt-lg-0">
-                <div class="img-wrapper-zoom">
-                    <img src="images/suongsom.jpg" class="img-fluid img-custom" style="min-height: 400px; object-fit: cover;" alt="Đồi chè Thái Nguyên">
-                </div>
-            </div>
-        </div>
+<div class="main-content-wrapper">
 
-        <div class="row align-items-center">
-            <div class="col-lg-6 pe-lg-5">
-                <h3 class="mb-3" style="color: #1b5e20;">Kĩ thuật sao chè truyền thống</h3>
-                <p class="text-justify mb-4 mb-lg-0">Người Thái Nguyên có kỹ thuật sao trà bằng tay độc đáo: dùng chảo gang, canh lửa thủ công, cảm nhận độ chín bằng tay trần, ủ trà bằng bao tải bông… Những công đoạn đòi hỏi sự tinh tế đã giúp tạo nên hương cốm non đặc trưng của chè Thái Nguyên – thứ hương không nơi nào khác có thể lẫn lộn.</p>
-            </div>
-            <div class="col-lg-6 mt-4 mt-lg-0">
-                <div class="card shadow-sm border-0 bg-light h-100 overflow-hidden">
-                    <img src="images/quytrinhsaotra.jpg" class="card-img-top img-fluid img-custom" style="object-fit: cover; height: 300px;" alt="Sao trà">
-                    
-                    <div class="card-body p-4 text-center">
-                        <p class="card-text lead mb-4 text-muted fst-italic">Bí quyết tạo nên hương vị "Tiền chát, hậu ngọt" trứ danh của các nghệ nhân.</p>
-                        <a href="nghethuatsaotra.html" class="btn btn-lg btn-outline-success">Xem Ngay <i class="fas fa-arrow-right ms-1"></i></a>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-    
-    <hr class="my-5" style="color: #2e7d32;">
-    
-    <h2 class="text-center mb-5" style="color: #1b5e20;">Quy Trình Trồng và Chăm Sóc</h2>
-    <div class="row mt-4">
-      <div class="col-md-6 mb-4">
-        <div class="card h-100 shadow-sm border-0 overflow-hidden">
-            <div class="card-body">
-                <h3 class="h4 text-success">1. Quy Trình Trồng</h3>
-                <p>Khâu chuẩn bị đất, lựa chọn giống chè (Trung du, Lai F1...) và kỹ thuật trồng đảm bảo mật độ thích hợp là nền tảng cho cây chè phát triển bền vững.</p>
-                <a href="trongvachamsoc.html" class="btn btn-outline-success btn-sm w-50 mb-3">Xem Chi Tiết <i class="fas fa-arrow-right ms-1"></i></a>
-            </div>
-            <img src="images/anhtrongvachamsoc.jpg" class="card-img-bottom img-custom" style="height: 350px; object-fit: cover;" alt="Quy trình trồng">
-        </div>
-      </div>
-      <div class="col-md-6 mb-4">
-        <div class="card h-100 shadow-sm border-0 overflow-hidden">
-            <div class="card-body">
-                <h3 class="h4 text-success">2. Quy Trình Chăm Sóc</h3>
-                <div class="text-justify">
-                    <p class="mb-2"><strong><i class="fas fa-tint text-primary me-1"></i> Tưới nước:</strong> Chè cần lượng nước vừa đủ để sinh trưởng, nhất là trong giai đoạn cây non. Trong mùa khô, cần tưới nước đều đặn 2 - 3 lần/tuần để giữ ẩm cho đất.</p>
-                    <p class="mb-2"><strong><i class="fas fa-seedling text-success me-1"></i> Bón phân:</strong> Ưu tiên phân hữu cơ, phân vi sinh hữu cơ để tăng cường năng suất và chất lượng cây chè. Chia làm 3 - 4 đợt bón phân mỗi năm, ưu tiên vào mùa xuân và đầu mùa mưa.</p>
-                    <p class="mb-0"><strong><i class="fas fa-shield-alt text-warning me-1"></i> Phòng trừ sâu bệnh:</strong> Cần theo dõi và chăm sóc chè thường xuyên và trau dồi kiến thức về phòng trừ sâu bệnh cho cây chè để đảm bảo cây được phát triển tốt và cho năng suất cao.</p>
-                </div>
-            </div>
-            <img src="images/banner5.jpg" class="card-img-bottom img-custom" style="height: 350px; object-fit: cover;" alt="Quy trình chăm sóc">
-        </div>
-      </div>
-    </div>
+    <div class="hero">
+        <img src="images/banner7.jpg" alt="Banner Trà Đại Từ">
+        
+        <div class="container text-center" style="position: absolute; bottom: 15%; left: 0; right: 0; z-index: 10;">
+          <a href="dulichvatrainghiem.html" class="btn btn-custom">Khám Phá Ngay</a>
+        </div>
+    </div>
 
-    <hr class="my-5" style="color: #2e7d32;">
+    <section class="container section-content fade-in"> 
+      <div class="row align-items-center">
+        <div class="col-md-6">
+          <h2>Về Vùng Đất Chè Huyền Thoại</h2>
+          <p class="lead text-muted mb-4">"Tiền chát, hậu ngọt" - Hương vị khó quên.</p>
+          <p style="text-align: justify; line-height: 1.8;">
+            Trà Đại Từ không chỉ là một thức uống, đó là một di sản. Với lịch sử hàng trăm năm, những đồi chè bát ngát tại Cầu Đá, Hoàng Nông, hay những miền xanh vô tận ở Tân Linh, La Bằng đã tạo nên thương hiệu nức tiếng. Hãy cùng chúng tôi khám phá vẻ đẹp và hương vị tuyệt vời của nơi đây!
+          </p>
+          <a href="gioithieuchung.html" class="btn btn-outline-success mt-3">Xem Chi Tiết</a>
+        </div>
+        
+        <div class="col-md-6 mt-4 mt-md-0">
+          <div id="carouselHome" class="carousel slide shadow rounded" data-bs-ride="carousel" style="overflow: hidden;">
+            <div class="carousel-inner">
+              <div class="carousel-item active">
+                <img src="images/anhindex2.jpg" class="d-block w-100" alt="Đồi chè Cầu Đá">
+              </div>
+              <div class="carousel-item">
+                  <img src="images/suongsom.jpg" class="d-block w-100" alt="Sương sớm trên đồi chè">  
+              </div> 
+            </div>
+            <button class="carousel-control-prev" type="button" data-bs-target="#carouselHome" data-bs-slide="prev"><span class="carousel-control-prev-icon"></span></button> 
+            <button class="carousel-control-next" type="button" data-bs-target="#carouselHome" data-bs-slide="next"><span class="carousel-control-next-icon"></span></button> 
+          </div>
+        </div>
+      </div>
+    </section>
 
-    <div class="mb-5">
-        <h2 class="text-center mb-4 handmade-font" style="font-size: 3rem; color: #1b5e20;">Quy Trình Chế Biến Chè</h2>
-        <p class="text-center text-muted mb-5 text-justify mx-auto fst-italic" style="max-width: 900px;">
-            "Để cho ra những sản phẩm trà có chất lượng tuyệt hảo, người làm trà cần phải có những kinh nghiệm nhất định để điều tiết tất cả các công đoạn chế biến sao cho phù hợp với từng loại chè."
-        </p>
-
-        <div class="row">
-            
-            <div class="col-lg-7 pe-lg-5">
-                <div class="step-timeline">
-                    <div class="step-item">
-                        <div class="step-marker"></div>
-                        <span class="step-number">Bước 1: Phơi Héo</span>
-                        <p class="text-justify mt-2 mb-0">Chè sau khi thu hái sẽ được mang về phơi héo tự nhiên...</p>
-                    </div>
-                     <div class="step-item">
-                        <div class="step-marker"></div>
-                        <span class="step-number">Bước 2: Diệt Men (Ốp chè)</span>
-                        <p class="text-justify mt-2 mb-0">Sau bước 1, lá chè được cho vào trong chảo tôn nóng quay...</p>
-                    </div>
-                    <div class="step-item">
-                        <div class="step-marker"></div>
-                        <span class="step-number">Bước 3: Vò Chè</span>
-                        <p class="text-justify mt-2 mb-0">Đây chính là công đoạn quan trọng quyết định độ đẹp và bền của cánh chè...</p>
-                    </div>
-                    <div class="step-item">
-                        <div class="step-marker"></div>
-                        <span class="step-number">Bước 4: Rũ Tơi</span>
-                        <p class="text-justify mt-2 mb-0">Sau khi vò chè đã đủ thời gian, người làm chè tiến hành rũ tơi các cánh chè...</p>
-                    </div>
-                    <div class="step-item">
-                        <div class="step-marker"></div>
-                        <span class="step-number">Bước 5: Sao Khô</span>
-                        <p class="text-justify mt-2 mb-0">Là công đoạn quan trọng ảnh hưởng lớn đến chất lượng sản phẩm...</p>
-                    </div>
-                    <div class="step-item">
-                        <div class="step-marker"></div>
-                        <span class="step-number">Bước 6: Quay Hương, Đánh Mốc</span>
-                        <p class="text-justify mt-2 mb-0">Chè sau khi để hồi lại, ổn định chất lượng thì tiến hành quay hương, đánh mốc...</p>
-                    </div>
-                    <div class="step-item" style="border-left: none;"> <div class="step-marker"></div>
-                        <span class="step-number">Bước 7: Đóng Gói, Bảo Quản</span>
-                        <p class="text-justify mt-2 mb-0">Sau khi đánh hương để nguội, chè sẽ được phân loại, đóng gói...</p>
-                    </div>
-                </div>
-            </div>
-
-            <div class="col-lg-5 d-none d-lg-block">
-                <div class="sticky-top" style="top: 100px; z-index: 1;">
-                    <div class="bg-white p-2 shadow-sm img-wrapper-zoom" style="transform: rotate(2deg);">
-                        <img src="images/quytrinhchebien.jpg" class="img-fluid w-100 img-custom" style="height: 500px; object-fit: cover;" alt="Quy trình chế biến chè">
-                        <div class="text-center pt-2 pb-1 handmade-font fs-4 text-muted">Hương vị từ đôi bàn tay nghệ nhân</div>
-                    </div>
-                </div>
-            </div>
-
-        </div>
-    </div>
-
-    <div class="text-center mt-5">
-      <h3 class="mb-4" style="color: #1b5e20;">Video: Quy Trình Sao Chè Truyền Thống</h3>
-      <div class="ratio ratio-16x9 mx-auto img-custom" style="max-width: 800px; border-radius: 10px;">
-          <iframe src="https://www.youtube.com/embed/ptVghUUjn74" title="Quy trình sao chè" allowfullscreen></iframe>
-      </div>
-    </div>
-
-  </section>
-</div>
-
+</div> 
 <footer class="text-center">
-  <div class="container">
-    <div class="row">
-      <div class="col-md-4 text-start mb-3">
-        <h5 class="text-uppercase border-bottom pb-2 d-inline-block" style="border-color: var(--gold-border) !important; color: var(--gold-text);">Trà Đại Từ</h5>
-        <p class="mt-2">Dự án STEM quảng bá văn hóa trà Việt Nam, mang tinh hoa đất Việt đến mọi nhà.</p>
-      </div>
-      <div class="col-md-4 mb-3">
-        <h5 style="color: var(--gold-text);">Liên Kết Nhanh</h5>
-        <ul class="list-unstyled">
-            <li><a href="gioithieu.html"><i class="fas fa-chevron-right me-2 small"></i>Giới Thiệu</a></li>
-            <li><a href="sanphamnoibat.html"><i class="fas fa-chevron-right me-2 small"></i>Sản Phẩm</a></li>
-            <li><a href="dulichvatrainghiem.html"><i class="fas fa-chevron-right me-2 small"></i>Du Lịch</a></li>
-        </ul>
-      </div>
-      <div class="col-md-4 text-end mb-3">
-        <h5 style="color: var(--gold-text);">Liên Hệ</h5>
-        <p><i class="fas fa-map-marker-alt me-2"></i> Xã Đại Phúc, Tỉnh Thái Nguyên</p>
-        <p><i class="fas fa-phone me-2"></i> 0329 305 208</p>
-        <p><i class="fas fa-envelope me-2"></i> lienhe@tradaitu.vn</p>
-      </div>
-    </div>
-    <hr style="opacity: 0.2; border-color: var(--gold-border);">
-    <p class="mb-0">&copy; 2025 Không Gian Văn Hóa Trà Đại Từ.</p> 
-  </div>
+  <div class="container">
+    <div class="row">
+      <div class="col-md-4 text-start mb-3">
+        <h5 class="text-uppercase border-bottom pb-2 d-inline-block" style="border-color: var(--gold-border) !important;">Trà Đại Từ</h5>
+        <p class="mt-2">Dự án STEM quảng bá văn hóa trà Việt Nam, mang tinh hoa đất Việt đến mọi nhà.</p>
+      </div>
+      <div class="col-md-4 mb-3">
+        <h5>Liên Kết Nhanh</h5>
+        <ul class="list-unstyled">
+            <li><a href="gioithieu.html"><i class="fas fa-chevron-right me-2 small"></i>Giới Thiệu</a></li>
+            <li><a href="sanphamnoibat.html"><i class="fas fa-chevron-right me-2 small"></i>Sản Phẩm</a></li>
+            <li><a href="dulichvatrainghiem.html"><i class="fas fa-chevron-right me-2 small"></i>Du Lịch</a></li>
+        </ul>
+      </div>
+      <div class="col-md-4 text-end mb-3">
+        <h5>Liên Hệ</h5>
+        <p><i class="fas fa-map-marker-alt me-2"></i> Xã Đại Phúc, Tỉnh Thái Nguyên</p>
+        <p><i class="fas fa-phone me-2"></i> 0329 305 208</p>
+        <p><i class="fas fa-envelope me-2"></i> lienhe@tradaitu.vn</p>
+      </div>
+    </div>
+    <hr style="opacity: 0.2; border-color: var(--gold-border);">
+    <p class="mb-0">&copy; 2025 Không Gian Văn Hóa Trà Đại Từ.</p> 
+  </div>
 </footer>
 
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
-<script src="js/script.js"></script>
-
-<script>
-    const lightbox = document.getElementById('lightbox');
-    const lightboxImg = document.getElementById('lightbox-img');
-    const closeBtn = document.getElementById('lightbox-close');
-    const images = document.querySelectorAll('.img-custom:not(iframe)');
-
-    images.forEach(img => {
-        img.addEventListener('click', function() {
-            lightboxImg.src = this.src;
-            lightbox.style.display = 'flex';
-            setTimeout(() => {
-                lightbox.classList.add('active');
-            }, 10);
-        });
-    });
-
-    function closeLightbox() {
-        lightbox.classList.remove('active');
-        setTimeout(() => {
-            lightbox.style.display = 'none';
-        }, 300);
-    }
-
-    closeBtn.addEventListener('click', closeLightbox);
-    lightbox.addEventListener('click', function(e) {
-        if (e.target === lightbox) {
-            closeLightbox();
-        }
-    });
-
-    document.addEventListener('keydown', function(e) {
-        if (e.key === "Escape" && lightbox.style.display === 'flex') {
-            closeLightbox();
-        }
-    });
-</script>
 
 </body>
 </html>
