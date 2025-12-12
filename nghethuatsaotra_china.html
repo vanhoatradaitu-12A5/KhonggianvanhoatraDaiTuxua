@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="vi">
+<html lang="zh">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -7,17 +7,77 @@
    
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
-  <link href="css/styles.css" rel="stylesheet">
   
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@700&family=Montserrat:wght@300;400;500;600;700&family=Playfair+Display:ital,wght@0,700;1,400&family=Patrick+Hand&display=swap" rel="stylesheet">
+
   <style>
-      /* Thêm CSS inline để thẻ Card đẹp hơn khi không có ảnh */
-      .card {
-          transition: transform 0.3s ease, box-shadow 0.3s ease;
-      }
-      .card:hover {
-          transform: translateY(-5px);
-          box-shadow: 0 10px 20px rgba(0,0,0,0.1) !important;
-      }
+    /* =========================================
+       CSS TÙY CHỈNH (ĐỒNG BỘ)
+       ========================================= */
+    :root {
+        --primary-green: #0e2e22;     
+        --gold-text: #ffc107;         
+        --gold-border: #d4af37;       
+        --text-dark: #333333;
+    }
+
+    body {
+        font-family: 'Montserrat', sans-serif;
+        color: var(--text-dark);
+        display: flex;
+        flex-direction: column;
+        min-height: 100vh;
+    }
+
+    /* ẢNH NỀN */
+    body::before {
+        content: ''; position: fixed; top: 0; left: 0; width: 100%; height: 100%;
+        background: url('images/nentrangweb.jpg') no-repeat center center;
+        background-size: cover; z-index: -2; 
+    }
+    body::after {
+        content: ''; position: fixed; top: 0; left: 0; width: 100%; height: 100%;
+        background-color: rgba(255, 255, 255, 0.4); 
+        z-index: -1;
+    }
+
+    h1, h2, h3, h4, h5 { font-family: 'Playfair Display', serif; }
+
+    /* NAVBAR */
+    .navbar {
+        background: linear-gradient(180deg, rgba(31, 69, 50, 0.95) 0%, rgba(14, 46, 34, 0.95) 100%) !important;
+        border-bottom: 1px solid var(--gold-border);
+    }
+    .nav-link { color: #e0d0b0 !important; font-weight: 600; text-transform: uppercase; }
+    .nav-link:hover, .nav-link.active { color: var(--gold-text) !important; }
+    .dropdown-menu { background-color: rgba(14, 46, 34, 0.95); border: 1px solid var(--gold-border); }
+    .dropdown-item { color: #e0d0b0 !important; }
+    .dropdown-item:hover { background-color: rgba(255, 255, 255, 0.1); color: var(--gold-text) !important; }
+
+    /* CARD STYLE (NO IMAGE VERSION) */
+    .card {
+        transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+    .card:hover {
+        transform: translateY(-5px);
+        box-shadow: 0 10px 20px rgba(0,0,0,0.1) !important;
+        border-color: var(--gold-border) !important;
+    }
+
+    section.container.my-5.fade-in {
+        background-color: rgba(255, 255, 255, 0.95);
+        padding: 40px;
+        border-radius: 15px;
+        box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+    }
+    
+    footer {
+        background-color: rgba(14, 46, 34, 0.95) !important; 
+        color: #e0d0b0 !important; 
+        border-top: 1px solid var(--gold-border);
+    }
   </style>
 </head>
 <body>
@@ -59,24 +119,12 @@
           </ul>
         </li>
         <li class="nav-item"><a class="nav-link" href="lienhe_china.html">联系我们</a></li>
+        
         <div class="language-group d-flex align-items-center ms-3">
-     
-    <a href="nghethuatsaotra.html" class="lang-box" title="Tiếng Việt">
-        <img src="https://flagcdn.com/w40/vn.png" alt="Vietnam Flag" width="30">
-        <span class="text-white ms-1" style="font-size: 0.8rem;">VN</span>
-    </a>
-     
-    <a href="nghethuatsaotra_en.html" class="lang-box mx-2" title="English">
-        <img src="https://flagcdn.com/w40/gb.png" alt="UK Flag" width="30">
-        <span class="text-white ms-1" style="font-size: 0.8rem;">EN</span>
-    </a>
-
-    <a href="nghethuatsaotra_china.html" class="lang-box" title="Chinese">
-        <img src="https://flagcdn.com/w40/cn.png" alt="China Flag" width="30">
-        <span class="text-white ms-1" style="font-size: 0.8rem;">CN</span>
-    </a>
-
-</div>
+            <a href="nghethuatsaotra.html" class="lang-box text-decoration-none border rounded px-2 py-1 mx-1 text-white bg-success" title="Tiếng Việt">VN</a>
+            <a href="nghethuatsaotra_en.html" class="lang-box text-decoration-none border rounded px-2 py-1 mx-1 text-white bg-success" title="English">EN</a>
+            <a href="nghethuatsaotra_china.html" class="lang-box text-decoration-none border rounded px-2 py-1 mx-1 text-white bg-success" title="Chinese">CN</a>
+        </div>
       </ul>
     </div>
   </div>
@@ -114,7 +162,7 @@
 
     <hr class="my-5">
 
-    <h2 class="text-center mb-5">Quy Trình "Tứ Đại Công Đoạn"</h2>
+    <h2 class="text-center mb-5">制茶工艺 "四大工序"</h2>
 
     <div class="row g-4">
         <div class="col-lg-6">
@@ -156,8 +204,8 @@
 
     <div class="card mt-5 border-0 shadow bg-light">
         <div class="card-body text-center p-5">
-            <h3 class="mb-4"><i class="fas fa-video text-danger me-2"></i>Cận Cảnh Nghệ Thuật Sao Chè Bằng Tay</h3>
-            <p class="mb-4">Xem cách các nghệ nhân Đại Từ dùng đôi tay trần trên chảo nóng để tạo ra cực phẩm.</p>
+            <h3 class="mb-4"><i class="fas fa-video text-danger me-2"></i>徒手炒茶艺术特写</h3>
+            <p class="mb-4">观看大慈制茶艺人如何用双手在热锅上创造极品茶叶。</p>
             <div class="ratio ratio-16x9 mx-auto shadow" style="max-width: 800px;">
                 <iframe src="https://www.youtube.com/embed/ptVghUUjn74" title="Kỹ thuật sao chè" allowfullscreen></iframe>
             </div>
@@ -165,19 +213,18 @@
     </div>
 
     <div class="mt-5 text-center">
-        <p class="fst-italic text-muted">"Mỗi mẻ chè ra lò là một tác phẩm nghệ thuật, chứa đựng mồ hôi và tâm huyết của người làm chè Đại Từ."</p>
-        <a href="sanphamnoibat_china.html" class="btn btn-success btn-lg mt-3">Thưởng Thức Thành Quả <i class="fas fa-mug-hot ms-2"></i></a>
+        <p class="fst-italic text-muted">"每一批出炉的茶叶都是一件艺术品，蕴含着大慈制茶人的汗水与心血。"</p>
+        <a href="sanphamnoibat_china.html" class="btn btn-success btn-lg mt-3">品尝成果 <i class="fas fa-mug-hot ms-2"></i></a>
     </div>
 
 </section>
 
 <footer class="text-center bg-light py-4 mt-5">
   <div class="container">
-    <p class="mb-0">© 2025 Không Gian Văn Hóa Trà Đại Từ.</p>
+    <p class="mb-0">© 2025 大慈茶文化空间.</p>
   </div>
 </footer>
 
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
-<script src="js/script.js"></script>
 </body>
 </html>
