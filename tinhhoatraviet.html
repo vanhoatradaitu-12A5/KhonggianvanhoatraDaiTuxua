@@ -14,7 +14,7 @@
   
   <style>
     /* =========================================
-       1. CÀI ĐẶT CHUNG & BIẾN MÀU SẮC
+       1. CÀI ĐẶT CHUNG & BIẾN MÀU SẮC (GIỐNG HỆT INDEX)
        ========================================= */
     :root {
         --primary-green: #0e2e22;    
@@ -34,44 +34,41 @@
     body {
         font-family: 'Montserrat', sans-serif;
         color: var(--text-dark);
-        position: relative; /* Quan trọng để hiển thị ảnh nền */
+        position: relative;
         margin: 0;
-        
-        /* Cấu trúc Flexbox để đẩy Footer xuống đáy nếu nội dung ngắn */
         display: flex;
         flex-direction: column;
     }
 
-    /* --- [THÊM MỚI] ẢNH NỀN TOÀN TRANG GIỐNG INDEX --- */
+    /* ẢNH NỀN TOÀN TRANG (GIỐNG INDEX) */
     body::before {
         content: '';
         position: fixed; 
         top: 0; left: 0; width: 100%; height: 100%;
-        /* Đường dẫn ảnh nền */
         background: url('images/nentrangweb.jpg') no-repeat center center;
         background-size: cover;
         z-index: -2; 
     }
 
-    /* Lớp phủ mờ nhẹ để chữ dễ đọc hơn trên nền ảnh */
+    /* Lớp phủ mờ nhẹ để chữ dễ đọc */
     body::after {
         content: '';
         position: fixed;
         top: 0; left: 0; width: 100%; height: 100%;
-        background-color: rgba(255, 255, 255, 0.4); /* Màu trắng mờ 40% */
+        background-color: rgba(255, 255, 255, 0.4); 
         z-index: -1;
     }
 
     /* Font tiêu đề */
     h1, h2, h3, h4, h5, .navbar-brand {
         font-family: 'Playfair Display', serif;
-        color: #1b5e20; 
     }
 
     /* =========================================
-       2. NAVBAR (MENU) - ĐÃ ĐỒNG BỘ
+       2. NAVBAR (MENU) - COPY TỪ INDEX.HTML
        ========================================= */
     .navbar {
+        /* Gradient xanh rêu đậm */
         background: linear-gradient(
             180deg, 
             rgba(31, 69, 50, 0.95) 0%,     
@@ -95,12 +92,11 @@
     }
 
     .nav-link {
-        font-family: 'Montserrat', sans-serif;
         font-weight: 600; 
         text-transform: uppercase;
         font-size: 0.9rem;
         letter-spacing: 1px;
-        color: #e0d0b0 !important; 
+        color: #e0d0b0 !important; /* Màu be sáng */
         transition: all 0.3s ease;
         padding: 10px 15px !important;
     }
@@ -118,7 +114,6 @@
 
     .dropdown-item {
         color: #e0d0b0 !important;
-        font-family: 'Montserrat', sans-serif;
     }
 
     .dropdown-item:hover {
@@ -126,12 +121,13 @@
         color: var(--gold-text) !important;
     }
 
+    /* Icon mobile màu vàng */
     .navbar-toggler { border-color: var(--gold-border); }
     .navbar-toggler-icon {
         background-image: url("data:image/svg+xml;charset=utf8,%3Csvg viewBox='0 0 30 30' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath stroke='rgba(255, 193, 7, 1)' stroke-width='2' stroke-linecap='round' stroke-miterlimit='10' d='M4 7h22M4 15h22M4 23h22'/%3E%3C/svg%3E");
     }
 
-    /* Language Group */
+    /* CSS cho bộ chuyển đổi ngôn ngữ */
     .language-group { gap: 10px; }
     .lang-box {
         display: flex; align-items: center; justify-content: center;
@@ -151,11 +147,10 @@
     }
 
     /* =========================================
-       3. NỘI DUNG TRANG TINH HOA
+       3. NỘI DUNG TRANG (GIỮ NGUYÊN)
        ========================================= */
     .section-content {
-        /* Chỉnh nền thành màu trắng hơi trong suốt để thấy ảnh nền mờ phía sau */
-        background-color: rgba(255, 255, 255, 0.95);
+        background-color: rgba(255, 255, 255, 0.95); /* Nền trắng mờ */
         padding: 40px;
         border-radius: 15px;
         box-shadow: 0 5px 15px rgba(0,0,0,0.1);
@@ -165,7 +160,7 @@
     
     .text-justify { text-align: justify; }
 
-    /* Zoom Image */
+    /* CSS cho ảnh Zoom */
     .img-wrapper-zoom {
         overflow: hidden; 
         border-radius: 10px;
@@ -183,7 +178,7 @@
         transform: scale(1.1); 
     }
 
-    /* Lightbox */
+    /* CSS cho Lightbox */
     #lightbox {
         display: none; 
         position: fixed;
@@ -208,20 +203,24 @@
     }
     #lightbox-close:hover { color: #ff5252; }
 
-    /* Timeline */
+    /* CSS cho Timeline */
     .handmade-font { font-family: 'Patrick Hand', cursive; }
     .step-timeline { position: relative; padding-left: 20px; border-left: 2px dashed #81c784; }
     .step-item { position: relative; padding-bottom: 40px; padding-left: 20px; }
     .step-marker { position: absolute; left: -29px; top: 0; width: 20px; height: 20px; background-color: #2e7d32; border: 4px solid #f1f8e9; border-radius: 50%; }
     .step-number { font-family: 'Patrick Hand', cursive; font-size: 1.5rem; color: #2e7d32; font-weight: bold; text-decoration: underline; }
 
-    /* Footer */
+    /* FOOTER (ĐỒNG BỘ INDEX) */
     footer {
-        background-color: rgba(14, 46, 34, 0.95) !important; 
-        color: #e0d0b0 !important; 
+        background-color: rgba(14, 46, 34, 0.95); 
+        color: #e0d0b0; 
         border-top: 1px solid var(--gold-border);
-        margin-top: auto; /* Đẩy footer xuống đáy */
+        margin-top: auto;
+        padding-top: 40px;
+        padding-bottom: 20px;
     }
+    footer a { color: #e0d0b0; text-decoration: none; }
+    footer a:hover { color: var(--gold-text); }
   </style>
 </head>
 <body>
@@ -297,7 +296,7 @@
          </div>
        </div>
        <div class="col-md-6 ps-md-5">
-         <h2 class="mt-0">Lịch Sử Hình Thành</h2>
+         <h2 class="mt-0" style="color: #1b5e20;">Lịch Sử Hình Thành</h2>
          <p class="lead text-muted fst-italic">"Hơn cả một thức uống, đó là dòng chảy lịch sử."</p>
          <p class="mb-3 text-justify">Câu chuyện bắt nguồn từ thời xa xưa, tương truyền rằng quý phi của Hùng Duệ Vương... đã về làng Văn Luông dạy dân biết trồng chè. Kể từ đó, dân cư khắp nơi đã tụ về sinh sống, lập xóm lập làng, phát triển thành xóm Bãi Chè để tưởng nhớ công ơn bà.</p>
          <p class="mb-3 text-justify">Trong công cuộc dựng nước và giữ nước, văn hóa trà vươn mình như một nhân chứng sống... Dù gia đình quý tộc hay thường dân, ta có thể dễ dàng bắt gặp tách trà trong đời sống thường nhật.</p>
@@ -308,14 +307,14 @@
     <hr class="my-5" style="color: #2e7d32;"> 
     
     <div class="mb-5">
-        <h2 class="mb-5 text-center">Từ điều kiện thuận lợi tới thủ phủ trà Việt</h2>
+        <h2 class="mb-5 text-center" style="color: #1b5e20;">Từ điều kiện thuận lợi tới thủ phủ trà Việt</h2>
         <div class="row align-items-center mb-5"> 
             <div class="col-lg-6 pe-lg-5"> 
                 <p class="text-justify lead fw-bold mb-4">Không phải ngẫu nhiên mà Thái Nguyên được mệnh danh là “thủ phủ chè” của cả nước. Đó là sự hội tụ của các điều kiện tự nhiên ưu đãi, truyền thống canh tác lâu đời, cùng những đôi bàn tay khéo léo của người nghệ nhân.</p>
-                <h3 class="mb-3">Thổ nhưỡng – khí hậu lý tưởng</h3>
+                <h3 class="mb-3" style="color: #1b5e20;">Thổ nhưỡng – khí hậu lý tưởng</h3>
                 <p class="text-justify">So với một số cây trồng khác, cây chè yêu cầu về đất không quá khó tính. Song để cây chè sinh trưởng tốt, năng suất cao và ổn định thì đất trồng chè phải đạt những yêu cầu: Đất tốt, nhiều mùn, độ sâu, độ pH và khả năng thoát nước. Độ pH thích hợp cho chè phát triển là 4,5 - 6,0. Đất trồng phải có độ sâu ít nhất là 80 cm, mực nước ngầm phải dưới 1 mét thì hệ rễ mới phát triển bình thường.</p>
                 <p class="text-justify">Đất trung du Thái Nguyên là đất feralit đỏ vàng, tơi xốp, nhiều mùn, thoát nước tốt – rất thích hợp với rễ cây chè. Khí hậu cận nhiệt đới ẩm, có sương mù sáng sớm, nhiệt độ ôn hòa và lượng mưa trung bình 1.500–2.000mm/năm – tạo điều kiện hoàn hảo để chè phát triển hương vị tinh tế.</p>
-                <h3 class="mt-4 mb-3">Truyền thống canh tác lâu đời</h3>
+                <h3 class="mt-4 mb-3" style="color: #1b5e20;">Truyền thống canh tác lâu đời</h3>
                 <p class="text-justify">Với đôi bàn tay chăm chỉ, cần mẫn, người dân Đại Từ đã tạo nên bao đồi chè xanh mướt, trở thành một trong những vùng trồng chè lớn và có lịch sử lâu đời ở tỉnh Thái Nguyên. Truyền thống đó cứ tiếp nối, tiếp nối, làm nên sự đa dạng và phong phú trong từng tách trà với những giống chè quý như chè Ta, chè Lai, chè Long Vân…. có giá trị cực kì to lớn.</p>
             </div>
             <div class="col-lg-6 mt-4 mt-lg-0">
@@ -327,7 +326,7 @@
 
         <div class="row align-items-center">
             <div class="col-lg-6 pe-lg-5">
-                <h3 class="mb-3">Kĩ thuật sao chè truyền thống</h3>
+                <h3 class="mb-3" style="color: #1b5e20;">Kĩ thuật sao chè truyền thống</h3>
                 <p class="text-justify mb-4 mb-lg-0">Người Thái Nguyên có kỹ thuật sao trà bằng tay độc đáo: dùng chảo gang, canh lửa thủ công, cảm nhận độ chín bằng tay trần, ủ trà bằng bao tải bông… Những công đoạn đòi hỏi sự tinh tế đã giúp tạo nên hương cốm non đặc trưng của chè Thái Nguyên – thứ hương không nơi nào khác có thể lẫn lộn.</p>
             </div>
             <div class="col-lg-6 mt-4 mt-lg-0">
@@ -345,7 +344,7 @@
     
     <hr class="my-5" style="color: #2e7d32;">
     
-    <h2 class="text-center mb-5">Quy Trình Trồng và Chăm Sóc</h2>
+    <h2 class="text-center mb-5" style="color: #1b5e20;">Quy Trình Trồng và Chăm Sóc</h2>
     <div class="row mt-4">
       <div class="col-md-6 mb-4">
         <div class="card h-100 shadow-sm border-0 overflow-hidden">
@@ -375,7 +374,7 @@
     <hr class="my-5" style="color: #2e7d32;">
 
     <div class="mb-5">
-        <h2 class="text-center mb-4 handmade-font" style="font-size: 3rem;">Quy Trình Chế Biến Chè</h2>
+        <h2 class="text-center mb-4 handmade-font" style="font-size: 3rem; color: #1b5e20;">Quy Trình Chế Biến Chè</h2>
         <p class="text-center text-muted mb-5 text-justify mx-auto fst-italic" style="max-width: 900px;">
             "Để cho ra những sản phẩm trà có chất lượng tuyệt hảo, người làm trà cần phải có những kinh nghiệm nhất định để điều tiết tất cả các công đoạn chế biến sao cho phù hợp với từng loại chè."
         </p>
@@ -434,7 +433,7 @@
     </div>
 
     <div class="text-center mt-5">
-      <h3 class="mb-4">Video: Quy Trình Sao Chè Truyền Thống</h3>
+      <h3 class="mb-4" style="color: #1b5e20;">Video: Quy Trình Sao Chè Truyền Thống</h3>
       <div class="ratio ratio-16x9 mx-auto img-custom" style="max-width: 800px; border-radius: 10px;">
           <iframe src="https://www.youtube.com/embed/ptVghUUjn74" title="Quy trình sao chè" allowfullscreen></iframe>
       </div>
@@ -443,9 +442,30 @@
   </section>
 </div>
 
-<footer class="text-center py-4">
+<footer class="text-center">
   <div class="container">
-    <p class="mb-0">© 2025 Không Gian Văn Hóa Trà Đại Từ.</p>
+    <div class="row">
+      <div class="col-md-4 text-start mb-3">
+        <h5 class="text-uppercase border-bottom pb-2 d-inline-block" style="border-color: var(--gold-border) !important; color: var(--gold-text);">Trà Đại Từ</h5>
+        <p class="mt-2">Dự án STEM quảng bá văn hóa trà Việt Nam, mang tinh hoa đất Việt đến mọi nhà.</p>
+      </div>
+      <div class="col-md-4 mb-3">
+        <h5 style="color: var(--gold-text);">Liên Kết Nhanh</h5>
+        <ul class="list-unstyled">
+            <li><a href="gioithieu.html"><i class="fas fa-chevron-right me-2 small"></i>Giới Thiệu</a></li>
+            <li><a href="sanphamnoibat.html"><i class="fas fa-chevron-right me-2 small"></i>Sản Phẩm</a></li>
+            <li><a href="dulichvatrainghiem.html"><i class="fas fa-chevron-right me-2 small"></i>Du Lịch</a></li>
+        </ul>
+      </div>
+      <div class="col-md-4 text-end mb-3">
+        <h5 style="color: var(--gold-text);">Liên Hệ</h5>
+        <p><i class="fas fa-map-marker-alt me-2"></i> Xã Đại Phúc, Tỉnh Thái Nguyên</p>
+        <p><i class="fas fa-phone me-2"></i> 0329 305 208</p>
+        <p><i class="fas fa-envelope me-2"></i> lienhe@tradaitu.vn</p>
+      </div>
+    </div>
+    <hr style="opacity: 0.2; border-color: var(--gold-border);">
+    <p class="mb-0">&copy; 2025 Không Gian Văn Hóa Trà Đại Từ.</p> 
   </div>
 </footer>
 
