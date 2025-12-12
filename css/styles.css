@@ -17,7 +17,8 @@
 body {
     font-family: 'Montserrat', sans-serif;
     color: var(--text-dark);
-    background-color: #f9f9f9;
+    /* BỎ background-color: #f9f9f9; để ảnh nền hoạt động */ 
+    /* Nó sẽ được đặt ở phần 1.1 */
 }
 
 /* Font cho các tiêu đề */
@@ -31,27 +32,28 @@ h1, h2, h3, h4, h5, .navbar-brand {
 
 /* Thiết lập ảnh nền cho toàn bộ trang */
 body {
-    /* (Giữ nguyên các thuộc tính font và màu chữ đã có)
-    font-family: 'Montserrat', sans-serif;
-    color: var(--text-dark);
-    background-color: #f9f9f9; 
-    */
-    
-    /* Ảnh nền: Thay đổi đường dẫn ảnh của bạn tại đây */
+    /* Ảnh nền: Kiểm tra đường dẫn ảnh của bạn (nentrangweb.jpg) */
     background-image: url('../images/nentrangweb.jpg'); 
     background-size: cover;          /* Ảnh phủ kín khung */
     background-attachment: fixed;    /* Cố định ảnh khi cuộn */
     background-repeat: no-repeat;
     background-position: center center;
     
-    position: relative; /* Quan trọng: để lớp phủ mờ (pseudo-element) hoạt động */
-    z-index: 1; /* Đảm bảo nội dung (text, button) nằm trên lớp phủ */
+    position: relative; 
+    z-index: 1; 
+    
+    /* QUAN TRỌNG: Đặt màu nền dự phòng tại đây nếu ảnh không tải được. 
+       Tuy nhiên, để ảnh nền hoạt động, thường không nên đặt background-color 
+       ở đây, hoặc đặt nó thành màu trong suốt (transparent) nếu không bị xung đột.
+       Vì bạn dùng overlay, nên giữ nguyên (đã xóa background-color khỏi khối body trên)
+    */
+    background-color: transparent; /* Đảm bảo không có màu nền che ảnh */
 }
 
 /* Tạo lớp phủ mờ (overlay) để làm dịu ảnh nền */
 body::before {
     content: '';
-    position: fixed; /* Quan trọng: cố định lớp phủ */
+    position: fixed; 
     top: 0;
     left: 0;
     width: 100%;
@@ -60,15 +62,14 @@ body::before {
     /* Màu lớp phủ: Sử dụng màu xanh rêu đậm chủ đạo (primary-green) */
     background-color: var(--primary-green); 
     
-    /* Độ mờ: Chỉnh giá trị opacity từ 0.1 đến 0.8 tùy ý */
-    opacity: 0.8; /* <-- CHỈNH SỐ NÀY */
+    /* Độ mờ: Chỉnh giá trị opacity từ 0.1 đến 0.9 tùy ý */
+    opacity: 0.8; /* GIÁ TRỊ CŨ: 0.8 */
     
-    z-index: -1; /* Đặt lớp phủ dưới nội dung (body z-index: 1) */
-    pointer-events: none; /* Đảm bảo lớp phủ không chặn sự kiện click */
+    z-index: -1; /* Đặt lớp phủ dưới nội dung */
+    pointer-events: none; 
 }
 
 /* Cập nhật màu nền cho main content để nó nổi bật hơn trên background */
-/* Giả sử nội dung chính nằm trong một thẻ <main> hoặc <div> có class .main-content */
 .main-content, .section-content {
     background-color: rgba(255, 255, 255, 0.95); /* Nền trắng hơi mờ */
     padding: 30px;
@@ -304,38 +305,38 @@ footer hr {
 
 /* Style cho từng ô ngôn ngữ */
 .lang-box {
-    display: flex;              /* Để icon và chữ nằm ngang */
-    align-items: center;        /* Căn giữa dọc */
-    justify-content: center;    /* Căn giữa ngang */
+    display: flex;              
+    align-items: center;        
+    justify-content: center;    
      
-    border: 1px solid var(--gold-border); /* Viền màu vàng gold */
-    border-radius: 4px;         /* Bo góc nhẹ */
-    padding: 5px 10px;          /* Khoảng cách bên trong */
+    border: 1px solid var(--gold-border); 
+    border-radius: 4px;         
+    padding: 5px 10px;          
      
-    text-decoration: none;      /* Bỏ gạch chân link */
-    color: #e0d0b0;             /* Màu chữ be sáng (giống menu) */
-    font-size: 0.85rem;         /* Cỡ chữ nhỏ gọn */
+    text-decoration: none;      
+    color: #e0d0b0;             
+    font-size: 0.85rem;         
     font-weight: 600;
      
-    background-color: rgba(0, 0, 0, 0.2); /* Nền tối mờ nhẹ */
+    background-color: rgba(0, 0, 0, 0.2); 
     transition: all 0.3s ease;
 }
 
 /* Style cho hình lá cờ */
 .lang-box img {
-    width: 20px;       /* Chiều rộng lá cờ */
+    width: 20px;       
     height: auto;
-    margin-right: 6px; /* Khoảng cách giữa cờ và chữ */
+    margin-right: 6px; 
     border-radius: 2px;
     box-shadow: 0 0 2px rgba(0,0,0,0.5);
 }
 
 /* Hiệu ứng khi di chuột vào (Hover) */
 .lang-box:hover {
-    background-color: var(--gold-text); /* Nền chuyển sang vàng */
-    color: var(--primary-green);        /* Chữ chuyển sang xanh đậm */
+    background-color: var(--gold-text); 
+    color: var(--primary-green);        
     border-color: var(--gold-hover);
-    transform: translateY(-2px);        /* Nổi lên nhẹ */
+    transform: translateY(-2px);        
 }
 
 /* Xử lý hiển thị trên Mobile cho các phần khác */
@@ -348,4 +349,3 @@ footer hr {
         border: 1px solid var(--gold-border);
     }
 }
-
