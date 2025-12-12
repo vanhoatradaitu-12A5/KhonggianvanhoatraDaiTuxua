@@ -10,15 +10,27 @@
   <link href="css/styles.css" rel="stylesheet">
   
   <style>
-      /* Thêm hiệu ứng Hover cho Card khi không có ảnh để nhìn đỡ trống */
-      .card {
-          transition: transform 0.3s ease, box-shadow 0.3s ease;
-      }
-      .card:hover {
-          transform: translateY(-5px);
-          box-shadow: 0 10px 20px rgba(0,0,0,0.1) !important;
-          border-color: #d4af37 !important; /* Viền vàng kim khi di chuột */
-      }
+    /* =========================================
+       CSS TÙY CHỈNH (ĐỒNG BỘ)
+       ========================================= */
+    /* Hiệu ứng Hover cho Card quy trình (khi không có ảnh) */
+    .card {
+        transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+    .card:hover {
+        transform: translateY(-5px);
+        box-shadow: 0 10px 20px rgba(0,0,0,0.1) !important;
+        border-color: #d4af37 !important; /* Viền vàng kim khi di chuột */
+    }
+    
+    /* Các class hỗ trợ hiển thị */
+    .text-justify { text-align: justify; }
+    section.container.my-5.fade-in {
+        background-color: rgba(255, 255, 255, 0.95);
+        padding: 40px;
+        border-radius: 15px;
+        box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+    }
   </style>
 </head>
 <body>
@@ -37,7 +49,7 @@
         <li class="nav-item dropdown">
           <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown">Giới thiệu</a>
           <ul class="dropdown-menu">
-            <li><a class="dropdown-item" href="gioithieuchung_3n.html">Giới Thiệu Chung</a></li>
+            <li><a class="dropdown-item" href="gioithieuchung_en.html">Giới Thiệu Chung</a></li>
             <li><a class="dropdown-item" href="sumenh_en.html">Sứ Mệnh</a></li>
           </ul>
         </li>
@@ -60,24 +72,21 @@
           </ul>
         </li>
         <li class="nav-item"><a class="nav-link" href="lienhe_en.html">Liên Hệ</a></li>
+        
         <div class="language-group d-flex align-items-center ms-3">
-     
-    <a href="nghethuatsaotra.html" class="lang-box" title="Tiếng Việt">
-        <img src="https://flagcdn.com/w40/vn.png" alt="Vietnam Flag">
-        <span>VN</span>
-    </a>
-     
-    <a href="nghethuatsaotra_en.html" class="lang-box" title="English">
-        <img src="https://flagcdn.com/w40/gb.png" alt="UK Flag">
-        <span>EN</span>
-    </a>
-
-    <a href="nghethuatsaotra_china.html" class="lang-box" title="Chinese">
-        <img src="https://flagcdn.com/w40/cn.png" alt="China Flag">
-        <span>CN</span>
-    </a>
-
-</div>
+            <a href="nghethuatsaotra.html" class="lang-box" title="Tiếng Việt">
+                <img src="https://flagcdn.com/w40/vn.png" alt="Vietnam Flag" width="30">
+                <span class="text-white ms-1" style="font-size:0.8rem">VN</span>
+            </a>
+            <a href="nghethuatsaotra_en.html" class="lang-box mx-2" title="English">
+                <img src="https://flagcdn.com/w40/gb.png" alt="UK Flag" width="30">
+                <span class="text-white ms-1" style="font-size:0.8rem">EN</span>
+            </a>
+            <a href="nghethuatsaotra_china.html" class="lang-box" title="Chinese">
+                <img src="https://flagcdn.com/w40/cn.png" alt="China Flag" width="30">
+                <span class="text-white ms-1" style="font-size:0.8rem">CN</span>
+            </a>
+        </div>
       </ul>
     </div>
   </div>
