@@ -10,11 +10,11 @@
   
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@700&family=Montserrat:wght@300;400;500;600;700&family=Playfair+Display:ital,wght@0,700;1,400&family=Patrick+Hand&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@700&family=Merriweather:ital,wght@0,300;0,400;0,700;1,400&family=Montserrat:wght@300;400;500;600;700&family=Playfair+Display:ital,wght@0,700;1,400&family=Patrick+Hand&display=swap" rel="stylesheet">
   
   <style>
     /* =========================================
-       1. CÀI ĐẶT CHUNG & BIẾN MÀU SẮC (GIỐNG HỆT INDEX)
+       1. CÀI ĐẶT CHUNG
        ========================================= */
     :root {
         --primary-green: #0e2e22;    
@@ -26,13 +26,11 @@
         --text-dark: #333333;
     }
 
-    /* Reset font chữ chung */
-    html, body {
-        height: 100%; 
-    }
+    html, body { height: 100%; }
 
+    /* Font chung cho thân trang này vẫn là Merriweather để hợp với bài viết */
     body {
-        font-family: 'Montserrat', sans-serif;
+        font-family: 'Merriweather', serif; 
         color: var(--text-dark);
         position: relative;
         margin: 0;
@@ -40,51 +38,35 @@
         flex-direction: column;
     }
 
-    /* ẢNH NỀN TOÀN TRANG (GIỐNG INDEX) */
+    /* ẢNH NỀN & LỚP PHỦ */
     body::before {
-        content: '';
-        position: fixed; 
-        top: 0; left: 0; width: 100%; height: 100%;
+        content: ''; position: fixed; top: 0; left: 0; width: 100%; height: 100%;
         background: url('images/nentrangweb.jpg') no-repeat center center;
-        background-size: cover;
-        z-index: -2; 
+        background-size: cover; z-index: -2; 
     }
-
-    /* Lớp phủ mờ nhẹ để chữ dễ đọc */
     body::after {
-        content: '';
-        position: fixed;
-        top: 0; left: 0; width: 100%; height: 100%;
-        background-color: rgba(255, 255, 255, 0.4); 
-        z-index: -1;
+        content: ''; position: fixed; top: 0; left: 0; width: 100%; height: 100%;
+        background-color: rgba(255, 255, 255, 0.4); z-index: -1;
     }
 
-    /* Font tiêu đề */
-    h1, h2, h3, h4, h5, .navbar-brand {
-        font-family: 'Playfair Display', serif;
-    }
+    h1, h2, h3, h4, h5 { font-family: 'Playfair Display', serif; }
 
     /* =========================================
-       2. NAVBAR (MENU) - COPY TỪ INDEX.HTML
+       2. NAVBAR (MENU) - ĐÃ SỬA FONT CHO GIỐNG INDEX
        ========================================= */
     .navbar {
-        /* Gradient xanh rêu đậm */
-        background: linear-gradient(
-            180deg, 
-            rgba(31, 69, 50, 0.95) 0%,     
-            rgba(14, 46, 34, 0.95) 100%
-        ) !important;
+        /* [QUAN TRỌNG] Ép font chữ Menu về Montserrat giống trang chủ */
+        font-family: 'Montserrat', sans-serif !important; 
         
+        background: linear-gradient(180deg, rgba(31, 69, 50, 0.95) 0%, rgba(14, 46, 34, 0.95) 100%) !important;
         border-bottom: 1px solid var(--gold-border);
         box-shadow: 0 4px 12px rgba(0,0,0,0.6); 
         padding: 0.8rem 1rem;
-        position: sticky;
-        top: 0;
-        z-index: 1000;
+        position: sticky; top: 0; z-index: 1000;
     }
 
     .navbar-brand {
-        font-family: 'Dancing Script', cursive;
+        font-family: 'Dancing Script', cursive; /* Logo giữ nguyên */
         font-weight: 700;
         font-size: 1.8rem;
         color: var(--gold-text) !important;
@@ -92,11 +74,12 @@
     }
 
     .nav-link {
+        /* Đảm bảo style chữ giống hệt Index */
         font-weight: 600; 
         text-transform: uppercase;
         font-size: 0.9rem;
         letter-spacing: 1px;
-        color: #e0d0b0 !important; /* Màu be sáng */
+        color: #e0d0b0 !important; 
         transition: all 0.3s ease;
         padding: 10px 15px !important;
     }
@@ -110,114 +93,68 @@
     .dropdown-menu {
         background-color: rgba(14, 46, 34, 0.95); 
         border: 1px solid var(--gold-border);
+        font-family: 'Montserrat', sans-serif !important; /* Font dropdown cũng phải là Montserrat */
     }
 
-    .dropdown-item {
-        color: #e0d0b0 !important;
-    }
+    .dropdown-item { color: #e0d0b0 !important; }
+    .dropdown-item:hover { background-color: rgba(255, 255, 255, 0.1); color: var(--gold-text) !important; }
 
-    .dropdown-item:hover {
-        background-color: rgba(255, 255, 255, 0.1);
-        color: var(--gold-text) !important;
-    }
-
-    /* Icon mobile màu vàng */
     .navbar-toggler { border-color: var(--gold-border); }
-    .navbar-toggler-icon {
-        background-image: url("data:image/svg+xml;charset=utf8,%3Csvg viewBox='0 0 30 30' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath stroke='rgba(255, 193, 7, 1)' stroke-width='2' stroke-linecap='round' stroke-miterlimit='10' d='M4 7h22M4 15h22M4 23h22'/%3E%3C/svg%3E");
-    }
+    .navbar-toggler-icon { background-image: url("data:image/svg+xml;charset=utf8,%3Csvg viewBox='0 0 30 30' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath stroke='rgba(255, 193, 7, 1)' stroke-width='2' stroke-linecap='round' stroke-miterlimit='10' d='M4 7h22M4 15h22M4 23h22'/%3E%3C/svg%3E"); }
 
-    /* CSS cho bộ chuyển đổi ngôn ngữ */
+    /* Lang Box */
     .language-group { gap: 10px; }
     .lang-box {
         display: flex; align-items: center; justify-content: center;
         background-color: var(--primary-green);
         border: 1px solid var(--gold-border);
-        border-radius: 4px;
-        padding: 5px 10px;
-        text-decoration: none;
-        color: #e0d0b0;
+        border-radius: 4px; padding: 5px 10px;
+        text-decoration: none; color: #e0d0b0;
         font-size: 0.85rem; font-weight: 600;
         transition: all 0.3s ease;
+        font-family: 'Montserrat', sans-serif; /* Font chữ VN/EN */
     }
     .lang-box img { width: 20px; height: auto; margin-right: 6px; }
-    .lang-box:hover {
-        background-color: var(--gold-text);
-        color: var(--primary-green);
-    }
+    .lang-box:hover { background-color: var(--gold-text); color: var(--primary-green); }
 
     /* =========================================
-       3. NỘI DUNG TRANG (GIỮ NGUYÊN)
+       3. NỘI DUNG (GIỮ NGUYÊN)
        ========================================= */
     .section-content {
-        background-color: rgba(255, 255, 255, 0.95); /* Nền trắng mờ */
-        padding: 40px;
-        border-radius: 15px;
+        background-color: rgba(255, 255, 255, 0.95);
+        padding: 40px; border-radius: 15px;
         box-shadow: 0 5px 15px rgba(0,0,0,0.1);
-        margin-top: 30px;
-        margin-bottom: 30px;
+        margin-top: 30px; margin-bottom: 30px;
     }
     
     .text-justify { text-align: justify; }
 
-    /* CSS cho ảnh Zoom */
-    .img-wrapper-zoom {
-        overflow: hidden; 
-        border-radius: 10px;
-        box-shadow: 0 4px 8px rgba(0,0,0,0.1);
-    }
-    .img-custom {
-        border-radius: 10px; 
-        transition: transform 0.5s ease; 
-        cursor: zoom-in; 
-        width: 100%;
-        display: block;
-    }
-    .img-wrapper-zoom:hover .img-custom, 
-    .card:hover .img-custom {
-        transform: scale(1.1); 
-    }
+    /* Zoom & Lightbox */
+    .img-wrapper-zoom { overflow: hidden; border-radius: 10px; box-shadow: 0 4px 8px rgba(0,0,0,0.1); }
+    .img-custom { border-radius: 10px; transition: transform 0.5s ease; cursor: zoom-in; width: 100%; display: block; }
+    .img-wrapper-zoom:hover .img-custom, .card:hover .img-custom { transform: scale(1.1); }
 
-    /* CSS cho Lightbox */
-    #lightbox {
-        display: none; 
-        position: fixed;
-        z-index: 9999; 
-        top: 0; left: 0; width: 100%; height: 100%;
-        background-color: rgba(0, 0, 0, 0.9); 
-        justify-content: center; align-items: center;
-        opacity: 0; transition: opacity 0.3s ease;
-    }
+    #lightbox { display: none; position: fixed; z-index: 9999; top: 0; left: 0; width: 100%; height: 100%; background-color: rgba(0, 0, 0, 0.9); justify-content: center; align-items: center; opacity: 0; transition: opacity 0.3s ease; }
     #lightbox.active { display: flex; opacity: 1; }
-    #lightbox img {
-        max-width: 90%; max-height: 90vh;
-        border: 2px solid white; border-radius: 5px;
-        box-shadow: 0 0 20px rgba(0,0,0,0.5);
-        transform: scale(0.8); transition: transform 0.3s ease;
-    }
+    #lightbox img { max-width: 90%; max-height: 90vh; border: 2px solid white; border-radius: 5px; box-shadow: 0 0 20px rgba(0,0,0,0.5); transform: scale(0.8); transition: transform 0.3s ease; }
     #lightbox.active img { transform: scale(1); }
-    #lightbox-close {
-        position: absolute; top: 20px; right: 30px;
-        color: white; font-size: 40px; cursor: pointer;
-        transition: color 0.3s;
-    }
+    #lightbox-close { position: absolute; top: 20px; right: 30px; color: white; font-size: 40px; cursor: pointer; transition: color 0.3s; }
     #lightbox-close:hover { color: #ff5252; }
 
-    /* CSS cho Timeline */
+    /* Timeline */
     .handmade-font { font-family: 'Patrick Hand', cursive; }
     .step-timeline { position: relative; padding-left: 20px; border-left: 2px dashed #81c784; }
     .step-item { position: relative; padding-bottom: 40px; padding-left: 20px; }
     .step-marker { position: absolute; left: -29px; top: 0; width: 20px; height: 20px; background-color: #2e7d32; border: 4px solid #f1f8e9; border-radius: 50%; }
     .step-number { font-family: 'Patrick Hand', cursive; font-size: 1.5rem; color: #2e7d32; font-weight: bold; text-decoration: underline; }
 
-    /* FOOTER (ĐỒNG BỘ INDEX) */
+    /* Footer - Font Footer cũng theo Montserrat */
     footer {
+        font-family: 'Montserrat', sans-serif;
         background-color: rgba(14, 46, 34, 0.95); 
         color: #e0d0b0; 
         border-top: 1px solid var(--gold-border);
-        margin-top: auto;
-        padding-top: 40px;
-        padding-bottom: 20px;
+        margin-top: auto; padding-top: 40px; padding-bottom: 20px;
     }
     footer a { color: #e0d0b0; text-decoration: none; }
     footer a:hover { color: var(--gold-text); }
