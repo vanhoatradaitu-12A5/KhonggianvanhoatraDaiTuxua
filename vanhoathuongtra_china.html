@@ -6,16 +6,148 @@
   <title>Văn Hóa Thưởng Trà - Tinh Hoa Đại Từ</title>
   
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet"> 
-  
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
-  <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@700&family=Montserrat:wght@400;600&family=Patrick+Hand&family=Playfair+Display:wght@400;700&display=swap" rel="stylesheet">
+  
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@700&family=Montserrat:wght@300;400;500;600;700&family=Playfair+Display:ital,wght@0,700;1,400&family=Patrick+Hand&display=swap" rel="stylesheet">
   
   <link rel="stylesheet" href="css/styles.css">
 
+  <style>
+    /* =========================================
+       1. CÀI ĐẶT CHUNG & BIẾN MÀU SẮC (GIỐNG INDEX)
+       ========================================= */
+    :root {
+        --primary-green: #0e2e22;    
+        --gradient-top: #1f4532;     
+        --gradient-mid: #0e2e22;     
+        --gold-text: #ffc107;        
+        --gold-border: #d4af37;      
+        --gold-hover: #fff8e1;       
+        --text-dark: #333333;
+    }
+
+    html, body { height: 100%; }
+
+    /* Font chung cho thân trang là Montserrat */
+    body {
+        font-family: 'Montserrat', sans-serif;
+        color: var(--text-dark);
+        position: relative;
+        margin: 0;
+        display: flex;
+        flex-direction: column;
+    }
+
+    /* ẢNH NỀN TOÀN TRANG */
+    body::before {
+        content: ''; position: fixed; top: 0; left: 0; width: 100%; height: 100%;
+        background: url('images/nentrangweb.jpg') no-repeat center center;
+        background-size: cover; z-index: -2; 
+    }
+    body::after {
+        content: ''; position: fixed; top: 0; left: 0; width: 100%; height: 100%;
+        background-color: rgba(255, 255, 255, 0.4); /* Lớp phủ mờ */
+        z-index: -1;
+    }
+
+    h1, h2, h3, h4, h5 { font-family: 'Playfair Display', serif; color: var(--primary-green); }
+    
+    /* =========================================
+       2. NAVBAR (MENU) - ĐÃ ĐỒNG BỘ
+       ========================================= */
+    .navbar {
+        font-family: 'Montserrat', sans-serif !important;
+        background: linear-gradient(180deg, rgba(31, 69, 50, 0.95) 0%, rgba(14, 46, 34, 0.95) 100%) !important;
+        border-bottom: 1px solid var(--gold-border);
+        box-shadow: 0 4px 12px rgba(0,0,0,0.6); 
+        padding: 0.8rem 1rem;
+        position: sticky; top: 0; z-index: 1000;
+    }
+
+    .navbar-brand {
+        font-family: 'Dancing Script', cursive;
+        font-weight: 700; font-size: 1.8rem;
+        color: var(--gold-text) !important;
+        text-shadow: 1px 1px 2px rgba(0,0,0,0.5); 
+    }
+
+    .nav-link {
+        font-weight: 600; text-transform: uppercase;
+        font-size: 0.9rem; letter-spacing: 1px;
+        color: #e0d0b0 !important; 
+        transition: all 0.3s ease; padding: 10px 15px !important;
+    }
+
+    .nav-link:hover, .nav-link.active {
+        color: var(--gold-text) !important; 
+        text-shadow: none; transform: translateY(-1px);
+    }
+
+    .dropdown-menu {
+        background-color: rgba(14, 46, 34, 0.95); 
+        border: 1px solid var(--gold-border);
+        font-family: 'Montserrat', sans-serif !important;
+    }
+    .dropdown-item { color: #e0d0b0 !important; }
+    .dropdown-item:hover { background-color: rgba(255, 255, 255, 0.1); color: var(--gold-text) !important; }
+
+    .navbar-toggler { border-color: var(--gold-border); }
+    .navbar-toggler-icon { background-image: url("data:image/svg+xml;charset=utf8,%3Csvg viewBox='0 0 30 30' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath stroke='rgba(255, 193, 7, 1)' stroke-width='2' stroke-linecap='round' stroke-miterlimit='10' d='M4 7h22M4 15h22M4 23h22'/%3E%3C/svg%3E"); }
+
+    /* Language Switcher */
+    .language-group { gap: 10px; }
+    .lang-box {
+        display: flex; align-items: center; justify-content: center;
+        background-color: var(--primary-green);
+        border: 1px solid var(--gold-border);
+        border-radius: 4px; padding: 5px 10px;
+        text-decoration: none; color: #e0d0b0;
+        font-size: 0.85rem; font-weight: 600;
+        transition: all 0.3s ease;
+        font-family: 'Montserrat', sans-serif;
+    }
+    .lang-box img { width: 20px; height: auto; margin-right: 6px; }
+    .lang-box:hover { background-color: var(--gold-text); color: var(--primary-green); }
+
+    /* =========================================
+       3. NỘI DUNG TRANG (GIỮ NGUYÊN)
+       ========================================= */
+    .section-content {
+        background-color: rgba(255, 255, 255, 0.95); /* Nền trắng mờ */
+        padding: 40px; border-radius: 15px;
+        box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+        margin-top: 30px; margin-bottom: 30px;
+    }
+    .text-justify { text-align: justify; }
+    .text-highlight { color: #1b5e20; }
+    .img-custom { border-radius: 10px; box-shadow: 0 4px 8px rgba(0,0,0,0.1); }
+    .handmade-font { font-family: 'Patrick Hand', cursive; }
+
+    .sticky-polaroid { position: relative; transform: rotate(-2deg); transition: transform 0.3s; cursor: pointer; }
+    .sticky-polaroid:hover { transform: rotate(0deg) scale(1.02); z-index: 10; }
+    .polaroid-frame { background: white; padding: 15px 15px 40px 15px; box-shadow: 0 4px 10px rgba(0,0,0,0.2); }
+
+    /* =========================================
+       4. FOOTER (ĐỒNG BỘ MÀU)
+       ========================================= */
+    footer {
+        font-family: 'Montserrat', sans-serif !important;
+        background-color: rgba(14, 46, 34, 0.95) !important; 
+        color: #e0d0b0 !important; 
+        border-top: 1px solid var(--gold-border);
+        margin-top: auto; padding-top: 40px; padding-bottom: 20px;
+    }
+    footer h5 { color: var(--gold-text); font-weight: 700; font-family: 'Playfair Display', serif; }
+    footer a { color: #e0d0b0; text-decoration: none; transition: 0.3s; }
+    footer a:hover { color: var(--gold-text); text-decoration: underline; }
+    footer i { color: var(--gold-text); }
+  </style>
 </head>
 <body>
 
-<nav class="navbar navbar-expand-lg"> 
+<nav class="navbar navbar-expand-lg sticky-top"> 
   <div class="container">
     <a class="navbar-brand" href="index_china.html">
         <i class="fas fa-leaf me-2"></i> Trà Đại Từ
@@ -62,24 +194,18 @@
         </li>
         
         <li class="nav-item"><a class="nav-link" href="lienhe.html">Liên Hệ</a></li>
+        
         <div class="language-group d-flex align-items-center ms-3">
-    
-    <a href="vanhoathuongtra.html" class="lang-box" title="Tiếng Việt">
-        <img src="https://flagcdn.com/w40/vn.png" alt="Vietnam Flag">
-        <span>VN</span>
-    </a>
-    
-    <a href="vanhoathuongtra_en.html" class="lang-box" title="English">
-        <img src="https://flagcdn.com/w40/gb.png" alt="UK Flag">
-        <span>EN</span>
-    </a>
-
-    <a href="vanhoathuongtra_china.html" class="lang-box" title="Chinese">
-        <img src="https://flagcdn.com/w40/cn.png" alt="China Flag">
-        <span>CN</span>
-    </a>
-
-</div>
+            <a href="vanhoathuongtra.html" class="lang-box" title="Tiếng Việt">
+                <img src="https://flagcdn.com/w40/vn.png" alt="Vietnam Flag"><span>VN</span>
+            </a>
+            <a href="vanhoathuongtra_en.html" class="lang-box" title="English">
+                <img src="https://flagcdn.com/w40/gb.png" alt="UK Flag"><span>EN</span>
+            </a>
+            <a href="vanhoathuongtra_china.html" class="lang-box" title="Chinese">
+                <img src="https://flagcdn.com/w40/cn.png" alt="China Flag"><span>CN</span>
+            </a>
+        </div>
       </ul>
     </div>
   </div>
@@ -93,7 +219,7 @@
 
       <div class="row align-items-center mb-5"> 
         <div class="col-md-7">
-          <h2 class="mb-3">1. Trà Trong Đời Sống Nhân Dân</h2> 
+          <h2 class="mb-3 text-highlight">1. Trà Trong Đời Sống Nhân Dân</h2> 
           <p class="text-justify">Văn hóa thưởng trà của người Thái Nguyên nói chung và người Đại Từ nói riêng đều xoay quanh việc <strong>kết nối con người với con người</strong>, với thiên nhiên và với quê hương đất mẹ. Nghệ thuật thưởng trà đi sâu vào trái tim mỗi người, trở thành một phần không thể thiếu trong đời sống thường ngày.</p>
           <p class="text-justify">Người dân trân trọng giá trị nét đẹp văn hóa ấy qua việc sử dụng trà như một phương tiện giao tiếp, tạo sự gắn kết và mang lại cảm giác bình yên, thư thái.</p>
           
@@ -110,7 +236,7 @@
       <hr class="my-5 opacity-25" style="border-color: #8D6E63;">
 
       <div class="mb-5">
-          <h2 class="mb-4 text-center">2. Nghệ Thuật Thưởng Trà</h2>
+          <h2 class="mb-4 text-center text-highlight">2. Nghệ Thuật Thưởng Trà</h2>
           <p class="mb-5 text-justify w-75 mx-auto">Mỗi dân tộc, vùng miền có cách thưởng trà mang đặc trưng riêng. Người Việt đúc kết nghệ thuật này qua câu nói "Nhất thuỷ, nhì trà, tam bôi, tứ ấm, ngũ quân anh".</p>
           
           <div class="row">
@@ -130,7 +256,7 @@
                               <h3 class="text-highlight me-3 mb-0"><i class="fas fa-leaf"></i></h3>
                             <div>
                                 <h5 class="fw-bold mb-1">Nhì Trà</h5>
-                                <p class="small text-muted mb-0 text-justify">Chọn trà theo tiêu chuẩn: thanh, sắc, vị, thần. Loại trà phù hợp sở thích và chất lượng tốt sẽ đảm bảo hương vị chuẩn.</p>
+                                <p class="small text-muted mb-0 text-justify">Chọn trà theo tiêu chuẩn: thanh, sắc, vị, thần. Loại trà phù hợp sở thích和质量好将确保标准口味。</p>
                             </div>
                         </div>
                     </div>
@@ -175,13 +301,13 @@
 
       <div class="row mb-5"> 
         <div class="col-12">
-            <h2 class="mb-4 text-center">3. Quy Trình Pha Trà Chuẩn Vị</h2>
+            <h2 class="mb-4 text-center text-highlight">3. Quy Trình Pha Trà Chuẩn Vị</h2>
             <p class="text-center mb-5">Để tạo nên tách trà Thái Nguyên thơm ngon chuẩn vị, cần trải qua các bước tỉ mỉ sau:</p>
             
             <div class="row row-cols-1 row-cols-md-3 row-cols-lg-5 g-3 mb-5">
                 <div class="col">
                     <div class="card h-100 text-center">
-                        <div class="card-header text-white fw-bold" style="background-color: #8D6E63;">Bước 1</div>
+                        <div class="card-header text-white fw-bold" style="background-color: var(--primary-green);">Bước 1</div>
                         <div class="card-body">
                             <h6 class="card-title fw-bold" style="color: #5d4037;">Làm nóng ấm</h6>
                             <p class="card-text small">Dùng nước sôi 90°C tráng qua ấm chén rồi đổ đi. Giúp làm sạch và giữ nhiệt.</p>
@@ -190,7 +316,7 @@
                 </div>
                 <div class="col">
                     <div class="card h-100 text-center">
-                        <div class="card-header text-white fw-bold" style="background-color: #8D6E63;">Bước 2</div>
+                        <div class="card-header text-white fw-bold" style="background-color: var(--primary-green);">Bước 2</div>
                         <div class="card-body">
                             <h6 class="card-title fw-bold" style="color: #5d4037;">Đong trà</h6>
                             <p class="card-text small">Cho một lượng trà khô vừa đủ (khoảng 1/5 ấm) vào ấm đã làm nóng.</p>
@@ -199,7 +325,7 @@
                 </div>
                 <div class="col">
                     <div class="card h-100 text-center">
-                        <div class="card-header text-white fw-bold" style="background-color: #8D6E63;">Bước 3</div>
+                        <div class="card-header text-white fw-bold" style="background-color: var(--primary-green);">Bước 3</div>
                         <div class="card-body">
                              <h6 class="card-title fw-bold" style="color: #5d4037;">Đánh thức trà</h6>
                             <p class="card-text small">Đổ nước xăm xắp trà rồi chắt ngay. Giúp lá trà sạch bụi và bắt đầu nở.</p>
@@ -208,7 +334,7 @@
                 </div>
                 <div class="col">
                     <div class="card h-100 text-center">
-                        <div class="card-header text-white fw-bold" style="background-color: #8D6E63;">Bước 4</div>
+                        <div class="card-header text-white fw-bold" style="background-color: var(--primary-green);">Bước 4</div>
                         <div class="card-body">
                             <h6 class="card-title fw-bold" style="color: #5d4037;">Hãm trà</h6>
                             <p class="card-text small">Đổ nước sôi 80-85°C. Hãm trong khoảng 1-2 phút tùy khẩu vị đậm nhạt.</p>
@@ -217,7 +343,7 @@
                 </div>
                 <div class="col">
                     <div class="card h-100 text-center">
-                        <div class="card-header text-white fw-bold" style="background-color: #8D6E63;">Bước 5</div>
+                        <div class="card-header text-white fw-bold" style="background-color: var(--primary-green);">Bước 5</div>
                         <div class="card-body">
                             <h6 class="card-title fw-bold" style="color: #5d4037;">Rót & Thưởng</h6>
                             <p class="card-text small">Rót trà đều qua các chén (xoay vòng). Thưởng thức khi còn nóng.</p>
@@ -241,7 +367,7 @@
 
                 <div class="col-md-6">
                      <div class="card h-100">
-                        <div class="card-header text-white fw-bold text-center" style="background-color: #388e3c;"> <i class="fas fa-video me-2"></i>Video Hướng Dẫn Thực Tế
+                        <div class="card-header text-white fw-bold text-center" style="background-color: var(--primary-green);"> <i class="fas fa-video me-2"></i>Video Hướng Dẫn Thực Tế
                         </div>
                         <div class="card-body p-2 bg-light">
                             <div class="ratio ratio-16x9">
@@ -261,7 +387,7 @@
               <img src="https://images.unsplash.com/photo-1576092768241-dec231879fc3?q=80&w=1000&auto=format&fit=crop" class="img-fluid img-custom" alt="Ý nghĩa trà Việt"> 
         </div>
         <div class="col-md-7 order-1 order-md-2">
-            <h2 class="mb-3">4. Ý Nghĩa Văn Hóa Trà Việt</h2>
+            <h2 class="mb-3 text-highlight">4. Ý Nghĩa Văn Hóa Trà Việt</h2>
             
             <p class="text-center fw-bold mb-4" style="color: #5d4037;"> 
                Văn hóa thưởng thức trà của người dân Việt Nam từ xưa nay đều được <br> phát triển dựa vào truyền thống quý báu tốt đẹp của dân tộc
@@ -285,7 +411,7 @@
         <img src="images/cacbuocphatra.jpg" class="img-fluid rounded shadow" style="border: 10px solid #fff;" alt="Sơ đồ 5 bước pha trà Đại Từ - Phóng to">
       </div>
       <div class="modal-footer justify-content-center border-0">
-        <button type="button" class="btn btn-custom" data-bs-dismiss="modal">Đóng (Close)</button>
+        <button type="button" class="btn btn-secondary rounded-pill px-4" data-bs-dismiss="modal">Đóng (Close)</button>
       </div>
     </div>
   </div>
@@ -293,14 +419,31 @@
 
 <footer class="text-center">
   <div class="container">
-    <h5 class="mb-3">KHÔNG GIAN VĂN HÓA TRÀ ĐẠI TỪ</h5>
-    <p class="mb-0">&copy; 2025 Tinh Hoa Đất Thái. Design by You.</p> 
+    <div class="row">
+      <div class="col-md-4 text-start mb-3">
+        <h5 class="text-uppercase border-bottom pb-2 d-inline-block" style="border-color: var(--gold-border) !important;">Trà Đại Từ</h5>
+        <p class="mt-2">Dự án STEM quảng bá văn hóa trà Việt Nam, mang tinh hoa đất Việt đến mọi nhà.</p>
+      </div>
+      <div class="col-md-4 mb-3">
+        <h5>Liên Kết Nhanh</h5>
+        <ul class="list-unstyled">
+            <li><a href="gioithieu.html"><i class="fas fa-chevron-right me-2 small"></i>Giới Thiệu</a></li>
+            <li><a href="sanphamnoibat.html"><i class="fas fa-chevron-right me-2 small"></i>Sản Phẩm</a></li>
+            <li><a href="dulichvatrainghiem.html"><i class="fas fa-chevron-right me-2 small"></i>Du Lịch</a></li>
+        </ul>
+      </div>
+      <div class="col-md-4 text-end mb-3">
+        <h5>Liên Hệ</h5>
+        <p><i class="fas fa-map-marker-alt me-2"></i> Xã Đại Phúc, Tỉnh Thái Nguyên</p>
+        <p><i class="fas fa-phone me-2"></i> 0329 305 208</p>
+        <p><i class="fas fa-envelope me-2"></i> lienhe@tradaitu.vn</p>
+      </div>
+    </div>
+    <hr style="opacity: 0.2; border-color: var(--gold-border);">
+    <p class="mb-0">&copy; 2025 Không Gian Văn Hóa Trà Đại Từ.</p> 
   </div>
 </footer>
 
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
 </body>
-
 </html>
-
-
