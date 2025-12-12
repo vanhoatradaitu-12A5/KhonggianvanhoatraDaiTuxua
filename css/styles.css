@@ -1,5 +1,5 @@
 /* =========================================
-   1. CÀI ĐẶT CHUNG & BIẾN MÀU SẮC (ĐÃ SỬA MÀU CHỮ NỘI DUNG)
+   1. CÀI ĐẶT CHUNG & BIẾN MÀU SẮC
    ========================================= */
 :root {
     /* --- Bảng màu trích xuất từ ảnh "Đồi chè hoàng hôn" --- */
@@ -20,23 +20,23 @@
     /* Màu hover: Vàng kem */
     --gold-hover: #fff8e1;      
     
-    /* Màu chữ nội dung: ĐÃ ĐỔI SANG MÀU TRẮNG NGÀ (#f5f5dc) để tương phản */
-    --text-body: #f5f5dc; 
+    /* Màu chữ nội dung: Nâu đất đậm */
+    --text-body: #4e342e; 
 
     /* --- Màu lớp phủ (Overlay) --- */
     /* Màu xám đen với độ trong suốt 0.6 */
     --overlay-color: rgba(60, 60, 60, 0.6); 
 }
 
-/* Reset font chữ chung (ĐÃ THÊM TEXT-SHADOW) */
+/* Reset font chữ chung */
 body {
     font-family: 'Montserrat', sans-serif;
     
-    /* Màu chữ nội dung mới (Trắng ngà) */
+    /* Màu nâu */
     color: var(--text-body); 
     
-    /* Thêm bóng đổ nhẹ để chữ nổi bật hơn trên nền phức tạp */
-    text-shadow: 0 0 3px rgba(0, 0, 0, 0.8); 
+    /* Bỏ bóng đổ */
+    text-shadow: none; 
     
     position: relative;
     min-height: 100vh;
@@ -177,11 +177,11 @@ h1, h2, h3, h4, h5, .navbar-brand {
 .btn-outline-success:hover {
     background-color: var(--text-body) !important;
     border-color: var(--text-body) !important;
-    color: var(--primary-green) !important; 
+    color: #fff !important; 
 }
 
 /* =========================================
-   5. CÁC THÀNH PHẦN KHÁC (ĐÃ SỬA MÀU CHỮ)
+   5. CÁC THÀNH PHẦN KHÁC
    ========================================= */
 .fade-in { animation: fadeIn 1.5s ease-out; }
 @keyframes fadeIn {
@@ -208,14 +208,12 @@ h2 {
     letter-spacing: 1px;
 }
 
-/* Đoạn text mô tả đặc biệt (ĐÃ SỬA MÀU CHỮ VÀ TEXT-SHADOW) */
+/* Đoạn text mô tả đặc biệt */
 .lead.text-muted {
-    /* Sử dụng màu trắng ngà mờ để tương phản với nền tối */
-    color: rgba(245, 245, 220, 0.8) !important; 
+    color: var(--text-body) !important; 
     font-style: italic;
     font-weight: 600;
-    /* Thêm bóng đổ nhẹ để dễ đọc */
-    text-shadow: 0 0 2px rgba(0, 0, 0, 0.9); 
+    text-shadow: none; 
 }
 
 /* Footer */
@@ -232,13 +230,10 @@ footer h5 {
 }
 
 /* =========================================
-   6. LANGUAGE SWITCHER (ĐÃ SỬA: CHUYỂN SANG CỘT DỌC)
+   6. LANGUAGE SWITCHER (MỚI THÊM)
    ========================================= */
 /* Khung bao quanh các nút ngôn ngữ */
 .language-group {
-    /* *** SỬA ĐỔI: Chuyển hướng Flexbox thành cột dọc *** */
-    flex-direction: column; 
-    /* ************************************************* */
     gap: 10px; /* Khoảng cách giữa các ô */
 }
 
@@ -247,7 +242,6 @@ footer h5 {
     display: flex;              /* Để icon và chữ nằm ngang */
     align-items: center;        /* Căn giữa dọc */
     justify-content: center;    /* Căn giữa ngang */
-    width: 100px; /* Thêm chiều rộng cố định để các ô đều nhau */
     
     border: 1px solid var(--gold-border); /* Viền màu vàng gold */
     border-radius: 4px;         /* Bo góc nhẹ */
@@ -279,20 +273,12 @@ footer h5 {
     transform: translateY(-2px);        /* Nổi lên nhẹ */
 }
 
-/* --- Responsive cho Mobile (ĐÃ SỬA) --- */
+/* --- Responsive cho Mobile --- */
 /* Khi màn hình nhỏ (dưới 991px), chỉnh lại để không bị dính */
 @media (max-width: 991px) {
     .language-group {
-        /* Chuyển lại thành hàng ngang trên Mobile */
-        flex-direction: row; 
-        
         margin-top: 15px;      /* Cách menu chính ra một chút */
         margin-left: 0 !important; /* Bỏ margin trái */
         justify-content: flex-start; /* Căn trái */
     }
-    
-    /* Trên Mobile, bỏ chiều rộng cố định */
-    .language-group .lang-box {
-        width: auto;
-    }
-}
+}  hãy sửa bằng phương pháp 1
