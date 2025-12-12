@@ -4,31 +4,30 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Nghệ Thuật Sao Trà - Trà Đại Từ</title>
-  
+   
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
-  
+   
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@700&family=Montserrat:wght@300;400;500;600;700&family=Playfair+Display:ital,wght@0,700;1,400&family=Patrick+Hand&display=swap" rel="stylesheet">
 
   <style>
     /* =========================================
-       1. CÀI ĐẶT CHUNG & BIẾN MÀU SẮC (GIỐNG INDEX)
+       1. CÀI ĐẶT CHUNG & BIẾN MÀU SẮC
        ========================================= */
     :root {
-        --primary-green: #0e2e22;    
-        --gradient-top: #1f4532;     
-        --gradient-mid: #0e2e22;     
-        --gold-text: #ffc107;        
-        --gold-border: #d4af37;      
-        --gold-hover: #fff8e1;       
+        --primary-green: #0e2e22;     
+        --gradient-top: #1f4532;      
+        --gradient-mid: #0e2e22;      
+        --gold-text: #ffc107;         
+        --gold-border: #d4af37;       
+        --gold-hover: #fff8e1;        
         --text-dark: #333333;
     }
 
     html, body { height: 100%; }
 
-    /* Font chung cho thân trang là Montserrat */
     body {
         font-family: 'Montserrat', sans-serif;
         color: var(--text-dark);
@@ -46,14 +45,14 @@
     }
     body::after {
         content: ''; position: fixed; top: 0; left: 0; width: 100%; height: 100%;
-        background-color: rgba(255, 255, 255, 0.4); /* Lớp phủ mờ */
+        background-color: rgba(255, 255, 255, 0.4); 
         z-index: -1;
     }
 
     h1, h2, h3, h4, h5 { font-family: 'Playfair Display', serif; }
-    
+     
     /* =========================================
-       2. NAVBAR (MENU) - ĐÃ ĐỒNG BỘ
+       2. NAVBAR (MENU)
        ========================================= */
     .navbar {
         font-family: 'Montserrat', sans-serif !important;
@@ -110,9 +109,8 @@
     .lang-box:hover { background-color: var(--gold-text); color: var(--primary-green); }
 
     /* =========================================
-       3. NỘI DUNG BÀI VIẾT (STYLE HỖ TRỢ)
+       3. NỘI DUNG BÀI VIẾT
        ========================================= */
-    /* Thêm nền trắng mờ cho phần nội dung để dễ đọc trên nền ảnh */
     section.container.my-5.fade-in {
         background-color: rgba(255, 255, 255, 0.95);
         padding: 40px;
@@ -123,8 +121,7 @@
     .text-justify { text-align: justify; }
     .text-success { color: var(--primary-green) !important; }
     .badge.bg-success { background-color: var(--primary-green) !important; }
-    
-    /* Nút quay lại */
+     
     .btn-outline-secondary {
         color: var(--text-dark);
         border-color: var(--text-dark);
@@ -135,8 +132,18 @@
         border-color: var(--primary-green);
     }
 
+    /* Hiệu ứng hover cho Card quy trình (khi không có ảnh) */
+    .card-process {
+        transition: all 0.3s ease;
+    }
+    .card-process:hover {
+        transform: translateY(-5px);
+        box-shadow: 0 10px 20px rgba(0,0,0,0.1) !important;
+        border-color: var(--gold-border) !important;
+    }
+
     /* =========================================
-       4. FOOTER (ĐỒNG BỘ MÀU)
+       4. FOOTER
        ========================================= */
     footer {
         font-family: 'Montserrat', sans-serif !important;
@@ -158,7 +165,7 @@
     <div class="collapse navbar-collapse" id="navbarNav">
       <ul class="navbar-nav ms-auto">
         <li class="nav-item"><a class="nav-link" href="index.html">Trang Chủ</a></li>
-        
+         
         <li class="nav-item dropdown">
           <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown">Giới thiệu</a>
           <ul class="dropdown-menu">
@@ -186,7 +193,7 @@
         </li>
 
         <li class="nav-item"><a class="nav-link" href="lienhe.html">Liên Hệ</a></li>
-        
+         
         <div class="language-group d-flex align-items-center ms-3">
             <a href="nghethuatsaotra.html" class="lang-box" title="Tiếng Việt">
                 <img src="https://flagcdn.com/w40/vn.png" alt="Vietnam Flag"><span>VN</span>
@@ -203,7 +210,7 @@
   </div>
 </nav>
 
-<header class="text-white text-center py-5 mb-5" style="background: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.6)), url('https://images.unsplash.com/photo-1597481499750-3e6b22637e12?q=80&w=1000&auto=format&fit=crop'); background-size: cover; background-position: center;">
+<header class="text-white text-center py-5 mb-5" style="background: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.6)), url('images/banner7'); background-size: cover; background-position: center;">
     <div class="container my-5">
         <h1 class="display-4 fw-bold" style="color: #fff !important;">Nghệ Thuật Sao Trà</h1>
         <p class="lead mb-0">Bí quyết lưu giữ hương cốm non & vị ngọt hậu của đất trời Đại Từ</p>
@@ -211,7 +218,7 @@
 </header>
 
 <section class="container my-5 fade-in">
-    
+     
     <div class="mb-4">
         <a href="tinhhoatraviet.html" class="btn btn-outline-secondary">
             <i class="fas fa-arrow-left me-2"></i> Quay lại Tinh Hoa Trà Việt
@@ -220,7 +227,7 @@
 
     <div class="row align-items-center mb-5">
         <div class="col-md-6">
-            <h2 class="text-success mb-3">Linh Hồn Của Chè Đại Từ</h2>
+            <h2 class="text-success mb-3">Linh hồn của chè Đại Từ</h2>
             <p class="text-justify lead">
                 Nếu như thổ nhưỡng và khí hậu là món quà của thiên nhiên, thì kỹ thuật sao chè chính là linh hồn được thổi vào bởi con người. Tại Đại Từ, sao chè không đơn thuần là làm khô lá chè, mà là cả một nghệ thuật điều khiển lửa và cảm nhận bằng mọi giác quan.
             </p>
@@ -239,65 +246,37 @@
 
     <div class="row g-4">
         <div class="col-lg-6">
-            <div class="card h-100 border-0 shadow-sm">
-                <div class="row g-0 h-100">
-                    <div class="col-md-4">
-                        <img src="https://images.unsplash.com/photo-1594488513576-96b4b44d3721?q=80&w=1000&auto=format&fit=crop" class="img-fluid rounded-start h-100 object-fit-cover" alt="Ốp chè">
-                    </div>
-                    <div class="col-md-8">
-                        <div class="card-body">
-                            <h4 class="card-title text-success"><span class="badge bg-success me-2">1</span> Ốp Chè (Diệt Men)</h4>
-                            <p class="card-text small">Đây là công đoạn quan trọng nhất để giữ màu xanh. Chè tươi hái về được đưa vào chảo gang hoặc tôn quay nóng rực (250-300°C) trong thời gian ngắn để diệt men oxy hóa, giúp lá chè mềm, dẻo và giữ nguyên màu xanh diệp lục.</p>
-                        </div>
-                    </div>
+            <div class="card h-100 border-0 shadow-sm card-process">
+                <div class="card-body">
+                    <h4 class="card-title text-success"><span class="badge bg-success me-2">1</span> Ốp Chè (Diệt Men)</h4>
+                    <p class="card-text small text-justify">Đây là công đoạn quan trọng nhất để giữ màu xanh. Chè tươi hái về được đưa vào chảo gang hoặc tôn quay nóng rực (250-300°C) trong thời gian ngắn để diệt men oxy hóa, giúp lá chè mềm, dẻo và giữ nguyên màu xanh diệp lục.</p>
                 </div>
             </div>
         </div>
 
         <div class="col-lg-6">
-            <div class="card h-100 border-0 shadow-sm">
-                <div class="row g-0 h-100">
-                    <div class="col-md-4">
-                        <img src="https://images.unsplash.com/photo-1550505294-850942475e79?q=80&w=1000&auto=format&fit=crop" class="img-fluid rounded-start h-100 object-fit-cover" alt="Vò chè">
-                    </div>
-                    <div class="col-md-8">
-                        <div class="card-body">
-                            <h4 class="card-title text-success"><span class="badge bg-success me-2">2</span> Vò Chè</h4>
-                            <p class="card-text small">Sau khi ốp, chè được đem ra vò. Người nghệ nhân khéo léo vò để cánh chè xoăn chặt lại thành hình móc câu đặc trưng mà không làm nát lá. Quá trình này giúp làm vỡ các tế bào lá, để khi pha, tinh chất trà dễ dàng hòa tan vào nước.</p>
-                        </div>
-                    </div>
+            <div class="card h-100 border-0 shadow-sm card-process">
+                <div class="card-body">
+                    <h4 class="card-title text-success"><span class="badge bg-success me-2">2</span> Vò Chè</h4>
+                    <p class="card-text small text-justify">Sau khi ốp, chè được đem ra vò. Người nghệ nhân khéo léo vò để cánh chè xoăn chặt lại thành hình móc câu đặc trưng mà không làm nát lá. Quá trình này giúp làm vỡ các tế bào lá, để khi pha, tinh chất trà dễ dàng hòa tan vào nước.</p>
                 </div>
             </div>
         </div>
 
         <div class="col-lg-6">
-            <div class="card h-100 border-0 shadow-sm">
-                <div class="row g-0 h-100">
-                    <div class="col-md-4">
-                        <img src="https://images.unsplash.com/photo-1596716766432-843de58988a6?q=80&w=1000&auto=format&fit=crop" class="img-fluid rounded-start h-100 object-fit-cover" alt="Sao khô">
-                    </div>
-                    <div class="col-md-8">
-                        <div class="card-body">
-                            <h4 class="card-title text-success"><span class="badge bg-success me-2">3</span> Sao Khô</h4>
-                            <p class="card-text small">Chè sau khi vò được đưa lại vào chảo để sao khô. Lúc này lửa phải được kiểm soát cực kỳ cẩn thận, giảm dần nhiệt độ. Người sao chè phải đảo đều tay liên tục để chè khô đều, không bị cháy khét, nước chè sau này mới trong và xanh.</p>
-                        </div>
-                    </div>
+            <div class="card h-100 border-0 shadow-sm card-process">
+                <div class="card-body">
+                    <h4 class="card-title text-success"><span class="badge bg-success me-2">3</span> Sao Khô</h4>
+                    <p class="card-text small text-justify">Chè sau khi vò được đưa lại vào chảo để sao khô. Lúc này lửa phải được kiểm soát cực kỳ cẩn thận, giảm dần nhiệt độ. Người sao chè phải đảo đều tay liên tục để chè khô đều, không bị cháy khét, nước chè sau này mới trong và xanh.</p>
                 </div>
             </div>
         </div>
 
         <div class="col-lg-6">
-            <div class="card h-100 border-0 shadow-sm">
-                <div class="row g-0 h-100">
-                    <div class="col-md-4">
-                        <img src="https://images.unsplash.com/photo-1627435601361-ec25f5b1d0e5?q=80&w=1000&auto=format&fit=crop" class="img-fluid rounded-start h-100 object-fit-cover" alt="Lên hương">
-                    </div>
-                    <div class="col-md-8">
-                        <div class="card-body">
-                            <h4 class="card-title text-success"><span class="badge bg-success me-2">4</span> Đánh Hương (Lên Hương)</h4>
-                            <p class="card-text small">Công đoạn cuối cùng và tinh tế nhất. Khi chè đã khô, nghệ nhân tăng nhiệt nhẹ để đánh thức mùi hương. Đây là lúc hương cốm non nồng nàn tỏa ra. Chỉ cần quá lửa một giây, hương cốm sẽ bay mất và chè bị đỏ.</p>
-                        </div>
-                    </div>
+            <div class="card h-100 border-0 shadow-sm card-process">
+                <div class="card-body">
+                    <h4 class="card-title text-success"><span class="badge bg-success me-2">4</span> Đánh Hương (Lên Hương)</h4>
+                    <p class="card-text small text-justify">Công đoạn cuối cùng và tinh tế nhất. Khi chè đã khô, nghệ nhân tăng nhiệt nhẹ để đánh thức mùi hương. Đây là lúc hương cốm non nồng nàn tỏa ra. Chỉ cần quá lửa một giây, hương cốm sẽ bay mất và chè bị đỏ.</p>
                 </div>
             </div>
         </div>
