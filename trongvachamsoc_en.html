@@ -10,48 +10,155 @@
   
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@500;700&family=Montserrat:wght@300;400;500;600&family=Playfair+Display:ital,wght@0,700;1,400;1,700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@700&family=Montserrat:wght@300;400;500;600;700&family=Playfair+Display:ital,wght@0,700;1,400&display=swap" rel="stylesheet">
 
   <link href="css/styles.css" rel="stylesheet">
 
   <style>
-    /* 1. Thiết lập phông chữ chung */
-    body {
-        font-family: 'Montserrat', sans-serif;
-        color: #333;
-        background-color: #f1f8e9; /* Nền xanh nhạt */
+    /* =========================================
+       1. CÀI ĐẶT CHUNG & BIẾN MÀU SẮC (GIỐNG INDEX)
+       ========================================= */
+    :root {
+        --primary-green: #0e2e22;    
+        --gradient-top: #1f4532;     
+        --gradient-mid: #0e2e22;     
+        --gold-text: #ffc107;        
+        --gold-border: #d4af37;      
+        --gold-hover: #fff8e1;       
+        --text-dark: #333333;
     }
 
-    /* 2. Thiết lập tiêu đề */
+    html, body { height: 100%; }
+
+    /* Font chung cho thân trang là Montserrat */
+    body {
+        font-family: 'Montserrat', sans-serif;
+        color: var(--text-dark);
+        position: relative;
+        margin: 0;
+        display: flex;
+        flex-direction: column;
+    }
+
+    /* ẢNH NỀN TOÀN TRANG */
+    body::before {
+        content: ''; position: fixed; top: 0; left: 0; width: 100%; height: 100%;
+        background: url('images/nentrangweb.jpg') no-repeat center center;
+        background-size: cover; z-index: -2; 
+    }
+    body::after {
+        content: ''; position: fixed; top: 0; left: 0; width: 100%; height: 100%;
+        background-color: rgba(255, 255, 255, 0.4); /* Lớp phủ mờ */
+        z-index: -1;
+    }
+
+    /* Tiêu đề */
     h1, h2, h3, h5, .navbar-brand {
         font-family: 'Playfair Display', serif;
     }
 
-    /* 3. Màu chủ đạo */
-    .text-success { color: #2e7d32 !important; }
-    .border-success { border-color: #2e7d32 !important; }
-    .btn-success { background-color: #2e7d32; border-color: #2e7d32; }
-    .btn-success:hover { background-color: #1b5e20; }
-    .btn-outline-success { color: #2e7d32; border-color: #2e7d32; }
-    .btn-outline-success:hover { background-color: #2e7d32; color: white; }
+    /* Màu chủ đạo nội dung */
+    .text-success { color: var(--primary-green) !important; }
+    .border-success { border-color: var(--primary-green) !important; }
+    .btn-success { background-color: var(--primary-green); border-color: var(--primary-green); }
+    .btn-success:hover { background-color: var(--gold-text); color: var(--primary-green); border-color: var(--gold-border); }
+    
+    .btn-outline-success { color: var(--primary-green); border-color: var(--primary-green); }
+    .btn-outline-success:hover { background-color: var(--primary-green); color: var(--gold-text); }
 
-    /* 4. Style ảnh */
+    /* Style ảnh */
     .img-fluid {
         border-radius: 10px;
         box-shadow: 0 4px 15px rgba(0,0,0,0.1);
     }
 
-    /* 5. Animation Fade In */
+    /* =========================================
+       2. NAVBAR (MENU) - ĐÃ ĐỒNG BỘ
+       ========================================= */
+    .navbar {
+        font-family: 'Montserrat', sans-serif !important;
+        background: linear-gradient(180deg, rgba(31, 69, 50, 0.95) 0%, rgba(14, 46, 34, 0.95) 100%) !important;
+        border-bottom: 1px solid var(--gold-border);
+        box-shadow: 0 4px 12px rgba(0,0,0,0.6); 
+        padding: 0.8rem 1rem;
+        position: sticky; top: 0; z-index: 1000;
+    }
+
+    .navbar-brand {
+        font-family: 'Dancing Script', cursive;
+        font-weight: 700; font-size: 1.8rem;
+        color: var(--gold-text) !important;
+        text-shadow: 1px 1px 2px rgba(0,0,0,0.5); 
+    }
+
+    .nav-link {
+        font-weight: 600; text-transform: uppercase;
+        font-size: 0.9rem; letter-spacing: 1px;
+        color: #e0d0b0 !important; 
+        transition: all 0.3s ease; padding: 10px 15px !important;
+    }
+
+    .nav-link:hover, .nav-link.active {
+        color: var(--gold-text) !important; 
+        text-shadow: none; transform: translateY(-1px);
+    }
+
+    .dropdown-menu {
+        background-color: rgba(14, 46, 34, 0.95); 
+        border: 1px solid var(--gold-border);
+        font-family: 'Montserrat', sans-serif !important;
+    }
+    .dropdown-item { color: #e0d0b0 !important; }
+    .dropdown-item:hover { background-color: rgba(255, 255, 255, 0.1); color: var(--gold-text) !important; }
+
+    .navbar-toggler { border-color: var(--gold-border); }
+    .navbar-toggler-icon { background-image: url("data:image/svg+xml;charset=utf8,%3Csvg viewBox='0 0 30 30' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath stroke='rgba(255, 193, 7, 1)' stroke-width='2' stroke-linecap='round' stroke-miterlimit='10' d='M4 7h22M4 15h22M4 23h22'/%3E%3C/svg%3E"); }
+
+    /* Language Switcher */
+    .language-group { gap: 10px; }
+    .lang-box {
+        display: flex; align-items: center; justify-content: center;
+        background-color: var(--primary-green);
+        border: 1px solid var(--gold-border);
+        border-radius: 4px; padding: 5px 10px;
+        text-decoration: none; color: #e0d0b0;
+        font-size: 0.85rem; font-weight: 600;
+        transition: all 0.3s ease;
+        font-family: 'Montserrat', sans-serif;
+    }
+    .lang-box img { width: 20px; height: auto; margin-right: 6px; }
+    .lang-box:hover { background-color: var(--gold-text); color: var(--primary-green); }
+
+    /* =========================================
+       3. NỘI DUNG CHÍNH (ĐÃ CHỈNH LẠI MÀU NỀN KHUNG)
+       ========================================= */
+    section.container.py-5.fade-in {
+        background-color: rgba(255, 255, 255, 0.95) !important;
+        border-radius: 15px;
+        box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+    }
+
     .fade-in { animation: fadeIn 1s ease-out; }
     @keyframes fadeIn {
         from { opacity: 0; transform: translateY(20px); }
         to { opacity: 1; transform: translateY(0); }
     }
+
+    /* =========================================
+       4. FOOTER (ĐỒNG BỘ MÀU)
+       ========================================= */
+    footer {
+        font-family: 'Montserrat', sans-serif !important;
+        background-color: rgba(14, 46, 34, 0.95) !important; 
+        color: #e0d0b0 !important; 
+        border-top: 1px solid var(--gold-border);
+        margin-top: auto; padding-top: 40px; padding-bottom: 20px;
+    }
   </style>
 </head>
 <body>
 
-<nav class="navbar navbar-expand-lg navbar-dark sticky-top" style="background-color: #2e7d32; z-index: 1030;">
+<nav class="navbar navbar-expand-lg sticky-top">
   <div class="container">
     <a class="navbar-brand" href="index_en.html"><i class="fas fa-leaf me-2"></i> Trà Đại Từ</a>
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
@@ -78,35 +185,29 @@
         <li class="nav-item dropdown">
           <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown">Trải Nghiệm</a>
           <ul class="dropdown-menu">
-             <li><a class="dropdown-item" href="dulichvatrainghiem_en.html">Du Lịch</a></li>
-             <li><a class="dropdown-item" href="thuvienmedia_en.html">Media</a></li>
+              <li><a class="dropdown-item" href="dulichvatrainghiem_en.html">Du Lịch</a></li>
+              <li><a class="dropdown-item" href="thuvienmedia_en.html">Media</a></li>
           </ul>
         </li>
         <li class="nav-item"><a class="nav-link" href="lienhe_en.html">Liên Hệ</a></li>
+        
         <div class="language-group d-flex align-items-center ms-3">
-    
-    <a href="trongvachamsoc.html" class="lang-box" title="Tiếng Việt">
-        <img src="https://flagcdn.com/w40/vn.png" alt="Vietnam Flag">
-        <span>VN</span>
-    </a>
-    
-    <a href="trongvachamsoc_en.html" class="lang-box" title="English">
-        <img src="https://flagcdn.com/w40/gb.png" alt="UK Flag">
-        <span>EN</span>
-    </a>
-
-    <a href="trongvachamsoc_china.html" class="lang-box" title="Chinese">
-        <img src="https://flagcdn.com/w40/cn.png" alt="China Flag">
-        <span>CN</span>
-    </a>
-
-</div>
+            <a href="trongvachamsoc.html" class="lang-box" title="Tiếng Việt">
+                <img src="https://flagcdn.com/w40/vn.png" alt="Vietnam Flag"><span>VN</span>
+            </a>
+            <a href="trongvachamsoc_en.html" class="lang-box" title="English">
+                <img src="https://flagcdn.com/w40/gb.png" alt="UK Flag"><span>EN</span>
+            </a>
+            <a href="trongvachamsoc_china.html" class="lang-box" title="Chinese">
+                <img src="https://flagcdn.com/w40/cn.png" alt="China Flag"><span>CN</span>
+            </a>
+        </div>
       </ul>
     </div>
   </div>
 </nav>
 
-<section class="container py-5 fade-in bg-white shadow-sm my-4 rounded">
+<section class="container py-5 fade-in my-4">
   
   <div class="text-center mb-5">
       <h1 class="text-success fw-bold display-5">Quy Trình Trồng Chè</h1>
@@ -198,7 +299,7 @@
 
 </section>
 
-<footer class="text-center py-4" style="background-color: #2e7d32; color: white;">
+<footer class="text-center py-4">
   <div class="container">
     <p class="mb-0">© 2025 Không Gian Văn Hóa Trà Đại Từ.</p> 
   </div>
@@ -207,6 +308,4 @@
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
 <script src="js/script.js"></script>
 </body>
-
 </html>
-
