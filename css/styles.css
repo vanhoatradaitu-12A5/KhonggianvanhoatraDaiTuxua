@@ -38,7 +38,7 @@ body {
     */
     
     /* Ảnh nền: Thay đổi đường dẫn ảnh của bạn tại đây */
-    background-image: url('images/nentrangweb.jpg'); 
+    background-image: url('../images/nentrangweb.jpg'); 
     background-size: cover;          /* Ảnh phủ kín khung */
     background-attachment: fixed;    /* Cố định ảnh khi cuộn */
     background-repeat: no-repeat;
@@ -348,3 +348,4 @@ footer hr {
         border: 1px solid var(--gold-border);
     }
 }
+
