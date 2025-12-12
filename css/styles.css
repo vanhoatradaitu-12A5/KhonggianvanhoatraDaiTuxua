@@ -55,7 +55,7 @@ body::before {
     /* Lớp phủ màu xám đè lên ảnh nentrangweb.jpg */
     background-image: 
         linear-gradient(var(--overlay-color), var(--overlay-color)), 
-        url('../images/nentrangweb.jpg');
+        url('images/nentrangweb.jpg');
     
     background-position: center center;
     background-repeat: no-repeat;
@@ -282,4 +282,5 @@ footer h5 {
         justify-content: flex-start; /* Căn trái */
     }
 }  
+
 
