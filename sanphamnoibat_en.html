@@ -1,10 +1,10 @@
 <!DOCTYPE html>
-<html lang="vi">
+<html lang="en">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Sản Phẩm & Đặc Sản - Trà Đại Từ</title>
-  
+  <title>Products & Specialties - Dai Tu Tea</title>
+   
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
   
@@ -14,7 +14,7 @@
 
   <style>
     /* =========================================
-       1. CÀI ĐẶT CHUNG & BIẾN MÀU SẮC (GIỐNG INDEX)
+       1. GENERAL SETTINGS & COLOR VARIABLES
        ========================================= */
     :root {
         --primary-green: #0e2e22;    
@@ -29,7 +29,7 @@
 
     html, body { height: 100%; }
 
-    /* Font chung cho thân trang là Montserrat */
+    /* Main font is Montserrat */
     body {
         font-family: 'Montserrat', sans-serif;
         color: var(--text-dark);
@@ -39,7 +39,7 @@
         flex-direction: column;
     }
 
-    /* ẢNH NỀN TOÀN TRANG */
+    /* FULL PAGE BACKGROUND */
     body::before {
         content: ''; position: fixed; top: 0; left: 0; width: 100%; height: 100%;
         background: url('images/nentrangweb.jpg') no-repeat center center;
@@ -47,14 +47,14 @@
     }
     body::after {
         content: ''; position: fixed; top: 0; left: 0; width: 100%; height: 100%;
-        background-color: rgba(255, 255, 255, 0.4); /* Lớp phủ mờ */
+        background-color: rgba(255, 255, 255, 0.4); /* Overlay */
         z-index: -1;
     }
 
     h1, h2, h3, h4, h5 { font-family: 'Playfair Display', serif; }
-    
+     
     /* =========================================
-       2. NAVBAR (MENU) - ĐÃ ĐỒNG BỘ
+       2. NAVBAR (MENU)
        ========================================= */
     .navbar {
         font-family: 'Montserrat', sans-serif !important;
@@ -111,10 +111,10 @@
     .lang-box:hover { background-color: var(--gold-text); color: var(--primary-green); }
 
     /* =========================================
-       3. STYLE CHO CARD SẢN PHẨM & CONTENT
+       3. CARD & CONTENT STYLES
        ========================================= */
     .section-content {
-        background-color: rgba(255, 255, 255, 0.95); /* Nền trắng mờ */
+        background-color: rgba(255, 255, 255, 0.95); /* White overlay */
         padding: 40px; border-radius: 15px;
         box-shadow: 0 5px 15px rgba(0,0,0,0.1);
         margin-top: 30px; margin-bottom: 30px;
@@ -122,7 +122,7 @@
 
     .card {
         background-color: #ffffff;
-        border: 1px solid var(--gold-border); /* Viền vàng */
+        border: 1px solid var(--gold-border); /* Gold border */
         box-shadow: 0 4px 10px rgba(0,0,0,0.08);
         transition: transform 0.3s ease;
     }
@@ -154,7 +154,7 @@
     @keyframes fadeIn { from { opacity: 0; } to { opacity: 1; } }
 
     /* =========================================
-       4. FOOTER (ĐỒNG BỘ MÀU - NỘI DUNG ĐƠN GIẢN)
+       4. FOOTER
        ========================================= */
     footer {
         font-family: 'Montserrat', sans-serif !important;
@@ -170,42 +170,42 @@
 
 <nav class="navbar navbar-expand-lg sticky-top">
   <div class="container">
-    <a class="navbar-brand" href="index_en.html"><i class="fas fa-leaf me-2"></i> Trà Đại Từ</a>
+    <a class="navbar-brand" href="index_en.html"><i class="fas fa-leaf me-2"></i> Dai Tu Tea</a>
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
       <span class="navbar-toggler-icon"></span>
     </button>
     <div class="collapse navbar-collapse" id="navbarNav">
       <ul class="navbar-nav ms-auto">
-        <li class="nav-item"><a class="nav-link" href="index_en.html">Trang Chủ</a></li>
-        
+        <li class="nav-item"><a class="nav-link" href="index_en.html">Home</a></li>
+         
         <li class="nav-item dropdown">
-          <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown">Giới thiệu</a>
+          <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown">About Us</a>
           <ul class="dropdown-menu"> 
-            <li><a class="dropdown-item" href="gioithieuchung_en.html">Giới Thiệu Chung</a></li>
-            <li><a class="dropdown-item" href="sumenh_en.html">Sứ Mệnh</a></li>
+            <li><a class="dropdown-item" href="gioithieuchung_en.html">General Introduction</a></li>
+            <li><a class="dropdown-item" href="sumenh_en.html">Our Mission</a></li>
           </ul>
         </li>
 
         <li class="nav-item dropdown">
-          <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown">Văn Hóa Trà</a>
+          <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown">Tea Culture</a>
           <ul class="dropdown-menu">
-            <li><a class="dropdown-item" href="tinhhoatraviet_en.html">Tinh Hoa Trà Việt</a></li>
-            <li><a class="dropdown-item" href="vanhoathuongtra_en.html">Văn Hóa Thưởng Trà</a></li>
+            <li><a class="dropdown-item" href="tinhhoatraviet_en.html">Essence of Viet Tea</a></li>
+            <li><a class="dropdown-item" href="vanhoathuongtra_en.html">Tea Drinking Culture</a></li>
           </ul>
         </li>
 
-        <li class="nav-item"><a class="nav-link active" href="sanphamnoibat_en.html">Sản Phẩm</a></li>
+        <li class="nav-item"><a class="nav-link active" href="sanphamnoibat_en.html">Products</a></li>
 
         <li class="nav-item dropdown">
-          <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown">Trải Nghiệm</a>
+          <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown">Experience</a>
           <ul class="dropdown-menu">
-              <li><a class="dropdown-item" href="dulichvatrainghiem_en.html">Du Lịch</a></li>
+              <li><a class="dropdown-item" href="dulichvatrainghiem_en.html">Tourism</a></li>
               <li><a class="dropdown-item" href="thuvienmedia_en.html">Media</a></li>
           </ul>
         </li>
 
-        <li class="nav-item"><a class="nav-link" href="lienhe_en.html">Liên Hệ</a></li>
-        
+        <li class="nav-item"><a class="nav-link" href="lienhe_en.html">Contact</a></li>
+         
         <div class="language-group d-flex align-items-center ms-3">
             <a href="sanphamnoibat.html" class="lang-box" title="Tiếng Việt">
                 <img src="https://flagcdn.com/w40/vn.png" alt="Vietnam Flag"><span>VN</span>
@@ -223,44 +223,44 @@
 </nav>
 
 <section class="container section-content fade-in py-5">
-  
+   
   <div class="text-center mb-5">
-      <h1 style="color: var(--primary-green); font-weight: 700;">Danh Mục Chè Đại Từ</h1>
+      <h1 style="color: var(--primary-green); font-weight: 700;">Dai Tu Tea Categories</h1>
       <p class="text-muted mx-auto" style="max-width: 700px;">
-          Khám phá 7 giống chè đặc trưng làm nên thương hiệu của vùng đất chúng tôi.
+          Discover the 7 signature tea varieties that make the brand of our land.
       </p>
       <span class="badge bg-secondary bg-opacity-25 text-dark px-3 py-2 mt-2">
-          <i class="fas fa-search-plus me-1"></i> Bấm vào ảnh để phóng to
+          <i class="fas fa-search-plus me-1"></i> Click on image to zoom
       </span>
   </div>
  
   <div class="row mt-4">
     <div class="col-md-6 mb-4">
       <div class="card h-100">
-        <img src="images/cheta.jpg" class="card-img-top zoom-img" alt="Chè Ta Trung Du" style="height: 300px; object-fit: cover;" onclick="openLightbox(this)">
+        <img src="images/cheta.jpg" class="card-img-top zoom-img" alt="Ta Tea (Native Tea)" style="height: 300px; object-fit: cover;" onclick="openLightbox(this)">
         <div class="card-body text-center p-4">
-          <h5 class="card-title fs-3">Chè Ta </h5>
+          <h5 class="card-title fs-3">Ta Tea (Native Tea)</h5>
           <div class="mb-3">
-              <span class="badge bg-warning text-dark bg-opacity-75 me-1">Lâu Đời Nhất</span>
-              <span class="badge bg-success bg-opacity-75">Hương Vị Gốc</span>
+              <span class="badge bg-warning text-dark bg-opacity-75 me-1">Oldest</span>
+              <span class="badge bg-success bg-opacity-75">Original Flavor</span>
           </div>
           <p class="card-text text-muted">
-              Giống chè có lịch sử lâu đời nhất địa bàn. Lá chè to, mỏng, nhẹ hơn các loại khác. Mùi thơm nhẹ, cây khỏe, ít sâu bệnh.
+              The tea variety with the longest history in the area. Large, thin, and lighter leaves than others. Mild fragrance, strong plant, few pests.
           </p>
         </div>
       </div>
     </div>
     <div class="col-md-6 mb-4">
       <div class="card h-100">
-        <img src="images/chelai.jpg" class="card-img-top zoom-img" alt="Chè Lai 1" style="height: 300px; object-fit: cover;" onclick="openLightbox(this)">
+        <img src="images/chelai.jpg" class="card-img-top zoom-img" alt="Hybrid Tea 1" style="height: 300px; object-fit: cover;" onclick="openLightbox(this)">
         <div class="card-body text-center p-4">
-          <h5 class="card-title fs-3">Chè Lai 1</h5>
+          <h5 class="card-title fs-3">Lai 1 Tea (Hybrid)</h5>
           <div class="mb-3">
-              <span class="badge bg-primary bg-opacity-75 me-1">Phổ Biến Nhất</span>
-              <span class="badge bg-info text-dark bg-opacity-75">Năng Suất Cao</span>
+              <span class="badge bg-primary bg-opacity-75 me-1">Most Popular</span>
+              <span class="badge bg-info text-dark bg-opacity-75">High Yield</span>
           </div>
           <p class="card-text text-muted">
-              Loại chè chủ lực tại địa phương. Búp chè đều tăm tắp, lá mỏng, mềm mại và có màu xanh tươi rất đẹp mắt.
+              The key tea variety in the locality. The tea buds are even, the leaves are thin, soft, and have a very beautiful fresh green color.
           </p>
         </div>
       </div>
@@ -270,30 +270,30 @@
   <div class="row mt-4">
     <div class="col-md-6 mb-4">
       <div class="card h-100">
-        <img src="images/chelongvan.jpg" class="card-img-top zoom-img" alt="Chè Long Vân" style="height: 300px; object-fit: cover;" onclick="openLightbox(this)">
+        <img src="images/chelongvan.jpg" class="card-img-top zoom-img" alt="Long Van Tea" style="height: 300px; object-fit: cover;" onclick="openLightbox(this)">
         <div class="card-body text-center p-4">
-          <h5 class="card-title fs-3">Chè Long Vân</h5>
+          <h5 class="card-title fs-3">Long Van Tea</h5>
           <div class="mb-3">
-              <span class="badge bg-danger bg-opacity-75 me-1">Hương Thơm Đỉnh</span>
-              <span class="badge bg-dark text-white bg-opacity-75">Búp Thon Nhỏ</span>
+              <span class="badge bg-danger bg-opacity-75 me-1">Exquisite Scent</span>
+              <span class="badge bg-dark text-white bg-opacity-75">Small Slender Buds</span>
           </div>
           <p class="card-text text-muted">
-              Đặc sản với búp chè thon, nhỏ. Điểm đặc biệt là tỏa ra hương thơm ngào ngạt ngay cả khi đang thu hoạch trên đồi.
+              A specialty with small, slender tea buds. A special feature is that it emits a sweet fragrance even while being harvested on the hill.
           </p>
         </div>
       </div>
     </div>
     <div class="col-md-6 mb-4">
       <div class="card h-100">
-        <img src="images/chebattien.jpg" class="card-img-top zoom-img" alt="Chè Bát Tiên" style="height: 300px; object-fit: cover;" onclick="openLightbox(this)">
+        <img src="images/chebattien.jpg" class="card-img-top zoom-img" alt="Bat Tien Tea" style="height: 300px; object-fit: cover;" onclick="openLightbox(this)">
         <div class="card-body text-center p-4">
-          <h5 class="card-title fs-3">Chè Bát Tiên</h5>
+          <h5 class="card-title fs-3">Bat Tien Tea</h5>
           <div class="mb-3">
-              <span class="badge bg-success bg-opacity-75 me-1">Thượng Hạng</span>
-              <span class="badge bg-purple text-white bg-opacity-75" style="background-color: #6f42c1;">Búp Phớt Tím</span>
+              <span class="badge bg-success bg-opacity-75 me-1">Premium</span>
+              <span class="badge bg-purple text-white bg-opacity-75" style="background-color: #6f42c1;">Purple-tinted Buds</span>
           </div>
           <p class="card-text text-muted">
-              Giống trà quý với lá xanh nhạt, mép lá có răng cưa rõ rệt. Đặc biệt búp non có màu phớt tím rất đặc trưng.
+              A precious tea variety with light green leaves and distinct serrated edges. Especially, young buds have a characteristic purple tint.
           </p>
         </div>
       </div>
@@ -303,42 +303,42 @@
   <div class="row mt-4">
     <div class="col-md-4 mb-4">
       <div class="card h-100">
-        <img src="images/chekimtien.jpg" class="card-img-top zoom-img" alt="Chè Kim" style="height: 250px; object-fit: cover;" onclick="openLightbox(this)">
+        <img src="images/chekimtien.jpg" class="card-img-top zoom-img" alt="Kim Tea" style="height: 250px; object-fit: cover;" onclick="openLightbox(this)">
         <div class="card-body text-center p-4">
-          <h5 class="card-title fs-4">Chè Kim</h5>
+          <h5 class="card-title fs-4">Kim Tea</h5>
           <div class="mb-3">
-              <span class="badge bg-success bg-opacity-75">Màu Xanh Thẫm</span>
+              <span class="badge bg-success bg-opacity-75">Deep Green Color</span>
           </div>
           <p class="card-text text-muted">
-              Búp chè nhỏ, ngọn vươn cao. Màu lá xanh thẫm đậm đà hơn hẳn so với các loại chè khác.
+              Small tea buds, tall rising tips. The leaf color is a much deeper green compared to other tea types.
           </p>
         </div>
       </div>
     </div>
     <div class="col-md-4 mb-4">
       <div class="card h-100">
-        <img src="images/chemoccau.jpg" class="card-img-top zoom-img" alt="Chè Phúc Thọ" style="height: 250px; object-fit: cover;" onclick="openLightbox(this)">
+        <img src="images/chemoccau.jpg" class="card-img-top zoom-img" alt="Phuc Tho Tea" style="height: 250px; object-fit: cover;" onclick="openLightbox(this)">
         <div class="card-body text-center p-4">
-          <h5 class="card-title fs-4">Chè Phúc Thọ</h5>
+          <h5 class="card-title fs-4">Phuc Tho Tea</h5>
           <div class="mb-3">
-              <span class="badge bg-warning text-dark bg-opacity-75">Hương Cốm</span>
+              <span class="badge bg-warning text-dark bg-opacity-75">Young Rice Aroma</span>
           </div>
           <p class="card-text text-muted">
-              Lá chè có độ dày vừa phải, khi pha dậy mùi thơm nhẹ nhàng tựa như hương cốm mới.
+              Tea leaves have moderate thickness, releasing a gentle fragrance like new young rice flakes when brewed.
           </p>
         </div>
       </div>
     </div>
     <div class="col-md-4 mb-4">
       <div class="card h-100">
-        <img src="images/che777.jpg" class="card-img-top zoom-img" alt="Chè 777" style="height: 250px; object-fit: cover;" onclick="openLightbox(this)">
+        <img src="images/che777.jpg" class="card-img-top zoom-img" alt="777 Tea Variety" style="height: 250px; object-fit: cover;" onclick="openLightbox(this)">
         <div class="card-body text-center p-4">
-          <h5 class="card-title fs-4">Giống Chè 777</h5>
+          <h5 class="card-title fs-4">777 Tea Variety</h5>
           <div class="mb-3">
-              <span class="badge bg-dark text-white bg-opacity-75">Búp To & Nặng</span>
+              <span class="badge bg-dark text-white bg-opacity-75">Large & Heavy Buds</span>
           </div>
           <p class="card-text text-muted">
-              Giống chè khỏe với búp to, trọng lượng nặng hơn các loại khác. Lá dày, cho hương vị đậm đà.
+              A strong tea variety with large buds, heavier weight than others. Thick leaves, yielding a rich flavor.
           </p>
         </div>
       </div>
@@ -349,12 +349,12 @@
 
 <footer class="text-center">
   <div class="container">
-    <p class="mb-0">© 2025 Không Gian Văn Hóa Trà Đại Từ.</p>
+    <p class="mb-0">© 2025 Dai Tu Tea Cultural Space.</p>
   </div>
 </footer>
 
 <div id="lightbox" class="lightbox-overlay" onclick="closeLightbox()">
-    <img id="lightbox-img" class="lightbox-content" src="" alt="Ảnh phóng to">
+    <img id="lightbox-img" class="lightbox-content" src="" alt="Zoomed image">
     <button style="position: absolute; top: 20px; right: 30px; background: none; border: none; color: white; font-size: 30px; cursor: pointer;">&times;</button>
 </div>
 
@@ -373,5 +373,3 @@
 
 </body>
 </html>
-
-
