@@ -1,10 +1,10 @@
 <!DOCTYPE html>
-<html lang="vi">
+<html lang="en">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Quy Trình Trồng Chè - Trà Đại Từ</title>
-  
+  <title>Tea Cultivation Process - Dai Tu Tea</title>
+   
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
   
@@ -16,7 +16,7 @@
 
   <style>
     /* =========================================
-       1. CÀI ĐẶT CHUNG & BIẾN MÀU SẮC (GIỐNG INDEX)
+       1. GENERAL SETTINGS & COLOR VARIABLES
        ========================================= */
     :root {
         --primary-green: #0e2e22;    
@@ -30,7 +30,7 @@
 
     html, body { height: 100%; }
 
-    /* Font chung cho thân trang là Montserrat */
+    /* Main font is Montserrat */
     body {
         font-family: 'Montserrat', sans-serif;
         color: var(--text-dark);
@@ -40,7 +40,7 @@
         flex-direction: column;
     }
 
-    /* ẢNH NỀN TOÀN TRANG */
+    /* FULL PAGE BACKGROUND */
     body::before {
         content: ''; position: fixed; top: 0; left: 0; width: 100%; height: 100%;
         background: url('images/nentrangweb.jpg') no-repeat center center;
@@ -48,32 +48,32 @@
     }
     body::after {
         content: ''; position: fixed; top: 0; left: 0; width: 100%; height: 100%;
-        background-color: rgba(255, 255, 255, 0.4); /* Lớp phủ mờ */
+        background-color: rgba(255, 255, 255, 0.4); /* Overlay */
         z-index: -1;
     }
 
-    /* Tiêu đề */
+    /* Headings */
     h1, h2, h3, h5, .navbar-brand {
         font-family: 'Playfair Display', serif;
     }
 
-    /* Màu chủ đạo nội dung */
+    /* Main Content Colors */
     .text-success { color: var(--primary-green) !important; }
     .border-success { border-color: var(--primary-green) !important; }
     .btn-success { background-color: var(--primary-green); border-color: var(--primary-green); }
     .btn-success:hover { background-color: var(--gold-text); color: var(--primary-green); border-color: var(--gold-border); }
-    
+     
     .btn-outline-success { color: var(--primary-green); border-color: var(--primary-green); }
     .btn-outline-success:hover { background-color: var(--primary-green); color: var(--gold-text); }
 
-    /* Style ảnh */
+    /* Image Style */
     .img-fluid {
         border-radius: 10px;
         box-shadow: 0 4px 15px rgba(0,0,0,0.1);
     }
 
     /* =========================================
-       2. NAVBAR (MENU) - ĐÃ ĐỒNG BỘ
+       2. NAVBAR (MENU)
        ========================================= */
     .navbar {
         font-family: 'Montserrat', sans-serif !important;
@@ -130,7 +130,7 @@
     .lang-box:hover { background-color: var(--gold-text); color: var(--primary-green); }
 
     /* =========================================
-       3. NỘI DUNG CHÍNH (ĐÃ CHỈNH LẠI MÀU NỀN KHUNG)
+       3. MAIN CONTENT
        ========================================= */
     section.container.py-5.fade-in {
         background-color: rgba(255, 255, 255, 0.95) !important;
@@ -145,7 +145,7 @@
     }
 
     /* =========================================
-       4. FOOTER (ĐỒNG BỘ MÀU)
+       4. FOOTER
        ========================================= */
     footer {
         font-family: 'Montserrat', sans-serif !important;
@@ -160,37 +160,37 @@
 
 <nav class="navbar navbar-expand-lg sticky-top">
   <div class="container">
-    <a class="navbar-brand" href="index_en.html"><i class="fas fa-leaf me-2"></i> Trà Đại Từ</a>
+    <a class="navbar-brand" href="index_en.html"><i class="fas fa-leaf me-2"></i> Dai Tu Tea</a>
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
       <span class="navbar-toggler-icon"></span>
     </button>
     <div class="collapse navbar-collapse" id="navbarNav">
       <ul class="navbar-nav ms-auto">
-        <li class="nav-item"><a class="nav-link" href="index_en.html">Trang Chủ</a></li>
+        <li class="nav-item"><a class="nav-link" href="index_en.html">Home</a></li>
         <li class="nav-item dropdown">
-          <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown">Giới thiệu</a>
+          <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown">About Us</a>
           <ul class="dropdown-menu">
-            <li><a class="dropdown-item" href="gioithieuchung_en.html">Giới Thiệu Chung</a></li>
-            <li><a class="dropdown-item" href="sumenh_en.html">Sứ Mệnh</a></li>
+            <li><a class="dropdown-item" href="gioithieuchung_en.html">General Introduction</a></li>
+            <li><a class="dropdown-item" href="sumenh_en.html">Our Mission</a></li>
           </ul>
         </li>
         <li class="nav-item dropdown">
-          <a class="nav-link dropdown-toggle active" href="#" role="button" data-bs-toggle="dropdown">Văn Hóa Trà</a>
+          <a class="nav-link dropdown-toggle active" href="#" role="button" data-bs-toggle="dropdown">Tea Culture</a>
           <ul class="dropdown-menu">
-            <li><a class="dropdown-item" href="tinhhoatraviet_en.html">Tinh Hoa Trà Việt</a></li>
-            <li><a class="dropdown-item" href="vanhoathuongtra_en.html">Văn Hóa Thưởng Trà</a></li>
+            <li><a class="dropdown-item" href="tinhhoatraviet_en.html">Essence of Viet Tea</a></li>
+            <li><a class="dropdown-item" href="vanhoathuongtra_en.html">Tea Drinking Culture</a></li>
           </ul>
         </li>
-        <li class="nav-item"><a class="nav-link" href="sanphamnoibat_en.html">Sản Phẩm</a></li>
+        <li class="nav-item"><a class="nav-link" href="sanphamnoibat_en.html">Products</a></li>
         <li class="nav-item dropdown">
-          <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown">Trải Nghiệm</a>
+          <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown">Experience</a>
           <ul class="dropdown-menu">
-              <li><a class="dropdown-item" href="dulichvatrainghiem_en.html">Du Lịch</a></li>
+              <li><a class="dropdown-item" href="dulichvatrainghiem_en.html">Tourism</a></li>
               <li><a class="dropdown-item" href="thuvienmedia_en.html">Media</a></li>
           </ul>
         </li>
-        <li class="nav-item"><a class="nav-link" href="lienhe_en.html">Liên Hệ</a></li>
-        
+        <li class="nav-item"><a class="nav-link" href="lienhe_en.html">Contact</a></li>
+         
         <div class="language-group d-flex align-items-center ms-3">
             <a href="trongvachamsoc.html" class="lang-box" title="Tiếng Việt">
                 <img src="https://flagcdn.com/w40/vn.png" alt="Vietnam Flag"><span>VN</span>
@@ -208,27 +208,27 @@
 </nav>
 
 <section class="container py-5 fade-in my-4">
-  
+   
   <div class="text-center mb-5">
-      <h1 class="text-success fw-bold display-5">Quy Trình Trồng Chè</h1>
+      <h1 class="text-success fw-bold display-5">Tea Cultivation Process</h1>
       <p class="lead text-muted mx-auto fst-italic" style="max-width: 800px;">
-          "Để sản xuất được những mẻ chè chất lượng, nền móng đầu tiên chính là việc tuân thủ quy trình chuẩn mực từ khâu chọn giống, làm đất đến kỹ thuật gieo trồng."
+          "To produce quality tea batches, the first foundation is adherence to standard processes from variety selection, soil preparation to planting techniques."
       </p>
   </div>
 
   <div class="row g-4 mb-5">
       <div class="col-12">
-          <h3 class="border-start border-4 border-success ps-3 mb-4 text-success">1. Chuẩn Bị Trước Khi Trồng</h3>
+          <h3 class="border-start border-4 border-success ps-3 mb-4 text-success">1. Preparation Before Planting</h3>
       </div>
-      
+       
       <div class="col-md-4">
           <div class="card h-100 shadow-sm border-0" style="background-color: #f9fbe7;">
               <div class="card-body text-center p-4">
                   <div class="mb-3 text-success">
                       <i class="fas fa-seedling fa-3x"></i>
                   </div>
-                  <h5 class="card-title fw-bold">Chọn Giống Chè</h5>
-                  <p class="card-text small text-muted">Nên chọn giống từ các vườn ươm uy tín để đảm bảo cây giống khỏe mạnh, đồng đều và không bị nhiễm bệnh.</p>
+                  <h5 class="card-title fw-bold">Selecting Varieties</h5>
+                  <p class="card-text small text-muted">Choose varieties from reputable nurseries to ensure healthy, uniform, and disease-free seedlings.</p>
               </div>
           </div>
       </div>
@@ -239,8 +239,8 @@
                   <div class="mb-3 text-warning">
                       <i class="fas fa-layer-group fa-3x"></i>
                   </div>
-                  <h5 class="card-title fw-bold">Đất Trồng</h5>
-                  <p class="card-text small text-muted">Đất cần tơi xốp, thoát nước tốt, <strong>độ pH từ 5 - 6</strong>. Cần bón vôi và phân hữu cơ để cân bằng pH và dinh dưỡng trước khi trồng.</p>
+                  <h5 class="card-title fw-bold">Soil Preparation</h5>
+                  <p class="card-text small text-muted">Soil needs to be loose, well-drained, with <strong>pH from 5 - 6</strong>. Lime and organic fertilizer should be applied to balance pH and nutrients before planting.</p>
               </div>
           </div>
       </div>
@@ -251,8 +251,8 @@
                   <div class="mb-3 text-primary">
                       <i class="fas fa-mountain fa-3x"></i>
                   </div>
-                  <h5 class="card-title fw-bold">Khu Vực Trồng</h5>
-                  <p class="card-text small text-muted">Ưu tiên độ cao 200-1.000m, nhiệt độ 20-25°C. Khu vực cần có nguồn nước tưới đầy đủ, tránh vùng ngập úng.</p>
+                  <h5 class="card-title fw-bold">Planting Area</h5>
+                  <p class="card-text small text-muted">Prioritize altitude 200-1,000m, temperature 20-25°C. The area needs adequate irrigation water sources, avoiding waterlogged areas.</p>
               </div>
           </div>
       </div>
@@ -262,20 +262,20 @@
 
   <div class="row align-items-center">
     <div class="col-md-6 mb-4 mb-md-0">
-         <img src="images/trongche.jpg" class="img-fluid w-100" style="height: 350px; object-fit: cover;" alt="Quy trình trồng chè">
+         <img src="images/trongche.jpg" class="img-fluid w-100" style="height: 350px; object-fit: cover;" alt="Tea cultivation process">
     </div>
     <div class="col-md-6 ps-md-5">
-       <h3 class="border-start border-4 border-success ps-3 mb-4 text-success">2. Quy Trình Gieo Trồng</h3>
+       <h3 class="border-start border-4 border-success ps-3 mb-4 text-success">2. Planting Process</h3>
        
        <div class="d-flex mb-4">
            <div class="flex-shrink-0">
                <span class="badge bg-success rounded-circle p-3 fs-5 shadow">01</span>
            </div>
            <div class="ms-3">
-               <h5 class="fw-bold">Thời vụ & Kỹ thuật</h5>
-               <p class="text-muted mb-1">Trồng vào đầu mùa mưa (Tháng 5 - 7) để tận dụng nước tự nhiên.</p>
-               <p class="small text-muted mb-0"><i class="fas fa-check text-success me-1"></i> Hố: 40x40x40 cm, bón lót phân chuồng & lân.</p>
-               <p class="small text-muted"><i class="fas fa-check text-success me-1"></i> Đặt cây thẳng, lấp kín gốc, nén chặt để tránh lung lay.</p>
+               <h5 class="fw-bold">Season & Technique</h5>
+               <p class="text-muted mb-1">Plant at the beginning of the rainy season (May - July) to utilize natural water.</p>
+               <p class="small text-muted mb-0"><i class="fas fa-check text-success me-1"></i> Hole: 40x40x40 cm, lining with manure & phosphate fertilizer.</p>
+               <p class="small text-muted"><i class="fas fa-check text-success me-1"></i> Place the plant upright, cover the root fully, pack tightly to avoid shaking.</p>
            </div>
        </div>
 
@@ -284,8 +284,8 @@
                <span class="badge bg-success rounded-circle p-3 fs-5 shadow">02</span>
            </div>
            <div class="ms-3">
-               <h5 class="fw-bold">Khoảng cách trồng</h5>
-               <p class="text-muted">Duy trì khoảng cách <strong>1,2 - 1,5 mét</strong> giữa các cây để đảm bảo không gian thoáng đãng cho cây phát triển tán và dễ dàng thu hoạch.</p>
+               <h5 class="fw-bold">Planting Distance</h5>
+               <p class="text-muted">Maintain a distance of <strong>1.2 - 1.5 meters</strong> between plants to ensure open space for canopy development and easy harvesting.</p>
            </div>
        </div>
     </div>
@@ -293,7 +293,7 @@
 
   <div class="text-center mt-5 pt-4">
       <a href="tinhhoatraviet_en.html" class="btn btn-outline-success rounded-pill px-4">
-          <i class="fas fa-arrow-left me-2"></i> Quay lại Tinh Hoa Trà
+          <i class="fas fa-arrow-left me-2"></i> Back to Essence of Tea
       </a>
   </div>
 
@@ -301,7 +301,7 @@
 
 <footer class="text-center py-4">
   <div class="container">
-    <p class="mb-0">© 2025 Không Gian Văn Hóa Trà Đại Từ.</p> 
+    <p class="mb-0">© 2025 Dai Tu Tea Cultural Space.</p> 
   </div>
 </footer>
 
