@@ -105,20 +105,20 @@
     .lang-box:hover { background-color: var(--gold-text); color: var(--primary-green); }
 
     /* =========================================
-       3. PHẦN KHUNG VIDEO (80vh)
+       3. PHẦN KHUNG VIDEO (ĐÃ CHỈNH SỬA)
        ========================================= */
     .hero-video-container {
         position: relative;
         width: 100%;
-        
-        /* Thay đổi: Chiều cao 80% màn hình thiết bị */
-        height: 80vh; 
-        
+        /* Thay đổi: Giảm chiều cao từ 100vh xuống 60vh để tạo thành khung banner */
+        height: 60vh; 
+        min-height: 450px; /* Đảm bảo không quá bé trên màn hình nhỏ */
         overflow: hidden;
         display: flex;
         align-items: center;
         justify-content: center;
         margin-top: -1px;
+        /* Thêm: Đường viền vàng dưới video */
         border-bottom: 4px solid var(--gold-border);
         box-shadow: 0 4px 15px rgba(0,0,0,0.3);
     }
@@ -129,14 +129,14 @@
         transform: translate(-50%, -50%);
         min-width: 100%; min-height: 100%;
         width: auto; height: auto;
-        object-fit: cover; 
+        object-fit: cover; /* Giữ tỷ lệ video đẹp trong khung */
         z-index: 1;
     }
 
     .video-overlay {
         position: absolute; top: 0; left: 0;
         width: 100%; height: 100%;
-        background: rgba(14, 46, 34, 0.15); 
+        background: rgba(14, 46, 34, 0.15); /* Phủ nhẹ màu xanh rêu lên video */
         z-index: 2;
         pointer-events: none;
     }
@@ -144,18 +144,18 @@
     /* NÚT ĐIỀU KHIỂN VIDEO (Pause/Play) */
     .video-control-btn {
         position: absolute;
-        bottom: 30px; 
-        right: 30px;  
+        bottom: 20px; /* Chỉnh vị trí nút lên một chút */
+        right: 20px;  
         z-index: 10;
         background: rgba(14, 46, 34, 0.7); 
         border: 2px solid var(--gold-border);
         color: var(--gold-text);
-        width: 50px; height: 50px;
+        width: 45px; height: 45px;
         border-radius: 50%;
         cursor: pointer;
         display: flex; align-items: center; justify-content: center;
         transition: all 0.3s ease;
-        font-size: 1.2rem;
+        font-size: 1.1rem;
     }
     .video-control-btn:hover {
         background-color: var(--gold-text);
@@ -170,14 +170,12 @@
         background-color: rgba(255, 255, 255, 0.95); 
         padding: 40px; border-radius: 15px;
         box-shadow: 0 5px 15px rgba(0,0,0,0.1);
-        
-        /* Đẩy nội dung lên một chút để chem vào phần dưới video tạo hiệu ứng layer */
-        margin-top: -60px; 
-        
+        margin-top: -50px; /* Đẩy nội dung đè lên video một chút để tạo chiều sâu (tuỳ chọn) */
         margin-bottom: 50px;
-        position: relative; z-index: 10; 
+        position: relative; z-index: 10; /* Đảm bảo nội dung nổi lên trên video */
     }
     
+    /* Điều chỉnh lại margin top của container chứa nội dung */
     .main-content-wrapper .container {
         margin-top: 30px;
     }
