@@ -19,9 +19,9 @@
        1. CÀI ĐẶT CHUNG & MÀU SẮC
        ========================================= */
     :root {
-        --primary-green: #0e2e22;    
-        --gold-text: #ffc107;        
-        --gold-border: #d4af37;      
+        --primary-green: #0e2e22;     
+        --gold-text: #ffc107;         
+        --gold-border: #d4af37;       
         --text-dark: #333333;
     }
 
@@ -105,62 +105,66 @@
     .lang-box:hover { background-color: var(--gold-text); color: var(--primary-green); }
 
     /* =========================================
-       3. PHẦN KHUNG VIDEO (ĐÃ CHỈNH SỬA)
+       3. PHẦN KHUNG VIDEO (ĐÃ CHỈNH SỬA FULL + AUDIO)
        ========================================= */
     .hero-video-container {
         position: relative;
         width: 100%;
-        /* Thay đổi: Giảm chiều cao từ 100vh xuống 60vh để tạo thành khung banner */
-        height: 60vh; 
-        min-height: 450px; /* Đảm bảo không quá bé trên màn hình nhỏ */
+        /* Để chiều cao tự động theo video để không bị cắt hình */
+        height: auto; 
         overflow: hidden;
-        display: flex;
-        align-items: center;
-        justify-content: center;
+        display: block;
         margin-top: -1px;
-        /* Thêm: Đường viền vàng dưới video */
         border-bottom: 4px solid var(--gold-border);
         box-shadow: 0 4px 15px rgba(0,0,0,0.3);
     }
 
     .hero-video {
-        position: absolute;
-        top: 50%; left: 50%;
-        transform: translate(-50%, -50%);
-        min-width: 100%; min-height: 100%;
-        width: auto; height: auto;
-        object-fit: cover; /* Giữ tỷ lệ video đẹp trong khung */
+        position: relative;
+        width: 100%;
+        height: auto;
+        display: block;
+        /* Loại bỏ object-fit cover để không bị phóng to cắt góc */
+        object-fit: contain; 
         z-index: 1;
     }
 
     .video-overlay {
         position: absolute; top: 0; left: 0;
         width: 100%; height: 100%;
-        background: rgba(14, 46, 34, 0.15); /* Phủ nhẹ màu xanh rêu lên video */
+        background: rgba(14, 46, 34, 0.1); /* Giảm độ tối để video rõ hơn */
         z-index: 2;
         pointer-events: none;
     }
 
-    /* NÚT ĐIỀU KHIỂN VIDEO (Pause/Play) */
+    /* NÚT ĐIỀU KHIỂN VIDEO (Đã chỉnh sửa ra giữa) */
     .video-control-btn {
         position: absolute;
-        bottom: 20px; /* Chỉnh vị trí nút lên một chút */
-        right: 20px;  
+        top: 50%; left: 50%;
+        transform: translate(-50%, -50%);
         z-index: 10;
-        background: rgba(14, 46, 34, 0.7); 
+        background: rgba(14, 46, 34, 0.6); 
         border: 2px solid var(--gold-border);
         color: var(--gold-text);
-        width: 45px; height: 45px;
+        width: 80px; height: 80px; /* Nút to hơn */
         border-radius: 50%;
         cursor: pointer;
         display: flex; align-items: center; justify-content: center;
         transition: all 0.3s ease;
-        font-size: 1.1rem;
+        font-size: 2rem;
     }
     .video-control-btn:hover {
         background-color: var(--gold-text);
         color: var(--primary-green);
-        transform: scale(1.1);
+        transform: translate(-50%, -50%) scale(1.1);
+    }
+    
+    /* Hiệu ứng: Khi video chạy thì làm mờ nút để xem rõ hình */
+    .video-playing .video-control-btn {
+        opacity: 0;
+    }
+    .video-playing:hover .video-control-btn {
+        opacity: 1;
     }
 
     /* =========================================
@@ -170,12 +174,12 @@
         background-color: rgba(255, 255, 255, 0.95); 
         padding: 40px; border-radius: 15px;
         box-shadow: 0 5px 15px rgba(0,0,0,0.1);
-        margin-top: -50px; /* Đẩy nội dung đè lên video một chút để tạo chiều sâu (tuỳ chọn) */
+        /* Đẩy lên đè video một chút */
+        margin-top: -50px; 
         margin-bottom: 50px;
-        position: relative; z-index: 10; /* Đảm bảo nội dung nổi lên trên video */
+        position: relative; z-index: 10; 
     }
     
-    /* Điều chỉnh lại margin top của container chứa nội dung */
     .main-content-wrapper .container {
         margin-top: 30px;
     }
@@ -253,16 +257,16 @@
   </div>
 </nav>
 
-<header class="hero-video-container">
-  <video autoplay muted loop playsinline class="hero-video" id="bgVideo">
+<header class="hero-video-container" id="videoContainer">
+  <video loop playsinline class="hero-video" id="bgVideo">
     <source src="images/videodainhat1.mp4" type="video/mp4">
     Trình duyệt không hỗ trợ video.
   </video>
 
   <div class="video-overlay"></div>
 
-  <button class="video-control-btn" onclick="toggleVideo()" title="Dừng/Phát">
-    <i id="videoIcon" class="fas fa-pause"></i>
+  <button class="video-control-btn" onclick="toggleVideo()" title="Bật/Tắt Video">
+    <i id="videoIcon" class="fas fa-play"></i>
   </button>
 </header>
 
@@ -310,17 +314,27 @@
     function toggleVideo() {
         var video = document.getElementById("bgVideo");
         var icon = document.getElementById("videoIcon");
+        var container = document.getElementById("videoContainer");
 
         if (video.paused) {
+            // Khi bấm Play: Bật tiếng và chạy video
+            video.muted = false; 
+            video.volume = 1.0; 
             video.play();
-            // Đổi icon thành nút Pause (hai gạch)
+            
             icon.classList.remove("fa-play");
             icon.classList.add("fa-pause");
+            
+            // Thêm class để ẩn nút Play đi cho thoáng mắt
+            container.classList.add("video-playing");
         } else {
+            // Khi bấm Pause
             video.pause();
-            // Đổi icon thành nút Play (tam giác)
+            
             icon.classList.remove("fa-pause");
             icon.classList.add("fa-play");
+            
+            container.classList.remove("video-playing");
         }
     }
 </script>
